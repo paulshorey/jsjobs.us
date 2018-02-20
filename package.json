@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "serve": "next start -p $PORT"
   },
   "dependencies": {
     "isomorphic-unfetch": "^2.0.0",
