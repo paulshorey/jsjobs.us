@@ -83,7 +83,7 @@ module.exports = __webpack_require__(12);
 /***/ 12:
 /***/ (function(module, exports) {
 
-module.exports = require("/www/ps-jobs/next/node_modules/next/dist/pages/_error.js");
+module.exports = require("/www/ps-jobs/node_modules/next/dist/pages/_error.js");
 
 /***/ })
 
