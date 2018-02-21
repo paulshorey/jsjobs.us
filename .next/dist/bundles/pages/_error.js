@@ -122,7 +122,7 @@ var Nav = function (_React$Component) {
   return Nav;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Nav);
+/* unused harmony default export */ var _unused_webpack_default_export = (Nav);
 
 /***/ }),
 

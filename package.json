@@ -2,9 +2,8 @@
   "name": "data-fetch",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node app.js",
-    "build": "next build",
-    "start": "NODE_ENV=production node app.js"
+    "start": "NODE_ENV=development node app.js",
+    "build": "next build"
   },
   "dependencies": {
     "chrono-node": "^1.3.5",
