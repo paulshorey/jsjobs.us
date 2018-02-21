@@ -21,4 +21,8 @@ npm install;
 #mkdir ./api_public/v1/console;
 #mkdir ./api_public/v1/console/logfiles;
 #pm2 start api.js -i max -o ./api_public/v1/console/logfiles/_api_log.log -e ./api_public/v1/console/logfiles/_api_err.log
-pm2 start app.js
+
+pm2 start api.js;
+
+npm run build;
+pm2 start app.js;
