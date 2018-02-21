@@ -5,14 +5,6 @@ import Link from 'next/link'
 import Nav from 'components/nav'
 
 export default class MyPage extends React.Component {
-  static async getInitialProps () {
-    // eslint-disable-next-line no-undef
-    const res = await fetch('http://localhost:1080/all?location=')
-    const json = await res.json()
-    const data = { jobs_count:json.results, jobs:json.data };
-    // console.log('data',data);
-    return data;
-  }
 
   render () {
     return (
