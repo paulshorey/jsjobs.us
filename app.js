@@ -13,23 +13,26 @@ const app = next(appConfig())
 const routes = require('./routes')
 const express = require('express')
 const handle = app.getRequestHandler()
-process.fs = require('fs')
-process.console = console;
+
+
+
+// process.secret = require('../secret/all.js'); // not on GitHub!
+const fs = require('fs')
 
 
 let jobsDB = {};
 const jobsDB_file = "/www/db/v1_jobs";
-if (!process.fs.existsSync("/www/db")){
-		process.fs.mkdirSync("/www/db");
+if (!fs.existsSync("/www/db")){
+		fs.mkdirSync("/www/db");
 }
-if (process.fs.existsSync(jobsDB_file)) {
-		process.fs.readFile(jobsDB_file, 'utf8', function (err, data) {
+if (fs.existsSync(jobsDB_file)) {
+		fs.readFile(jobsDB_file, 'utf8', function (err, data) {
 				if (data) {
 						jobsDB = JSON.parse(data);
 				}
 		});
 } else {
-		process.fs.writeFile(jobsDB_file, jobsDB);
+		fs.writeFile(jobsDB_file, jobsDB);
 };
 
 
@@ -37,6 +40,71 @@ app.prepare()
 .then(() => {
 	const server = express()
 
+
+
+	/*
+		FIRST, API ROUTES
+	*/
+	server.get('/api/all', function(request, response) {
+		console.log('GET /api/all');
+		
+		// format response
+		let data = Object.values(jobsDB);
+		let thelimit = "test";
+
+		if (data[0]) {
+
+			// filter
+			if (request.query) {
+
+					// search
+					var query = request.query;
+					for (var param in query) {
+						if (typeof data[0][param] !== "undefined") {
+							console.log(param, typeof query[param], query[param]);
+							var qRegEx = new RegExp(query[param], "i"); // I like RegExp! Not most efficient, but ok for a site with one user
+							data = data.filter(function(job) {
+								return qRegEx.test(job[param]); // Don't think you can inject malicious code from a URI variable into a RegExpression. Can you?
+							});
+						}
+					}
+
+			}
+
+			// sort
+			data.sort(function(a,b) {
+				return b._rating - a._rating;
+			});
+
+			// limit
+			let query_limit = parseInt(request.query.limit) || 1000;
+			let query_start = parseInt(request.query.start) || 0;
+			data = data.slice( query_start, query_limit+query_start);
+
+		}
+
+		// success response
+		response.setHeader('Content-Type', 'application/json');
+		response.writeHead(200);
+		response.write(JSON.stringify({results: data.length, data:data, error:0},null,"\t"));
+		response.end();
+
+	});
+	server.get('/api*', function(request, response) {
+		// success response
+		response.setHeader('Content-Type', 'application/json');
+		response.writeHead(400);
+		response.write(JSON.stringify({error:1,errorMessage:"no API at this URL"},null,"\t"));
+		response.end();
+	});
+
+
+
+
+
+	/*
+		THEN, APPLICATION ROUTES
+	*/
 
 	// next.js - routes
 	routes.forEach(function(name){
@@ -86,7 +154,7 @@ app.prepare()
 								var query = req.query;
 								for (var param in query) {
 										if (typeof data[0][param] !== "undefined") {
-												process.console.log(param, typeof query[param], query[param]);
+												console.log(param, typeof query[param], query[param]);
 												var qRegEx = new RegExp(query[param], "i"); // I like RegExp! Not most efficient, but ok for a site with one user
 												data = data.filter(function(job) {
 														return qRegEx.test(job[param]); // Don't think you can inject malicious code from a URI variable into a RegExpression. Can you?
