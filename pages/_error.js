@@ -4,7 +4,6 @@ import 'isomorphic-unfetch'
 
 import Link from 'next/link'
 import Nav from 'components/nav'
-import ListJobs from 'components/listJobs'
 
 export default class MyPage extends React.Component {
   constructor(){
@@ -26,7 +25,7 @@ export default class MyPage extends React.Component {
   render () {
     return (
       <div>
-      <h2>ERROR {this.props.jobs_count}</h2>
+      <h2>Page Not Found: {this.props.jobs_count}</h2>
       <Link prefetch href='/index_2'><a>Next page &raquo;</a></Link>
       </div>
       // <h2>Count: {this.state.jobs_count}</h2>

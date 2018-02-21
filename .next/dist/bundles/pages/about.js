@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -137,14 +137,16 @@ var Nav = function (_React$Component) {
 module.exports = require("babel-runtime/regenerator");
 
 /***/ }),
-/* 5 */
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(6);
+module.exports = __webpack_require__(8);
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -182,13 +184,7 @@ var MyPage = function (_React$Component) {
   function MyPage() {
     _classCallCheck(this, MyPage);
 
-    var _this = _possibleConstructorReturn(this, (MyPage.__proto__ || Object.getPrototypeOf(MyPage)).call(this));
-
-    _this.state = {
-      jobs_count: 0,
-      jobs: []
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (MyPage.__proto__ || Object.getPrototypeOf(MyPage)).apply(this, arguments));
   }
 
   _createClass(MyPage, [{
@@ -197,25 +193,22 @@ var MyPage = function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
         'div',
         null,
+        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_nav__["a" /* default */], null),
         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
           'h2',
           null,
-          'Page Not Found: ',
-          this.props.jobs_count
+          'About us...'
         ),
         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_3_next_link___default.a,
-          { prefetch: true, href: '/index_2' },
+          { prefetch: true, href: '/javascript' },
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
             'a',
             null,
-            'Next page \xBB'
+            'Search "javascript" \xAB'
           )
         )
-      )
-      // <h2>Count: {this.state.jobs_count}</h2>
-      // <ListJobs {...this.state} />
-      ;
+      );
     }
   }], [{
     key: 'getInitialProps',
@@ -236,8 +229,8 @@ var MyPage = function (_React$Component) {
 
               case 5:
                 json = _context.sent;
-                data = { jobs_count: json.results };
-                // this.setState(data);
+                data = { jobs_count: json.results, jobs: json.data };
+                // console.log('data',data);
 
                 return _context.abrupt('return', data);
 
