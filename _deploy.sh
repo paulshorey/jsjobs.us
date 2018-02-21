@@ -3,6 +3,7 @@
 eval "$(ssh-agent -s)";
 ssh-add ~/.ssh/gitlab;
 cd /www/ps-jobs;
+git add .;
 git reset HEAD -\-hard;
 git pull;
 npm install;

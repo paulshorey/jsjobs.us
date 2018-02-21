@@ -107,11 +107,11 @@ app.prepare()
 
 	// next.js - routes
 	server.get('/', (req, res) => {
-		return app.render(req, res, '/', req.query)
+		return handle(req, res)
 	})
 	routes.forEach(function(name){
 		server.get('/'+name, (req, res) => {
-			return app.render(req, res, '/'+name, req.query)
+			return handle(req, res)
 		})
 	});
 
