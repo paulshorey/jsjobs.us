@@ -67,34 +67,19 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-module.exports = require("react");
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = require("isomorphic-unfetch");
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = require("next/link");
-
-/***/ }),
-/* 3 */
+/***/ "./components/nav.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+var _jsxFileName = "/www/ps-jobs/components/nav.js";
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -119,8 +104,17 @@ var Nav = function (_React$Component) {
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "div",
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "/static/images/banner.jpg" })
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 7
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "/static/images/banner.jpg", __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        })
       );
     }
   }]);
@@ -131,34 +125,23 @@ var Nav = function (_React$Component) {
 /* harmony default export */ __webpack_exports__["a"] = (Nav);
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports) {
 
-module.exports = require("babel-runtime/regenerator");
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(6);
-
-
-/***/ }),
-/* 6 */
+/***/ "./pages/_error.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("babel-runtime/regenerator");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link__ = __webpack_require__("next/link");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_next_link__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_nav__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_nav__ = __webpack_require__("./components/nav.js");
 
+var _jsxFileName = '/www/ps-jobs/pages/_error.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -196,19 +179,38 @@ var MyPage = function (_React$Component) {
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
         'div',
-        null,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 27
+          }
+        },
         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
           'h2',
-          null,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 28
+            }
+          },
           'Page Not Found: ',
           this.props.jobs_count
         ),
         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_3_next_link___default.a,
-          { prefetch: true, href: '/index_2' },
+          { prefetch: true, href: '/index_2', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 29
+            }
+          },
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
             'a',
-            null,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 29
+              }
+            },
             'Next page \xBB'
           )
         )
@@ -227,7 +229,7 @@ var MyPage = function (_React$Component) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return fetch('http://localhost:1080/v1/jobs/all?location=');
+                return fetch('http://localhost:1080/all?location=');
 
               case 2:
                 res = _context.sent;
@@ -262,5 +264,43 @@ var MyPage = function (_React$Component) {
 
 /* harmony default export */ __webpack_exports__["default"] = (MyPage);
 
+/***/ }),
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./pages/_error.js");
+
+
+/***/ }),
+
+/***/ "babel-runtime/regenerator":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/regenerator");
+
+/***/ }),
+
+/***/ "isomorphic-unfetch":
+/***/ (function(module, exports) {
+
+module.exports = require("isomorphic-unfetch");
+
+/***/ }),
+
+/***/ "next/link":
+/***/ (function(module, exports) {
+
+module.exports = require("next/link");
+
+/***/ }),
+
+/***/ "react":
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
 /***/ })
-/******/ ]);
+
+/******/ });
+//# sourceMappingURL=_error.js.map
