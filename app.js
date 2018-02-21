@@ -1,10 +1,10 @@
 
 const { createServer } = require('http')
 const next = require('next')
-const dev = process.env.NODE_ENV === 'development'
-const port = dev ? 3000 : 80
+// const dev = process.env.NODE_ENV === 'development'
+const port = 3000
 const appConfig = function(){
-	if (dev) {
+	if (process.env.NODE_ENV === 'development') {
 		return {dev};
 	}
 };
