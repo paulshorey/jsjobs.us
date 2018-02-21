@@ -10,7 +10,6 @@ export default class MyPage extends React.Component {
     const res = await fetch('/api/all?location=')
     const json = await res.json()
     const data = { jobs_count:json.results };
-    // console.log('data',data);
     return data;
   }
 
@@ -18,7 +17,7 @@ export default class MyPage extends React.Component {
     return (
         <div>
           <Nav />
-          <h2>Index: {this.props.jobs_count}</h2>
+          <h2>Test Index... Count: {this.props.jobs_count}</h2>
           <Link prefetch href='/javascript'><a>Search &quot;javascript&quot; &laquo;</a></Link>
         </div>
     )
