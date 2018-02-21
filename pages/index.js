@@ -1,38 +1,36 @@
 
 import React from 'react'
-import Link from 'next/link'
 import 'isomorphic-unfetch'
 
+import Link from 'next/link'
 import Nav from 'components/nav'
+import ListJobs from 'components/listJobs'
 
 export default class MyPage extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      jobs_count: 0,
+      jobs: []
+    }
+  }
   static async getInitialProps () {
     // eslint-disable-next-line no-undef
-    const res = await fetch('http://api.paulshorey.com/v1/jobs/all?location=')
+    const res = await fetch('http://localhost:1080/v1/jobs/all?location=')
     const json = await res.json()
-    return { jobs_count:json.results, jobs:json.data }
+    const data = { jobs_count:json.results };
+    // this.setState(data);
+    return data;
   }
 
   render () {
-    var Jobs = [];
-    this.props.jobs.forEach(function(job,i){
-      Jobs.push(
-        <div key={job._id}>
-          <p>{job.text}</p>
-        </div>
-      );
-    });
     return (
       <div>
-        <Nav />
-        <div>
-          <p>Found {this.props.jobs_count} results:</p>
-          <Link prefetch href='/preact'><a>Reverse &raquo;</a></Link>
-        </div>
-        <div>
-          {Jobs}
-        </div>
+      <h2>Count: {this.props.jobs_count}</h2>
+      <Link prefetch href='/index_2'><a>Next page &raquo;</a></Link>
       </div>
+      // <h2>Count: {this.state.jobs_count}</h2>
+      // <ListJobs {...this.state} />
     )
   }
 }
