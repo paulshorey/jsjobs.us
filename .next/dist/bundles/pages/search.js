@@ -67,23 +67,34 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports) {
 
 module.exports = require("react");
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, exports) {
 
 module.exports = require("isomorphic-unfetch");
 
 /***/ }),
-/* 2 */
+
+/***/ 19:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(20);
+
+
+/***/ }),
+
+/***/ 2:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -247,25 +258,8 @@ var nav_Nav = function (_React$Component) {
 /* harmony default export */ var nav = __webpack_exports__["a"] = (nav_Nav);
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
 
-module.exports = require("next/router");
-
-/***/ }),
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(10);
-
-
-/***/ }),
-/* 10 */
+/***/ 20:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -300,6 +294,26 @@ var MyPage = function (_React$Component) {
   _createClass(MyPage, [{
     key: 'render',
     value: function render() {
+      var Jobs = [];
+      if (this.props.url && this.props.url.query && this.props.url.query.data) {
+        this.props.url.query.data.forEach(function (job, i) {
+          Jobs.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { key: job._id },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              null,
+              job.text
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'sup',
+              null,
+              job.location
+            )
+          ));
+        });
+      }
+
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
@@ -307,7 +321,13 @@ var MyPage = function (_React$Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'h2',
           null,
-          'Page Not Found'
+          'SEARCH: ',
+          this.props.jobs_count
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          null,
+          Jobs
         )
       );
     }
@@ -318,5 +338,13 @@ var MyPage = function (_React$Component) {
 
 /* harmony default export */ __webpack_exports__["default"] = (MyPage);
 
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
+
 /***/ })
-/******/ ]);
+
+/******/ });
