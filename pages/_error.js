@@ -12,8 +12,6 @@ export default class MyPage extends React.Component {
         <Nav />
         <h2>Page Not Found</h2>
       </div>
-      // <h2>Count: {this.state.jobs_count}</h2>
-      // <ListJobs {...this.state} />
     )
   }
 }

@@ -2,7 +2,7 @@ module.exports =
 
         __NEXT_REGISTER_PAGE('/search', function() {
           var comp = 
-      webpackJsonp([4],{
+      webpackJsonp([5],{
 
 /***/ "./components/nav.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10800,7 +10800,7 @@ var _default = MyPage;
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/search.js");
@@ -10808,7 +10808,7 @@ module.exports = __webpack_require__("./pages/search.js");
 
 /***/ })
 
-},[2])
+},[3])
           return { page: comp.default }
         })
       ;
