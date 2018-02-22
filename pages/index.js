@@ -18,7 +18,7 @@ export default class MyPage extends React.Component {
         <div>
           <Nav />
           <h2>Test Index... Count: {this.props.jobs_count}</h2>
-          <Link prefetch href='/javascript'><a>Search &quot;javascript&quot; &laquo;</a></Link>
+          <Link prefetch href="/search/react">Search &quot;react&quot; &raquo;</Link>
         </div>
     )
   }

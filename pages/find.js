@@ -22,7 +22,7 @@ export default class MyPage extends React.Component {
     return (
         <div>
           <Nav />
-          <h2>SEARCH: {this.props.jobs_count}</h2>
+          <h2>FIND: {this.props.jobs_count}</h2>
           <Link prefetch href='/'>&laquo; go home</Link>
           <div>
             {Jobs}

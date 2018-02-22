@@ -1,8 +1,8 @@
 module.exports =
 
-        __NEXT_REGISTER_PAGE('/', function() {
+        __NEXT_REGISTER_PAGE('/search', function() {
           var comp = 
-      webpackJsonp([5],{
+      webpackJsonp([4],{
 
 /***/ "./components/nav.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10515,22 +10515,19 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/index.js":
+/***/ "./pages/search.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("./node_modules/babel-runtime/regenerator/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__ = __webpack_require__("./node_modules/isomorphic-unfetch/browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link__ = __webpack_require__("./node_modules/next/link.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_next_link__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_nav__ = __webpack_require__("./components/nav.js");
-
-var _jsxFileName = '/www/ps-jobs/pages/index.js';
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__ = __webpack_require__("./node_modules/isomorphic-unfetch/browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link__ = __webpack_require__("./node_modules/next/link.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_link__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nav__ = __webpack_require__("./components/nav.js");
+var _jsxFileName = '/www/ps-jobs/pages/search.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -10539,8 +10536,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
   enterModule && enterModule(module);
 })();
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -10566,39 +10561,83 @@ var MyPage = function (_React$Component) {
   _createClass(MyPage, [{
     key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+      var Jobs = [];
+      if (this.props.url && this.props.url.query && this.props.url.query.data) {
+        this.props.url.query.data.forEach(function (job, i) {
+          Jobs.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { key: job._id, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 14
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 15
+                }
+              },
+              job.text
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'sup',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 16
+                }
+              },
+              job.location
+            )
+          ));
+        });
+      }
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 18
+            lineNumber: 23
           }
         },
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_nav__["a" /* default */], {
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_nav__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 19
+            lineNumber: 24
           }
         }),
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'h2',
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 20
+              lineNumber: 25
             }
           },
-          'Test Index... Count: ',
+          'SEARCH: ',
           this.props.jobs_count
         ),
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_3_next_link___default.a,
-          { prefetch: true, href: '/search/react', __source: {
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_2_next_link___default.a,
+          { prefetch: true, href: '/', __source: {
               fileName: _jsxFileName,
-              lineNumber: 21
+              lineNumber: 26
             }
           },
-          'Search "react" \xBB'
+          '\xAB go home'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 27
+            }
+          },
+          Jobs
         )
       );
     }
@@ -10607,46 +10646,10 @@ var MyPage = function (_React$Component) {
     value: function __reactstandin__regenerateByEval(key, code) {
       this[key] = eval(code);
     }
-  }], [{
-    key: 'getInitialProps',
-    value: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var res, json, data;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return fetch('http://localhost:3000/api/all?location=');
-
-              case 2:
-                res = _context.sent;
-                _context.next = 5;
-                return res.json();
-
-              case 5:
-                json = _context.sent;
-                data = { jobs_count: json.results };
-                return _context.abrupt('return', data);
-
-              case 8:
-              case 'end':
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function getInitialProps() {
-        return _ref.apply(this, arguments);
-      }
-
-      return getInitialProps;
-    }()
   }]);
 
   return MyPage;
-}(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 var _default = MyPage;
 /* harmony default export */ __webpack_exports__["default"] = (_default);
@@ -10661,8 +10664,8 @@ var _default = MyPage;
     return;
   }
 
-  reactHotLoader.register(MyPage, 'MyPage', '/www/ps-jobs/pages/index.js');
-  reactHotLoader.register(_default, 'default', '/www/ps-jobs/pages/index.js');
+  reactHotLoader.register(MyPage, 'MyPage', '/www/ps-jobs/pages/search.js');
+  reactHotLoader.register(_default, 'default', '/www/ps-jobs/pages/search.js');
   leaveModule(module);
 })();
 
@@ -10683,22 +10686,22 @@ var _default = MyPage;
           next.router.update(r, Component)
         }
       }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/")
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/search")
   
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./pages/index.js");
+module.exports = __webpack_require__("./pages/search.js");
 
 
 /***/ })
 
-},[3])
+},[2])
           return { page: comp.default }
         })
       ;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=search.js.map

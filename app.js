@@ -1,4 +1,3 @@
-
 const { createServer } = require('http')
 const next = require('next')
 const dev = process.env.NODE_ENV === 'development'
@@ -9,15 +8,26 @@ const appConfig = function(){
 	}
 };
 const app = next(appConfig())
+const fs = require('fs')
 
-const routes = require('./routes')
 const express = require('express')
 const handle = app.getRequestHandler()
 
+const routesList = [];
+fs.readdir("pages", (err, files) => {
+	files.forEach(file => {
+		const fileDot = file.indexOf('.');
+		if (fileDot) {
+			file = file.substr(0,fileDot);
+			if (file!=='index') {
+				routesList.push(file);
+			}
+		}
+	});
+})
 
 
 // process.secret = require('../secret/all.js'); // not on GitHub!
-const fs = require('fs')
 
 
 let jobsDB = {};
@@ -106,10 +116,10 @@ app.prepare()
 	*/
 
 	// next.js - routes
-	server.get('/', (req, res) => {
-		return handle(req, res)
-	})
-	routes.forEach(function(name){
+	// server.get('/', (req, res) => {
+	// 	return handle(req, res)
+	// })
+	routesList.forEach(function(name){
 		server.get('/'+name, (req, res) => {
 			return handle(req, res)
 		})
@@ -117,7 +127,7 @@ app.prepare()
 
 
 	// next.js - special case
-	server.get('/:search?/:in?/:location?', (req, res) => {
+	server.get('/search/:search?/:in?/:location?', (req, res) => {
 		if (req.params.search === "_next" || req.params.search === "static") {
 			return handle(req, res)
 		}
