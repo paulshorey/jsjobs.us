@@ -67,36 +67,20 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-module.exports = require("react");
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = require("isomorphic-unfetch");
-
-/***/ }),
-/* 2 */
+/***/ "./components/activeLink.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-// EXTERNAL MODULE: external "react"
-var external__react_ = __webpack_require__(0);
-var external__react__default = /*#__PURE__*/__webpack_require__.n(external__react_);
-
-// EXTERNAL MODULE: external "next/router"
-var router_ = __webpack_require__(3);
-var router__default = /*#__PURE__*/__webpack_require__.n(router_);
-
-// CONCATENATED MODULE: ./components/activeLink.js
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router__ = __webpack_require__("next/router");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_router__);
+var _jsxFileName = '/www/ps-jobs/components/activeLink.js';
 
 
 
@@ -104,7 +88,7 @@ var router__default = /*#__PURE__*/__webpack_require__.n(router_);
 // but this example shows how you can also access the router
 // using the withRouter utility.
 
-var activeLink_ActiveLink = function ActiveLink(_ref) {
+var ActiveLink = function ActiveLink(_ref) {
   var children = _ref.children,
       router = _ref.router,
       href = _ref.href;
@@ -119,15 +103,30 @@ var activeLink_ActiveLink = function ActiveLink(_ref) {
     router.push(href);
   };
 
-  return external__react__default.a.createElement(
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'a',
-    { href: href, onClick: handleClick, style: style },
+    { href: href, onClick: handleClick, style: style, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
+      }
+    },
     children
   );
 };
 
-/* harmony default export */ var activeLink = (Object(router_["withRouter"])(activeLink_ActiveLink));
-// CONCATENATED MODULE: ./components/nav.js
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_next_router__["withRouter"])(ActiveLink));
+
+/***/ }),
+
+/***/ "./components/nav.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__activeLink__ = __webpack_require__("./components/activeLink.js");
+var _jsxFileName = '/www/ps-jobs/components/nav.js';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -139,7 +138,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var nav_Nav = function (_React$Component) {
+var Nav = function (_React$Component) {
   _inherits(Nav, _React$Component);
 
   function Nav() {
@@ -151,87 +150,185 @@ var nav_Nav = function (_React$Component) {
   _createClass(Nav, [{
     key: 'render',
     value: function render() {
-      return external__react__default.a.createElement(
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        null,
-        external__react__default.a.createElement('img', { src: '/static/images/banner.jpg' }),
-        external__react__default.a.createElement(
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/static/images/banner.jpg', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'p',
-          null,
-          external__react__default.a.createElement(
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 10
+            }
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            null,
-            external__react__default.a.createElement(
-              activeLink,
-              { prefetch: true, href: '/index', as: '/' },
-              external__react__default.a.createElement(
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 11
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1__activeLink__["a" /* default */],
+              { prefetch: true, href: '/', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 11
+                }
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
-                null,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 11
+                  }
+                },
                 '\xAB go home'
               )
             )
           ),
-          external__react__default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            null,
-            external__react__default.a.createElement(
-              activeLink,
-              { prefetch: true, href: '/search/react' },
-              external__react__default.a.createElement(
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 12
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1__activeLink__["a" /* default */],
+              { prefetch: true, href: '/search/react', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 12
+                }
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
-                null,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 12
+                  }
+                },
                 'search "react" \xBB'
               )
             )
           ),
-          external__react__default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            null,
-            external__react__default.a.createElement(
-              activeLink,
-              { prefetch: true, href: '/search/node.js' },
-              external__react__default.a.createElement(
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 13
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1__activeLink__["a" /* default */],
+              { prefetch: true, href: '/search/node.js', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 13
+                }
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
-                null,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 13
+                  }
+                },
                 'search "node.js" \xBB'
               )
             )
           ),
-          external__react__default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            null,
-            external__react__default.a.createElement(
-              activeLink,
-              { prefetch: true, href: '/search/whatever' },
-              external__react__default.a.createElement(
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 14
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1__activeLink__["a" /* default */],
+              { prefetch: true, href: '/search/whatever', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 14
+                }
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
-                null,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 14
+                  }
+                },
                 'search "whatever" \xBB'
               )
             )
           ),
-          external__react__default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            null,
-            external__react__default.a.createElement(
-              activeLink,
-              { prefetch: true, href: '/adsfdfasdf' },
-              external__react__default.a.createElement(
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 15
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1__activeLink__["a" /* default */],
+              { prefetch: true, href: '/adsfdfasdf', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 15
+                }
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
-                null,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 15
+                  }
+                },
                 'asdffdfasdf \xBB'
               )
             )
           ),
-          external__react__default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            null,
-            external__react__default.a.createElement(
-              activeLink,
-              { prefetch: true, href: '/about' },
-              external__react__default.a.createElement(
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 16
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1__activeLink__["a" /* default */],
+              { prefetch: true, href: '/about', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 16
+                }
+              },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
-                null,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 16
+                  }
+                },
                 'about \xBB'
               )
             )
@@ -242,38 +339,24 @@ var nav_Nav = function (_React$Component) {
   }]);
 
   return Nav;
-}(external__react__default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ var nav = __webpack_exports__["a"] = (nav_Nav);
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("next/router");
+/* harmony default export */ __webpack_exports__["a"] = (Nav);
 
 /***/ }),
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(9);
-
-
-/***/ }),
-/* 9 */
+/***/ "./pages/_error.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_nav__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_nav__ = __webpack_require__("./components/nav.js");
+var _jsxFileName = '/www/ps-jobs/pages/_error.js';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -301,11 +384,26 @@ var MyPage = function (_React$Component) {
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_nav__["a" /* default */], null),
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 11
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_nav__["a" /* default */], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12
+          }
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'h2',
-          null,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 13
+            }
+          },
           'Page Not Found'
         )
       );
@@ -317,5 +415,36 @@ var MyPage = function (_React$Component) {
 
 /* harmony default export */ __webpack_exports__["default"] = (MyPage);
 
+/***/ }),
+
+/***/ 1:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./pages/_error.js");
+
+
+/***/ }),
+
+/***/ "isomorphic-unfetch":
+/***/ (function(module, exports) {
+
+module.exports = require("isomorphic-unfetch");
+
+/***/ }),
+
+/***/ "next/router":
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
+
+/***/ }),
+
+/***/ "react":
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
 /***/ })
-/******/ ]);
+
+/******/ });
+//# sourceMappingURL=_error.js.map
