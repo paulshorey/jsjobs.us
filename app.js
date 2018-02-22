@@ -119,6 +119,9 @@ app.prepare()
 	// server.get('/', (req, res) => {
 	// 	return handle(req, res)
 	// })
+	server.get('/', (req, res) => {
+		return handle(req, res)
+	})
 	routesList.forEach(function(name){
 		server.get('/'+name, (req, res) => {
 			return handle(req, res)
