@@ -1,7 +1,5 @@
 
 import React from 'react'
-import 'isomorphic-unfetch'
-
 import Nav from 'components/nav'
 
 export default class MyPage extends React.Component {

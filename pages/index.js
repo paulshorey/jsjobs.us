@@ -34,7 +34,7 @@ export default class MyPage extends React.Component {
     return (
         <div>
           <Nav />
-          <h2>SEARCH: {this.state.jobs_count}</h2>
+          <h2>Index... Count: {this.state.jobs_count}</h2>
           <div>
             {Jobs}
           </div>
