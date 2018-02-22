@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Link from 'next/link'
+import Link from 'components/activeLink'
 
 export default class Nav extends React.Component {
   render () {
