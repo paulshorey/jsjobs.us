@@ -1,5 +1,4 @@
 import React from 'react'
-import 'isomorphic-unfetch'
 
 import Nav from 'components/nav'
 
