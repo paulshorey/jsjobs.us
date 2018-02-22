@@ -8,12 +8,12 @@ export default class Nav extends React.Component {
       <div>
         <img src="/static/images/banner.jpg" />
         <p>
-          <div><Link href='/'>&laquo; go home</Link></div>
-          <div><Link prefetch href='/search/react'>search "react" &raquo;</Link></div>
-          <div><Link prefetch href='/search/node.js'>search "node.js" &raquo;</Link></div>
-          <div><Link prefetch href='/search/whatever'>search "whatever" &raquo;</Link></div>
-          <div><Link prefetch href='/adsfdfasdf'>asdffdfasdf &raquo;</Link></div>
-          <div><Link prefetch href='/about'>about &raquo;</Link></div>
+          <div><Link href='/'><a>&laquo; go home</a></Link></div>
+          <div><Link prefetch href='/search/react'><a>search "react" &raquo;</a></Link></div>
+          <div><Link prefetch href='/search/node.js'><a>search "node.js" &raquo;</a></Link></div>
+          <div><Link prefetch href='/search/whatever'><a>search "whatever" &raquo;</a></Link></div>
+          <div><Link prefetch href='/adsfdfasdf'><a>asdffdfasdf &raquo;</a></Link></div>
+          <div><Link prefetch href='/about'><a>about &raquo;</a></Link></div>
         </p>
       </div>
     )
