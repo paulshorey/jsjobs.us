@@ -10,7 +10,9 @@ module.exports =
 "use strict";
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/www/ps-jobs/components/nav.js";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("./node_modules/next/link.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_link__);
+var _jsxFileName = '/www/ps-jobs/components/nav.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -28,6 +30,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var Nav = function (_React$Component) {
   _inherits(Nav, _React$Component);
 
@@ -38,25 +41,142 @@ var Nav = function (_React$Component) {
   }
 
   _createClass(Nav, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
+        'div',
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 7
-          }
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "/static/images/banner.jpg", __source: {
-            fileName: _jsxFileName,
             lineNumber: 8
           }
-        })
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/static/images/banner.jpg', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 10
+            }
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 11
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_next_link___default.a,
+              { prefetch: true, href: '/', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 11
+                }
+              },
+              '\xAB go home'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 12
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_next_link___default.a,
+              { prefetch: true, href: '/search/react', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 12
+                }
+              },
+              'search "react" \xBB'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 13
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_next_link___default.a,
+              { prefetch: true, href: '/search/node.js', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 13
+                }
+              },
+              'search "node.js" \xBB'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 14
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_next_link___default.a,
+              { prefetch: true, href: '/search/whatever', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 14
+                }
+              },
+              'search "whatever" \xBB'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 15
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_next_link___default.a,
+              { prefetch: true, href: '/adsfdfasdf', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 15
+                }
+              },
+              'asdffdfasdf \xBB'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 16
+              }
+            },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_next_link___default.a,
+              { prefetch: true, href: '/about', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 16
+                }
+              },
+              'about \xBB'
+            )
+          )
+        )
       );
     }
   }, {
-    key: "__reactstandin__regenerateByEval",
+    key: '__reactstandin__regenerateByEval',
     value: function __reactstandin__regenerateByEval(key, code) {
       this[key] = eval(code);
     }
@@ -78,8 +198,8 @@ var _default = Nav;
     return;
   }
 
-  reactHotLoader.register(Nav, "Nav", "/www/ps-jobs/components/nav.js");
-  reactHotLoader.register(_default, "default", "/www/ps-jobs/components/nav.js");
+  reactHotLoader.register(Nav, 'Nav', '/www/ps-jobs/components/nav.js');
+  reactHotLoader.register(_default, 'default', '/www/ps-jobs/components/nav.js');
   leaveModule(module);
 })();
 
@@ -10526,9 +10646,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__ = __webpack_require__("./node_modules/isomorphic-unfetch/browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link__ = __webpack_require__("./node_modules/next/link.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_next_link__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_nav__ = __webpack_require__("./components/nav.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nav__ = __webpack_require__("./components/nav.js");
 
 var _jsxFileName = '/www/ps-jobs/pages/index.js';
 
@@ -10553,7 +10671,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
 var MyPage = function (_React$Component) {
   _inherits(MyPage, _React$Component);
 
@@ -10571,13 +10688,13 @@ var MyPage = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 18
+            lineNumber: 17
           }
         },
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_nav__["a" /* default */], {
+        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_nav__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 19
+            lineNumber: 18
           }
         }),
         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -10585,20 +10702,11 @@ var MyPage = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 20
+              lineNumber: 19
             }
           },
           'Test Index... Count: ',
           this.props.jobs_count
-        ),
-        __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_3_next_link___default.a,
-          { prefetch: true, href: '/search/react', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 21
-            }
-          },
-          'Search "react" \xBB'
         )
       );
     }

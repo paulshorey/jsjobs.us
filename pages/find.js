@@ -1,7 +1,6 @@
 import React from 'react'
 import 'isomorphic-unfetch'
 
-import Link from 'next/link'
 import Nav from 'components/nav'
 
 export default class MyPage extends React.Component {
@@ -23,7 +22,6 @@ export default class MyPage extends React.Component {
         <div>
           <Nav />
           <h2>FIND: {this.props.jobs_count}</h2>
-          <Link prefetch href='/'>&laquo; go home</Link>
           <div>
             {Jobs}
           </div>

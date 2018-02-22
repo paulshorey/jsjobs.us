@@ -1,8 +1,8 @@
 module.exports =
 
-        __NEXT_REGISTER_PAGE('/search', function() {
+        __NEXT_REGISTER_PAGE('/about', function() {
           var comp = 
-      webpackJsonp([4],{
+      webpackJsonp([6],{
 
 /***/ "./components/nav.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10635,7 +10635,7 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/search.js":
+/***/ "./pages/about.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10645,7 +10645,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__ = __webpack_require__("./node_modules/isomorphic-unfetch/browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_nav__ = __webpack_require__("./components/nav.js");
-var _jsxFileName = '/www/ps-jobs/pages/search.js';
+var _jsxFileName = '/www/ps-jobs/pages/about.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -10678,52 +10678,18 @@ var MyPage = function (_React$Component) {
   _createClass(MyPage, [{
     key: 'render',
     value: function render() {
-      var Jobs = [];
-      if (this.props.url && this.props.url.query && this.props.url.query.data) {
-        this.props.url.query.data.forEach(function (job, i) {
-          Jobs.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { key: job._id, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 13
-              }
-            },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 14
-                }
-              },
-              job.text
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'sup',
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 15
-                }
-              },
-              job.location
-            )
-          ));
-        });
-      }
-
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 22
+            lineNumber: 10
           }
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_nav__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 23
+            lineNumber: 11
           }
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -10731,21 +10697,10 @@ var MyPage = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 24
+              lineNumber: 12
             }
           },
-          'SEARCH: ',
-          this.props.jobs_count
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 25
-            }
-          },
-          Jobs
+          'About us...'
         )
       );
     }
@@ -10772,8 +10727,8 @@ var _default = MyPage;
     return;
   }
 
-  reactHotLoader.register(MyPage, 'MyPage', '/www/ps-jobs/pages/search.js');
-  reactHotLoader.register(_default, 'default', '/www/ps-jobs/pages/search.js');
+  reactHotLoader.register(MyPage, 'MyPage', '/www/ps-jobs/pages/about.js');
+  reactHotLoader.register(_default, 'default', '/www/ps-jobs/pages/about.js');
   leaveModule(module);
 })();
 
@@ -10794,22 +10749,22 @@ var _default = MyPage;
           next.router.update(r, Component)
         }
       }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/search")
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/about")
   
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ }),
 
-/***/ 2:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./pages/search.js");
+module.exports = __webpack_require__("./pages/about.js");
 
 
 /***/ })
 
-},[2])
+},[4])
           return { page: comp.default }
         })
       ;
-//# sourceMappingURL=search.js.map
+//# sourceMappingURL=about.js.map

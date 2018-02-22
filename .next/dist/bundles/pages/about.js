@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -246,7 +246,7 @@ var Nav = function (_React$Component) {
 
 /***/ }),
 
-/***/ "./pages/_error.js":
+/***/ "./pages/about.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -256,7 +256,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_isomorphic_unfetch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_nav__ = __webpack_require__("./components/nav.js");
-var _jsxFileName = '/www/ps-jobs/pages/_error.js';
+var _jsxFileName = '/www/ps-jobs/pages/about.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -288,13 +288,13 @@ var MyPage = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 11
+            lineNumber: 10
           }
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_nav__["a" /* default */], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 12
+            lineNumber: 11
           }
         }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -302,15 +302,12 @@ var MyPage = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 13
+              lineNumber: 12
             }
           },
-          'Page Not Found'
+          'About us...'
         )
-      )
-      // <h2>Count: {this.state.jobs_count}</h2>
-      // <ListJobs {...this.state} />
-      ;
+      );
     }
   }]);
 
@@ -321,10 +318,10 @@ var MyPage = function (_React$Component) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./pages/_error.js");
+module.exports = __webpack_require__("./pages/about.js");
 
 
 /***/ }),
@@ -351,4 +348,4 @@ module.exports = require("react");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=_error.js.map
+//# sourceMappingURL=about.js.map

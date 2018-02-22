@@ -1,7 +1,6 @@
 import React from 'react'
 import 'isomorphic-unfetch'
 
-import Link from 'next/link'
 import Nav from 'components/nav'
 
 export default class MyPage extends React.Component {
@@ -18,7 +17,6 @@ export default class MyPage extends React.Component {
         <div>
           <Nav />
           <h2>Test Index... Count: {this.props.jobs_count}</h2>
-          <Link prefetch href="/search/react">Search &quot;react&quot; &raquo;</Link>
         </div>
     )
   }

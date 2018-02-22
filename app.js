@@ -138,13 +138,6 @@ app.prepare()
 		}
 
 		// url
-		if (
-			(req.params.search && req.params.search.indexOf('.')!==-1) || 
-			(req.params.location && req.params.location.indexOf('.')!==-1)
-		) {
-			// serve favicon.ico or whatever else got in here by accident
-			return handle(req, res)
-		}
 		console.log("\nPAGE /search = "+req.params.search+'/'+req.params.in+'/'+req.params.location+"\n");
 		
 		// params
