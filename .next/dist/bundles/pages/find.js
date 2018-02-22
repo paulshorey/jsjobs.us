@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -257,14 +257,18 @@ module.exports = require("next/router");
 /* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(9);
+module.exports = __webpack_require__(13);
 
 
 /***/ }),
-/* 9 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -299,6 +303,26 @@ var MyPage = function (_React$Component) {
   _createClass(MyPage, [{
     key: 'render',
     value: function render() {
+      var Jobs = [];
+      if (this.props.url && this.props.url.query && this.props.url.query.data) {
+        this.props.url.query.data.forEach(function (job, i) {
+          Jobs.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { key: job._id },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              null,
+              job.text
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'sup',
+              null,
+              job.location
+            )
+          ));
+        });
+      }
+
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
@@ -306,7 +330,13 @@ var MyPage = function (_React$Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'h2',
           null,
-          'Page Not Found'
+          'FIND: ',
+          this.props.jobs_count
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          null,
+          Jobs
         )
       );
     }
