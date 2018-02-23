@@ -1,4 +1,5 @@
 import React from 'react'
+import 'isomorphic-unfetch'
 
 import Nav from 'components/nav'
 
@@ -12,7 +13,7 @@ export default class MyPage extends React.Component {
   }
   async componentWillMount () {
     // eslint-disable-next-line no-undef
-    const res = await fetch('/api/all?location=')
+    const res = await fetch('http://localhost:3000/api/all?location=')
     const json = await res.json()
     const data = { jobs_count:json.results, jobs:json.data };
     this.setState(data);
