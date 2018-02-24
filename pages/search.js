@@ -5,7 +5,7 @@ import Nav from 'components/nav'
 
 export default class MyPage extends React.Component {
     static async getInitialProps (params) {
-        console.log("\nsearch_static getInitialProps", params, "\n");
+        // console.log("\search getInitialProps", params, "\n");
         // eslint-disable-next-line no-undef
         const res = await fetch('http://localhost:1080/v1/jobs/all?text='+(params.query.search||''))
         const json = await res.json()
@@ -13,6 +13,7 @@ export default class MyPage extends React.Component {
     }
   
   render () {
+    // console.log("\search render", this.props, "\n");
     var Jobs = [];
     if (this.props && this.props.jobs) {
       this.props.jobs.forEach(function(job,i){
@@ -27,7 +28,7 @@ export default class MyPage extends React.Component {
     return (
         <div>
           <Nav />
-          <h2>Search_static... Count: {this.props.jobs_count}</h2>
+          <h2>Search "{this.props.url.query.search}" results: {this.props.jobs_count}</h2>
           <div>
             {Jobs}
           </div>
