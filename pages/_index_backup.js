@@ -6,7 +6,7 @@ import Nav from 'components/nav'
 export default class MyPage extends React.Component {
   static async getInitialProps () {
     // eslint-disable-next-line no-undef
-    const res = await fetch('http://localhost:3000/api/all?location=')
+    const res = await fetch('http://localhost:1080/v1/jobs/all?location=')
     const json = await res.json()
     const data = { jobs_count:json.results, jobs:json.data };
     return data;
