@@ -6,7 +6,6 @@ export default class Nav extends React.Component {
   render () {
     return (
       <div className="nav">
-        <img src="/static/images/banner.jpg" />
         <div className="nav_section">
           <div><Link prefetch route='/'><a>home &raquo;</a></Link></div>
           <div><Link prefetch route='about'><a>about &raquo;</a></Link></div>
