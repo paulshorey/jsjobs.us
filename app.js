@@ -3,6 +3,7 @@ const fs = require('fs')
 const { createServer } = require('http')
 const next = require('next')
 const dev = process.env.NODE_ENV === 'development'
+const devApp = dev ? {dev} : undefined;
 const port = 3000
 const server = require('express')()
 server.use(function(request, response, next){
@@ -22,7 +23,7 @@ server.use(function(request, response, next){
 
 
 const routes = require('./routes')
-const app = next({dev})
+const app = next(devApp)
 const handler = routes.getRequestHandler(app)
 
 
