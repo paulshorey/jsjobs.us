@@ -3,12 +3,23 @@
 # /opt/letsencrypt/letsencrypt-auto renew >> /var/log/le-renew.log
 # /etc/init.d/nginx reload
 
-/opt/letsencrypt/letsencrypt-auto renew
-reboot
+# /opt/letsencrypt/letsencrypt-auto renew
+# reboot
 
 
 
 # vim /etc/nginx/sites-available/default
+
+# server {
+
+#         listen 80;
+#         listen [::]:80;
+
+#         server_name default;
+#         root /www/ps-jobs/static;
+
+#         try_files $uri $uri/;
+# }
 
 # server {
 #   listen 80;
