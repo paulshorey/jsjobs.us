@@ -1,17 +1,14 @@
 {
-  "name": "data-fetch",
-  "version": "1.0.0",
+  "name": "app",
+  "version": "0.0.1",
   "scripts": {
+    "www": "node ./bin/www",
     "start": "next start",
     "build": "next build",
     "dev": "next build; NODE_ENV=development node app.js",
-    "pro": "next build; node app.js",
-    "apidev": "NODE_ENV=development node api.js",
-    "apipro": "node api.js"
+    "pro": "next build; node app.js"
   },
   "dependencies": {
-    "chrono-node": "^1.3.5",
-    "crypto": "^1.0.1",
     "express": "^4.16.2",
     "isomorphic-unfetch": "^2.0.0",
     "logdna": "^2.0.0",
@@ -20,8 +17,7 @@
     "nextjs-dynamic-routes": "^2.1.6",
     "pouchdb": "^6.4.3",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "styled-components": "^3.1.6"
+    "react-dom": "^16.2.0"
   },
   "license": "ISC",
   "devDependencies": {

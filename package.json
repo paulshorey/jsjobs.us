@@ -1,0 +1,12 @@
+{
+    "name": "app",
+    "version": "1.0.0",
+    "scripts": {
+      "appdev": "next build; NODE_ENV=development node app/app.js",
+      "apppro": "next build; node app/bin/app.js",
+      "apidev": "NODE_ENV=development node api/api.js",
+      "apipro": "node api/api.js"
+    },
+    "license": "ISC"
+  }
+  

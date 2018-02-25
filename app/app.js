@@ -6,20 +6,6 @@ const dev = process.env.NODE_ENV === 'development'
 const devApp = dev ? {dev} : undefined;
 const port = 3000
 const server = require('express')()
-server.use(function(request, response, next){
-	var referrer = url.parse(request.headers.referer||'', true, true).hostname;
-	response.setHeader('Access-Control-Allow-Origin', '*'); // CHANGE THIS BEFORE ADDING SENSITIVE DATA!
-	response.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-	response.setHeader('Access-Control-Allow-Headers', 'Content-Type, Cache-Control, Pragma, Authorization, Content-Length, X-Requested-With, X-Host');
-	if ('OPTIONS' == request.method) {
-		response.writeHead(200);
-		response.end();
-		return;
-	} else {
-		next();
-		return;
-	}
-});
 // app.use(favicon(dirname + '/public/favicon.ico'));
 
 
