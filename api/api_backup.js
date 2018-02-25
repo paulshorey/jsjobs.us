@@ -1,31 +1,74 @@
-var pro = process;
-process.inc = {};
-process.inc.express = require('express');
-process.inc.express_parser = require('body-parser');
-process.fs = require('fs');
-process.http = require('http');
-process.https = require('https');
-process.url = require('url');
-process.crypto = require('crypto');
-process.chrono = require('chrono-node');
-// env (settings)
+/*
+    process.env
+*/
 process.env.PATH = __dirname;
-// app (express)
-process.app = process.inc.express();
-process.app.use(process.inc.express_parser.json({
+process.env.PORT = 1080;
+const dev = process.env.NODE_ENV === 'development';
+/*
+    global.shh
+*/
+global.shh = require('../secret/all.js'); // not on GitHub!
+/*
+    global.rqr
+*/
+global.rqr = global.rqr || {};
+global.rqr.express = require('express');
+global.rqr.express_parser = require('body-parser');
+global.rqr.fs = require('fs');
+global.rqr.http = require('http');
+global.rqr.https = require('https');
+global.rqr.url = require('url');
+global.rqr.crypto = require('crypto');
+global.rqr.chrono = require('chrono-node');
+/*
+    global.logger
+*/
+let dna_logger = require('logdna').setupDefaultLogger(global.shh.logdna.ingestionKey, {
+    index_meta: true,
+    hostname: "ps-jobs",
+    app: dev ? "API-dev" : "API-pro"
+});
+let fixLogger = function(useLib) {
+    var doLog = function(level, ...args) {
+        if (args[0].stack) {
+            // Error
+            this[level]( args[0].stack, args[0].message );
+            console[level]( args[0].stack );
+        }
+        else {
+            // multiple
+            this[level]( ...args );
+            console[level]( ...args);
+        }
+    }.bind(useLib);
+    return {
+        log: function(...logWhat){ doLog("log",...logWhat) },
+        info: function(...logWhat){ doLog("info",...logWhat) },
+        warn: function(...logWhat){ doLog("warn",...logWhat) },
+        error: function(...logWhat){ doLog("error",...logWhat) }
+    }
+}
+global.logger = fixLogger(dna_logger);
+// global.logger.error(Error('test error'));
+// global.logger.log({test:"test object"});
+/*
+    global.app
+*/
+global.app = global.rqr.express();
+global.app.use(global.rqr.express_parser.json({
 	limit: '50mb',
 	parameterLimit: 10000,
 	extended: true
 }));
-process.app.use(process.inc.express_parser.urlencoded({
+global.app.use(global.rqr.express_parser.urlencoded({
 	limit: '50mb',
 	parameterLimit: 10000,
 	extended: true
 }));
-process.app.use(process.inc.express.static('api_public'));
-process.app.disable('trust proxy');
-process.app.use(function(request, response, next){
-	var referrer = process.url.parse(request.headers.referer||'', true, true).hostname;
+global.app.use(global.rqr.express.static('api_public'));
+global.app.disable('trust proxy');
+global.app.use(function(request, response, next){
+	var referrer = global.rqr.url.parse(request.headers.referer||'', true, true).hostname;
 	response.setHeader('Access-Control-Allow-Origin', '*'); // CHANGE THIS BEFORE ADDING SENSITIVE DATA!
 	response.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
 	response.setHeader('Access-Control-Allow-Headers', 'Content-Type, Cache-Control, Pragma, Authorization, Content-Length, X-Requested-With, X-Host');
@@ -38,9 +81,52 @@ process.app.use(function(request, response, next){
 		return;
 	}
 });
-// secrets
-process.secret = require('../secret/all.js'); // not on GitHub!
-process.console = console;
+/*
+    DB
+*/
+// const model = {};
+// // mongoose (items)
+// process.mongoose = require('mongoose');
+// process.mongoose.connect('mongodb://localhost/api');
+// // mongoose
+// model.mongoose = {};
+// model.mongoose.schemas = {};
+// model.mongoose.schemas.item = { 
+// 	_id: String,
+// 	texts: { type:Object, required: true },
+// 	timestamp: { type:Number, required: true },
+// 	image: String,
+// 	link: String,
+// 	category: { type:String, default: '' },
+// 	scene: { type:String, default: '' },
+// 	venue: String,
+// 	date: String,
+// 	time: String,
+// 	featured: { type:String, default: '' },
+// 	price: { type:String, default: '' },
+// 	timeAdded: { type:Number, default: Date.now() },
+// 	likes: { type:Number, default: 0 },
+// 	random: { type:Number, default: 0 },
+// 	source: String,
+// 	source_host: { type:String, required: true },
+// 	source_link: { type:String, required: true },
+// 	source_title: { type:String, required: true },
+// 	site: Array
+
+// };
+// model.mongoose.item = process.mongoose.model('Item', model.mongoose.schemas.item);
+// // model.mongoose.item.find({},callback);
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/admin";
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  console.log("Database created!");
+  db.close();
+});
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,17 +137,17 @@ process.console = console;
 // I'll then convert it to array and practice filtering and work with data
 let jobsDB = {};
 const jobsDB_file = "/www/db/v1_jobs";
-if (!process.fs.existsSync("/www/db")){
-    process.fs.mkdirSync("/www/db");
+if (!global.rqr.fs.existsSync("/www/db")){
+    global.rqr.fs.mkdirSync("/www/db");
 }
-if (process.fs.existsSync(jobsDB_file)) {
-    process.fs.readFile(jobsDB_file, 'utf8', function (err, data) {
+if (global.rqr.fs.existsSync(jobsDB_file)) {
+    global.rqr.fs.readFile(jobsDB_file, 'utf8', function (err, data) {
         if (data) {
             jobsDB = JSON.parse(data);
         }
     });
 } else {
-    process.fs.writeFile(jobsDB_file, jobsDB);
+    global.rqr.fs.writeFile(jobsDB_file, jobsDB);
 };
 
 
@@ -69,8 +155,8 @@ if (process.fs.existsSync(jobsDB_file)) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // GET JOBS
-process.app.get('/v1/jobs/all', function(request, response) {
-    process.console.log('get /all');
+global.app.get('/v1/jobs/all', function(request, response) {
+    global.logger.info("GET /v1/jobs/all");
     
     // format response
     let data = Object.values(jobsDB);
@@ -85,7 +171,6 @@ process.app.get('/v1/jobs/all', function(request, response) {
                 var query = request.query;
                 for (var param in query) {
                     if (typeof data[0][param] !== "undefined") {
-                        process.console.log(param, typeof query[param], query[param]);
                         var qRegEx = new RegExp(query[param], "i"); // I like RegExp! Not most efficient, but ok for a site with one user
                         data = data.filter(function(job) {
                             return qRegEx.test(job[param]); // Don't think you can inject malicious code from a URI variable into a RegExpression. Can you?
@@ -120,7 +205,7 @@ process.app.get('/v1/jobs/all', function(request, response) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // EDIT JOB
-process.app.put('/v1/job', function(request, response) {
+global.app.put('/v1/job', function(request, response) {
 
     var query = request.body;
 
@@ -143,7 +228,7 @@ process.app.put('/v1/job', function(request, response) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // ADD MORE JOBS
-process.app.post('/apify-webhook', function(request, response) {
+global.app.post('/apify-webhook', function(request, response) {
     // dev env
     if (!request.body._id) {
         request.body._id = "QhYiWH5sRYN4Rf8vP";
@@ -151,7 +236,7 @@ process.app.post('/apify-webhook', function(request, response) {
 
     // fetch data
     const resultsUrl = "https://api.apify.com/v1/execs/"+request.body._id+"/results";
-    process.https.get(resultsUrl, res => {
+    global.rqr.https.get(resultsUrl, res => {
         res.setEncoding("utf8");
         let body = "";
         res.on("data", data => {
@@ -166,7 +251,7 @@ process.app.post('/apify-webhook', function(request, response) {
                     processJobs(resultsData[rD].pageFunctionResult);
                 }
             } else {
-                process.console.error("Apify-WEBHOOK FAILED to return data: "+resultsUrl);
+                global.logger.error(Error("Apify-WEBHOOK FAILED to return data"+ resultsUrl));
             }
 
         });
@@ -193,7 +278,7 @@ const processJobs = function(results){
             }
         }
         // filter
-        res.posted = process.chrono.parseDate(res.posted);
+        res.posted = global.rqr.chrono.parseDate(res.posted);
 
         // rating
         res._rating = 100000;
@@ -266,16 +351,16 @@ const processJobs = function(results){
 
         // save to DB
         res._status = "new";
-        res._id = process.crypto.createHash('md5').update(res.name+" "+res.company).digest('hex');
+        res._id = global.rqr.crypto.createHash('md5').update(res.name+" "+res.company).digest('hex');
         jobsDB[ res._id ] = res;
     }
 
     // pretending this is a db
-    process.fs.writeFile(jobsDB_file, JSON.stringify(jobsDB), function(err) {
+    global.rqr.fs.writeFile(jobsDB_file, JSON.stringify(jobsDB), function(err) {
         if(err) {
-            return process.console.error(err);
+            return global.logger.error(err);
         }
-        process.console.info("/www/db/v1_jobs file updated");
+        global.logger.info("FS wrote file /www/db/v1_jobs");
     });
 
     return results;
@@ -287,7 +372,10 @@ const processJobs = function(results){
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // START API SERVER
-var httpServer = process.http.createServer(process.app);
-httpServer.listen(1080);
-// var httpsServer = process.https.createServer({key: process.fs.readFileSync('/etc/letsencrypt/live/api.paulshorey.com/privkey.pem', 'utf8'), cert: process.fs.readFileSync('/etc/letsencrypt/live/api.paulshorey.com/fullchain.pem', 'utf8')}, process.app);
+var httpServer = global.rqr.http.createServer(global.app);
+httpServer.listen(process.env.PORT, (err) => {
+    if (err) throw err
+    console.log(`> API listening on http://localhost:${process.env.PORT}`)
+})
+// var httpsServer = global.rqr.https.createServer({key: global.rqr.fs.readFileSync('/etc/letsencrypt/live/api.paulshorey.com/privkey.pem', 'utf8'), cert: global.rqr.fs.readFileSync('/etc/letsencrypt/live/api.paulshorey.com/fullchain.pem', 'utf8')}, global.app);
 // httpsServer.listen(1443);

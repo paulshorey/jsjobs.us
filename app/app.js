@@ -20,6 +20,7 @@ server.use(function(request, response, next){
 		return;
 	}
 });
+// app.use(favicon(dirname + '/public/favicon.ico'));
 
 
 const routes = require('./routes')

@@ -1,0 +1,629 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'express-generator' ]
+2 info using npm@3.8.6
+3 info using node@v9.4.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData express-generator
+8 silly fetchNamedPackageData express-generator
+9 silly mapToRegistry name express-generator
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'express-generator',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   name: 'express-generator',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/express-generator
+14 verbose request uri https://registry.npmjs.org/express-generator
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 11:08:37
+17 verbose request using bearer token for auth
+18 verbose request id 1295e5798e504217
+19 http request GET https://registry.npmjs.org/express-generator
+20 http 200 https://registry.npmjs.org/express-generator
+21 verbose headers { 'content-type': 'application/json; charset=UTF-8',
+21 verbose headers   server: 'UploadServer',
+21 verbose headers   'cache-control': 'max-age=300',
+21 verbose headers   'last-modified': 'Sat, 10 Feb 2018 18:59:37 GMT',
+21 verbose headers   etag: '"5a7f4119-a9a6"',
+21 verbose headers   'x-npm-region': 'US-West',
+21 verbose headers   'content-encoding': 'gzip',
+21 verbose headers   'content-length': '5310',
+21 verbose headers   'accept-ranges': 'bytes',
+21 verbose headers   date: 'Sun, 25 Feb 2018 19:08:37 GMT',
+21 verbose headers   via: '1.1 varnish',
+21 verbose headers   age: '5204',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'x-served-by': 'cache-sjc3650-SJC',
+21 verbose headers   'x-cache': 'HIT',
+21 verbose headers   'x-cache-hits': '1',
+21 verbose headers   'x-timer': 'S1519585718.930306,VS0,VE1',
+21 verbose headers   vary: 'Accept-Encoding, Accept' }
+22 silly get cb [ 200,
+22 silly get   { 'content-type': 'application/json; charset=UTF-8',
+22 silly get     server: 'UploadServer',
+22 silly get     'cache-control': 'max-age=300',
+22 silly get     'last-modified': 'Sat, 10 Feb 2018 18:59:37 GMT',
+22 silly get     etag: '"5a7f4119-a9a6"',
+22 silly get     'x-npm-region': 'US-West',
+22 silly get     'content-encoding': 'gzip',
+22 silly get     'content-length': '5310',
+22 silly get     'accept-ranges': 'bytes',
+22 silly get     date: 'Sun, 25 Feb 2018 19:08:37 GMT',
+22 silly get     via: '1.1 varnish',
+22 silly get     age: '5204',
+22 silly get     connection: 'keep-alive',
+22 silly get     'x-served-by': 'cache-sjc3650-SJC',
+22 silly get     'x-cache': 'HIT',
+22 silly get     'x-cache-hits': '1',
+22 silly get     'x-timer': 'S1519585718.930306,VS0,VE1',
+22 silly get     vary: 'Accept-Encoding, Accept' } ]
+23 verbose get saving express-generator to /Users/admin/.npm/registry.npmjs.org/express-generator/.cache.json
+24 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+25 silly install normalizeTree
+26 silly loadCurrentTree Finishing
+27 silly loadIdealTree Starting
+28 silly install loadIdealTree
+29 silly cloneCurrentTree Starting
+30 silly install cloneCurrentTreeToIdealTree
+31 silly cloneCurrentTree Finishing
+32 silly loadShrinkwrap Starting
+33 silly install loadShrinkwrap
+34 silly loadShrinkwrap Finishing
+35 silly loadAllDepsIntoIdealTree Starting
+36 silly install loadAllDepsIntoIdealTree
+37 silly resolveWithNewModule express-generator@4.15.5 checking installable status
+38 silly cache add args [ 'express-generator', null ]
+39 verbose cache add spec express-generator
+40 silly cache add parsed spec Result {
+40 silly cache add   raw: 'express-generator',
+40 silly cache add   scope: null,
+40 silly cache add   name: 'express-generator',
+40 silly cache add   rawSpec: '',
+40 silly cache add   spec: 'latest',
+40 silly cache add   type: 'tag' }
+41 silly addNamed express-generator@latest
+42 verbose addNamed "latest" is being treated as a dist-tag for express-generator
+43 info addNameTag [ 'express-generator', 'latest' ]
+44 silly mapToRegistry name express-generator
+45 silly mapToRegistry using default registry
+46 silly mapToRegistry registry https://registry.npmjs.org/
+47 silly mapToRegistry data Result {
+47 silly mapToRegistry   raw: 'express-generator',
+47 silly mapToRegistry   scope: null,
+47 silly mapToRegistry   name: 'express-generator',
+47 silly mapToRegistry   rawSpec: '',
+47 silly mapToRegistry   spec: 'latest',
+47 silly mapToRegistry   type: 'tag' }
+48 silly mapToRegistry uri https://registry.npmjs.org/express-generator
+49 verbose addNameTag registry:https://registry.npmjs.org/express-generator not in flight; fetching
+50 verbose get https://registry.npmjs.org/express-generator not expired, no request
+51 silly addNameTag next cb for express-generator with tag latest
+52 silly addNamed express-generator@4.15.5
+53 verbose addNamed "4.15.5" is a plain semver version for express-generator
+54 silly mapToRegistry name express-generator
+55 silly mapToRegistry using default registry
+56 silly mapToRegistry registry https://registry.npmjs.org/
+57 silly mapToRegistry data Result {
+57 silly mapToRegistry   raw: 'express-generator',
+57 silly mapToRegistry   scope: null,
+57 silly mapToRegistry   name: 'express-generator',
+57 silly mapToRegistry   rawSpec: '',
+57 silly mapToRegistry   spec: 'latest',
+57 silly mapToRegistry   type: 'tag' }
+58 silly mapToRegistry uri https://registry.npmjs.org/express-generator
+59 verbose addRemoteTarball https://registry.npmjs.org/express-generator/-/express-generator-4.15.5.tgz not in flight; adding
+60 verbose addRemoteTarball [ 'https://registry.npmjs.org/express-generator/-/express-generator-4.15.5.tgz',
+60 verbose addRemoteTarball   '4e86ffe6cedb31126a2bf1dac01bd1795da6f978' ]
+61 info retry fetch attempt 1 at 11:08:37
+62 info attempt registry request try #1 at 11:08:37
+63 http fetch GET https://registry.npmjs.org/express-generator/-/express-generator-4.15.5.tgz
+64 verbose request using bearer token for auth
+65 http fetch 200 https://registry.npmjs.org/express-generator/-/express-generator-4.15.5.tgz
+66 silly fetchAndShaCheck shasum 4e86ffe6cedb31126a2bf1dac01bd1795da6f978
+67 verbose addTmpTarball /var/folders/lv/3hk3xxxn2ygbndd4qj9zkmcm0000gp/T/npm-26926-837e87e0/registry.npmjs.org/express-generator/-/express-generator-4.15.5.tgz not in flight; adding
+68 verbose addTmpTarball already have metadata; skipping unpack for express-generator@4.15.5
+69 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+70 silly cache afterAdd express-generator@4.15.5
+71 verbose afterAdd /Users/admin/.npm/express-generator/4.15.5/package/package.json not in flight; writing
+72 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+73 verbose afterAdd /Users/admin/.npm/express-generator/4.15.5/package/package.json written
+74 silly fetchNamedPackageData commander
+75 silly mapToRegistry name commander
+76 silly mapToRegistry using default registry
+77 silly mapToRegistry registry https://registry.npmjs.org/
+78 silly mapToRegistry data Result {
+78 silly mapToRegistry   raw: 'commander',
+78 silly mapToRegistry   scope: null,
+78 silly mapToRegistry   name: 'commander',
+78 silly mapToRegistry   rawSpec: '',
+78 silly mapToRegistry   spec: 'latest',
+78 silly mapToRegistry   type: 'tag' }
+79 silly mapToRegistry uri https://registry.npmjs.org/commander
+80 silly fetchNamedPackageData ejs
+81 silly mapToRegistry name ejs
+82 silly mapToRegistry using default registry
+83 silly mapToRegistry registry https://registry.npmjs.org/
+84 silly mapToRegistry data Result {
+84 silly mapToRegistry   raw: 'ejs',
+84 silly mapToRegistry   scope: null,
+84 silly mapToRegistry   name: 'ejs',
+84 silly mapToRegistry   rawSpec: '',
+84 silly mapToRegistry   spec: 'latest',
+84 silly mapToRegistry   type: 'tag' }
+85 silly mapToRegistry uri https://registry.npmjs.org/ejs
+86 silly fetchNamedPackageData mkdirp
+87 silly mapToRegistry name mkdirp
+88 silly mapToRegistry using default registry
+89 silly mapToRegistry registry https://registry.npmjs.org/
+90 silly mapToRegistry data Result {
+90 silly mapToRegistry   raw: 'mkdirp',
+90 silly mapToRegistry   scope: null,
+90 silly mapToRegistry   name: 'mkdirp',
+90 silly mapToRegistry   rawSpec: '',
+90 silly mapToRegistry   spec: 'latest',
+90 silly mapToRegistry   type: 'tag' }
+91 silly mapToRegistry uri https://registry.npmjs.org/mkdirp
+92 silly fetchNamedPackageData sorted-object
+93 silly mapToRegistry name sorted-object
+94 silly mapToRegistry using default registry
+95 silly mapToRegistry registry https://registry.npmjs.org/
+96 silly mapToRegistry data Result {
+96 silly mapToRegistry   raw: 'sorted-object',
+96 silly mapToRegistry   scope: null,
+96 silly mapToRegistry   name: 'sorted-object',
+96 silly mapToRegistry   rawSpec: '',
+96 silly mapToRegistry   spec: 'latest',
+96 silly mapToRegistry   type: 'tag' }
+97 silly mapToRegistry uri https://registry.npmjs.org/sorted-object
+98 verbose request uri https://registry.npmjs.org/sorted-object
+99 verbose request no auth needed
+100 info attempt registry request try #1 at 11:08:38
+101 verbose request using bearer token for auth
+102 http request GET https://registry.npmjs.org/sorted-object
+103 verbose request uri https://registry.npmjs.org/mkdirp
+104 verbose request no auth needed
+105 info attempt registry request try #1 at 11:08:38
+106 verbose request using bearer token for auth
+107 verbose etag "5a871c84-69ac"
+108 verbose lastModified Fri, 16 Feb 2018 18:01:40 GMT
+109 http request GET https://registry.npmjs.org/mkdirp
+110 verbose request uri https://registry.npmjs.org/commander
+111 verbose request no auth needed
+112 info attempt registry request try #1 at 11:08:38
+113 verbose request using bearer token for auth
+114 verbose etag "5a8791cb-14cea"
+115 verbose lastModified Sat, 17 Feb 2018 2:22:03 GMT
+116 http request GET https://registry.npmjs.org/commander
+117 verbose request uri https://registry.npmjs.org/ejs
+118 verbose request no auth needed
+119 info attempt registry request try #1 at 11:08:38
+120 verbose request using bearer token for auth
+121 verbose etag "5a7919d2-120d8"
+122 verbose lastModified Tue, 6 Feb 2018 2:58:26 GMT
+123 http request GET https://registry.npmjs.org/ejs
+124 http 200 https://registry.npmjs.org/sorted-object
+125 verbose headers { 'content-type': 'application/json; charset=UTF-8',
+125 verbose headers   server: 'UploadServer',
+125 verbose headers   'cache-control': 'max-age=300',
+125 verbose headers   'last-modified': 'Sat, 10 Sep 2016 23:39:29 GMT',
+125 verbose headers   etag: '"57d499b1-1545"',
+125 verbose headers   'x-npm-region': 'US-West',
+125 verbose headers   'content-encoding': 'gzip',
+125 verbose headers   'content-length': '1619',
+125 verbose headers   'accept-ranges': 'bytes',
+125 verbose headers   date: 'Sun, 25 Feb 2018 19:08:38 GMT',
+125 verbose headers   via: '1.1 varnish',
+125 verbose headers   age: '3824',
+125 verbose headers   connection: 'keep-alive',
+125 verbose headers   'x-served-by': 'cache-sjc3650-SJC',
+125 verbose headers   'x-cache': 'HIT',
+125 verbose headers   'x-cache-hits': '1',
+125 verbose headers   'x-timer': 'S1519585718.054355,VS0,VE1',
+125 verbose headers   vary: 'Accept-Encoding, Accept' }
+126 silly get cb [ 200,
+126 silly get   { 'content-type': 'application/json; charset=UTF-8',
+126 silly get     server: 'UploadServer',
+126 silly get     'cache-control': 'max-age=300',
+126 silly get     'last-modified': 'Sat, 10 Sep 2016 23:39:29 GMT',
+126 silly get     etag: '"57d499b1-1545"',
+126 silly get     'x-npm-region': 'US-West',
+126 silly get     'content-encoding': 'gzip',
+126 silly get     'content-length': '1619',
+126 silly get     'accept-ranges': 'bytes',
+126 silly get     date: 'Sun, 25 Feb 2018 19:08:38 GMT',
+126 silly get     via: '1.1 varnish',
+126 silly get     age: '3824',
+126 silly get     connection: 'keep-alive',
+126 silly get     'x-served-by': 'cache-sjc3650-SJC',
+126 silly get     'x-cache': 'HIT',
+126 silly get     'x-cache-hits': '1',
+126 silly get     'x-timer': 'S1519585718.054355,VS0,VE1',
+126 silly get     vary: 'Accept-Encoding, Accept' } ]
+127 verbose get saving sorted-object to /Users/admin/.npm/registry.npmjs.org/sorted-object/.cache.json
+128 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+129 silly resolveWithNewModule sorted-object@2.0.1 checking installable status
+130 silly cache add args [ 'sorted-object@2.0.1', null ]
+131 verbose cache add spec sorted-object@2.0.1
+132 silly cache add parsed spec Result {
+132 silly cache add   raw: 'sorted-object@2.0.1',
+132 silly cache add   scope: null,
+132 silly cache add   name: 'sorted-object',
+132 silly cache add   rawSpec: '2.0.1',
+132 silly cache add   spec: '2.0.1',
+132 silly cache add   type: 'version' }
+133 silly addNamed sorted-object@2.0.1
+134 verbose addNamed "2.0.1" is a plain semver version for sorted-object
+135 silly mapToRegistry name sorted-object
+136 silly mapToRegistry using default registry
+137 silly mapToRegistry registry https://registry.npmjs.org/
+138 silly mapToRegistry data Result {
+138 silly mapToRegistry   raw: 'sorted-object',
+138 silly mapToRegistry   scope: null,
+138 silly mapToRegistry   name: 'sorted-object',
+138 silly mapToRegistry   rawSpec: '',
+138 silly mapToRegistry   spec: 'latest',
+138 silly mapToRegistry   type: 'tag' }
+139 silly mapToRegistry uri https://registry.npmjs.org/sorted-object
+140 verbose addNameVersion registry:https://registry.npmjs.org/sorted-object not in flight; fetching
+141 verbose get https://registry.npmjs.org/sorted-object not expired, no request
+142 silly mapToRegistry name sorted-object
+143 silly mapToRegistry using default registry
+144 silly mapToRegistry registry https://registry.npmjs.org/
+145 silly mapToRegistry data Result {
+145 silly mapToRegistry   raw: 'sorted-object',
+145 silly mapToRegistry   scope: null,
+145 silly mapToRegistry   name: 'sorted-object',
+145 silly mapToRegistry   rawSpec: '',
+145 silly mapToRegistry   spec: 'latest',
+145 silly mapToRegistry   type: 'tag' }
+146 silly mapToRegistry uri https://registry.npmjs.org/sorted-object
+147 verbose addRemoteTarball https://registry.npmjs.org/sorted-object/-/sorted-object-2.0.1.tgz not in flight; adding
+148 verbose addRemoteTarball [ 'https://registry.npmjs.org/sorted-object/-/sorted-object-2.0.1.tgz',
+148 verbose addRemoteTarball   '7d631f4bd3a798a24af1dffcfbfe83337a5df5fc' ]
+149 info retry fetch attempt 1 at 11:08:38
+150 info attempt registry request try #1 at 11:08:38
+151 http fetch GET https://registry.npmjs.org/sorted-object/-/sorted-object-2.0.1.tgz
+152 verbose request using bearer token for auth
+153 http fetch 200 https://registry.npmjs.org/sorted-object/-/sorted-object-2.0.1.tgz
+154 silly fetchAndShaCheck shasum 7d631f4bd3a798a24af1dffcfbfe83337a5df5fc
+155 verbose addTmpTarball /var/folders/lv/3hk3xxxn2ygbndd4qj9zkmcm0000gp/T/npm-26926-837e87e0/registry.npmjs.org/sorted-object/-/sorted-object-2.0.1.tgz not in flight; adding
+156 verbose addTmpTarball already have metadata; skipping unpack for sorted-object@2.0.1
+157 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+158 silly cache afterAdd sorted-object@2.0.1
+159 verbose afterAdd /Users/admin/.npm/sorted-object/2.0.1/package/package.json not in flight; writing
+160 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+161 verbose afterAdd /Users/admin/.npm/sorted-object/2.0.1/package/package.json written
+162 http 304 https://registry.npmjs.org/mkdirp
+163 verbose headers { date: 'Sun, 25 Feb 2018 19:08:38 GMT',
+163 verbose headers   via: '1.1 varnish',
+163 verbose headers   'cache-control': 'max-age=300',
+163 verbose headers   etag: '"5a871c84-69ac"',
+163 verbose headers   age: '3900',
+163 verbose headers   connection: 'keep-alive',
+163 verbose headers   'x-served-by': 'cache-sjc3127-SJC',
+163 verbose headers   'x-cache': 'HIT',
+163 verbose headers   'x-cache-hits': '16',
+163 verbose headers   'x-timer': 'S1519585718.090435,VS0,VE0',
+163 verbose headers   vary: 'Accept-Encoding, Accept' }
+164 silly get cb [ 304,
+164 silly get   { date: 'Sun, 25 Feb 2018 19:08:38 GMT',
+164 silly get     via: '1.1 varnish',
+164 silly get     'cache-control': 'max-age=300',
+164 silly get     etag: '"5a871c84-69ac"',
+164 silly get     age: '3900',
+164 silly get     connection: 'keep-alive',
+164 silly get     'x-served-by': 'cache-sjc3127-SJC',
+164 silly get     'x-cache': 'HIT',
+164 silly get     'x-cache-hits': '16',
+164 silly get     'x-timer': 'S1519585718.090435,VS0,VE0',
+164 silly get     vary: 'Accept-Encoding, Accept' } ]
+165 verbose etag https://registry.npmjs.org/mkdirp from cache
+166 verbose get saving mkdirp to /Users/admin/.npm/registry.npmjs.org/mkdirp/.cache.json
+167 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+168 silly resolveWithNewModule mkdirp@0.5.1 checking installable status
+169 silly cache add args [ 'mkdirp@0.5.1', null ]
+170 verbose cache add spec mkdirp@0.5.1
+171 silly cache add parsed spec Result {
+171 silly cache add   raw: 'mkdirp@0.5.1',
+171 silly cache add   scope: null,
+171 silly cache add   name: 'mkdirp',
+171 silly cache add   rawSpec: '0.5.1',
+171 silly cache add   spec: '0.5.1',
+171 silly cache add   type: 'version' }
+172 silly addNamed mkdirp@0.5.1
+173 verbose addNamed "0.5.1" is a plain semver version for mkdirp
+174 silly mapToRegistry name mkdirp
+175 silly mapToRegistry using default registry
+176 silly mapToRegistry registry https://registry.npmjs.org/
+177 silly mapToRegistry data Result {
+177 silly mapToRegistry   raw: 'mkdirp',
+177 silly mapToRegistry   scope: null,
+177 silly mapToRegistry   name: 'mkdirp',
+177 silly mapToRegistry   rawSpec: '',
+177 silly mapToRegistry   spec: 'latest',
+177 silly mapToRegistry   type: 'tag' }
+178 silly mapToRegistry uri https://registry.npmjs.org/mkdirp
+179 verbose addNameVersion registry:https://registry.npmjs.org/mkdirp not in flight; fetching
+180 verbose get https://registry.npmjs.org/mkdirp not expired, no request
+181 http 200 https://registry.npmjs.org/ejs
+182 verbose headers { 'content-type': 'application/json; charset=UTF-8',
+182 verbose headers   server: 'UploadServer',
+182 verbose headers   'cache-control': 'max-age=300',
+182 verbose headers   'last-modified': 'Fri, 23 Feb 2018 20:02:36 GMT',
+182 verbose headers   etag: '"5a90735c-12102"',
+182 verbose headers   'x-npm-region': 'US-West',
+182 verbose headers   'content-encoding': 'gzip',
+182 verbose headers   'content-length': '11657',
+182 verbose headers   'accept-ranges': 'bytes',
+182 verbose headers   date: 'Sun, 25 Feb 2018 19:08:38 GMT',
+182 verbose headers   via: '1.1 varnish',
+182 verbose headers   age: '10694',
+182 verbose headers   connection: 'keep-alive',
+182 verbose headers   'x-served-by': 'cache-sjc3145-SJC',
+182 verbose headers   'x-cache': 'HIT',
+182 verbose headers   'x-cache-hits': '5',
+182 verbose headers   'x-timer': 'S1519585718.092388,VS0,VE0',
+182 verbose headers   vary: 'Accept-Encoding, Accept' }
+183 silly get cb [ 200,
+183 silly get   { 'content-type': 'application/json; charset=UTF-8',
+183 silly get     server: 'UploadServer',
+183 silly get     'cache-control': 'max-age=300',
+183 silly get     'last-modified': 'Fri, 23 Feb 2018 20:02:36 GMT',
+183 silly get     etag: '"5a90735c-12102"',
+183 silly get     'x-npm-region': 'US-West',
+183 silly get     'content-encoding': 'gzip',
+183 silly get     'content-length': '11657',
+183 silly get     'accept-ranges': 'bytes',
+183 silly get     date: 'Sun, 25 Feb 2018 19:08:38 GMT',
+183 silly get     via: '1.1 varnish',
+183 silly get     age: '10694',
+183 silly get     connection: 'keep-alive',
+183 silly get     'x-served-by': 'cache-sjc3145-SJC',
+183 silly get     'x-cache': 'HIT',
+183 silly get     'x-cache-hits': '5',
+183 silly get     'x-timer': 'S1519585718.092388,VS0,VE0',
+183 silly get     vary: 'Accept-Encoding, Accept' } ]
+184 verbose get saving ejs to /Users/admin/.npm/registry.npmjs.org/ejs/.cache.json
+185 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+186 silly cache afterAdd mkdirp@0.5.1
+187 verbose afterAdd /Users/admin/.npm/mkdirp/0.5.1/package/package.json not in flight; writing
+188 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+189 silly resolveWithNewModule ejs@2.5.7 checking installable status
+190 silly cache add args [ 'ejs@2.5.7', null ]
+191 verbose cache add spec ejs@2.5.7
+192 silly cache add parsed spec Result {
+192 silly cache add   raw: 'ejs@2.5.7',
+192 silly cache add   scope: null,
+192 silly cache add   name: 'ejs',
+192 silly cache add   rawSpec: '2.5.7',
+192 silly cache add   spec: '2.5.7',
+192 silly cache add   type: 'version' }
+193 silly addNamed ejs@2.5.7
+194 verbose addNamed "2.5.7" is a plain semver version for ejs
+195 silly mapToRegistry name ejs
+196 silly mapToRegistry using default registry
+197 silly mapToRegistry registry https://registry.npmjs.org/
+198 silly mapToRegistry data Result {
+198 silly mapToRegistry   raw: 'ejs',
+198 silly mapToRegistry   scope: null,
+198 silly mapToRegistry   name: 'ejs',
+198 silly mapToRegistry   rawSpec: '',
+198 silly mapToRegistry   spec: 'latest',
+198 silly mapToRegistry   type: 'tag' }
+199 silly mapToRegistry uri https://registry.npmjs.org/ejs
+200 verbose addNameVersion registry:https://registry.npmjs.org/ejs not in flight; fetching
+201 verbose get https://registry.npmjs.org/ejs not expired, no request
+202 verbose afterAdd /Users/admin/.npm/mkdirp/0.5.1/package/package.json written
+203 http 200 https://registry.npmjs.org/commander
+204 verbose headers { 'content-type': 'application/json; charset=UTF-8',
+204 verbose headers   server: 'UploadServer',
+204 verbose headers   'cache-control': 'max-age=300',
+204 verbose headers   'last-modified': 'Fri, 23 Feb 2018 3:03:50 GMT',
+204 verbose headers   etag: '"5a8f8496-14d1a"',
+204 verbose headers   'x-npm-region': 'US-West',
+204 verbose headers   'content-encoding': 'gzip',
+204 verbose headers   'content-length': '17352',
+204 verbose headers   'accept-ranges': 'bytes',
+204 verbose headers   date: 'Sun, 25 Feb 2018 19:08:38 GMT',
+204 verbose headers   via: '1.1 varnish',
+204 verbose headers   age: '189',
+204 verbose headers   connection: 'keep-alive',
+204 verbose headers   'x-served-by': 'cache-sjc3645-SJC',
+204 verbose headers   'x-cache': 'HIT',
+204 verbose headers   'x-cache-hits': '2',
+204 verbose headers   'x-timer': 'S1519585718.089768,VS0,VE0',
+204 verbose headers   vary: 'Accept-Encoding, Accept' }
+205 silly get cb [ 200,
+205 silly get   { 'content-type': 'application/json; charset=UTF-8',
+205 silly get     server: 'UploadServer',
+205 silly get     'cache-control': 'max-age=300',
+205 silly get     'last-modified': 'Fri, 23 Feb 2018 3:03:50 GMT',
+205 silly get     etag: '"5a8f8496-14d1a"',
+205 silly get     'x-npm-region': 'US-West',
+205 silly get     'content-encoding': 'gzip',
+205 silly get     'content-length': '17352',
+205 silly get     'accept-ranges': 'bytes',
+205 silly get     date: 'Sun, 25 Feb 2018 19:08:38 GMT',
+205 silly get     via: '1.1 varnish',
+205 silly get     age: '189',
+205 silly get     connection: 'keep-alive',
+205 silly get     'x-served-by': 'cache-sjc3645-SJC',
+205 silly get     'x-cache': 'HIT',
+205 silly get     'x-cache-hits': '2',
+205 silly get     'x-timer': 'S1519585718.089768,VS0,VE0',
+205 silly get     vary: 'Accept-Encoding, Accept' } ]
+206 verbose get saving commander to /Users/admin/.npm/registry.npmjs.org/commander/.cache.json
+207 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+208 silly cache afterAdd ejs@2.5.7
+209 verbose afterAdd /Users/admin/.npm/ejs/2.5.7/package/package.json not in flight; writing
+210 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+211 silly resolveWithNewModule commander@2.11.0 checking installable status
+212 silly cache add args [ 'commander@2.11.0', null ]
+213 verbose cache add spec commander@2.11.0
+214 silly cache add parsed spec Result {
+214 silly cache add   raw: 'commander@2.11.0',
+214 silly cache add   scope: null,
+214 silly cache add   name: 'commander',
+214 silly cache add   rawSpec: '2.11.0',
+214 silly cache add   spec: '2.11.0',
+214 silly cache add   type: 'version' }
+215 silly addNamed commander@2.11.0
+216 verbose addNamed "2.11.0" is a plain semver version for commander
+217 silly mapToRegistry name commander
+218 silly mapToRegistry using default registry
+219 silly mapToRegistry registry https://registry.npmjs.org/
+220 silly mapToRegistry data Result {
+220 silly mapToRegistry   raw: 'commander',
+220 silly mapToRegistry   scope: null,
+220 silly mapToRegistry   name: 'commander',
+220 silly mapToRegistry   rawSpec: '',
+220 silly mapToRegistry   spec: 'latest',
+220 silly mapToRegistry   type: 'tag' }
+221 silly mapToRegistry uri https://registry.npmjs.org/commander
+222 verbose addNameVersion registry:https://registry.npmjs.org/commander not in flight; fetching
+223 verbose get https://registry.npmjs.org/commander not expired, no request
+224 verbose afterAdd /Users/admin/.npm/ejs/2.5.7/package/package.json written
+225 silly cache afterAdd commander@2.11.0
+226 verbose afterAdd /Users/admin/.npm/commander/2.11.0/package/package.json not in flight; writing
+227 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+228 verbose afterAdd /Users/admin/.npm/commander/2.11.0/package/package.json written
+229 silly fetchNamedPackageData minimist
+230 silly mapToRegistry name minimist
+231 silly mapToRegistry using default registry
+232 silly mapToRegistry registry https://registry.npmjs.org/
+233 silly mapToRegistry data Result {
+233 silly mapToRegistry   raw: 'minimist',
+233 silly mapToRegistry   scope: null,
+233 silly mapToRegistry   name: 'minimist',
+233 silly mapToRegistry   rawSpec: '',
+233 silly mapToRegistry   spec: 'latest',
+233 silly mapToRegistry   type: 'tag' }
+234 silly mapToRegistry uri https://registry.npmjs.org/minimist
+235 verbose request uri https://registry.npmjs.org/minimist
+236 verbose request no auth needed
+237 info attempt registry request try #1 at 11:08:38
+238 verbose request using bearer token for auth
+239 verbose etag "5a8971ed-798d"
+240 verbose lastModified Sun, 18 Feb 2018 12:30:37 GMT
+241 http request GET https://registry.npmjs.org/minimist
+242 http 200 https://registry.npmjs.org/minimist
+243 verbose headers { 'content-type': 'application/json; charset=UTF-8',
+243 verbose headers   server: 'UploadServer',
+243 verbose headers   'cache-control': 'max-age=300',
+243 verbose headers   'last-modified': 'Sun, 25 Feb 2018 12:44:53 GMT',
+243 verbose headers   etag: '"5a92afc5-79d1"',
+243 verbose headers   'x-npm-region': 'US-West',
+243 verbose headers   'content-encoding': 'gzip',
+243 verbose headers   'content-length': '6246',
+243 verbose headers   'accept-ranges': 'bytes',
+243 verbose headers   date: 'Sun, 25 Feb 2018 19:08:38 GMT',
+243 verbose headers   via: '1.1 varnish',
+243 verbose headers   age: '8551',
+243 verbose headers   connection: 'keep-alive',
+243 verbose headers   'x-served-by': 'cache-sjc3650-SJC',
+243 verbose headers   'x-cache': 'HIT',
+243 verbose headers   'x-cache-hits': '14',
+243 verbose headers   'x-timer': 'S1519585718.148487,VS0,VE0',
+243 verbose headers   vary: 'Accept-Encoding, Accept' }
+244 silly get cb [ 200,
+244 silly get   { 'content-type': 'application/json; charset=UTF-8',
+244 silly get     server: 'UploadServer',
+244 silly get     'cache-control': 'max-age=300',
+244 silly get     'last-modified': 'Sun, 25 Feb 2018 12:44:53 GMT',
+244 silly get     etag: '"5a92afc5-79d1"',
+244 silly get     'x-npm-region': 'US-West',
+244 silly get     'content-encoding': 'gzip',
+244 silly get     'content-length': '6246',
+244 silly get     'accept-ranges': 'bytes',
+244 silly get     date: 'Sun, 25 Feb 2018 19:08:38 GMT',
+244 silly get     via: '1.1 varnish',
+244 silly get     age: '8551',
+244 silly get     connection: 'keep-alive',
+244 silly get     'x-served-by': 'cache-sjc3650-SJC',
+244 silly get     'x-cache': 'HIT',
+244 silly get     'x-cache-hits': '14',
+244 silly get     'x-timer': 'S1519585718.148487,VS0,VE0',
+244 silly get     vary: 'Accept-Encoding, Accept' } ]
+245 verbose get saving minimist to /Users/admin/.npm/registry.npmjs.org/minimist/.cache.json
+246 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+247 silly resolveWithNewModule minimist@0.0.8 checking installable status
+248 silly cache add args [ 'minimist@0.0.8', null ]
+249 verbose cache add spec minimist@0.0.8
+250 silly cache add parsed spec Result {
+250 silly cache add   raw: 'minimist@0.0.8',
+250 silly cache add   scope: null,
+250 silly cache add   name: 'minimist',
+250 silly cache add   rawSpec: '0.0.8',
+250 silly cache add   spec: '0.0.8',
+250 silly cache add   type: 'version' }
+251 silly addNamed minimist@0.0.8
+252 verbose addNamed "0.0.8" is a plain semver version for minimist
+253 silly mapToRegistry name minimist
+254 silly mapToRegistry using default registry
+255 silly mapToRegistry registry https://registry.npmjs.org/
+256 silly mapToRegistry data Result {
+256 silly mapToRegistry   raw: 'minimist',
+256 silly mapToRegistry   scope: null,
+256 silly mapToRegistry   name: 'minimist',
+256 silly mapToRegistry   rawSpec: '',
+256 silly mapToRegistry   spec: 'latest',
+256 silly mapToRegistry   type: 'tag' }
+257 silly mapToRegistry uri https://registry.npmjs.org/minimist
+258 verbose addNameVersion registry:https://registry.npmjs.org/minimist not in flight; fetching
+259 verbose get https://registry.npmjs.org/minimist not expired, no request
+260 silly cache afterAdd minimist@0.0.8
+261 verbose afterAdd /Users/admin/.npm/minimist/0.0.8/package/package.json not in flight; writing
+262 verbose correctMkdir /Users/admin/.npm correctMkdir not in flight; initializing
+263 verbose afterAdd /Users/admin/.npm/minimist/0.0.8/package/package.json written
+264 silly loadAllDepsIntoIdealTree Finishing
+265 silly idealTree:prePrune lib
+265 silly idealTree:prePrune └─┬ express-generator@4.15.5
+265 silly idealTree:prePrune   ├── commander@2.11.0
+265 silly idealTree:prePrune   ├── ejs@2.5.7
+265 silly idealTree:prePrune   ├── minimist@0.0.8
+265 silly idealTree:prePrune   ├── mkdirp@0.5.1
+265 silly idealTree:prePrune   └── sorted-object@2.0.1
+266 silly loadIdealTree Finishing
+267 silly currentTree lib
+268 silly idealTree lib
+268 silly idealTree └─┬ express-generator@4.15.5
+268 silly idealTree   ├── commander@2.11.0
+268 silly idealTree   ├── ejs@2.5.7
+268 silly idealTree   ├── minimist@0.0.8
+268 silly idealTree   ├── mkdirp@0.5.1
+268 silly idealTree   └── sorted-object@2.0.1
+269 silly generateActionsToTake Starting
+270 silly install generateActionsToTake
+271 warn checkPermissions Missing write access to /usr/local/lib/node_modules
+272 silly rollbackFailedOptional Starting
+273 silly rollbackFailedOptional Finishing
+274 silly runTopLevelLifecycles Starting
+275 silly runTopLevelLifecycles Finishing
+276 silly install printInstalled
+277 verbose stack Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
+278 verbose cwd /www/ps-jobs/api
+279 error Darwin 16.7.0
+280 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "express-generator"
+281 error node v9.4.0
+282 error npm  v3.8.6
+283 error path /usr/local/lib/node_modules
+284 error code EACCES
+285 error errno -13
+286 error syscall access
+287 error Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
+287 error  { Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
+287 error   errno: -13,
+287 error   code: 'EACCES',
+287 error   syscall: 'access',
+287 error   path: '/usr/local/lib/node_modules' }
+288 error Please try running this command again as root/Administrator.
+289 verbose exit [ -13, true ]

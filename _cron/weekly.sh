@@ -1,46 +1,32 @@
-# sudo /opt/letsencrypt/letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d api.allevents.nyc
-
-# /opt/letsencrypt/letsencrypt-auto renew >> /var/log/le-renew.log
-# /etc/init.d/nginx reload
-
-# /opt/letsencrypt/letsencrypt-auto renew
-# reboot
-
-
-
-# vim /etc/nginx/sites-available/default
+sudo certbot renew
+service nginx restart
 
 # server {
-
+#         server_name default;
 #         listen 80;
 #         listen [::]:80;
+#         listen 443 ssl http2;
+#         listen [::]:443 ssl http2 ipv6only=on;
+#         ssl_certificate /etc/letsencrypt/live/jobs.paulshorey.com/fullchain.pem;
+#         ssl_certificate_key /etc/letsencrypt/live/jobs.paulshorey.com/privkey.pem;
+#         ssl_trusted_certificate /etc/letsencrypt/live/jobs.paulshorey.com/fullchain.pem;
+#         include /etc/nginx/snippets/ssl.conf;
 
-#         server_name default;
-#         root /www/ps-jobs/static;
+#     location / {
+#             proxy_set_header   X-Forwarded-For $remote_addr;
+#             proxy_set_header   Host $http_host;
+#             proxy_pass         "http://localhost:3000";
+#     }
 
-#         try_files $uri $uri/;
-# }
+#     location /static {
+#             root /www/ps-jobs/;
+#             try_files $uri /;
+#     }
 
-# server {
-#   listen 80;
-#   server_name localhost;
-#   return 301 https://$host$request_uri;
-# }
-# server {
-#   listen 443 ssl;
-#   server_name localhost;
+#     location ~ /\.well-known/acme-challenge {
+#             default_type "text/plain";
+#             root /www/sslcert;
+#             try_files /$uri /;
+#     }
 
-#   ssl_certificate /etc/letsencrypt/live/api.allevents.nyc/fullchain.pem;
-#   ssl_certificate_key /etc/letsencrypt/live/api.allevents.nyc/privkey.pem;
-
-#   root /usr/share/nginx/html;
-#   index index.html index.htm index.nginx-debian.html;
-
-#   location / {
-#     try_files $uri $uri/ =404;
-#   }
-
-#   location ^~ /.well-known/ {
-#     allow all;
-#   }
 # }
