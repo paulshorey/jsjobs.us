@@ -1,1 +1,3 @@
-mongod --dbpath /www/db --auth
+
+rm /var/lib/mongodb/mongod.lock
+mongod --dbpath /www/db
