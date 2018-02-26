@@ -160,7 +160,6 @@ global.app.get('/v1/jobs/all', function(request, response) {
     
     // format response
     let data = Object.values(jobsDB);
-    let thelimit = "test";
 
     if (data[0]) {
 
