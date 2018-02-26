@@ -74,17 +74,30 @@ global.server.use(global.rqr.bodyParser.json());
 global.server.use(global.rqr.bodyParser.urlencoded({ extended: false }));
 global.server.use(global.rqr.cookieParser());
 /*
+temporary
+*/
+global.jobsDB = [];
+/*
 global.model
 global.collection
 */
 global.model = {};
 global.collection = {};
 global.rqr.mongoose.connect('mongodb://'+global.shh.mongod.user+':'+global.shh.mongod.pwd+'@localhost');
-global.collection.jobs = global.rqr.mongoose.connection.collection('jobs');
-global.jobsDB = [];
-global.collection.jobs.find({}).toArray(function(error, data) {
-	global.jobsDB = data;
+global.collection.jobs = global.rqr.mongoose.connection.collection('jobs', function(err, collection) {
+	collection.find({}).toArray(function(error, data) {
+		global.jobsDB = data;
+	});
 });
+setTimeout(function(){
+	global.collection.jobs.find({}).toArray(function(error, data) {
+		global.jobsDB = data;
+	});
+},1000);
+// global.jobsDB = [];
+// global.collection.jobs.find({}).toArray(function(error, data) {
+// 	global.jobsDB = data;
+// });
 
 
 /************************************************************************************
@@ -108,8 +121,6 @@ response.end();
 */
 global.server.get('/api/v1/jobs', function(request, response) {
 	let data = global.jobsDB;
-	// oops!
-	if (error) throw error;
 	// ok!
 	if (data[0]) {
 	// filter
