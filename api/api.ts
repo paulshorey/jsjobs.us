@@ -102,7 +102,7 @@ response.end();
 /*
 	API: GET
 */
-global.server.get('/v1/jobs', function(request, response) {
+global.server.get('/api/v1/jobs', function(request, response) {
 	let data = global.collection.jobs.find({}).toArray(function(error, data) {
 	// oops!
 	if (error) throw error;
@@ -140,7 +140,7 @@ global.server.get('/v1/jobs', function(request, response) {
 /*
 	API: POST
 */
-global.server.post('/v1/jobs-apify-webhook', function(request, response) {
+global.server.post('/api/v1/jobs-apify-webhook', function(request, response) {
 	// dev env
 	if (!request.body._id) {
 		request.body._id = "QhYiWH5sRYN4Rf8vP";
@@ -162,9 +162,9 @@ global.server.post('/v1/jobs-apify-webhook', function(request, response) {
 					let job = resultsData[rD].pageFunctionResult;
 					resultsProcessed += processJobs(job);
 				}
-				global.logger.info({ "API: POST `/v1/jobs-apify-webhook` successful": { source: resultsUrl, results: resultsProcessed }});
+				global.logger.info({ "API: POST `/api/v1/jobs-apify-webhook` successful": { source: resultsUrl, results: resultsProcessed }});
 			} else {
-				global.logger.error({"API: POST `/v1/jobs-apify-webhook` failed to return data: ": resultsUrl});
+				global.logger.error({"API: POST `/api/v1/jobs-apify-webhook` failed to return data: ": resultsUrl});
 			}
 		});
 	});
