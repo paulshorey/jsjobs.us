@@ -2,8 +2,9 @@ import React from 'react'
 import 'isomorphic-unfetch'
 import Nav from 'components/nav'
 const getHostname = function(){
+  console.log('getHostname()');
   if (window && window.location) {
-    return window.location.protocol+"://"+window.location.hostname;
+    return window.location.protocol+"//"+window.location.hostname;
   } else {
     return "http://localhost";
   }
