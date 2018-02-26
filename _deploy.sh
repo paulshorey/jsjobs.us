@@ -7,16 +7,15 @@ cd /www/ps-jobs
 git add .;
 git reset HEAD -\-hard;
 git pull;
-npm install;
+yarn install;
+pm2 restart _deploy;
 
 # api
 cd /www/ps-jobs/api;
-npm install;
+yarn install;
+pm2 restart www;
 
 # app
 cd /www/ps-jobs/app;
-npm install;
-npm run build;
-
-# all
-pm2 restart all;
+yarn install;
+pm2 restart app;
