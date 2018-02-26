@@ -1,8 +1,7 @@
 {
-    "presets": ["stage-0", "es2015", "react"],
+    "presets": "next/babel",
     "plugins": [
       [
-        "transform-runtime",
         "module-resolver",
         {
           "root": ["./"],
