@@ -2,6 +2,18 @@ import React from 'react'
 import 'isomorphic-unfetch'
 import Nav from 'components/nav'
 
+const getHostname = function(){
+  console.log( '(typeof window) ...' + typeof window );
+  console.log( '(typeof window === "undefined") ...' + (typeof window === "undefined") );
+  // if (typeof window !== "undefined" && window.location) {
+  //   console.log(window.location.protocol+"//"+window.location.hostname);
+  //   return window.location.protocol+"//"+window.location.hostname;
+  // } else {
+  //   console.log('http://localhost');
+  //   return "http://localhost";
+  // }
+};
+
 export default class MyPage extends React.Component {
     static async getInitialProps (params) {
         // console.log("\search getInitialProps", params, "\n");
