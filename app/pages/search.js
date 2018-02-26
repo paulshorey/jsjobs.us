@@ -6,7 +6,7 @@ export default class MyPage extends React.Component {
     static async getInitialProps (params) {
         // console.log("\search getInitialProps", params, "\n");
         // eslint-disable-next-line no-undef
-        const hostname = process ? 'localhost' : 'jsjobs.us';
+        const hostname = process ? 'localhost' : 'jobs.paulshorey.com';
         const res = await fetch('//'+hostname+'/api/v1/jobs?text='+(params.query.search||''))
         const json = await res.json()
         return { jobs_count:json.results, jobs:json.data };
