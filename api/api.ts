@@ -81,6 +81,10 @@ global.model = {};
 global.collection = {};
 global.rqr.mongoose.connect('mongodb://'+global.shh.mongod.user+':'+global.shh.mongod.pwd+'@localhost');
 global.collection.jobs = global.rqr.mongoose.connection.collection('jobs');
+global.jobsDB = [];
+global.collection.jobs.find({}).toArray(function(error, data) {
+	global.jobsDB = data;
+});
 
 
 /************************************************************************************
@@ -103,7 +107,7 @@ response.end();
 	API: GET
 */
 global.server.get('/api/v1/jobs', function(request, response) {
-	let data = global.collection.jobs.find({}).toArray(function(error, data) {
+	let data = global.jobsDB;
 	// oops!
 	if (error) throw error;
 	// ok!
@@ -135,7 +139,6 @@ global.server.get('/api/v1/jobs', function(request, response) {
 	response.writeHead(200);
 	response.write(JSON.stringify({results:data.length,data:data},null,"\t"));
 	response.end();
-});
 });
 /*
 	API: POST
@@ -196,6 +199,8 @@ const processJobs = function(results){
 		// save to DB
 		res._status = "new";
 		res._id = global.rqr.crypto.createHash('md5').update(res.name+" "+res.company).digest('hex');
+		// memory
+		global.jobsDB[res._id] = res;
 		// mongoose
 		global.collection.jobs.save(res);
 		added++;
