@@ -13,13 +13,16 @@ const routes = require('./routes')
 const app = next(devApp)
 const handler = routes.getRequestHandler(app)
 
-
 app.prepare()
 .then(() => {
 	/*
 		Application ROUTES
 	*/
 	server.use(handler);
+	server.get('/*',function(req,res,next){
+		res.header('Vary' , "Accept-Encoding" );
+		next();
+	});
 
 	/*
 		START SERVER

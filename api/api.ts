@@ -85,9 +85,9 @@ global.model = {};
 global.collection = {};
 global.rqr.mongoose.connect('mongodb://'+global.shh.mongod.user+':'+global.shh.mongod.pwd+'@localhost');
 global.collection.jobs = global.rqr.mongoose.connection.collection('jobs', function(err, collection) {
-	collection.find({}).toArray(function(error, data) {
-		global.jobsDB = data;
-	});
+	// collection.find({}).toArray(function(error, data) {
+	// 	global.jobsDB = data;
+	// });
 });
 setTimeout(function(){
 	global.collection.jobs.find({}).toArray(function(error, data) {

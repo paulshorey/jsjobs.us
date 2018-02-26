@@ -18,6 +18,7 @@ export default class MyDocument extends Document {
             <meta httpEquiv="expires" content="0" />
             <meta httpEquiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
             <meta httpEquiv="pragma" content="no-cache" />
+            <link href="/static/images/puzzle.ico" rel="shortcut icon" type="image/x-icon" />
         </Head>
         <body className="custom_class">
           <Main />

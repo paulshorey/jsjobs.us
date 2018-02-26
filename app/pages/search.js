@@ -2,20 +2,26 @@ import React from 'react'
 import 'isomorphic-unfetch'
 import Nav from 'components/nav'
 
-const getHostname = function(){
+// this **** is NOT ok:
+const getAPIHostname = function(){
 	if (typeof window === "undefined") {
-		console.log('lets try localhost');
-		return "http://localhost";
+		console.log('getAPIHostname => http://localhost:1080');
+		return "http://localhost:1080";
 	} else {
-		console.log(window.location.protocol+"//"+window.location.hostname);
-		return window.location.protocol+"//"+window.location.hostname;
+		if (window.location.hostname==="localhost") {
+			console.log("getAPIHostname => "+window.location.protocol+"//"+window.location.hostname+":1080");
+			return window.location.protocol+"//"+window.location.hostname+":1080";
+		} else {
+			console.log("getAPIHostname => "+window.location.protocol+"//"+window.location.hostname);
+			return window.location.protocol+"//"+window.location.hostname;
+		}
 	}
 };
 
 export default class MyPage extends React.Component {
 	static async getInitialProps (params) {
 		// eslint-disable-next-line no-undef
-		const res = await fetch(getHostname()+'/api/v1/jobs?text='+(params.query.search||''))
+		const res = await fetch(getAPIHostname()+'/api/v1/jobs?text='+(params.query.search||''))
 		const json = await res.json()
 		return { jobs_count:json.results, jobs:json.data };
 	}

@@ -135,7 +135,8 @@ var MyDocument = function (_Document) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { httpEquiv: 'cache-control', content: 'no-cache' }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { httpEquiv: 'expires', content: '0' }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { httpEquiv: 'expires', content: 'Tue, 01 Jan 1980 1:00:00 GMT' }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { httpEquiv: 'pragma', content: 'no-cache' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { httpEquiv: 'pragma', content: 'no-cache' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { href: '/static/images/puzzle.ico', rel: 'shortcut icon', type: 'image/x-icon' })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'body',

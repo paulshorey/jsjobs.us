@@ -155,6 +155,62 @@ var Nav = function (_React$Component) {
               )
             )
           )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'nav_section' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1__routes__["Link"],
+              { prefetch: true, route: '/search/samsung' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                null,
+                'search "samsung" \xBB'
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1__routes__["Link"],
+              { prefetch: true, route: '/search/apple' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                null,
+                'search "apple" \xBB'
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1__routes__["Link"],
+              { prefetch: true, route: '/search/vaco' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                null,
+                'search "vaco" \xBB'
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1__routes__["Link"],
+              { prefetch: true, route: '/search/google' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                null,
+                'search "google" \xBB'
+              )
+            )
+          )
         )
       );
     }
