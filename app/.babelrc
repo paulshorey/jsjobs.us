@@ -2,6 +2,7 @@
     "presets": "next/babel",
     "plugins": [
       [
+        "transform-runtime",
         "module-resolver",
         {
           "root": ["./"],
