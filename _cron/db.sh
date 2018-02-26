@@ -1,1 +1,1 @@
-mongod --dbpath /www/db
+# mongod --dbpath /www/db

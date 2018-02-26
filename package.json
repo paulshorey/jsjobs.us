@@ -2,6 +2,7 @@
     "name": "deploy-app-and-api-in-separate-folders",
     "version": "0.0.1",
     "scripts": {
+      "mongod": "mongod --dbpath /www/db",
       "appdev": "next build; NODE_ENV=development node app/app.js",
       "apppro": "next build; node app/bin/app.js",
       "apidev": "NODE_ENV=development node api/api.js",
