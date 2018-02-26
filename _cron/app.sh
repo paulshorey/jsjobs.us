@@ -28,6 +28,3 @@ cd /www/ps-jobs/app;
 npm install;
 npm run build;
 pm2 start app.js;
-
-# database
-npm run mongod
