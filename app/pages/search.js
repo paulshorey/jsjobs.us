@@ -2,6 +2,11 @@ import React from 'react'
 import 'isomorphic-unfetch'
 import Nav from 'components/nav'
 const getHostname = function(){
+  if (window && window.location) {
+    return window.location.protocol+"://"+window.location.hostname;
+  } else {
+    return "http://localhost";
+  }
 };
 
 export default class MyPage extends React.Component {
@@ -9,7 +14,7 @@ export default class MyPage extends React.Component {
         // console.log("\search getInitialProps", params, "\n");
         // eslint-disable-next-line no-undef
         // const hostname = 'jobs.paulshorey.com';
-        const res = await fetch('https://jobs.paulshorey.com/api/v1/jobs?text='+(params.query.search||''))
+        const res = await fetch(getHostname()+'/api/v1/jobs?text='+(params.query.search||''))
         const json = await res.json()
         return { jobs_count:json.results, jobs:json.data };
     }
