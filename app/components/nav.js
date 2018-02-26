@@ -10,12 +10,12 @@ export default class Nav extends React.Component {
           <div><Link prefetch route='/'><a>home &raquo;</a></Link></div>
           <div><Link prefetch route='about'><a>about &raquo;</a></Link></div>
         </div>
-        <div className="nav_section">
+        {/* <div className="nav_section">
           <div><Link prefetch route='/search/samsung'><a>search "samsung" &raquo;</a></Link></div>
           <div><Link prefetch route='/search/apple'><a>search "apple" &raquo;</a></Link></div>
           <div><Link prefetch route='/search/vaco'><a>search "vaco" &raquo;</a></Link></div>
           <div><Link prefetch route='/search/google'><a>search "google" &raquo;</a></Link></div>
-        </div>
+        </div> */}
       </div>
     )
   }
