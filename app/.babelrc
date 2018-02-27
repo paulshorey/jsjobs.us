@@ -1,14 +1,25 @@
 {
-    "presets": ["next/babel"],
-    "plugins": [
-      [
-        "module-resolver",
-        {
-          "root": ["./"],
-          "alias": {
-            "components": "./components"
-          }
+  "presets": [
+    [
+      "next/babel",
+      {
+        "styled-jsx": {
+          "plugins": [
+            "styled-jsx-plugin-sass"
+          ]
         }
-      ]
+      }
     ]
-  }
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "components": "./components"
+        }
+      }
+    ]
+  ]
+}

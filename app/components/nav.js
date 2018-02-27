@@ -16,6 +16,14 @@ export default class Nav extends React.Component {
           <div><Link prefetch route='/search/vaco'><a>search "vaco" &raquo;</a></Link></div>
           <div><Link prefetch route='/search/google'><a>search "google" &raquo;</a></Link></div>
         </div>
+        <style jsx>{`
+          .nav {
+            padding:2rem;
+          }
+          .nav_section {
+              display:flex;
+          }
+        `}</style>
       </div>
     )
   }
