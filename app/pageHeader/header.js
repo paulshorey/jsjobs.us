@@ -2,10 +2,13 @@
 import React from 'react'
 import { Link } from 'routes'
 
-export default class Nav extends React.Component {
+import theme from 'pages/_document.theme.js'
+
+export default class Header extends React.Component {
   render () {
     return (
       <div className="nav">
+
         <div className="nav_section">
           <div><Link prefetch route='/'><a>home &raquo;</a></Link></div>
           <div><Link prefetch route='about'><a>about &raquo;</a></Link></div>
@@ -16,6 +19,16 @@ export default class Nav extends React.Component {
           <div><Link prefetch route='/search/vaco'><a>search "vaco" &raquo;</a></Link></div>
           <div><Link prefetch route='/search/google'><a>search "google" &raquo;</a></Link></div>
         </div>
+        
+        <style jsx>{`
+          .nav {
+            padding:2rem;
+          }
+          .nav_section {
+              display:flex;
+          }
+        `}</style>
+
       </div>
     )
   }

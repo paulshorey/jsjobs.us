@@ -1,6 +1,7 @@
 // ./pages/_document.js
 import Document, { Head, Main, NextScript } from 'next/document'
 import flush from 'styled-jsx/server'
+import Header from 'pageHeader/header'
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -21,6 +22,7 @@ export default class MyDocument extends Document {
             <link href="/static/images/puzzle.ico" rel="shortcut icon" type="image/x-icon" />
         </Head>
         <body className="custom_class">
+          <Header />
           <Main />
           <NextScript />
         </body>

@@ -67,61 +67,55 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 11:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 4:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = __webpack_require__(12);
-
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony default export */ __webpack_exports__["default"] = ({
+	topHeight: '4.5rem',
+	sidebarNavWidth: '244px',
+	fontFamily: 'Agenda, Helvetica, sans-serif',
+	containerMaxWidth: '1080px',
+	colorNeutral: '#999999',
+	colorGreen1: '#81c341',
+	colorGreen2: '#6ab81c',
+	colorGreen3: '#659520',
+	colorBlue1: '#277a80',
+	colorBlue2: '#39617a',
+	colorBlue3: '#324E68',
+	colorOrange1: '#fcca56',
+	colorOrange2: '#fdb713',
+	colorOrange3: '#f1a700',
+	colorWarn1: 'rgb(244, 67, 54)',
+	colorWarn2: '#d9534f',
+	colorWarn3: '#bf4343',
+	colorDark1: 'rgb(0, 0, 0)',
+	colorDark2: 'rgb(30,30,30)',
+	colorDark3: 'rgb(60,60,60)',
+	colorLight1: 'rgb(255, 255, 255)',
+	colorLight2: 'rgb(245,245,245)',
+	colorLight3: 'rgb(230,230,230)',
+	colorOnDark1: 'rgba(255, 255, 255, 0.9)',
+	colorOnDark2: 'rgba(255, 255, 255, 0.6)',
+	colorOnDark3: 'rgba(255, 255, 255, 0.3)',
+	colorOnLight1: 'rgba(0, 0, 0, 0.8)',
+	colorOnLight2: 'rgba(0, 0, 0, 0.5)',
+	colorOnLight3: 'rgba(0, 0, 0, 0.2)'
+});
 
 /***/ }),
 
-/***/ 12:
-/***/ (function(module, exports) {
+/***/ 9:
+/***/ (function(module, exports, __webpack_require__) {
 
-// import React from 'react'
-// import 'isomorphic-unfetch'
+module.exports = __webpack_require__(4);
 
-// import Nav from 'components/nav'
-
-// export default class MyPage extends React.Component {
-//   static async getInitialProps () {
-//     // eslint-disable-next-line no-undef
-//     const res = await fetch('http://localhost/api/v1/jobs/all?location=')
-//     const json = await res.json()
-//     const data = { jobs_count:json.results, jobs:json.data };
-//     return data;
-//   }
-
-//   render () {
-//     console.log("\nthis.props", this.props, "\n");
-//     var Jobs = [];
-//     if (this.props && this.props.jobs) {
-//       this.props.jobs.forEach(function(job,i){
-//         Jobs.push(
-//           <div key={job._id}>
-//             <div>{job.text}</div>
-//             <sup>{job.location}</sup>
-//           </div>
-//         );
-//       });
-//     }
-
-//     return (
-//         <div>
-//           <Nav />
-//           <h2>Index... Count: {this.props.jobs_count}</h2>
-//           <div>
-//             {Jobs}
-//           </div>
-//         </div>
-//     )
-//   }
-// }
 
 /***/ })
 

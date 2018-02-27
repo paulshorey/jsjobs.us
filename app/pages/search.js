@@ -1,6 +1,5 @@
 import React from 'react'
 import 'isomorphic-unfetch'
-import Nav from 'components/nav'
 
 // this **** is NOT ok:
 const getAPIHostname = function(){
@@ -19,12 +18,12 @@ const getAPIHostname = function(){
 };
 
 export default class MyPage extends React.Component {
-	static async getInitialProps (params) {
-		// eslint-disable-next-line no-undef
-		const res = await fetch(getAPIHostname()+'/api/v1/jobs?text='+(params.query.search||''))
-		const json = await res.json()
-		return { jobs_count:json.results, jobs:json.data };
-	}
+	// static async getInitialProps (params) {
+	// 	// eslint-disable-next-line no-undef
+	// 	const res = await fetch(getAPIHostname()+'/api/v1/jobs?text='+(params.query.search||''))
+	// 	const json = await res.json()
+	// 	return { jobs_count:json.results, jobs:json.data };
+	// }
   
   render () {
 	// console.log("\search render", this.props, "\n");
@@ -41,7 +40,6 @@ export default class MyPage extends React.Component {
 	}
 	return (
 		<div>
-		  <Nav />
 		  <h2>Search "{this.props.url.query.search}" results: {this.props.jobs_count}</h2>
 		  <div>
 			{Jobs}

@@ -8,10 +8,9 @@ const port = 3000
 const server = require('express')()
 // app.use(favicon(dirname + '/public/favicon.ico'));
 
-
 const routes = require('./routes')
 const app = next(devApp)
-const handler = routes.getRequestHandler(app)
+const handler = routes.getRequestHandler(app, {window:{}})
 
 app.prepare()
 .then(() => {
