@@ -8,7 +8,6 @@ git add .;
 git reset HEAD -\-hard;
 git pull;
 yarn install;
-pm2 restart _deploy;
 
 # api
 cd /www/ps-jobs/api;
@@ -19,3 +18,6 @@ pm2 restart www;
 cd /www/ps-jobs/app;
 yarn install;
 pm2 restart app;
+
+# finish
+pm2 restart _deploy;
