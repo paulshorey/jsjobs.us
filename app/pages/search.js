@@ -17,6 +17,7 @@ const getAPIHostname = function(){
 		}
 	}
 };
+getAPIHostname();
 
 export default class MyPage extends React.Component {
 	static async getInitialProps (params) {

@@ -346,6 +346,7 @@ var getAPIHostname = function getAPIHostname() {
 		}
 	}
 };
+getAPIHostname();
 
 var MyPage = function (_React$Component) {
 	_inherits(MyPage, _React$Component);
