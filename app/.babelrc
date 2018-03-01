@@ -1,25 +1,19 @@
 {
-  "presets": [
-    [
-      "next/babel",
-      {
-        "styled-jsx": {
-          "plugins": [
-            "styled-jsx-plugin-sass"
-          ]
-        }
-      }
+    "presets": [
+      [
+        "razzle/babel"
+      ]
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": ["./src/"],
+          "alias": {
+            "Xcomponents": "./src/components"
+          }
+        },
+        "styled-components"
+      ]
     ]
-  ],
-  "plugins": [
-    [
-      "module-resolver",
-      {
-        "root": ["./"],
-        "alias": {
-          "components": "./components"
-        }
-      }
-    ]
-  ]
-}
+  }

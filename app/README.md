@@ -1,42 +1,21 @@
-# Next.js sample app - loading content and routes
-### lets see if it can handle everything I throw at it
+# Razzle x After.js
 
 ## How to use
 
-### Using `create-next-app`
-
-Download [`create-next-app`](https://github.com/segmentio/create-next-app) to bootstrap the example:
-
-```
-npm i -g create-next-app
-create-next-app --example data-fetch data-fetch-app
-```
-
-### Download manually
-
-Download the example [or clone the repo](https://github.com/zeit/next.js):
+Download the example [or clone the whole project](https://github.com/jaredpalmer/razzle.git):
 
 ```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/data-fetch
-cd data-fetch
+curl https://codeload.github.com/jaredpalmer/razzle/tar.gz/master | tar -xz --strip=2 razzle-master/examples/with-afterjs
+cd with-afterjs
 ```
 
 Install it and run:
 
 ```bash
-npm install
-npm run dev
+yarn install
+yarn start
 ```
 
-Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.co/download))
+## Idea behind the example
 
-```bash
-now
-```
-
-## The idea behind the example
-
-Next.js was conceived to make it easy to create universal apps. That's why fetching data
-on the server and the client when necessary is so easy with Next.
-
-Using `getInitialProps` fetches data on the server for SSR and then on the client when the component is re-mounted (not on the first paint).
+This is a basic, bare-bones example of how to use After.js and Razzle.
