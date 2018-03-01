@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import 'isomorphic-unfetch'
-import logo from 'assets/svg/react.svg';
 import { Link } from 'react-router-dom';
 
 class Home extends Component {
@@ -12,7 +11,6 @@ class Home extends Component {
     return (
       <div className="Home">
         <div className="Home-header">
-          <img src={logo} className="Home-logo" alt="logo" />
           <h2>Welcome to After.js {this.props.whatever}</h2>
         </div>
         <p className="Home-intro">

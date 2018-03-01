@@ -38,8 +38,9 @@ class Document extends React.Component {
           )*/}
         </head>
         <body {...bodyAttrs}>
-          <h1>Custom Document</h1>
+        
           <AfterRoot />
+
           <AfterData data={data}/>
           <script
             type="text/javascript"

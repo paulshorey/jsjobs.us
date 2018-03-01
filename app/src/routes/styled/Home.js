@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const PageHome = styled.div`
+export const Home = styled.div`
 	/* background:yellow; */
 `;
