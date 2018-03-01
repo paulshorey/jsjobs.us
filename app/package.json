@@ -1,34 +1,31 @@
 {
-  "name": "razzle-examples-with-afterjs",
-  "version": "0.8.12",
-  "license": "MIT",
-  "scripts": {
-    "start": "razzle start",
-    "build": "razzle build",
-    "dev": "razzle build;razzle start",
-    "pro": "razzle build;NODE_ENV=production node build/server.js",
-    "test": "razzle test --env=jsdom",
-    "start:prod": "NODE_ENV=production node build/server.js"
-  },
-  "dependencies": {
-    "@jaredpalmer/after": "latest",
-    "express": "^4.16.2",
-    "isomorphic-unfetch": "^2.0.0",
-    "razzle": "^0.8.12",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-helmet": "^5.2.0",
-    "react-router-dom": "^4.2.2",
-    "styled-components": "^3.1.6"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-module-resolver": "^3.1.0",
-    "babel-preset-razzle": "^0.8.7",
-    "babel-preset-react": "^6.24.1",
-    "node-sass": "^4.7.2",
-    "prettier": "^1.11.1",
-    "prettier-loader": "^2.0.1",
-    "styled-jsx-plugin-sass": "^0.2.3"
-  }
+	"name": "jsjobs-us",
+	"version": "0.0.1",
+	"license": "MIT",
+	"scripts": {
+		"start": "razzle start",
+		"build": "razzle build",
+		"dev": "razzle build;razzle start",
+		"pro": "razzle build;NODE_ENV=production node build/server.js",
+		"test": "razzle test --env=jsdom",
+		"start:prod": "NODE_ENV=production node build/server.js",
+		"test-better-scripts":
+			"https://www.npmjs.com/package/eslint-config-with-prettier"
+	},
+	"dependencies": {
+		"@jaredpalmer/after": "latest",
+		"express": "^4.16.2",
+		"isomorphic-unfetch": "^2.0.0",
+		"razzle": "^0.8.12",
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0",
+		"react-helmet": "^5.2.0",
+		"react-router-dom": "^4.2.2",
+		"styled-components": "^3.1.6"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-plugin-module-resolver": "^3.1.0",
+		"babel-preset-razzle": "^0.8.7"
+	}
 }
