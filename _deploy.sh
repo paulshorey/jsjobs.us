@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# deploy
+# git
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/gitlab
 cd /www/ps-jobs
@@ -17,7 +17,7 @@ pm2 restart www;
 # app
 cd /www/ps-jobs/app;
 yarn install;
-pm2 restart app;
+pm2 restart server;
 
-# finish
+# deploy
 pm2 restart _deploy;

@@ -4,7 +4,7 @@
 # iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 1443
 # ufw allow 443/tcp
 
-# deploy
+# git
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/gitlab
 cd /www/ps-jobs
@@ -12,7 +12,6 @@ git add .;
 git reset HEAD -\-hard;
 git pull;
 yarn install;
-pm2 start _deploy.js;
 
 # api
 cd /www/ps-jobs/api;
@@ -22,4 +21,7 @@ pm2 start bin/www;
 # app
 cd /www/ps-jobs/app;
 yarn install;
-pm2 start app.js;
+pm2 start build/server.js;
+
+# deploy
+pm2 start _deploy.js;
