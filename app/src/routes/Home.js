@@ -14,7 +14,9 @@ class Home extends Component {
 		...ctx
 	}) {
 		// eslint-disable-next-line no-undef
-		const res = await fetch(getAPIHostname() + "/api/v1/jobs?text=");
+		const res = await fetch(
+			getAPIHostname() + "/api/v1/jobs?limit=10000&text="
+		);
 		const json = await res.json();
 		return { jobs_count: json.results, jobs: json.data || [] };
 	}
@@ -22,16 +24,16 @@ class Home extends Component {
 	render() {
 		// get on with it...
 		var Jobs = [];
-		if (this.props && this.props.jobs) {
-			this.props.jobs.forEach(function(job, i) {
-				Jobs.push(
-					<div key={job._id}>
-						<div>{job.text}</div>
-						<sup>{job.location}</sup>
-					</div>
-				);
-			});
-		}
+		// if (this.props && this.props.jobs) {
+		// 	this.props.jobs.forEach(function(job, i) {
+		// 		Jobs.push(
+		// 			<div key={job._id}>
+		// 				<div>{job.text}</div>
+		// 				<sup>{job.location}</sup>
+		// 			</div>
+		// 		);
+		// 	});
+		// }
 		return (
 			<Layout>
 				<Styled.Home>

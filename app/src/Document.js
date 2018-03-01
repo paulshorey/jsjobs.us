@@ -39,13 +39,13 @@ class Document extends React.Component {
 					{helmet.meta.toComponent()}
 					{helmet.link.toComponent()}
 					{/*assets.client.css && (
-            <link rel="stylesheet" href={assets.client.css} />
-          )*/}
+						<link rel="stylesheet" href={assets.client.css} />
+					)*/}
 				</head>
 				<body {...bodyAttrs}>
 					<AfterRoot />
-
 					{styleTags}
+
 					<AfterData data={data} />
 					<script
 						type="text/javascript"

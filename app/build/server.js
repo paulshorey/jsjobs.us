@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"/static/js/bundle.eb6b4095.js"}}
+module.exports = {"client":{"js":"/static/js/bundle.a8ddb2e0.js"}}
 
 /***/ }),
 
@@ -587,8 +587,7 @@ var SearchInput = function (_React$Component) {
 			if (e) {
 				e.preventDefault();
 			}
-			var name = this.refs.usernameItem.value;
-			console.log("Your name is", name);
+			var name = this.refs.searchTerm.value;
 		}
 	}, {
 		key: "render",
@@ -599,7 +598,7 @@ var SearchInput = function (_React$Component) {
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 					"form",
 					{ onSubmit: this.handleUsernameSubmission },
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { placeholder: "enter username", ref: "usernameItem" }),
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { placeholder: "enter username", ref: "searchTerm" }),
 					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { type: "submit", value: "Submit username" })
 				)
 			);
@@ -918,24 +917,16 @@ var Home = function (_Component) {
 		value: function render() {
 			// get on with it...
 			var Jobs = [];
-			if (this.props && this.props.jobs) {
-				this.props.jobs.forEach(function (job, i) {
-					Jobs.push(__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
-						"div",
-						{ key: job._id },
-						__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
-							"div",
-							null,
-							job.text
-						),
-						__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
-							"sup",
-							null,
-							job.location
-						)
-					));
-				});
-			}
+			// if (this.props && this.props.jobs) {
+			// 	this.props.jobs.forEach(function(job, i) {
+			// 		Jobs.push(
+			// 			<div key={job._id}>
+			// 				<div>{job.text}</div>
+			// 				<sup>{job.location}</sup>
+			// 			</div>
+			// 		);
+			// 	});
+			// }
 			return __WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_12__components_Layout_js__["a" /* default */],
 				null,
@@ -976,7 +967,7 @@ var Home = function (_Component) {
 						switch (_context.prev = _context.next) {
 							case 0:
 								_context.next = 2;
-								return fetch(Object(__WEBPACK_IMPORTED_MODULE_11__modules_getAPI__["a" /* getAPIHostname */])() + "/api/v1/jobs?text=");
+								return fetch(Object(__WEBPACK_IMPORTED_MODULE_11__modules_getAPI__["a" /* getAPIHostname */])() + "/api/v1/jobs?limit=10000&text=");
 
 							case 2:
 								res = _context.sent;
