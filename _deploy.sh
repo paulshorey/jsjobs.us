@@ -20,4 +20,5 @@ yarn install;
 pm2 restart server;
 
 # deploy
+cd /www/ps-jobs
 pm2 restart _deploy;

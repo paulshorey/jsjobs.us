@@ -24,4 +24,5 @@ yarn install;
 pm2 start build/server.js;
 
 # deploy
+cd /www/ps-jobs
 pm2 start _deploy.js;
