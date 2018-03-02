@@ -2,6 +2,7 @@
 import React from "react";
 import { AfterRoot, AfterData } from "@jaredpalmer/after";
 import { ServerStyleSheet } from "styled-components";
+import PrimaryErrorBoundary from "components/error/PrimaryErrorBoundary.js";
 import "./Document.styled.js";
 
 class Document extends React.Component {
@@ -43,16 +44,18 @@ class Document extends React.Component {
 					)*/}
 				</head>
 				<body {...bodyAttrs}>
-					<AfterRoot />
-					{styleTags}
+					<PrimaryErrorBoundary>
+						<AfterRoot />
+						{styleTags}
 
-					<AfterData data={data} />
-					<script
-						type="text/javascript"
-						src={assets.client.js}
-						defer
-						crossOrigin="anonymous"
-					/>
+						<AfterData data={data} />
+						<script
+							type="text/javascript"
+							src={assets.client.js}
+							defer
+							crossOrigin="anonymous"
+						/>
+					</PrimaryErrorBoundary>
 				</body>
 			</html>
 		);
