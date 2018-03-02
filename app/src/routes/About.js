@@ -1,18 +1,11 @@
 import React, { Component } from "react";
 import "isomorphic-unfetch";
 import * as Styled from "./styled/Home.js";
-import { getAPIHostname } from "modules/getAPI";
+import { getAPIHostname } from "lib/getAPI";
 import Layout from "components/Layout.js";
 
 class Home extends Component {
-	static async getInitialProps({
-		request,
-		response,
-		match,
-		history,
-		location,
-		...ctx
-	}) {
+	static async getInitialProps({ request, response, match, history, location, ...ctx }) {
 		// eslint-disable-next-line no-undef
 		const res = await fetch(getAPIHostname() + "/api/v1/jobs?text=");
 		const json = await res.json();
@@ -36,8 +29,7 @@ class Home extends Component {
 			<Layout>
 				<Styled.Home>
 					<h2>
-						Home search="{this.props.match.params.search}" results:{" "}
-						{this.props.jobs_count}
+						Home search="{this.props.match.params.search}" results: {this.props.jobs_count}
 					</h2>
 					<div>{Jobs}</div>
 				</Styled.Home>

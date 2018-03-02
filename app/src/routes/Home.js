@@ -1,67 +1,23 @@
 import React, { Component } from "react";
 import "isomorphic-unfetch";
 import * as Styled from "./styled/Search.js";
-import { getAPIHostname } from "modules/getAPI";
+import { getAPIHostname } from "lib/getAPI";
 import Layout from "components/Layout.js";
-
-const query = {
-	start: 0,
-	limit: 50
-};
-const queryAdvance = function() {
-	query.start += query.limit;
-};
+import SearchResults from "components/search/Results.js";
 
 class Search extends Component {
 	static async getInitialProps({ match }) {
-		const res = await fetch(
-			getAPIHostname() +
-				`/api/v1/jobs?text=&start=${query.start}&limit=${query.limit}`
-		);
+		const res = await fetch(getAPIHostname() + `/api/v1/jobs?text=&start=0&limit=50`);
 		const json = await res.json();
-		return { jobs_count: json.results, jobs: json.data || [] };
-	}
-
-	constructor() {
-		super();
-		this.state = {
-			jobs: []
-		};
-	}
-	async componentWillMount() {
-		queryAdvance();
-		const res = await fetch(
-			getAPIHostname() +
-				`/api/v1/jobs?text=&start=${query.start}&limit=${query.limit}`
-		);
-		const json = await res.json();
-		console.log("this.state", this.state);
-		console.log("componentWillMount ", { jobs: json.data || [] });
-		this.setState({ jobs: json.data || [] });
+		return { jobs: json.data || [] };
 	}
 
 	render() {
-		var jobs = (this.props.jobs || []).concat(this.state.jobs || []);
-		// get on with it...
-		var Jobs = [];
-		if (jobs) {
-			jobs.forEach(function(job, i) {
-				Jobs.push(
-					<div key={job._id}>
-						<div>{job.text}</div>
-						<sup>{job.location}</sup>
-					</div>
-				);
-			});
-		}
 		return (
 			<Layout>
 				<Styled.Search>
-					<h2>
-						Search "{this.props.match.params.search}" results:{" "}
-						{jobs.length}
-					</h2>
-					<div>{Jobs}</div>
+					<h2>Welcome!</h2>
+					<SearchResults jobs={this.props.jobs} />
 				</Styled.Search>
 			</Layout>
 		);

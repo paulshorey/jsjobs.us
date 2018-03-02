@@ -1,19 +1,15 @@
 {
-    "presets": [
-      [
-        "razzle/babel"
-      ]
-    ],
-    "plugins": [
-      [
-        "module-resolver",
-        {
-          "root": ["./src/"],
-          "alias": {
-            "Xcomponents": "./src/components"
-          }
-        },
-        "styled-components"
-      ]
-    ]
-  }
+	"presets": [["razzle/babel"]],
+	"plugins": [
+		[
+			"module-resolver",
+			{
+				"root": ["./src/"],
+				"alias": {
+					"Xcomponents": "./src/components"
+				}
+			},
+			"styled-components"
+		]
+	]
+}
