@@ -8,8 +8,7 @@
 				"alias": {
 					"Xcomponents": "./src/components"
 				}
-			},
-			"styled-components"
+			}
 		]
 	]
 }
