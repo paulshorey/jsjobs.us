@@ -26,5 +26,12 @@ export default [
 			loader: () => import("./routes/Search"), // required
 			Placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
 		})
+	},
+	{
+		path: "*",
+		component: asyncComponent({
+			loader: () => import("./routes/404"), // required
+			Placeholder: () => <div>...Page Not Found...</div> // this is optional, just returns null by default
+		})
 	}
 ];

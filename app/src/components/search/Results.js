@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import "isomorphic-unfetch";
 import * as Styled from "./styled/Results.js";
-import { getAPIHostname } from "lib/getAPI";
 import Query from "./Query.js";
 /* redux */
 import { connect } from "react-redux";
@@ -19,7 +18,7 @@ class Results extends Component {
 		};
 	}
 	async componentWillMount() {
-		const res = await fetch(getAPIHostname() + `/api/v1/jobs?text=&start=0&limit=10000`);
+		const res = await fetch(`https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs.json`);
 		const json = await res.json();
 		this.props.dispatch_jobsAdd(json.data || []);
 	}
