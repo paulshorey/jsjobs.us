@@ -2,6 +2,7 @@ import express from "express";
 import { render } from "@jaredpalmer/after";
 import routes from "./routes";
 import MyDocument from "./Document";
+console.log("MyDocument", MyDocument);
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
