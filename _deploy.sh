@@ -22,3 +22,7 @@ pm2 restart server;
 # deploy
 cd /www/$(hostname)
 pm2 restart _deploy;
+
+# upload to CDN
+cd /www/$(hostname)/app;
+node _cdn.js;

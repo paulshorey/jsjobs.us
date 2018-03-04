@@ -1564,7 +1564,9 @@ var _this = this;
 var assets = __webpack_require__("./build/assets.json");
 
 var server = __WEBPACK_IMPORTED_MODULE_2_express___default()();
-server.disable("x-powered-by").use(__WEBPACK_IMPORTED_MODULE_2_express___default.a.static("/www/ps-jobs/app/build/public")).get("/*", function () {
+server.disable("x-powered-by")
+// .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
+.get("/*", function () {
 	var _ref = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(req, res) {
 		var html;
 		return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {

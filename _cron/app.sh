@@ -26,3 +26,7 @@ pm2 start build/server.js;
 # deploy
 cd /www/$(hostname)
 pm2 start _deploy.js;
+
+# upload to CDN
+cd /www/$(hostname)/app;
+node _cdn.js;
