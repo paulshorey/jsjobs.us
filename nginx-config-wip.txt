@@ -1,0 +1,53 @@
+server {
+		server_name jsjobs.us;
+		listen 80;
+		listen [::]:80;
+		listen 443 ssl http2;
+		listen [::]:443 ssl http2;
+		ssl_certificate /etc/letsencrypt/live/jsjobs.us/fullchain.pem;
+		ssl_certificate_key /etc/letsencrypt/live/jsjobs.us/privkey.pem;
+		ssl_trusted_certificate /etc/letsencrypt/live/jsjobs.us/fullchain.pem;
+		include /etc/nginx/snippets/ssl.conf;
+
+		location / {
+				proxy_set_header   X-Forwarded-For $remote_addr;
+				proxy_set_header   Host $http_host;
+				proxy_pass         "http://localhost:3000";
+		}
+		location /api/v1 {
+				proxy_set_header   X-Forwarded-For $remote_addr;
+				proxy_set_header   Host $http_host;
+				proxy_pass         "http://localhost:1080";
+		}
+
+		location \/(static|assets|favicon.ico|robots.txt) {
+				return 301 https://d3rinrx0dlc7zz.cloudfront.net$request_uri;
+		}
+		location /static {
+				proxy_set_header   X-Forwarded-For $remote_addr;
+				proxy_set_header   Host $http_host;
+				proxy_pass         "https://d3rinrx0dlc7zz.cloudfront.net";
+		}
+		location /assets {
+				proxy_set_header   X-Forwarded-For $remote_addr;
+				proxy_set_header   Host $http_host;
+				proxy_pass         "https://d3rinrx0dlc7zz.cloudfront.net";
+		}
+		location /favicon.ico {
+				proxy_set_header   X-Forwarded-For $remote_addr;
+				proxy_set_header   Host $http_host;
+				proxy_pass         "https://d3rinrx0dlc7zz.cloudfront.net";
+		}
+		location /robots.txt {
+				proxy_set_header   X-Forwarded-For $remote_addr;
+				proxy_set_header   Host $http_host;
+				proxy_pass         "https://d3rinrx0dlc7zz.cloudfront.net";
+		}
+
+		location ~ /\.well-known/acme-challenge {
+				default_type "text/plain";
+				root /www/sslcert;
+				try_files /$uri /;
+		}
+
+}
