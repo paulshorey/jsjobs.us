@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"https://d3lz21p2fiot8d.cloudfront.net/static/js/bundle.f7fb61fa.js","css":"https://d3lz21p2fiot8d.cloudfront.net/static/css/bundle.9efc1e0c.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.30d68ab6.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.9efc1e0c.css"}}
 
 /***/ }),
 

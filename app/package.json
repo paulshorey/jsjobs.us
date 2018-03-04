@@ -6,7 +6,7 @@
 		"start": "razzle start",
 		"build": "razzle build; node _cdn.js",
 		"dev": "razzle start",
-		"pro": "PUBLIC_PATH=https://d3lz21p2fiot8d.cloudfront.net/ NODE_ENV=production node build/server.js",
+		"pro": "node build/server.js",
 		"test": "razzle test --env=jsdom",
 		"test-better": "https://www.npmjs.com/package/eslint-config-with-prettier"
 	},

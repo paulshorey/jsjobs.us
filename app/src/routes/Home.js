@@ -4,9 +4,11 @@ import * as Styled from "./styled/Page.js";
 import Layout from "components/Layout.js";
 import SearchResults from "components/search/Results.js";
 
-// Remember: Localhost:1080/api => json.data --- CDN => json
+// CDN => data
+// API => json.data
 // const jobsUrl_initial = "https://jsjobsapi.s3.us-east-2.amazonaws.com/api/v1/jobs-50.json"; // S3
 const jobsUrl_initial = "https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs-50.json"; // Cloudfront
+// const jobsUrl_initial = "http://localhost:1080/api/v1/jobs.json?limit=50"; // local API
 
 class Search extends Component {
 	static async getInitialProps({ match }) {
