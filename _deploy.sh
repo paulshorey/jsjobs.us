@@ -24,5 +24,4 @@ cd /www/$(hostname)
 pm2 restart _deploy;
 
 # upload to CDN
-cd /www/$(hostname)/app;
-node _cdn.js;
+#cd app; node _cdn.js; #this should be done by "npm run build"

@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"/static/js/bundle.7cd7ce8a.js","css":"/static/css/bundle.9efc1e0c.css"}}
+module.exports = {"client":{"js":"https://d3lz21p2fiot8d.cloudfront.net/static/js/bundle.f7fb61fa.js","css":"https://d3lz21p2fiot8d.cloudfront.net/static/css/bundle.9efc1e0c.css"}}
 
 /***/ }),
 
@@ -148,7 +148,7 @@ var Document = function (_React$Component) {
 					helmet.title.toComponent(),
 					helmet.meta.toComponent(),
 					helmet.link.toComponent(),
-					assets.client.css && __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("link", { rel: "stylesheet", href: "//d3lz21p2fiot8d.cloudfront.net" + assets.client.css }),
+					assets.client.css && __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("link", { rel: "stylesheet", href: assets.client.css }),
 					styleTags
 				),
 				__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
@@ -159,7 +159,7 @@ var Document = function (_React$Component) {
 						null,
 						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__jaredpalmer_after__["AfterRoot"], null),
 						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__jaredpalmer_after__["AfterData"], { data: data }),
-						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("script", { type: "text/javascript", src: "//d3lz21p2fiot8d.cloudfront.net" + assets.client.js, defer: true, crossOrigin: "anonymous" })
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("script", { type: "text/javascript", src: assets.client.js, defer: true, crossOrigin: "anonymous" })
 					)
 				)
 			);
@@ -1564,7 +1564,6 @@ var _this = this;
 
 
 
-console.log("MyDocument", __WEBPACK_IMPORTED_MODULE_5__Document__["a" /* default */]);
 
 var assets = __webpack_require__("./build/assets.json");
 

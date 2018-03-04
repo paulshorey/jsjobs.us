@@ -5,9 +5,9 @@
 # ufw allow 443/tcp
 
 # git
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/gitlab
-cd /www/$(hostname)
+eval "$(ssh-agent -s)";
+ssh-add ~/.ssh/gitlab;
+cd /www/$(hostname);
 git add .;
 git reset HEAD -\-hard;
 git pull;
@@ -24,9 +24,8 @@ yarn install;
 pm2 start build/server.js;
 
 # deploy
-cd /www/$(hostname)
+cd /www/$(hostname);
 pm2 start _deploy.js;
 
 # upload to CDN
-cd /www/$(hostname)/app;
-node _cdn.js;
+#cd app; node _cdn.js; #this should be done by "npm run build"

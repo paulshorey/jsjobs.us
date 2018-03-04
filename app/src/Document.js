@@ -34,14 +34,15 @@ class Document extends React.Component {
 					{helmet.title.toComponent()}
 					{helmet.meta.toComponent()}
 					{helmet.link.toComponent()}
-					{assets.client.css && <link rel="stylesheet" href={"//d3lz21p2fiot8d.cloudfront.net" + assets.client.css} />}
+					{assets.client.css && <link rel="stylesheet" href={assets.client.css} />}
 					{styleTags}
 				</head>
 				<body {...bodyAttrs}>
 					<PrimaryErrorBoundary>
 						<AfterRoot />
+
 						<AfterData data={data} />
-						<script type="text/javascript" src={"//d3lz21p2fiot8d.cloudfront.net" + assets.client.js} defer crossOrigin="anonymous" />
+						<script type="text/javascript" src={assets.client.js} defer crossOrigin="anonymous" />
 					</PrimaryErrorBoundary>
 				</body>
 			</html>
