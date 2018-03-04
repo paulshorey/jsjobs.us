@@ -1,611 +1,4 @@
 /******/ (function(modules) { // webpackBootstrap
-/******/ 	function hotDownloadUpdateChunk(chunkId) { // eslint-disable-line no-unused-vars
-/******/ 		var chunk = require("./" + "" + chunkId + "." + hotCurrentHash + ".hot-update.js");
-/******/ 		hotAddUpdateChunk(chunk.id, chunk.modules);
-/******/ 	}
-/******/ 	
-/******/ 	function hotDownloadManifest() { // eslint-disable-line no-unused-vars
-/******/ 		try {
-/******/ 			var update = require("./" + "" + hotCurrentHash + ".hot-update.json");
-/******/ 		} catch(e) {
-/******/ 			return Promise.resolve();
-/******/ 		}
-/******/ 		return Promise.resolve(update);
-/******/ 	}
-/******/ 	
-/******/ 	function hotDisposeChunk(chunkId) { //eslint-disable-line no-unused-vars
-/******/ 		delete installedChunks[chunkId];
-/******/ 	}
-/******/
-/******/ 	
-/******/ 	
-/******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "443c7a96ed0912c3aa52"; // eslint-disable-line no-unused-vars
-/******/ 	var hotRequestTimeout = 10000;
-/******/ 	var hotCurrentModuleData = {};
-/******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
-/******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
-/******/ 	var hotCurrentParentsTemp = []; // eslint-disable-line no-unused-vars
-/******/ 	
-/******/ 	function hotCreateRequire(moduleId) { // eslint-disable-line no-unused-vars
-/******/ 		var me = installedModules[moduleId];
-/******/ 		if(!me) return __webpack_require__;
-/******/ 		var fn = function(request) {
-/******/ 			if(me.hot.active) {
-/******/ 				if(installedModules[request]) {
-/******/ 					if(installedModules[request].parents.indexOf(moduleId) < 0)
-/******/ 						installedModules[request].parents.push(moduleId);
-/******/ 				} else {
-/******/ 					hotCurrentParents = [moduleId];
-/******/ 					hotCurrentChildModule = request;
-/******/ 				}
-/******/ 				if(me.children.indexOf(request) < 0)
-/******/ 					me.children.push(request);
-/******/ 			} else {
-/******/ 				console.warn("[HMR] unexpected require(" + request + ") from disposed module " + moduleId);
-/******/ 				hotCurrentParents = [];
-/******/ 			}
-/******/ 			return __webpack_require__(request);
-/******/ 		};
-/******/ 		var ObjectFactory = function ObjectFactory(name) {
-/******/ 			return {
-/******/ 				configurable: true,
-/******/ 				enumerable: true,
-/******/ 				get: function() {
-/******/ 					return __webpack_require__[name];
-/******/ 				},
-/******/ 				set: function(value) {
-/******/ 					__webpack_require__[name] = value;
-/******/ 				}
-/******/ 			};
-/******/ 		};
-/******/ 		for(var name in __webpack_require__) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(__webpack_require__, name) && name !== "e") {
-/******/ 				Object.defineProperty(fn, name, ObjectFactory(name));
-/******/ 			}
-/******/ 		}
-/******/ 		fn.e = function(chunkId) {
-/******/ 			if(hotStatus === "ready")
-/******/ 				hotSetStatus("prepare");
-/******/ 			hotChunksLoading++;
-/******/ 			return __webpack_require__.e(chunkId).then(finishChunkLoading, function(err) {
-/******/ 				finishChunkLoading();
-/******/ 				throw err;
-/******/ 			});
-/******/ 	
-/******/ 			function finishChunkLoading() {
-/******/ 				hotChunksLoading--;
-/******/ 				if(hotStatus === "prepare") {
-/******/ 					if(!hotWaitingFilesMap[chunkId]) {
-/******/ 						hotEnsureUpdateChunk(chunkId);
-/******/ 					}
-/******/ 					if(hotChunksLoading === 0 && hotWaitingFiles === 0) {
-/******/ 						hotUpdateDownloaded();
-/******/ 					}
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 		return fn;
-/******/ 	}
-/******/ 	
-/******/ 	function hotCreateModule(moduleId) { // eslint-disable-line no-unused-vars
-/******/ 		var hot = {
-/******/ 			// private stuff
-/******/ 			_acceptedDependencies: {},
-/******/ 			_declinedDependencies: {},
-/******/ 			_selfAccepted: false,
-/******/ 			_selfDeclined: false,
-/******/ 			_disposeHandlers: [],
-/******/ 			_main: hotCurrentChildModule !== moduleId,
-/******/ 	
-/******/ 			// Module API
-/******/ 			active: true,
-/******/ 			accept: function(dep, callback) {
-/******/ 				if(typeof dep === "undefined")
-/******/ 					hot._selfAccepted = true;
-/******/ 				else if(typeof dep === "function")
-/******/ 					hot._selfAccepted = dep;
-/******/ 				else if(typeof dep === "object")
-/******/ 					for(var i = 0; i < dep.length; i++)
-/******/ 						hot._acceptedDependencies[dep[i]] = callback || function() {};
-/******/ 				else
-/******/ 					hot._acceptedDependencies[dep] = callback || function() {};
-/******/ 			},
-/******/ 			decline: function(dep) {
-/******/ 				if(typeof dep === "undefined")
-/******/ 					hot._selfDeclined = true;
-/******/ 				else if(typeof dep === "object")
-/******/ 					for(var i = 0; i < dep.length; i++)
-/******/ 						hot._declinedDependencies[dep[i]] = true;
-/******/ 				else
-/******/ 					hot._declinedDependencies[dep] = true;
-/******/ 			},
-/******/ 			dispose: function(callback) {
-/******/ 				hot._disposeHandlers.push(callback);
-/******/ 			},
-/******/ 			addDisposeHandler: function(callback) {
-/******/ 				hot._disposeHandlers.push(callback);
-/******/ 			},
-/******/ 			removeDisposeHandler: function(callback) {
-/******/ 				var idx = hot._disposeHandlers.indexOf(callback);
-/******/ 				if(idx >= 0) hot._disposeHandlers.splice(idx, 1);
-/******/ 			},
-/******/ 	
-/******/ 			// Management API
-/******/ 			check: hotCheck,
-/******/ 			apply: hotApply,
-/******/ 			status: function(l) {
-/******/ 				if(!l) return hotStatus;
-/******/ 				hotStatusHandlers.push(l);
-/******/ 			},
-/******/ 			addStatusHandler: function(l) {
-/******/ 				hotStatusHandlers.push(l);
-/******/ 			},
-/******/ 			removeStatusHandler: function(l) {
-/******/ 				var idx = hotStatusHandlers.indexOf(l);
-/******/ 				if(idx >= 0) hotStatusHandlers.splice(idx, 1);
-/******/ 			},
-/******/ 	
-/******/ 			//inherit from previous dispose call
-/******/ 			data: hotCurrentModuleData[moduleId]
-/******/ 		};
-/******/ 		hotCurrentChildModule = undefined;
-/******/ 		return hot;
-/******/ 	}
-/******/ 	
-/******/ 	var hotStatusHandlers = [];
-/******/ 	var hotStatus = "idle";
-/******/ 	
-/******/ 	function hotSetStatus(newStatus) {
-/******/ 		hotStatus = newStatus;
-/******/ 		for(var i = 0; i < hotStatusHandlers.length; i++)
-/******/ 			hotStatusHandlers[i].call(null, newStatus);
-/******/ 	}
-/******/ 	
-/******/ 	// while downloading
-/******/ 	var hotWaitingFiles = 0;
-/******/ 	var hotChunksLoading = 0;
-/******/ 	var hotWaitingFilesMap = {};
-/******/ 	var hotRequestedFilesMap = {};
-/******/ 	var hotAvailableFilesMap = {};
-/******/ 	var hotDeferred;
-/******/ 	
-/******/ 	// The update info
-/******/ 	var hotUpdate, hotUpdateNewHash;
-/******/ 	
-/******/ 	function toModuleId(id) {
-/******/ 		var isNumber = (+id) + "" === id;
-/******/ 		return isNumber ? +id : id;
-/******/ 	}
-/******/ 	
-/******/ 	function hotCheck(apply) {
-/******/ 		if(hotStatus !== "idle") throw new Error("check() is only allowed in idle status");
-/******/ 		hotApplyOnUpdate = apply;
-/******/ 		hotSetStatus("check");
-/******/ 		return hotDownloadManifest(hotRequestTimeout).then(function(update) {
-/******/ 			if(!update) {
-/******/ 				hotSetStatus("idle");
-/******/ 				return null;
-/******/ 			}
-/******/ 			hotRequestedFilesMap = {};
-/******/ 			hotWaitingFilesMap = {};
-/******/ 			hotAvailableFilesMap = update.c;
-/******/ 			hotUpdateNewHash = update.h;
-/******/ 	
-/******/ 			hotSetStatus("prepare");
-/******/ 			var promise = new Promise(function(resolve, reject) {
-/******/ 				hotDeferred = {
-/******/ 					resolve: resolve,
-/******/ 					reject: reject
-/******/ 				};
-/******/ 			});
-/******/ 			hotUpdate = {};
-/******/ 			var chunkId = 0;
-/******/ 			{ // eslint-disable-line no-lone-blocks
-/******/ 				/*globals chunkId */
-/******/ 				hotEnsureUpdateChunk(chunkId);
-/******/ 			}
-/******/ 			if(hotStatus === "prepare" && hotChunksLoading === 0 && hotWaitingFiles === 0) {
-/******/ 				hotUpdateDownloaded();
-/******/ 			}
-/******/ 			return promise;
-/******/ 		});
-/******/ 	}
-/******/ 	
-/******/ 	function hotAddUpdateChunk(chunkId, moreModules) { // eslint-disable-line no-unused-vars
-/******/ 		if(!hotAvailableFilesMap[chunkId] || !hotRequestedFilesMap[chunkId])
-/******/ 			return;
-/******/ 		hotRequestedFilesMap[chunkId] = false;
-/******/ 		for(var moduleId in moreModules) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-/******/ 				hotUpdate[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 		if(--hotWaitingFiles === 0 && hotChunksLoading === 0) {
-/******/ 			hotUpdateDownloaded();
-/******/ 		}
-/******/ 	}
-/******/ 	
-/******/ 	function hotEnsureUpdateChunk(chunkId) {
-/******/ 		if(!hotAvailableFilesMap[chunkId]) {
-/******/ 			hotWaitingFilesMap[chunkId] = true;
-/******/ 		} else {
-/******/ 			hotRequestedFilesMap[chunkId] = true;
-/******/ 			hotWaitingFiles++;
-/******/ 			hotDownloadUpdateChunk(chunkId);
-/******/ 		}
-/******/ 	}
-/******/ 	
-/******/ 	function hotUpdateDownloaded() {
-/******/ 		hotSetStatus("ready");
-/******/ 		var deferred = hotDeferred;
-/******/ 		hotDeferred = null;
-/******/ 		if(!deferred) return;
-/******/ 		if(hotApplyOnUpdate) {
-/******/ 			// Wrap deferred object in Promise to mark it as a well-handled Promise to
-/******/ 			// avoid triggering uncaught exception warning in Chrome.
-/******/ 			// See https://bugs.chromium.org/p/chromium/issues/detail?id=465666
-/******/ 			Promise.resolve().then(function() {
-/******/ 				return hotApply(hotApplyOnUpdate);
-/******/ 			}).then(
-/******/ 				function(result) {
-/******/ 					deferred.resolve(result);
-/******/ 				},
-/******/ 				function(err) {
-/******/ 					deferred.reject(err);
-/******/ 				}
-/******/ 			);
-/******/ 		} else {
-/******/ 			var outdatedModules = [];
-/******/ 			for(var id in hotUpdate) {
-/******/ 				if(Object.prototype.hasOwnProperty.call(hotUpdate, id)) {
-/******/ 					outdatedModules.push(toModuleId(id));
-/******/ 				}
-/******/ 			}
-/******/ 			deferred.resolve(outdatedModules);
-/******/ 		}
-/******/ 	}
-/******/ 	
-/******/ 	function hotApply(options) {
-/******/ 		if(hotStatus !== "ready") throw new Error("apply() is only allowed in ready status");
-/******/ 		options = options || {};
-/******/ 	
-/******/ 		var cb;
-/******/ 		var i;
-/******/ 		var j;
-/******/ 		var module;
-/******/ 		var moduleId;
-/******/ 	
-/******/ 		function getAffectedStuff(updateModuleId) {
-/******/ 			var outdatedModules = [updateModuleId];
-/******/ 			var outdatedDependencies = {};
-/******/ 	
-/******/ 			var queue = outdatedModules.slice().map(function(id) {
-/******/ 				return {
-/******/ 					chain: [id],
-/******/ 					id: id
-/******/ 				};
-/******/ 			});
-/******/ 			while(queue.length > 0) {
-/******/ 				var queueItem = queue.pop();
-/******/ 				var moduleId = queueItem.id;
-/******/ 				var chain = queueItem.chain;
-/******/ 				module = installedModules[moduleId];
-/******/ 				if(!module || module.hot._selfAccepted)
-/******/ 					continue;
-/******/ 				if(module.hot._selfDeclined) {
-/******/ 					return {
-/******/ 						type: "self-declined",
-/******/ 						chain: chain,
-/******/ 						moduleId: moduleId
-/******/ 					};
-/******/ 				}
-/******/ 				if(module.hot._main) {
-/******/ 					return {
-/******/ 						type: "unaccepted",
-/******/ 						chain: chain,
-/******/ 						moduleId: moduleId
-/******/ 					};
-/******/ 				}
-/******/ 				for(var i = 0; i < module.parents.length; i++) {
-/******/ 					var parentId = module.parents[i];
-/******/ 					var parent = installedModules[parentId];
-/******/ 					if(!parent) continue;
-/******/ 					if(parent.hot._declinedDependencies[moduleId]) {
-/******/ 						return {
-/******/ 							type: "declined",
-/******/ 							chain: chain.concat([parentId]),
-/******/ 							moduleId: moduleId,
-/******/ 							parentId: parentId
-/******/ 						};
-/******/ 					}
-/******/ 					if(outdatedModules.indexOf(parentId) >= 0) continue;
-/******/ 					if(parent.hot._acceptedDependencies[moduleId]) {
-/******/ 						if(!outdatedDependencies[parentId])
-/******/ 							outdatedDependencies[parentId] = [];
-/******/ 						addAllToSet(outdatedDependencies[parentId], [moduleId]);
-/******/ 						continue;
-/******/ 					}
-/******/ 					delete outdatedDependencies[parentId];
-/******/ 					outdatedModules.push(parentId);
-/******/ 					queue.push({
-/******/ 						chain: chain.concat([parentId]),
-/******/ 						id: parentId
-/******/ 					});
-/******/ 				}
-/******/ 			}
-/******/ 	
-/******/ 			return {
-/******/ 				type: "accepted",
-/******/ 				moduleId: updateModuleId,
-/******/ 				outdatedModules: outdatedModules,
-/******/ 				outdatedDependencies: outdatedDependencies
-/******/ 			};
-/******/ 		}
-/******/ 	
-/******/ 		function addAllToSet(a, b) {
-/******/ 			for(var i = 0; i < b.length; i++) {
-/******/ 				var item = b[i];
-/******/ 				if(a.indexOf(item) < 0)
-/******/ 					a.push(item);
-/******/ 			}
-/******/ 		}
-/******/ 	
-/******/ 		// at begin all updates modules are outdated
-/******/ 		// the "outdated" status can propagate to parents if they don't accept the children
-/******/ 		var outdatedDependencies = {};
-/******/ 		var outdatedModules = [];
-/******/ 		var appliedUpdate = {};
-/******/ 	
-/******/ 		var warnUnexpectedRequire = function warnUnexpectedRequire() {
-/******/ 			console.warn("[HMR] unexpected require(" + result.moduleId + ") to disposed module");
-/******/ 		};
-/******/ 	
-/******/ 		for(var id in hotUpdate) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(hotUpdate, id)) {
-/******/ 				moduleId = toModuleId(id);
-/******/ 				var result;
-/******/ 				if(hotUpdate[id]) {
-/******/ 					result = getAffectedStuff(moduleId);
-/******/ 				} else {
-/******/ 					result = {
-/******/ 						type: "disposed",
-/******/ 						moduleId: id
-/******/ 					};
-/******/ 				}
-/******/ 				var abortError = false;
-/******/ 				var doApply = false;
-/******/ 				var doDispose = false;
-/******/ 				var chainInfo = "";
-/******/ 				if(result.chain) {
-/******/ 					chainInfo = "\nUpdate propagation: " + result.chain.join(" -> ");
-/******/ 				}
-/******/ 				switch(result.type) {
-/******/ 					case "self-declined":
-/******/ 						if(options.onDeclined)
-/******/ 							options.onDeclined(result);
-/******/ 						if(!options.ignoreDeclined)
-/******/ 							abortError = new Error("Aborted because of self decline: " + result.moduleId + chainInfo);
-/******/ 						break;
-/******/ 					case "declined":
-/******/ 						if(options.onDeclined)
-/******/ 							options.onDeclined(result);
-/******/ 						if(!options.ignoreDeclined)
-/******/ 							abortError = new Error("Aborted because of declined dependency: " + result.moduleId + " in " + result.parentId + chainInfo);
-/******/ 						break;
-/******/ 					case "unaccepted":
-/******/ 						if(options.onUnaccepted)
-/******/ 							options.onUnaccepted(result);
-/******/ 						if(!options.ignoreUnaccepted)
-/******/ 							abortError = new Error("Aborted because " + moduleId + " is not accepted" + chainInfo);
-/******/ 						break;
-/******/ 					case "accepted":
-/******/ 						if(options.onAccepted)
-/******/ 							options.onAccepted(result);
-/******/ 						doApply = true;
-/******/ 						break;
-/******/ 					case "disposed":
-/******/ 						if(options.onDisposed)
-/******/ 							options.onDisposed(result);
-/******/ 						doDispose = true;
-/******/ 						break;
-/******/ 					default:
-/******/ 						throw new Error("Unexception type " + result.type);
-/******/ 				}
-/******/ 				if(abortError) {
-/******/ 					hotSetStatus("abort");
-/******/ 					return Promise.reject(abortError);
-/******/ 				}
-/******/ 				if(doApply) {
-/******/ 					appliedUpdate[moduleId] = hotUpdate[moduleId];
-/******/ 					addAllToSet(outdatedModules, result.outdatedModules);
-/******/ 					for(moduleId in result.outdatedDependencies) {
-/******/ 						if(Object.prototype.hasOwnProperty.call(result.outdatedDependencies, moduleId)) {
-/******/ 							if(!outdatedDependencies[moduleId])
-/******/ 								outdatedDependencies[moduleId] = [];
-/******/ 							addAllToSet(outdatedDependencies[moduleId], result.outdatedDependencies[moduleId]);
-/******/ 						}
-/******/ 					}
-/******/ 				}
-/******/ 				if(doDispose) {
-/******/ 					addAllToSet(outdatedModules, [result.moduleId]);
-/******/ 					appliedUpdate[moduleId] = warnUnexpectedRequire;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 	
-/******/ 		// Store self accepted outdated modules to require them later by the module system
-/******/ 		var outdatedSelfAcceptedModules = [];
-/******/ 		for(i = 0; i < outdatedModules.length; i++) {
-/******/ 			moduleId = outdatedModules[i];
-/******/ 			if(installedModules[moduleId] && installedModules[moduleId].hot._selfAccepted)
-/******/ 				outdatedSelfAcceptedModules.push({
-/******/ 					module: moduleId,
-/******/ 					errorHandler: installedModules[moduleId].hot._selfAccepted
-/******/ 				});
-/******/ 		}
-/******/ 	
-/******/ 		// Now in "dispose" phase
-/******/ 		hotSetStatus("dispose");
-/******/ 		Object.keys(hotAvailableFilesMap).forEach(function(chunkId) {
-/******/ 			if(hotAvailableFilesMap[chunkId] === false) {
-/******/ 				hotDisposeChunk(chunkId);
-/******/ 			}
-/******/ 		});
-/******/ 	
-/******/ 		var idx;
-/******/ 		var queue = outdatedModules.slice();
-/******/ 		while(queue.length > 0) {
-/******/ 			moduleId = queue.pop();
-/******/ 			module = installedModules[moduleId];
-/******/ 			if(!module) continue;
-/******/ 	
-/******/ 			var data = {};
-/******/ 	
-/******/ 			// Call dispose handlers
-/******/ 			var disposeHandlers = module.hot._disposeHandlers;
-/******/ 			for(j = 0; j < disposeHandlers.length; j++) {
-/******/ 				cb = disposeHandlers[j];
-/******/ 				cb(data);
-/******/ 			}
-/******/ 			hotCurrentModuleData[moduleId] = data;
-/******/ 	
-/******/ 			// disable module (this disables requires from this module)
-/******/ 			module.hot.active = false;
-/******/ 	
-/******/ 			// remove module from cache
-/******/ 			delete installedModules[moduleId];
-/******/ 	
-/******/ 			// remove "parents" references from all children
-/******/ 			for(j = 0; j < module.children.length; j++) {
-/******/ 				var child = installedModules[module.children[j]];
-/******/ 				if(!child) continue;
-/******/ 				idx = child.parents.indexOf(moduleId);
-/******/ 				if(idx >= 0) {
-/******/ 					child.parents.splice(idx, 1);
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 	
-/******/ 		// remove outdated dependency from module children
-/******/ 		var dependency;
-/******/ 		var moduleOutdatedDependencies;
-/******/ 		for(moduleId in outdatedDependencies) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(outdatedDependencies, moduleId)) {
-/******/ 				module = installedModules[moduleId];
-/******/ 				if(module) {
-/******/ 					moduleOutdatedDependencies = outdatedDependencies[moduleId];
-/******/ 					for(j = 0; j < moduleOutdatedDependencies.length; j++) {
-/******/ 						dependency = moduleOutdatedDependencies[j];
-/******/ 						idx = module.children.indexOf(dependency);
-/******/ 						if(idx >= 0) module.children.splice(idx, 1);
-/******/ 					}
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 	
-/******/ 		// Not in "apply" phase
-/******/ 		hotSetStatus("apply");
-/******/ 	
-/******/ 		hotCurrentHash = hotUpdateNewHash;
-/******/ 	
-/******/ 		// insert new code
-/******/ 		for(moduleId in appliedUpdate) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(appliedUpdate, moduleId)) {
-/******/ 				modules[moduleId] = appliedUpdate[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 	
-/******/ 		// call accept handlers
-/******/ 		var error = null;
-/******/ 		for(moduleId in outdatedDependencies) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(outdatedDependencies, moduleId)) {
-/******/ 				module = installedModules[moduleId];
-/******/ 				moduleOutdatedDependencies = outdatedDependencies[moduleId];
-/******/ 				var callbacks = [];
-/******/ 				for(i = 0; i < moduleOutdatedDependencies.length; i++) {
-/******/ 					dependency = moduleOutdatedDependencies[i];
-/******/ 					cb = module.hot._acceptedDependencies[dependency];
-/******/ 					if(callbacks.indexOf(cb) >= 0) continue;
-/******/ 					callbacks.push(cb);
-/******/ 				}
-/******/ 				for(i = 0; i < callbacks.length; i++) {
-/******/ 					cb = callbacks[i];
-/******/ 					try {
-/******/ 						cb(moduleOutdatedDependencies);
-/******/ 					} catch(err) {
-/******/ 						if(options.onErrored) {
-/******/ 							options.onErrored({
-/******/ 								type: "accept-errored",
-/******/ 								moduleId: moduleId,
-/******/ 								dependencyId: moduleOutdatedDependencies[i],
-/******/ 								error: err
-/******/ 							});
-/******/ 						}
-/******/ 						if(!options.ignoreErrored) {
-/******/ 							if(!error)
-/******/ 								error = err;
-/******/ 						}
-/******/ 					}
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 	
-/******/ 		// Load self accepted modules
-/******/ 		for(i = 0; i < outdatedSelfAcceptedModules.length; i++) {
-/******/ 			var item = outdatedSelfAcceptedModules[i];
-/******/ 			moduleId = item.module;
-/******/ 			hotCurrentParents = [moduleId];
-/******/ 			try {
-/******/ 				__webpack_require__(moduleId);
-/******/ 			} catch(err) {
-/******/ 				if(typeof item.errorHandler === "function") {
-/******/ 					try {
-/******/ 						item.errorHandler(err);
-/******/ 					} catch(err2) {
-/******/ 						if(options.onErrored) {
-/******/ 							options.onErrored({
-/******/ 								type: "self-accept-error-handler-errored",
-/******/ 								moduleId: moduleId,
-/******/ 								error: err2,
-/******/ 								orginalError: err
-/******/ 							});
-/******/ 						}
-/******/ 						if(!options.ignoreErrored) {
-/******/ 							if(!error)
-/******/ 								error = err2;
-/******/ 						}
-/******/ 						if(!error)
-/******/ 							error = err;
-/******/ 					}
-/******/ 				} else {
-/******/ 					if(options.onErrored) {
-/******/ 						options.onErrored({
-/******/ 							type: "self-accept-errored",
-/******/ 							moduleId: moduleId,
-/******/ 							error: err
-/******/ 						});
-/******/ 					}
-/******/ 					if(!options.ignoreErrored) {
-/******/ 						if(!error)
-/******/ 							error = err;
-/******/ 					}
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 	
-/******/ 		// handle errors in accept handlers and self accepted module load
-/******/ 		if(error) {
-/******/ 			hotSetStatus("fail");
-/******/ 			return Promise.reject(error);
-/******/ 		}
-/******/ 	
-/******/ 		hotSetStatus("idle");
-/******/ 		return new Promise(function(resolve) {
-/******/ 			resolve(outdatedModules);
-/******/ 		});
-/******/ 	}
-/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -620,14 +13,11 @@
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
-/******/ 			exports: {},
-/******/ 			hot: hotCreateModule(moduleId),
-/******/ 			parents: (hotCurrentParentsTemp = hotCurrentParents, hotCurrentParents = [], hotCurrentParentsTemp),
-/******/ 			children: []
+/******/ 			exports: {}
 /******/ 		};
 /******/
 /******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, hotCreateRequire(moduleId));
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
@@ -667,13 +57,10 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3001/";
-/******/
-/******/ 	// __webpack_hash__
-/******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(0)(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -681,145 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"http://localhost:3001/static/js/bundle.js"}}
-
-/***/ }),
-
-/***/ "./node_modules/webpack/hot/log-apply-result.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-module.exports = function(updatedModules, renewedModules) {
-	var unacceptedModules = updatedModules.filter(function(moduleId) {
-		return renewedModules && renewedModules.indexOf(moduleId) < 0;
-	});
-	var log = __webpack_require__("./node_modules/webpack/hot/log.js");
-
-	if(unacceptedModules.length > 0) {
-		log("warning", "[HMR] The following modules couldn't be hot updated: (They would need a full reload!)");
-		unacceptedModules.forEach(function(moduleId) {
-			log("warning", "[HMR]  - " + moduleId);
-		});
-	}
-
-	if(!renewedModules || renewedModules.length === 0) {
-		log("info", "[HMR] Nothing hot updated.");
-	} else {
-		log("info", "[HMR] Updated modules:");
-		renewedModules.forEach(function(moduleId) {
-			if(typeof moduleId === "string" && moduleId.indexOf("!") !== -1) {
-				var parts = moduleId.split("!");
-				log.groupCollapsed("info", "[HMR]  - " + parts.pop());
-				log("info", "[HMR]  - " + moduleId);
-				log.groupEnd("info");
-			} else {
-				log("info", "[HMR]  - " + moduleId);
-			}
-		});
-		var numberIds = renewedModules.every(function(moduleId) {
-			return typeof moduleId === "number";
-		});
-		if(numberIds)
-			log("info", "[HMR] Consider using the NamedModulesPlugin for module names.");
-	}
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/webpack/hot/log.js":
-/***/ (function(module, exports) {
-
-var logLevel = "info";
-
-function dummy() {}
-
-function shouldLog(level) {
-	var shouldLog = (logLevel === "info" && level === "info") ||
-		(["info", "warning"].indexOf(logLevel) >= 0 && level === "warning") ||
-		(["info", "warning", "error"].indexOf(logLevel) >= 0 && level === "error");
-	return shouldLog;
-}
-
-function logGroup(logFn) {
-	return function(level, msg) {
-		if(shouldLog(level)) {
-			logFn(msg);
-		}
-	};
-}
-
-module.exports = function(level, msg) {
-	if(shouldLog(level)) {
-		if(level === "info") {
-			console.log(msg);
-		} else if(level === "warning") {
-			console.warn(msg);
-		} else if(level === "error") {
-			console.error(msg);
-		}
-	}
-};
-
-var group = console.group || dummy;
-var groupCollapsed = console.groupCollapsed || dummy;
-var groupEnd = console.groupEnd || dummy;
-
-module.exports.group = logGroup(group);
-
-module.exports.groupCollapsed = logGroup(groupCollapsed);
-
-module.exports.groupEnd = logGroup(groupEnd);
-
-module.exports.setLogLevel = function(level) {
-	logLevel = level;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/webpack/hot/poll.js?300":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(__resourceQuery) {/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-/*globals __resourceQuery */
-if(true) {
-	var hotPollInterval = +(__resourceQuery.substr(1)) || (10 * 60 * 1000);
-	var log = __webpack_require__("./node_modules/webpack/hot/log.js");
-
-	var checkForUpdate = function checkForUpdate(fromUpdate) {
-		if(module.hot.status() === "idle") {
-			module.hot.check(true).then(function(updatedModules) {
-				if(!updatedModules) {
-					if(fromUpdate) log("info", "[HMR] Update applied.");
-					return;
-				}
-				__webpack_require__("./node_modules/webpack/hot/log-apply-result.js")(updatedModules, updatedModules);
-				checkForUpdate(true);
-			}).catch(function(err) {
-				var status = module.hot.status();
-				if(["abort", "fail"].indexOf(status) >= 0) {
-					log("warning", "[HMR] Cannot apply update.");
-					log("warning", "[HMR] " + err.stack || err.message);
-					log("warning", "[HMR] You need to restart the application!");
-				} else {
-					log("warning", "[HMR] Update failed: " + err.stack || err.message);
-				}
-			});
-		}
-	};
-	setInterval(checkForUpdate, hotPollInterval);
-} else {
-	throw new Error("[HMR] Hot Module Replacement is disabled.");
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, "?300"))
+module.exports = {"client":{"js":"/static/js/bundle.ddfb16a8.js","css":"/static/css/bundle.9efc1e0c.css"}}
 
 /***/ }),
 
@@ -829,34 +78,30 @@ if(true) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__("babel-runtime/core-js/object/assign");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__("babel-runtime/helpers/extends");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__jaredpalmer_after__ = __webpack_require__("@jaredpalmer/after");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__jaredpalmer_after___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__jaredpalmer_after__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_styled_components__ = __webpack_require__("styled-components");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_styled_components__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_error_PrimaryErrorBoundary_js__ = __webpack_require__("./src/components/error/PrimaryErrorBoundary.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Document_styled_js__ = __webpack_require__("./src/Document.styled.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__jaredpalmer_after__ = __webpack_require__("@jaredpalmer/after");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__jaredpalmer_after___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__jaredpalmer_after__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_error_PrimaryErrorBoundary_js__ = __webpack_require__("./src/components/error/PrimaryErrorBoundary.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Document_styled_js__ = __webpack_require__("./src/Document.styled.js");
 
 
 
 
 
 
-
-var _jsxFileName = "/www/ps-jobs/app/src/Document.js";
 // ./src/Document.js
 
 
@@ -865,15 +110,15 @@ var _jsxFileName = "/www/ps-jobs/app/src/Document.js";
 
 
 var Document = function (_React$Component) {
-	__WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_inherits___default()(Document, _React$Component);
+	__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default()(Document, _React$Component);
 
 	function Document() {
-		__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default()(this, Document);
+		__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default()(this, Document);
 
-		return __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Document.__proto__ || __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_get_prototype_of___default()(Document)).apply(this, arguments));
+		return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Document.__proto__ || __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default()(Document)).apply(this, arguments));
 	}
 
-	__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass___default()(Document, [{
+	__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default()(Document, [{
 		key: "render",
 		value: function render() {
 			var _props = this.props,
@@ -886,89 +131,35 @@ var Document = function (_React$Component) {
 			var htmlAttrs = helmet.htmlAttributes.toComponent();
 			var bodyAttrs = helmet.bodyAttributes.toComponent();
 
-			return __WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
+			return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
 				"html",
-				__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, htmlAttrs, {
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 28
-					}
-				}),
-				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
+				htmlAttrs,
+				__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
 					"head",
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 29
-						}
-					},
-					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement("meta", { httpEquiv: "X-UA-Compatible", content: "IE=edge", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 30
-						}
-					}),
-					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement("meta", { charSet: "utf-8", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 31
-						}
-					}),
-					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
+					null,
+					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("meta", { httpEquiv: "X-UA-Compatible", content: "IE=edge" }),
+					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("meta", { charSet: "utf-8" }),
+					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
 						"title",
-						{
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 32
-							}
-						},
+						null,
 						"After.js | PS"
 					),
-					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement("meta", { name: "viewport", content: "width=device-width, initial-scale=1", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 33
-						}
-					}),
+					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("meta", { name: "viewport", content: "width=device-width, initial-scale=1" }),
 					helmet.title.toComponent(),
 					helmet.meta.toComponent(),
 					helmet.link.toComponent(),
-					assets.client.css && __WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement("link", { rel: "stylesheet", href: assets.client.css, __source: {
-							fileName: _jsxFileName,
-							lineNumber: 37
-						}
-					}),
+					assets.client.css && __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("link", { rel: "stylesheet", href: assets.client.css }),
 					styleTags
 				),
-				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
 					"body",
-					__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, bodyAttrs, {
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 40
-						}
-					}),
-					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
-						__WEBPACK_IMPORTED_MODULE_10__components_error_PrimaryErrorBoundary_js__["a" /* default */],
-						{
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 41
-							}
-						},
-						__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__jaredpalmer_after__["AfterRoot"], {
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 42
-							}
-						}),
-						__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__jaredpalmer_after__["AfterData"], { data: data, __source: {
-								fileName: _jsxFileName,
-								lineNumber: 44
-							}
-						}),
-						__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement("script", { type: "text/javascript", src: assets.client.js, defer: true, crossOrigin: "anonymous", __source: {
-								fileName: _jsxFileName,
-								lineNumber: 45
-							}
-						})
+					bodyAttrs,
+					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+						__WEBPACK_IMPORTED_MODULE_9__components_error_PrimaryErrorBoundary_js__["a" /* default */],
+						null,
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__jaredpalmer_after__["AfterRoot"], null),
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__jaredpalmer_after__["AfterData"], { data: data }),
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("script", { type: "text/javascript", src: assets.client.js, defer: true, crossOrigin: "anonymous" })
 					)
 				)
 			);
@@ -986,15 +177,10 @@ var Document = function (_React$Component) {
 			    data = _ref.data,
 			    renderPage = _ref.renderPage;
 
-			var sheet = new __WEBPACK_IMPORTED_MODULE_9_styled_components__["ServerStyleSheet"]();
+			var sheet = new __WEBPACK_IMPORTED_MODULE_8_styled_components__["ServerStyleSheet"]();
 			var page = renderPage(function (App) {
 				return function (props) {
-					return sheet.collectStyles(__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(App, __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, props, {
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 16
-						}
-					})));
+					return sheet.collectStyles(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(App, props));
 				};
 			});
 			var styleTags = sheet.getStyleElement();
@@ -1003,7 +189,7 @@ var Document = function (_React$Component) {
 	}]);
 
 	return Document;
-}(__WEBPACK_IMPORTED_MODULE_7_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Document);
 
@@ -1094,7 +280,6 @@ Object(__WEBPACK_IMPORTED_MODULE_1_styled_components__["injectGlobal"])(_templat
 
 
 
-var _jsxFileName = "/www/ps-jobs/app/src/components/Footer.js";
 
 // import { Link } from 'react-router-dom'
 
@@ -1112,19 +297,10 @@ var Footer = function (_React$Component) {
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
         "div",
-        { className: "Footer", __source: {
-            fileName: _jsxFileName,
-            lineNumber: 7
-          }
-        },
+        { className: "Footer" },
         __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
           "h1",
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            }
-          },
+          null,
           "FOOTER"
         )
       );
@@ -1166,7 +342,6 @@ var Footer = function (_React$Component) {
 
 
 
-var _jsxFileName = "/www/ps-jobs/app/src/components/Layout.js";
 
 
 
@@ -1190,31 +365,13 @@ var Layout = function (_React$Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_9_react_redux__["Provider"],
-				{ store: store, className: "MyProvider", __source: {
-						fileName: _jsxFileName,
-						lineNumber: 13
-					}
-				},
+				{ store: store, className: "MyProvider" },
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 					"div",
-					{ className: "Layout", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 14
-						}
-					},
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__header_Header_js__["a" /* default */], {
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 15
-						}
-					}),
+					{ className: "Layout" },
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__header_Header_js__["a" /* default */], null),
 					this.props.children || null,
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Footer_js__["a" /* default */], {
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 17
-						}
-					})
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Footer_js__["a" /* default */], null)
 				)
 			);
 		}
@@ -1252,7 +409,6 @@ var Layout = function (_React$Component) {
 
 
 
-var _jsxFileName = "/www/ps-jobs/app/src/components/error/PrimaryErrorBoundary.js";
 
 
 var PrimaryErrorBoundary = function (_Component) {
@@ -1287,24 +443,11 @@ var PrimaryErrorBoundary = function (_Component) {
 			if (this.state.hasError) {
 				return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
 					"div",
-					{ style: { margin: 20 }, __source: {
-							fileName: _jsxFileName,
-							lineNumber: 24
-						}
-					},
-					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("br", {
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 25
-						}
-					}),
+					{ style: { margin: 20 } },
+					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("br", null),
 					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
 						"h3",
-						{ style: { color: "red" }, __source: {
-								fileName: _jsxFileName,
-								lineNumber: 26
-							}
-						},
+						{ style: { color: "red" } },
 						"Sorry, something went wrong."
 					)
 				);
@@ -1344,7 +487,6 @@ var PrimaryErrorBoundary = function (_Component) {
 
 
 
-var _jsxFileName = "/www/ps-jobs/app/src/components/header/Header.js";
 
 
 
@@ -1363,23 +505,9 @@ var Header = function (_React$Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 				"div",
-				{ className: "Header", __source: {
-						fileName: _jsxFileName,
-						lineNumber: 8
-					}
-				},
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Input__["a" /* default */], {
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 9
-					}
-				}),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__Nav__["a" /* default */], {
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 11
-					}
-				})
+				{ className: "Header" },
+				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Input__["a" /* default */], null),
+				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__Nav__["a" /* default */], null)
 			);
 		}
 	}]);
@@ -1412,7 +540,6 @@ var Header = function (_React$Component) {
 
 
 
-var _jsxFileName = "/www/ps-jobs/app/src/components/header/Input.js";
 
 
 var query = {
@@ -1445,29 +572,12 @@ var SearchInput = function (_React$Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 				"div",
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 21
-					}
-				},
+				null,
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 					"form",
-					{ onSubmit: this.handleUsernameSubmission, __source: {
-							fileName: _jsxFileName,
-							lineNumber: 22
-						}
-					},
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { placeholder: "skill...", ref: "skill", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 23
-						}
-					}),
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { type: "submit", value: "Search", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 24
-						}
-					})
+					{ onSubmit: this.handleUsernameSubmission },
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { placeholder: "skill...", ref: "skill" }),
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { type: "submit", value: "Search" })
 				)
 			);
 		}
@@ -1503,7 +613,6 @@ var SearchInput = function (_React$Component) {
 
 
 
-var _jsxFileName = '/www/ps-jobs/app/src/components/header/Nav.js';
 
 
 
@@ -1521,141 +630,70 @@ var Nav = function (_React$Component) {
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
         'div',
-        { className: 'Nav', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 7
-          }
-        },
+        { className: 'Nav' },
         __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
           'h1',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            }
-          },
+          null,
           'NAV'
         ),
         __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
           'div',
-          { className: 'Nav_section', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 9
-            }
-          },
+          { className: 'Nav_section' },
           __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
             'div',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 10
-              }
-            },
+            null,
             __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-              { to: '/', __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 10
-                }
-              },
+              { to: '/' },
               'home \xBB'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
             'div',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 11
-              }
-            },
+            null,
             __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-              { to: '/about', __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 11
-                }
-              },
+              { to: '/about' },
               'about \xBB'
             )
           )
         ),
         __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
           'div',
-          { className: 'Nav_section', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 13
-            }
-          },
+          { className: 'Nav_section' },
           __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
             'div',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 14
-              }
-            },
+            null,
             __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-              { to: '/search/samsung', __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 14
-                }
-              },
+              { to: '/search/samsung' },
               'search "samsung" \xBB'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
             'div',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 15
-              }
-            },
+            null,
             __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-              { to: '/search/apple', __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 15
-                }
-              },
+              { to: '/search/apple' },
               'search "apple" \xBB'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
             'div',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 16
-              }
-            },
+            null,
             __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-              { to: '/search/vaco', __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 16
-                }
-              },
+              { to: '/search/vaco' },
               'search "vaco" \xBB'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
             'div',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 17
-              }
-            },
+            null,
             __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-              { to: '/search/google', __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 17
-                }
-              },
+              { to: '/search/google' },
               'search "google" \xBB'
             )
           )
@@ -1695,7 +733,6 @@ var Nav = function (_React$Component) {
 
 
 
-var _jsxFileName = "/www/ps-jobs/app/src/components/search/Query.js";
 /*jshint esversion: 6 */
 
 // import * as Styled from "./styled/Results.js";
@@ -1730,29 +767,12 @@ var Query = function (_React$Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 				"div",
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 21
-					}
-				},
+				null,
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 					"form",
-					{ onSubmit: this.handleUsernameSubmission, __source: {
-							fileName: _jsxFileName,
-							lineNumber: 22
-						}
-					},
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { placeholder: "skill...", ref: "skill", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 23
-						}
-					}),
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { type: "submit", value: "Search", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 24
-						}
-					})
+					{ onSubmit: this.handleUsernameSubmission },
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { placeholder: "skill...", ref: "skill" }),
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { type: "submit", value: "Search" })
 				)
 			);
 		}
@@ -1816,7 +836,6 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_6_react_redux__["connect"]
 
 
 
-var _jsxFileName = "/www/ps-jobs/app/src/components/search/Results.js";
 /*jshint esversion: 6 */
 
 
@@ -1825,6 +844,9 @@ var _jsxFileName = "/www/ps-jobs/app/src/components/search/Results.js";
 /* redux */
 
 
+
+// const jobsUrl = "https://s3.us-east-2.amazonaws.com/jsjobsapi/api/v1/jobs.json"; // S3
+var jobsUrl = "https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs.json"; // Cloudfront
 
 /* 
 	Component 
@@ -1848,13 +870,13 @@ var Results = function (_Component) {
 		key: "componentWillMount",
 		value: function () {
 			var _ref = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-				var res, json;
+				var res, data;
 				return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
 					while (1) {
 						switch (_context.prev = _context.next) {
 							case 0:
 								_context.next = 2;
-								return fetch("https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs.json");
+								return fetch(jobsUrl);
 
 							case 2:
 								res = _context.sent;
@@ -1862,9 +884,9 @@ var Results = function (_Component) {
 								return res.json();
 
 							case 5:
-								json = _context.sent;
+								data = _context.sent;
 
-								this.props.dispatch_jobsAdd(json.data || []);
+								this.props.dispatch_jobsAdd(data || []);
 
 							case 7:
 							case "end":
@@ -1900,29 +922,15 @@ var Results = function (_Component) {
 				jobs.forEach(function (job, i) {
 					Jobs.push(__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 						"div",
-						{ key: job._id, __source: {
-								fileName: _jsxFileName,
-								lineNumber: 41
-							}
-						},
+						{ key: job._id },
 						__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 							"div",
-							{
-								__source: {
-									fileName: _jsxFileName,
-									lineNumber: 42
-								}
-							},
+							null,
 							job.text
 						),
 						__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 							"sup",
-							{
-								__source: {
-									fileName: _jsxFileName,
-									lineNumber: 43
-								}
-							},
+							null,
 							job.location
 						)
 					));
@@ -1930,57 +938,27 @@ var Results = function (_Component) {
 			}
 			return __WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_9__styled_Results_js__["a" /* Results */],
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 49
-					}
-				},
+				null,
 				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 					"h2",
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 50
-						}
-					},
+					null,
 					"Query:"
 				),
-				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__Query_js__["a" /* default */], {
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 51
-					}
-				}),
+				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__Query_js__["a" /* default */], null),
 				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 					"h2",
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 52
-						}
-					},
+					null,
 					" "
 				),
 				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 					"h2",
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 54
-						}
-					},
+					null,
 					"Results: ",
 					jobs.length
 				),
 				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 					"div",
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 55
-						}
-					},
+					null,
 					Jobs
 				)
 			);
@@ -2122,11 +1100,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var server = __WEBPACK_IMPORTED_MODULE_1_http___default.a.createServer(__WEBPACK_IMPORTED_MODULE_0__server__["default"]);
+var server = __WEBPACK_IMPORTED_MODULE_1_http___default.a.createServer(__WEBPACK_IMPORTED_MODULE_0__server__["a" /* default */]);
 
-var currentApp = __WEBPACK_IMPORTED_MODULE_0__server__["default"];
+var currentApp = __WEBPACK_IMPORTED_MODULE_0__server__["a" /* default */];
 
-server.listen("3000" || 3000, function (error) {
+server.listen(3000 || 3000, function (error) {
   if (error) {
     console.log(error);
   }
@@ -2134,39 +1112,17 @@ server.listen("3000" || 3000, function (error) {
   console.log('🚀 started');
 });
 
-if (true) {
+if (false) {
   console.log('✅  Server-side HMR Enabled!');
 
-  module.hot.accept("./src/server.js", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ __WEBPACK_IMPORTED_MODULE_0__server__ = __webpack_require__("./src/server.js"); (function () {
+  module.hot.accept('./server', function () {
     console.log('🔁  HMR Reloading `./server`...');
     server.removeListener('request', currentApp);
-    var newApp = __webpack_require__("./src/server.js").default;
+    var newApp = require('./server').default;
     server.on('request', newApp);
     currentApp = newApp;
-  })(__WEBPACK_OUTDATED_DEPENDENCIES__); });
+  });
 }
-
-/***/ }),
-
-/***/ "./src/lib/getAPI.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export getAPIHostname */
-var getAPIHostname = function getAPIHostname() {
-	if (typeof window === "undefined") {
-		console.log('getAPIHostname => http://localhost:1080');
-		return "http://localhost:1080";
-	} else {
-		if (window.location.hostname === "localhost") {
-			console.log("getAPIHostname => " + window.location.protocol + "//" + window.location.hostname + ":1080");
-			return window.location.protocol + "//" + window.location.hostname + ":1080";
-		} else {
-			console.log("getAPIHostname => " + window.location.protocol + "//" + window.location.hostname);
-			return window.location.protocol + "//" + window.location.hostname;
-		}
-	}
-};
 
 /***/ }),
 
@@ -2178,7 +1134,6 @@ var getAPIHostname = function getAPIHostname() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__jaredpalmer_after__ = __webpack_require__("@jaredpalmer/after");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__jaredpalmer_after___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__jaredpalmer_after__);
-var _jsxFileName = "/www/ps-jobs/app/src/routes.js";
 
 
 
@@ -2193,12 +1148,7 @@ var _jsxFileName = "/www/ps-jobs/app/src/routes.js";
 		Placeholder: function Placeholder() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				"div",
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 11
-					}
-				},
+				null,
 				"...LOADING..."
 			);
 		} // this is optional, just returns null by default
@@ -2213,12 +1163,7 @@ var _jsxFileName = "/www/ps-jobs/app/src/routes.js";
 		Placeholder: function Placeholder() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				"div",
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 19
-					}
-				},
+				null,
 				"...LOADING..."
 			);
 		} // this is optional, just returns null by default
@@ -2233,12 +1178,7 @@ var _jsxFileName = "/www/ps-jobs/app/src/routes.js";
 		Placeholder: function Placeholder() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				"div",
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 27
-					}
-				},
+				null,
 				"...LOADING..."
 			);
 		} // this is optional, just returns null by default
@@ -2252,12 +1192,7 @@ var _jsxFileName = "/www/ps-jobs/app/src/routes.js";
 		Placeholder: function Placeholder() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				"div",
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 34
-					}
-				},
+				null,
 				"...Page Not Found..."
 			);
 		} // this is optional, just returns null by default
@@ -2285,15 +1220,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__styled_Home_js__ = __webpack_require__("./src/routes/styled/Home.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_getAPI__ = __webpack_require__("./src/lib/getAPI.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Layout_js__ = __webpack_require__("./src/components/Layout.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__styled_Page_js__ = __webpack_require__("./src/routes/styled/Page.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Layout_js__ = __webpack_require__("./src/components/Layout.js");
 
 
 
 
-
-var _jsxFileName = "/www/ps-jobs/app/src/routes/404.js";
 
 
 
@@ -2313,29 +1245,14 @@ var Home = function (_Component) {
 		key: "render",
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_9__components_Layout_js__["a" /* default */],
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 10
-					}
-				},
+				__WEBPACK_IMPORTED_MODULE_8__components_Layout_js__["a" /* default */],
+				null,
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_7__styled_Home_js__["a" /* Home */],
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 11
-						}
-					},
+					__WEBPACK_IMPORTED_MODULE_7__styled_Page_js__["a" /* Page */],
+					null,
 					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 						"h2",
-						{
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 12
-							}
-						},
+						null,
 						"Page Not Found"
 					)
 				)
@@ -2369,7 +1286,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__styled_Search_js__ = __webpack_require__("./src/routes/styled/Search.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__styled_Page_js__ = __webpack_require__("./src/routes/styled/Page.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Layout_js__ = __webpack_require__("./src/components/Layout.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_search_Results_js__ = __webpack_require__("./src/components/search/Results.js");
 
@@ -2377,7 +1294,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var _jsxFileName = "/www/ps-jobs/app/src/routes/About.js";
 
 
 
@@ -2398,28 +1314,13 @@ var Search = function (_Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_8__components_Layout_js__["a" /* default */],
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 10
-					}
-				},
+				null,
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_7__styled_Search_js__["a" /* Search */],
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 11
-						}
-					},
+					__WEBPACK_IMPORTED_MODULE_7__styled_Page_js__["a" /* Page */],
+					null,
 					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 						"h2",
-						{
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 12
-							}
-						},
+						null,
 						"About us..."
 					)
 				)
@@ -2457,7 +1358,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__styled_Search_js__ = __webpack_require__("./src/routes/styled/Search.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__styled_Page_js__ = __webpack_require__("./src/routes/styled/Page.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_Layout_js__ = __webpack_require__("./src/components/Layout.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_search_Results_js__ = __webpack_require__("./src/components/search/Results.js");
 
@@ -2467,12 +1368,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var _jsxFileName = "/www/ps-jobs/app/src/routes/Home.js";
 
 
 
 
 
+
+// const jobsUrl_initial = "https://jsjobsapi.s3.us-east-2.amazonaws.com/api/v1/jobs-50.json"; // S3
+var jobsUrl_initial = "https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs-50.json"; // Cloudfront
 
 var Search = function (_Component) {
 	__WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_inherits___default()(Search, _Component);
@@ -2488,35 +1391,16 @@ var Search = function (_Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_10__components_Layout_js__["a" /* default */],
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 16
-					}
-				},
+				null,
 				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_9__styled_Search_js__["a" /* Search */],
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 17
-						}
-					},
+					__WEBPACK_IMPORTED_MODULE_9__styled_Page_js__["a" /* Page */],
+					null,
 					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 						"h2",
-						{
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 18
-							}
-						},
+						null,
 						"Welcome!"
 					),
-					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11__components_search_Results_js__["a" /* default */], { jobs: this.props.jobs, __source: {
-							fileName: _jsxFileName,
-							lineNumber: 19
-						}
-					})
+					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11__components_search_Results_js__["a" /* default */], { jobs: this.props.jobs })
 				)
 			);
 		}
@@ -2531,7 +1415,7 @@ var Search = function (_Component) {
 						switch (_context.prev = _context.next) {
 							case 0:
 								_context.next = 2;
-								return fetch("http://localhost/api/v1/jobs?text=&start=0&limit=50");
+								return fetch(jobsUrl_initial);
 
 							case 2:
 								res = _context.sent;
@@ -2584,7 +1468,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__styled_Search_js__ = __webpack_require__("./src/routes/styled/Search.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__styled_Page_js__ = __webpack_require__("./src/routes/styled/Page.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Layout_js__ = __webpack_require__("./src/components/Layout.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_search_Results_js__ = __webpack_require__("./src/components/search/Results.js");
 
@@ -2592,7 +1476,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var _jsxFileName = "/www/ps-jobs/app/src/routes/Search.js";
 
 
 
@@ -2614,28 +1497,13 @@ var Search = function (_Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_8__components_Layout_js__["a" /* default */],
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 11
-					}
-				},
+				null,
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_7__styled_Search_js__["a" /* Search */],
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 12
-						}
-					},
+					__WEBPACK_IMPORTED_MODULE_7__styled_Page_js__["a" /* Page */],
+					null,
 					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 						"h2",
-						{
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 13
-							}
-						},
+						null,
 						"Search..."
 					)
 				)
@@ -2650,41 +1518,22 @@ var Search = function (_Component) {
 
 /***/ }),
 
-/***/ "./src/routes/styled/Home.js":
+/***/ "./src/routes/styled/Page.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Home; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Page; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__ = __webpack_require__("babel-runtime/helpers/taggedTemplateLiteral");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(['\n\t/* background:yellow; */\n'], ['\n\t/* background:yellow; */\n']);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t/* background:yellow; */\n"], ["\n\t/* background:yellow; */\n"]);
 
 
 
-var Home = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject);
-
-/***/ }),
-
-/***/ "./src/routes/styled/Search.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Search; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__ = __webpack_require__("babel-runtime/helpers/taggedTemplateLiteral");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
-
-
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(['\n\t/* background:yellow; */\n'], ['\n\t/* background:yellow; */\n']);
-
-
-
-var Search = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject);
+var Page = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject);
 
 /***/ }),
 
@@ -2692,7 +1541,6 @@ var Search = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_temp
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("babel-runtime/regenerator");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__("babel-runtime/helpers/asyncToGenerator");
@@ -2716,7 +1564,7 @@ var _this = this;
 var assets = __webpack_require__("./build/assets.json");
 
 var server = __WEBPACK_IMPORTED_MODULE_2_express___default()();
-server.disable("x-powered-by").use(__WEBPACK_IMPORTED_MODULE_2_express___default.a.static("/www/ps-jobs/app/public")).get("/*", function () {
+server.disable("x-powered-by").use(__WEBPACK_IMPORTED_MODULE_2_express___default.a.static("/www/ps-jobs/app/build/public")).get("/*", function () {
 	var _ref = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(req, res) {
 		var html;
 		return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
@@ -2763,14 +1611,13 @@ server.disable("x-powered-by").use(__WEBPACK_IMPORTED_MODULE_2_express___default
 	};
 }());
 
-/* harmony default export */ __webpack_exports__["default"] = (server);
+/* harmony default export */ __webpack_exports__["a"] = (server);
 
 /***/ }),
 
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__("./node_modules/webpack/hot/poll.js?300");
 module.exports = __webpack_require__("./src/index.js");
 
 
@@ -2815,13 +1662,6 @@ module.exports = require("babel-runtime/helpers/classCallCheck");
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/createClass");
-
-/***/ }),
-
-/***/ "babel-runtime/helpers/extends":
-/***/ (function(module, exports) {
-
-module.exports = require("babel-runtime/helpers/extends");
 
 /***/ }),
 

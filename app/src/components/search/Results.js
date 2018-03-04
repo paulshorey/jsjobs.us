@@ -7,6 +7,9 @@ import Query from "./Query.js";
 import { connect } from "react-redux";
 import * as actions from "data/actions";
 
+// const jobsUrl = "https://s3.us-east-2.amazonaws.com/jsjobsapi/api/v1/jobs.json"; // S3
+const jobsUrl = "https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs.json"; // Cloudfront
+
 /* 
 	Component 
 */
@@ -18,9 +21,9 @@ class Results extends Component {
 		};
 	}
 	async componentWillMount() {
-		const res = await fetch(`https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs.json`);
-		const json = await res.json();
-		this.props.dispatch_jobsAdd(json.data || []);
+		const res = await fetch(jobsUrl);
+		const data = await res.json();
+		this.props.dispatch_jobsAdd(data || []);
 	}
 
 	filterJobs(jobs) {

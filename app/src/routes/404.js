@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import "isomorphic-unfetch";
-import * as Styled from "./styled/Home.js";
-import { getAPIHostname } from "lib/getAPI";
+import * as Styled from "./styled/Page.js";
 import Layout from "components/Layout.js";
 
 class Home extends Component {
 	render() {
 		return (
 			<Layout>
-				<Styled.Home>
+				<Styled.Page>
 					<h2>Page Not Found</h2>
-				</Styled.Home>
+				</Styled.Page>
 			</Layout>
 		);
 	}

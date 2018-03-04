@@ -30,27 +30,25 @@ process.env.AWS_ACCESS_KEY_ID = global.shh.AWS.ACCESS_KEY_ID;
 process.env.AWS_SECRET_ACCESS_KEY = global.shh.AWS.SECRET_ACCESS_KEY;
 process.env.AWS_SESSION_TOKEN = global.shh.AWS.SESSION_TOKEN;
 global.S3 = require("aws-sdk/clients/s3");
-// // bucket
-// var bucket = new global.S3({ apiVersion: "2006-03-01" });
-// var bucketParams = { Bucket: "jsjobsapi" };
-// // file
-// var file = "/Volumes/Media/Photos/_me/hg-rainbow.jpg";
-// var fileStream = global.rqr.fs.createReadStream(file);
-// fileStream.on("error", function(err) {
-// 	console.log("File Error", err);
-// });
-// bucketParams.Body = fileStream;
-// bucketParams.Key = global.rqr.path.basename(file);
-// // upload
-// bucket.upload(bucketParams, function(err, data) {
-// 	if (err) {
-// 		console.log("Error", err);
-// 	}
-// 	if (data) {
-// 		console.log("Upload Success", data.Location);
-// 	}
-// });
-
+global.S3UploadToBucket = function(name, content) {
+	// bucket
+	var bucket = new global.S3({ apiVersion: "2006-03-01" });
+	var bucketParams = { Bucket: "jsjobsapi" };
+	// file
+	bucketParams.Body = content;
+	bucketParams.Key = name;
+	bucketParams.ContentType = "text/json; charset=utf-8";
+	bucketParams.ContentDisposition = "inline";
+	// upload
+	bucket.upload(bucketParams, function(err, data) {
+		if (err) {
+			console.log("Error", err);
+		}
+		if (data) {
+			console.log("Upload Success", data.Location);
+		}
+	});
+};
 /*
 	global.logger
 */
@@ -215,21 +213,8 @@ global.server.post("/api/v1/jobs-apify-webhook", function(request, response) {
 				/*
 					save data
 				*/
-				// bucket
-				var bucket = new global.S3({ apiVersion: "2006-03-01" });
-				var bucketParams = { Bucket: "jsjobsapi" };
-				// file
-				bucketParams.Body = JSON.stringify(global.jobsDB);
-				bucketParams.Key = "api/v1/jobs.json";
-				// upload
-				bucket.upload(bucketParams, function(err, data) {
-					if (err) {
-						console.log("Error", err);
-					}
-					if (data) {
-						console.log("Upload Success", data.Location);
-					}
-				});
+				S3UploadToBucket("api/v1/jobs.json", JSON.stringify(global.jobsDB));
+				S3UploadToBucket("api/v1/jobs-50.json", JSON.stringify(global.jobsDB.slice(0, 50)));
 			} else {
 				global.logger.error({ "API: POST `/api/v1/jobs-apify-webhook` failed to return data: ": resultsUrl });
 			}
