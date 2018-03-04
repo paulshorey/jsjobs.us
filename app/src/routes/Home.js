@@ -12,6 +12,7 @@ class Search extends Component {
 	static async getInitialProps({ match }) {
 		const res = await fetch(jobsUrl_initial);
 		const json = await res.json();
+		console.log("getInitialProps found " + json.length + " jobs");
 		return { jobs: json || [] };
 	}
 

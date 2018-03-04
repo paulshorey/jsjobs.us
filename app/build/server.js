@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"/static/js/bundle.d85f7900.js","css":"/static/css/bundle.9efc1e0c.css"}}
+module.exports = {"client":{"js":"/static/js/bundle.7cd7ce8a.js","css":"/static/css/bundle.9efc1e0c.css"}}
 
 /***/ }),
 
@@ -867,7 +867,7 @@ var Results = function (_Component) {
 	}
 
 	__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass___default()(Results, [{
-		key: "componentWillMount",
+		key: "componentDidMount",
 		value: function () {
 			var _ref = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
 				var res, data;
@@ -886,9 +886,10 @@ var Results = function (_Component) {
 							case 5:
 								data = _context.sent;
 
+								console.log("componentWillMount found " + data.length + " jobs");
 								this.props.dispatch_jobsAdd(data || []);
 
-							case 7:
+							case 8:
 							case "end":
 								return _context.stop();
 						}
@@ -896,11 +897,11 @@ var Results = function (_Component) {
 				}, _callee, this);
 			}));
 
-			function componentWillMount() {
+			function componentDidMount() {
 				return _ref.apply(this, arguments);
 			}
 
-			return componentWillMount;
+			return componentDidMount;
 		}()
 	}, {
 		key: "filterJobs",
@@ -1425,9 +1426,11 @@ var Search = function (_Component) {
 
 							case 5:
 								json = _context.sent;
+
+								console.log("getInitialProps found " + json.length + " jobs");
 								return _context.abrupt("return", { jobs: json || [] });
 
-							case 7:
+							case 8:
 							case "end":
 								return _context.stop();
 						}

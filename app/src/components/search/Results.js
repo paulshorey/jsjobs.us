@@ -20,9 +20,10 @@ class Results extends Component {
 			jobs: []
 		};
 	}
-	async componentWillMount() {
+	async componentDidMount() {
 		const res = await fetch(jobsUrl);
 		const data = await res.json();
+		console.log("componentWillMount found " + data.length + " jobs");
 		this.props.dispatch_jobsAdd(data || []);
 	}
 
