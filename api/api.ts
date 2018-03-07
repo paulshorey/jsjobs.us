@@ -122,15 +122,17 @@ global.collection.jobs = global.rqr.mongoose.connection.collection("jobs", funct
 	// 	global.jobsDB = data;
 	// });
 });
-setTimeout(function() {
-	// DEBUG THIS: mongoose sometimes fails...
-	global.jobsDB = [];
-	if (global.collection.jobs.find) {
-		global.collection.jobs.find({}).toArray(function(error, data) {
-			global.jobsDB = data;
-		});
-	}
-}, 1000);
+// setTimeout(function() {
+// 	// DEBUG THIS: mongoose sometimes fails...
+// 	global.jobsDB = [];
+// 	let jobsFound = global.collection.jobs.find({});
+// 	console.log(typeof jobsFound, jobsFound);
+// 	if (typeof jobsFound !== "undefined") {
+// 		jobsFound.toArray(function(error, data) {
+// 			global.jobsDB = data;
+// 		});
+// 	}
+// }, 1000);
 // global.jobsDB = [];
 // global.collection.jobs.find({}).toArray(function(error, data) {
 // 	global.jobsDB = data;
