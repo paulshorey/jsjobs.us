@@ -20,10 +20,10 @@ export default [
 		})
 	},
 	{
-		path: "/search/:search?",
+		path: "/in/:location?",
 		exact: true,
 		component: asyncComponent({
-			loader: () => import("./routes/Search"), // required
+			loader: () => import("./routes/In"), // required
 			Placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
 		})
 	},

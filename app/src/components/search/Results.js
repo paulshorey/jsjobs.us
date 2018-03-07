@@ -2,31 +2,44 @@
 import React, { Component } from "react";
 import "isomorphic-unfetch";
 import * as Styled from "./styled/Results.js";
-import Query from "./Query.js";
 /* redux */
 import { connect } from "react-redux";
 import * as actions from "data/actions";
-
-// const jobsUrl = "https://s3.us-east-2.amazonaws.com/jsjobsapi/api/v1/jobs.json"; // S3
-const jobsUrl = "https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs.json"; // Cloudfront
-
 /* 
 	Component 
 */
 class Results extends Component {
+	async componentDidMount() {
+		// CDN => data
+		// API => json.data
+		const location_suffix = this.props.match.params.location ? "-" + this.props.match.params.location : "";
+		const jobsUrl = `https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs${location_suffix}.json`; // Cloudfront
+		const jobsUrl_local = `http://localhost:1080/api/v1/jobs${location_suffix}.json`; // local API
+		try {
+			const res = await fetch(jobsUrl);
+			const data = await res.json();
+			// console.log("componentDidMount fetched " + data.length + " results from " + jobsUrl);
+			this.props.dispatch_jobsAdd(data || []);
+		} catch (e) {
+			// console.error("componentDidMount fetch failed: " + jobsUrl + "");
+			try {
+				const res = await fetch(jobsUrl_local);
+				const json = await res.json();
+				// console.log("componentDidMount fetched " + json.data.length + " results from " + jobsUrl_local);
+				this.props.dispatch_jobsAdd(json.data || []);
+			} catch (e) {
+				// console.error("componentDidMount fetch failed: " + jobsUrl_local + "");
+				this.props.dispatch_jobsAdd([]);
+			}
+		}
+	}
+
 	constructor() {
 		super();
 		this.state = {
 			jobs: []
 		};
 	}
-	async componentDidMount() {
-		const res = await fetch(jobsUrl);
-		const data = await res.json();
-		console.log("componentWillMount found " + data.length + " jobs");
-		this.props.dispatch_jobsAdd(data || []);
-	}
-
 	filterJobs(jobs) {
 		jobs = jobs.map(function(item) {
 			item.status = item.status || "new";
@@ -35,6 +48,7 @@ class Results extends Component {
 		return jobs;
 	}
 	render() {
+		console.log("this.props.filters", this.props.filters);
 		var jobs = this.props.jobs;
 		jobs = this.filterJobs(jobs);
 		// get on with it...
@@ -51,18 +65,14 @@ class Results extends Component {
 		}
 		return (
 			<Styled.Results>
-				<h2>Query:</h2>
-				<Query />
-				<h2> </h2>
-
-				<h2>Results: {jobs.length}</h2>
 				<div>{Jobs}</div>
 			</Styled.Results>
 		);
 	}
 }
 const mapStateToProps = (state, ownProps) => ({
-	jobs: state.jobs.length ? state.jobs : ownProps.jobs
+	jobs: state.jobs.length ? state.jobs : ownProps.jobs,
+	filters: state.filters.length ? state.filters : ownProps.filters
 });
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	dispatch_jobsAdd: jobs => {

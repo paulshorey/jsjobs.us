@@ -3,7 +3,7 @@ const jobs = (state = [], action) => {
 		case "JOB_ADD":
 			return [Object.assign({}, action.job), ...state];
 		case "JOBS_ADD":
-			return action.jobs;
+			return [...action.jobs, ...state];
 		case "JOB_STATUS":
 			return state.map(job => (job._id === action._id ? { ...job, status: action._status } : job));
 		default:

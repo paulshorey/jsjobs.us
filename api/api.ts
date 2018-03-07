@@ -123,9 +123,13 @@ global.collection.jobs = global.rqr.mongoose.connection.collection("jobs", funct
 	// });
 });
 setTimeout(function() {
-	global.collection.jobs.find({}).toArray(function(error, data) {
-		global.jobsDB = data;
-	});
+	// DEBUG THIS: mongoose sometimes fails...
+	global.jobsDB = [];
+	if (global.collection.jobs.find) {
+		global.collection.jobs.find({}).toArray(function(error, data) {
+			global.jobsDB = data;
+		});
+	}
 }, 1000);
 // global.jobsDB = [];
 // global.collection.jobs.find({}).toArray(function(error, data) {
@@ -186,7 +190,11 @@ global.server.get("/api/v1/jobs.json", function(request, response) {
 /*
 	API: POST
 */
-global.server.post("/api/v1/jobs-apify-webhook", function(request, response) {
+global.server.post("/api/v1/jobs-apify-webhook/:location", function(request, response) {
+	// location
+	const location_suffix = request.params.location ? "-" + request.params.location : "";
+	const jobsUrl_initial = `api/v1/jobs${location_suffix}-50.json`;
+	const jobsUrl = `api/v1/jobs${location_suffix}.json`;
 	// dev env
 	if (!request.body._id) {
 		request.body._id = "F4aaFM6efGqF6g6DH";
@@ -213,8 +221,8 @@ global.server.post("/api/v1/jobs-apify-webhook", function(request, response) {
 				/*
 					save data
 				*/
-				S3UploadToBucket("api/v1/jobs.json", JSON.stringify(global.jobsDB));
-				S3UploadToBucket("api/v1/jobs-50.json", JSON.stringify(global.jobsDB.slice(0, 50)));
+				S3UploadToBucket(jobsUrl, JSON.stringify(global.jobsDB));
+				S3UploadToBucket(jobsUrl_initial, JSON.stringify(global.jobsDB.slice(0, 50)));
 			} else {
 				global.logger.error({ "API: POST `/api/v1/jobs-apify-webhook` failed to return data: ": resultsUrl });
 			}

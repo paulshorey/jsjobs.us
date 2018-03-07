@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import jobs from "./jobs";
-// import visibilityFilter from "./visibilityFilter";
+import filters from "./filters";
 
-const jobData = combineReducers({
-	jobs
-	// visibilityFilter
+const data = combineReducers({
+	jobs,
+	filters
 });
 
-export default jobData;
+export default data;
