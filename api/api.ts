@@ -304,12 +304,14 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 					/*
 						save to CDN
 					*/
-					global.collectionSearch(collection, { area: collection_area, find: {}, sort: { posted: -1 }, skip: 0, limit: 3000 }).then(function(data) {
-						// send to S3/Cloud
-						global.S3UploadToBucket(cacheUrl, JSON.stringify(resultsArray));
-						global.S3UploadToBucket(cacheUrl_initial, JSON.stringify(resultsArray.slice(0, 50)));
-						global.logger.info({ ["API: POST `/api/v1/" + collection + "/apify-webhook/" + collection_area + "` uploading to CDN:"]: { results: data.length } });
-					});
+					if (!DEV) {
+						global.collectionSearch(collection, { find: { _area: collection_area }, sort: { posted: -1 }, skip: 0, limit: 3000 }).then(function(data) {
+							// send to S3/Cloud
+							global.S3UploadToBucket(cacheUrl, JSON.stringify(data));
+							global.S3UploadToBucket(cacheUrl_initial, JSON.stringify(data.slice(0, 50)));
+							global.logger.info({ ["API: POST `/api/v1/" + collection + "/apify-webhook/" + collection_area + "` uploading to CDN:"]: { results: data.length } });
+						});
+					}
 				}
 			} else {
 				// no data in (resultsSets[0].pageFunctionResult)
