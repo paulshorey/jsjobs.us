@@ -196,7 +196,7 @@ global.server.get("/api/v1/jobs.json", function(request, response) {
 /*
 	API: POST
 */
-global.server.post("/api/v1/jobs-apify-webhook/:location", function(request, response) {
+global.server.post("/api/v1/jobs/apify-webhook/:location?", function(request, response) {
 	// location
 	const location_suffix = request.params.location ? "-" + request.params.location : "";
 	const jobsUrl_initial = `api/v1/jobs${location_suffix}-50.json`;
