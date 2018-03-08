@@ -114,14 +114,18 @@ global.jobsDB = [];
 global.model
 global.collection
 */
+
 global.model = {};
 global.collection = {};
-global.rqr.mongoose.connect("mongodb://" + global.shh.mongod.user + ":" + global.shh.mongod.pwd + "@localhost");
-global.collection.jobs = global.rqr.mongoose.connection.collection("jobs", function(err, collection) {
-	// collection.find({}).toArray(function(error, data) {
-	// 	global.jobsDB = data;
-	// });
+global.rqr.mongoose.connect("mongodb://" + global.shh.mongod.user + ":" + global.shh.mongod.pwd + "@localhost").then(function() {
+	global.collection.jobs = global.rqr.mongoose.connection.db.collection("jobs", function(err, collection) {
+		collection.find({}).toArray(function(error, data) {
+			console.log("found: " + data.length);
+			global.jobsDB = data;
+		});
+	});
 });
+
 // setTimeout(function() {
 // 	// DEBUG THIS: mongoose sometimes fails...
 // 	global.jobsDB = [];
