@@ -5,9 +5,9 @@ process.env.PATH = __dirname;
 process.env.PORT = 1080;
 const DEV = process.env.NODE_ENV === "development";
 /*
-	global.shh
+	SECRET
 */
-global.shh = require("/www/secret/all.js"); // not on GitHub!
+const SECRET = require("/www/secret/all.js");
 /*
 	global.rqr
 */
@@ -24,12 +24,14 @@ global.rqr.chrono = require("chrono-node");
 global.rqr.cookieParser = require("cookie-parser");
 global.rqr.bodyParser = require("body-parser");
 global.rqr.mongoose = require("mongoose");
+global.rqr.MongoClient = require("mongodb").MongoClient;
+global.rqr.async = require("async");
 /*
 	global.S3 (AWS)
 */
-process.env.AWS_ACCESS_KEY_ID = global.shh.AWS.ACCESS_KEY_ID;
-process.env.AWS_SECRET_ACCESS_KEY = global.shh.AWS.SECRET_ACCESS_KEY;
-process.env.AWS_SESSION_TOKEN = global.shh.AWS.SESSION_TOKEN;
+process.env.AWS_ACCESS_KEY_ID = SECRET.AWS.ACCESS_KEY_ID;
+process.env.AWS_SECRET_ACCESS_KEY = SECRET.AWS.SECRET_ACCESS_KEY;
+process.env.AWS_SESSION_TOKEN = SECRET.AWS.SESSION_TOKEN;
 global.S3 = require("aws-sdk/clients/s3");
 global.S3UploadToBucket = function(name, content) {
 	// bucket
@@ -43,7 +45,7 @@ global.S3UploadToBucket = function(name, content) {
 	// upload
 	bucket.upload(bucketParams, function(err, data) {
 		if (err) {
-			global.logger.error({ "S3UploadToBucket failed to upload:": { Key: bucketParams.Key, Bucket: bucketParams.Bucket } });
+			console.log("Error", err);
 		}
 		if (data) {
 			console.log("Upload Success", data.Location);
@@ -53,7 +55,7 @@ global.S3UploadToBucket = function(name, content) {
 /*
 	global.logger
 */
-let dna_logger = require("logdna").setupDefaultLogger(global.shh.logdna.ingestionKey, {
+let dna_logger = require("logdna").setupDefaultLogger(SECRET.logdna.ingestionKey, {
 	index_meta: true,
 	hostname: "jsjobs.us/api",
 	app: DEV ? "API-dev" : "API-pro"
@@ -107,69 +109,33 @@ global.server.use(global.rqr.bodyParser.json());
 global.server.use(global.rqr.bodyParser.urlencoded({ extended: false }));
 global.server.use(global.rqr.cookieParser());
 /*
-global.db
-global.model
-global.schema
-*/
-global.db = global.rqr.mongoose.connection.db;
-// global.model = {};
-// global.schema = {};
-// global.schema.jobs = new global.rqr.mongoose.Schema({
-// 	_id: String,
-// 	_status: String,
-// 	name: String,
-// 	link: String,
-// 	company: String,
-// 	location: String,
-// 	posted: Number,
-// 	text: String
-// });
-// global.model.jobs = global.db.model("jobs", global.schema.jobs);
-/*
 global.collection
 */
-// global.collections = [];
 global.collection = {};
 global.rqr.mongoose.connect("mongodb://" + global.shh.mongod.user + ":" + global.shh.mongod.pwd + "@localhost").then(function() {
-	// global.collections
-	// global.rqr.mongoose.connection.db
-	// 	.listCollections()
-	// 	.toArray()
-	// 	.then(function(collections) {
-	// 		collections.forEach(function(col) {
-	// 			if (col.name.indexOf("system.") === -1) {
-	// 				// add to list
-	// 				global.collections.push(col);
-	// 				if (process.argv.indexOf("purge") !== -1) {
-	// 					// remove all documents
-	// 				} else {
-	// 					// open collection
-	// 					global.collection[col.name] = global.rqr.mongoose.connection.db.collection(col.name, function(err, collection) {
-	// 						collection.count({}, function(error, count) {
-	// 							console.log("collection." + col.name + ".count() => " + count);
-	// 						});
-	// 					});
-	// 				}
-	// 			}
-	// 		});
-	// 	});
-	global.collection["jobs"] = global.rqr.mongoose.connection.db.collection("jobs", function(err, collection) {
+	global.collection.jobs = global.rqr.mongoose.connection.db.collection("jobs", function(err, collection) {
 		collection.count({}, function(error, count) {
-			console.log("collection." + "jobs" + ".count() => " + count);
+			console.log("collection.jobs.count() => " + count);
 		});
 	});
 });
-global.collectionSearch = function(collection, params = { find: {}, options: {}, sort: undefined, skip: 0, limit: 50, gt: undefined, lt: undefined }) {
+/*
+global.mongo
+*/
+global.mongo = {
+	url: "mongodb://" + SECRET.mongod.user + ":" + SECRET.mongod.pwd + "@localhost:27017/",
+	db: "admin"
+};
+global.mongo.queryCollection = function(collection, params = { find: {}, options: {}, sort: undefined, skip: 0, limit: 50, gt: undefined, lt: undefined }) {
 	var mPromise = new Promise(function(resolve, reject) {
-		global.collection[collection] = global.rqr.mongoose.connection.db.collection(collection, function(err, collection) {
-			// build query
-			if (params.gt) {
-				params.find = Object.assign(params.find, { [params.gt[0]]: { $gte: params.gt[1] } });
-			}
-			if (params.lt) {
-				params.find = Object.assign(params.find, { [params.lt[0]]: { $lte: params.lt[1] } });
-			}
-			let query = collection.find(params.find, null, params.options);
+		// connect
+		global.rqr.MongoClient.connect(global.mongo.url, function(err, db) {
+			var dbo = db.db(global.mongo.db);
+			if (err) {
+				throw err;
+			} // find
+			// params.find = Object.assign(params.find, { posted: { $gte: 0 } });
+			var query = dbo.collection(collection).find(params.find);
 			if (params.limit) {
 				query = query.limit(params.limit);
 			}
@@ -179,25 +145,71 @@ global.collectionSearch = function(collection, params = { find: {}, options: {},
 			if (params.sort) {
 				query = query.sort(params.sort);
 			}
-			// exec query
-			query.toArray(function(error, results) {
-				console.log("collection." + params.collection + ".find({...}) => " + results.length);
+			query.toArray(function(err, results) {
+				if (err) {
+					throw err;
+				}
+				db.close();
 				resolve(results);
 			});
 		});
 	});
 	return mPromise;
 };
-global.collectionSaveDocuments = function(collection, documents = []) {
+global.mongo.insertDocuments = function(collection, documents = []) {
 	var mPromise = new Promise(function(resolve, reject) {
-		global.rqr.mongoose.connection.db.collection(collection, function(err, collection) {
-			if (err) {
-				global.logger.error({ ["mongoose " + collection + " failed to connect"]: { message: err.message, stack: err.stack } });
-			}
-			documents.forEach(function(doc) {
-				collection.save(doc);
-			});
-			resolve("saved " + documents.length);
+		// connect
+		// global.rqr.MongoClient.connect(global.mongo.url, function(err, db) {
+		// 	if (err) {
+		// 		throw err;
+		// 	}
+		// 	// options
+		// 	var insertOptions = { ordered: false };
+		// 	// add
+		//	var dbo = db.db(global.mongo.db);
+		// 	var col = dbo.collection(collection);
+		// 	col.insertMany(documents, insertOptions, function(err, res) {
+		// 		if (err) throw err;
+		// 		console.log("Number of documents inserted: " + res.insertedCount);
+		// 		db.close();
+		// 		resolve(res);
+		// 	});
+		// });
+
+		global.rqr.MongoClient.connect(global.mongo.url, function(err, db) {
+			var dbo = db.db(global.mongo.db);
+			var col = dbo.collection(collection);
+			var bulk = col.initializeOrderedBulkOp();
+			var i = 0;
+			global.rqr.async.whilst(
+				// Iterator condition
+				function() {
+					return i < documents.length;
+				},
+				// Do this in the iterator
+				function(callback) {
+					i++;
+					console.log(documents[i]);
+					bulk.insert(documents[i]);
+					if (i % 1000 == 0) {
+						bulk.execute(function(err, result) {
+							bulk = col.initializeOrderedBulkOp();
+							callback(err);
+						});
+					} else {
+						callback();
+					}
+				},
+				// When all is done
+				function(err) {
+					if (i % 1000 != 0)
+						bulk.execute(function(err, result) {
+							console.log("inserted some more");
+						});
+					console.log("I'm finished now");
+					db.close();
+				}
+			);
 		});
 	});
 	return mPromise;
@@ -228,9 +240,8 @@ global.server.get("/api/v1/:collection/:area?", async function(request, response
 	const collection_area = request.params.area;
 	const collection_gt = ["posted", Date.now() - 604800000 * 2]; // posted since 2 weeks ago
 	const collection = request.params.collection;
-	const collection_find = { _area: collection_area };
 	// data
-	let data = await global.collectionSearch(collection, { find: collection_find, gt: collection_gt, sort: { posted: -1 }, skip: 0, limit: 50 });
+	let data = await global.mongo.queryCollection(collection, { area: collection_area, find: {}, gt: collection_gt, sort: { posted: -1 }, skip: 0, limit: 50 });
 	// send
 	response.setHeader("Content-Type", "application/json");
 	response.writeHead(200);
@@ -263,13 +274,14 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 			/*
 				the data is an array of arrays - each having max 50 objects
 			*/
-			var resultsObject = {};
+			// data
+			let resultsObject = {};
 			let resultsSets = JSON.parse(body);
 			if (resultsSets && resultsSets[0] && resultsSets[0].pageFunctionResult) {
-				for (var rD in resultsSets) {
+				for (var rD in resultsSets.reverse()) {
 					let results = resultsSets[rD].pageFunctionResult;
 					// format
-					for (var r in results) {
+					for (var r in results.reverse()) {
 						// each
 						var res = results[r];
 						for (var k in res) {
@@ -279,7 +291,7 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 							}
 						}
 						// filter (timestamp in milliseconds)
-						res.posted = parseInt(global.rqr.moment(global.rqr.chrono.parseDate(res.posted)).format("x"));
+						res.posted = global.rqr.moment(global.rqr.chrono.parseDate(res.posted)).format("x");
 						// save to DB
 						res._area = collection_area;
 						res._status = "new";
@@ -287,6 +299,9 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 							.createHash("md5")
 							.update(res.name + " " + res.company)
 							.digest("hex");
+						/*
+							save to Object
+						*/
 						resultsObject[res._id] = res;
 					}
 				}
@@ -298,13 +313,13 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 					/* 
 						save to DB 
 					*/
-					global.collectionSaveDocuments(collection, resultsArray);
+					global.mongo.insertDocuments(collection, resultsArray);
 					global.logger.info({ ["API: POST `/api/v1/" + collection + "/apify-webhook/" + collection_area + '` saved to collection "' + collection + '"']: { resultsUrl, results: resultsArray.length } });
 
 					/*
 						save to CDN
 					*/
-					global.collectionSearch(collection, { area: collection_area, find: {}, sort: { posted: -1 }, skip: 0, limit: 3000 }).then(function(data) {
+					global.mongo.queryCollection(collection, { area: collection_area, find: {}, sort: { posted: -1 }, skip: 0, limit: 3000 }).then(function(data) {
 						// send to S3/Cloud
 						global.S3UploadToBucket(cacheUrl, JSON.stringify(resultsArray));
 						global.S3UploadToBucket(cacheUrl_initial, JSON.stringify(resultsArray.slice(0, 50)));
