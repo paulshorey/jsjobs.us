@@ -54,7 +54,7 @@ global.S3UploadToBucket = function(name, content) {
 */
 let dna_logger = require("logdna").setupDefaultLogger(global.shh.logdna.ingestionKey, {
 	index_meta: true,
-	hostname: "ps-jobs",
+	hostname: "jsjobs.us/api",
 	app: DEV ? "API-dev" : "API-pro"
 });
 let fixLogger = function(useLib) {
@@ -102,49 +102,55 @@ global.server.use(function(request, response, next) {
 		return;
 	}
 });
-// global.server.use(logger(DEV ? 'dev' : undefined));
 global.server.use(global.rqr.bodyParser.json());
 global.server.use(global.rqr.bodyParser.urlencoded({ extended: false }));
 global.server.use(global.rqr.cookieParser());
 /*
-temporary
-*/
-global.jobsDB = [];
-/*
 global.model
+*/
+global.model = {};
+/*
 global.collection
 */
-
-global.model = {};
 global.collection = {};
 global.rqr.mongoose.connect("mongodb://" + global.shh.mongod.user + ":" + global.shh.mongod.pwd + "@localhost").then(function() {
 	global.collection.jobs = global.rqr.mongoose.connection.db.collection("jobs", function(err, collection) {
-		collection.find({}).toArray(function(error, data) {
-			console.log("found: " + data.length);
-			global.jobsDB = data;
+		collection.count({}, function(error, count) {
+			console.log("collection.jobs.count() => " + count);
+		});
+	});
+	global.collection.jobsla = global.rqr.mongoose.connection.db.collection("jobsla", function(err, collection) {
+		collection.count({}, function(error, count) {
+			console.log("collection.jobsla.count() => " + count);
 		});
 	});
 });
-
-// setTimeout(function() {
-// 	// DEBUG THIS: mongoose sometimes fails...
-// 	global.jobsDB = [];
-// 	let jobsFound = global.collection.jobs.find({});
-// 	console.log(typeof jobsFound, jobsFound);
-// 	if (typeof jobsFound !== "undefined") {
-// 		jobsFound.toArray(function(error, data) {
-// 			global.jobsDB = data;
-// 		});
-// 	}
-// }, 1000);
-// global.jobsDB = [];
-// global.collection.jobs.find({}).toArray(function(error, data) {
-// 	global.jobsDB = data;
-// });
+global.collectionSearch = function(params = { collection: undefined, find: {}, sort: undefined, skip: 0, limit: 50 }) {
+	var mPromise = new Promise(function(resolve, reject) {
+		global.collection.jobs = global.rqr.mongoose.connection.db.collection(params.collection, function(err, collection) {
+			let query = collection.find(params.find, null, params.options);
+			if (params.limit) {
+				query = query.limit(params.limit);
+			}
+			if (params.skip) {
+				query = query.skip(params.skip);
+			}
+			if (params.sort) {
+				query = query.sort(params.sort);
+			}
+			query.toArray(function(error, results) {
+				console.log("collection." + params.collection + ".find({...}) => " + results.length);
+				resolve(results);
+			});
+		});
+	});
+	return mPromise;
+};
 
 /************************************************************************************
 	API
 */
+
 /*
 	API: 500 Error
 */
@@ -158,35 +164,14 @@ global.server.use(function(err, req, response, next) {
 	response.write(JSON.stringify(data, null, "\t"));
 	response.end();
 });
+
 /*
 	API: GET
 */
-global.server.get("/api/v1/jobs.json", function(request, response) {
-	let data = global.jobsDB;
-	// ok!
-	if (data[0]) {
-		// filter
-		if (request.query) {
-			// search
-			var query = request.query;
-			for (var param in query) {
-				if (typeof data[0][param] !== "undefined") {
-					var qRegEx = new RegExp(query[param], "i"); // I like RegExp! Not most efficient, but ok for a site with one user
-					data = data.filter(function(job) {
-						return qRegEx.test(job[param]); // Don't think you can inject malicious code from a URI variable into a RegExpression. Can you?
-					});
-				}
-			}
-		}
-		// sort
-		data.sort(function(a, b) {
-			return b._rating - a._rating;
-		});
-		// limit
-		let query_limit = parseInt(request.query.limit) || 1000;
-		let query_start = parseInt(request.query.start) || 0;
-		data = data.slice(query_start, query_limit + query_start);
-	}
+global.server.get("/api/v1/:collection/:location?", async function(request, response) {
+	// data
+	const collection = request.params.collection + (request.params.location || "");
+	let data = await global.collectionSearch({ collection: collection, find: {}, sort: { posted: -1 }, skip: 0, limit: 50 });
 	// send
 	response.setHeader("Content-Type", "application/json");
 	response.writeHead(200);
@@ -196,15 +181,12 @@ global.server.get("/api/v1/jobs.json", function(request, response) {
 /*
 	API: POST
 */
-global.server.post("/api/v1/jobs/apify-webhook/:location?", function(request, response) {
+global.server.post("/api/v1/:collection/apify-webhook/:location?", function(request, response) {
 	// location
-	const location_suffix = request.params.location ? "-" + request.params.location : "";
-	const jobsUrl_initial = `api/v1/jobs${location_suffix}-50.json`;
-	const jobsUrl = `api/v1/jobs${location_suffix}.json`;
-	// dev env
-	if (!request.body._id) {
-		request.body._id = "F4aaFM6efGqF6g6DH";
-	}
+	const collection = request.params.collection + (request.params.location || "");
+	const collectionUrl_initial = `api/v1/${collection}-50.json`;
+	const collectionUrl = `api/v1/${collection}.json`;
+	const collectionArray = [];
 	// fetch data
 	const resultsUrl = "https://api.apify.com/v1/execs/" + request.body._id + "/results";
 	global.rqr.https.get(resultsUrl, res => {
@@ -215,22 +197,46 @@ global.server.post("/api/v1/jobs/apify-webhook/:location?", function(request, re
 		});
 		res.on("end", () => {
 			// process data
-			let resultsProcessed = 0;
-			let resultsData = JSON.parse(body);
-			if (resultsData && resultsData[0] && resultsData[0].pageFunctionResult) {
-				for (var rD in resultsData) {
-					let job = resultsData[rD].pageFunctionResult;
-					resultsProcessed += processJobs(job);
+			let resultsAdded = 0;
+			let resultsSets = JSON.parse(body);
+			if (resultsSets && resultsSets[0] && resultsSets[0].pageFunctionResult) {
+				for (var rD in resultsSets) {
+					let results = resultsSets[rD].pageFunctionResult;
+					// format
+					const addJobs = {};
+					for (var r in results) {
+						// each
+						var res = results[r];
+						for (var k in res) {
+							if (typeof res[k] === "string") {
+								res[k] = res[k].replace(/\s/g, " ");
+								res[k] = res[k].trim();
+							}
+						}
+						// filter
+						res.posted = global.rqr.chrono.parseDate(res.posted);
+						// save to DB
+						res._status = "new";
+						res._id = global.rqr.crypto
+							.createHash("md5")
+							.update(res.name + " " + res.company)
+							.digest("hex");
+						// memory
+						collectionArray[res._id] = res;
+						// mongoose
+						global.collection[collection].save(res);
+						resultsAdded++;
+					}
 				}
-				global.logger.info({ "API: POST `/api/v1/jobs-apify-webhook` successful": { source: resultsUrl, results: resultsProcessed } });
+				global.logger.info({ ["API: POST `/api/v1/" + collection + "/apify-webhook` successful"]: { source: resultsUrl, results: resultsAdded } });
 
 				/*
 					save data
 				*/
-				S3UploadToBucket(jobsUrl, JSON.stringify(global.jobsDB));
-				S3UploadToBucket(jobsUrl_initial, JSON.stringify(global.jobsDB.slice(0, 50)));
+				S3UploadToBucket(collectionUrl, JSON.stringify(collectionArray));
+				S3UploadToBucket(collectionUrl_initial, JSON.stringify(collectionArray.slice(0, 50)));
 			} else {
-				global.logger.error({ "API: POST `/api/v1/jobs-apify-webhook` failed to return data: ": resultsUrl });
+				global.logger.error({ ["API: POST `/api/v1/" + collection + "/apify-webhook` failed to return data: "]: resultsUrl });
 			}
 		});
 	});
@@ -241,53 +247,6 @@ global.server.post("/api/v1/jobs/apify-webhook/:location?", function(request, re
 	response.end();
 });
 
-// magic
-const processJobs = function(results) {
-	// format
-	let added = 0;
-	const addJobs = {};
-	for (var r in results) {
-		// each
-		var res = results[r];
-		for (var k in res) {
-			if (typeof res[k] === "string") {
-				res[k] = res[k].replace(/\s/g, " ");
-				res[k] = res[k].trim();
-			}
-		}
-		// filter
-		res.posted = global.rqr.chrono.parseDate(res.posted);
-
-		// save to DB
-		res._status = "new";
-		res._id = global.rqr.crypto
-			.createHash("md5")
-			.update(res.name + " " + res.company)
-			.digest("hex");
-		// memory
-		global.jobsDB[res._id] = res;
-		// mongoose
-		global.collection.jobs.save(res);
-		added++;
-	}
-
-	// return error or number
-	return added;
-};
-
-/*
-ROUTES
-*/
-// var index = require('./routes/index');
-// var users = require('./routes/users');
-// global.server.use(express.static(path.join(__dirname, 'public')));
-// global.server.use('/', index);
-// global.server.use('/users', users);
-// global.server.use(function(req, res, next) {
-// var err = new Error('Not Found');
-// err.status = 404;
-// next(err);
-// });
 /*
 SERVE
 */
