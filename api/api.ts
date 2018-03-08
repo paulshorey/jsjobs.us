@@ -168,9 +168,10 @@ global.server.use(function(err, req, response, next) {
 /*
 	API: GET
 */
-global.server.get("/api/v1/:collection/:location?", async function(request, response) {
+global.server.get("/api/v1/:collection/:area?", async function(request, response) {
+	// meta
+	const collection = request.params.collection + (request.params.area || "");
 	// data
-	const collection = request.params.collection + (request.params.location || "");
 	let data = await global.collectionSearch({ collection: collection, find: {}, sort: { posted: -1 }, skip: 0, limit: 50 });
 	// send
 	response.setHeader("Content-Type", "application/json");
@@ -181,13 +182,62 @@ global.server.get("/api/v1/:collection/:location?", async function(request, resp
 /*
 	API: POST
 */
-global.server.post("/api/v1/:collection/apify-webhook/:location?", function(request, response) {
-	// location
-	const collection = request.params.collection + (request.params.location || "");
-	const collectionUrl_initial = `api/v1/${collection}-50.json`;
-	const collectionUrl = `api/v1/${collection}.json`;
-	const collectionArray = [];
-	// fetch data
+global.server.post("/api/v1/:collection/:area?", function(request, response) {
+	// meta
+	const area = request.params.area;
+	const collection = request.params.collection + (area || "");
+	const cacheUrl_initial = `api/v1/${collection}-50.json`;
+	const cacheUrl = `api/v1/${collection}.json`;
+	// data
+	const resultsArray = [];
+	let added = 0;
+	let post = request.body;
+	let post_url = post.url || "?";
+	let post_data = post.data || [];
+	for (var r in post_data) {
+		// each
+		var res = post_data[r];
+		for (var k in res) {
+			if (typeof res[k] === "string") {
+				res[k] = res[k].replace(/\s/g, " ");
+				res[k] = res[k].trim();
+			}
+		}
+		// filter
+		res.posted = global.rqr.chrono.parseDate(res.posted);
+		// save to DB
+		res._status = "new";
+		res._id = global.rqr.crypto
+			.createHash("md5")
+			.update(res.name + " " + res.company)
+			.digest("hex");
+		// memory
+		resultsArray[res._id] = res;
+		// mongoose
+		global.collection[collection].save(res);
+		added++;
+	}
+	/*
+		save data
+	*/
+	global.S3UploadToBucket(cacheUrl, JSON.stringify(resultsArray));
+	global.S3UploadToBucket(cacheUrl_initial, JSON.stringify(resultsArray.slice(0, 50)));
+	global.logger.info({ ["API: POST `/api/v1/" + collection + "/" + area + "` successful"]: { collection, area, added } });
+
+	// success response without waiting for async data above
+	response.setHeader("Content-Type", "application/json");
+	response.writeHead(200);
+	response.write(JSON.stringify({ data: "OK", error: 0 }, null, "\t"));
+	response.end();
+});
+
+global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request, response) {
+	// meta
+	const collection = request.params.collection + (request.params.area || "");
+	const cacheUrl_initial = `api/v1/${collection}-50.json`;
+	const cacheUrl = `api/v1/${collection}.json`;
+	// data
+	const resultsArray = [];
 	const resultsUrl = "https://api.apify.com/v1/execs/" + request.body._id + "/results";
 	global.rqr.https.get(resultsUrl, res => {
 		res.setEncoding("utf8");
@@ -197,7 +247,7 @@ global.server.post("/api/v1/:collection/apify-webhook/:location?", function(requ
 		});
 		res.on("end", () => {
 			// process data
-			let resultsAdded = 0;
+			let added = 0;
 			let resultsSets = JSON.parse(body);
 			if (resultsSets && resultsSets[0] && resultsSets[0].pageFunctionResult) {
 				for (var rD in resultsSets) {
@@ -222,19 +272,19 @@ global.server.post("/api/v1/:collection/apify-webhook/:location?", function(requ
 							.update(res.name + " " + res.company)
 							.digest("hex");
 						// memory
-						collectionArray[res._id] = res;
+						resultsArray[res._id] = res;
 						// mongoose
 						global.collection[collection].save(res);
-						resultsAdded++;
+						added++;
 					}
 				}
-				global.logger.info({ ["API: POST `/api/v1/" + collection + "/apify-webhook` successful"]: { source: resultsUrl, results: resultsAdded } });
+				global.logger.info({ ["API: POST `/api/v1/" + collection + "/apify-webhook` successful"]: { resultsUrl, results: added } });
 
 				/*
 					save data
 				*/
-				S3UploadToBucket(collectionUrl, JSON.stringify(collectionArray));
-				S3UploadToBucket(collectionUrl_initial, JSON.stringify(collectionArray.slice(0, 50)));
+				global.S3UploadToBucket(cacheUrl, JSON.stringify(resultsArray));
+				global.S3UploadToBucket(cacheUrl_initial, JSON.stringify(resultsArray.slice(0, 50)));
 			} else {
 				global.logger.error({ ["API: POST `/api/v1/" + collection + "/apify-webhook` failed to return data: "]: resultsUrl });
 			}
