@@ -169,7 +169,9 @@ global.collectionSearch = function(params = { collection: undefined, find: {}, o
 	}
 	// handle request
 	var mPromise = new Promise(function(resolve, reject) {
-		global.collection[params.collection] = global.rqr.mongoose.connection.db.collection(params.collection, function(err, collection) {
+		global.rqr.mongoose.connection.db.collection(params.collection, function(err, collection) {
+			console.log("collection?:");
+			console.log(typeof collection);
 			// build query
 			if (params.gt) {
 				params.find = Object.assign(params.find, { [params.gt[0]]: { $gte: params.gt[1] } });
@@ -314,7 +316,7 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 						save to CDN
 					*/
 					if (!DEV) {
-						global.collectionSearch(collection, { find: { _area: collection_area }, sort: { posted: -1 }, skip: 0, limit: 3000 }).then(function(data) {
+						global.collectionSearch({ collection: collection, find: { _area: collection_area }, sort: { posted: -1 }, skip: 0, limit: 3000 }).then(function(data) {
 							// send to S3/Cloud
 							global.S3UploadToBucket(cacheUrl, JSON.stringify(data));
 							global.S3UploadToBucket(cacheUrl_initial, JSON.stringify(data.slice(0, 50)));
