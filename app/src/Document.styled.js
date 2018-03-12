@@ -22,32 +22,37 @@ injectGlobal`
         color:navy;      
         background:lightblue;
 	}
-
+	pre {
+		margin:0;
+	}
 
 	/**************************************************
 		responsive text
 	**************************************************/
+	body {
+		margin: 0;
+	}
 	html {
-		font-size:16.5px;
+		font-size:14px;
 	}
 	@media (max-width:950px), (max-height:750px) {
 		html {
-			font-size:15.5px;
+			font-size:14px;
 		}
 	}
 	@media (max-width:750px), (max-height:650px) {
 		html {
-			font-size:14.5px;
+			font-size:14px;
 		}
 	}
 	@media (max-width:380px), (max-height:380px) {
 		html {
-			font-size:13.5px;
+			font-size:12px;
 		}
 	}
 	@media (max-width:330px), (max-height:330px) {
 		html {
-			font-size:12.5px;
+			font-size:11px;
 		}
 	}
 	h1,h2,h3,h4,h5,h6,p {
@@ -90,11 +95,11 @@ injectGlobal`
 		vertical-align:middle; /* hope this doesn't mess anything up - but in my experience, having vertical-align middle was always more useful than not - PS */
 	}
 	body {
-		background: ${theme.colorDark2};
-		color: ${theme.colorOnDark3};
+		background: ${theme.color_bg1};
+		color: ${theme.color_text1};
 	}
 	a {
-		color:rgb(100, 123, 146);
+		color:${theme.color_link1};
 		text-decoration: none;
 	}
 `;

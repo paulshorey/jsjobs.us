@@ -125,7 +125,7 @@ function traverseDirectory(dirname, callback) {
 							throw error;
 						}
 						// upload file to bucket
-						console.log(file.replace(realDirname + "/", ""));
+						// console.log(file.replace(realDirname + "/", ""));
 						var fileName = file.replace(realDirname + "/", "");
 						bucket.putObject(
 							{
@@ -154,5 +154,5 @@ traverseDirectory(realDirname, function(err, file) {
 		console.log("ERROR! " + err);
 	}
 
-	console.log(file);
+	// console.log(file);
 });

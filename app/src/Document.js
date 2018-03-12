@@ -2,7 +2,7 @@
 import React from "react";
 import { AfterRoot, AfterData } from "@jaredpalmer/after";
 import { ServerStyleSheet } from "styled-components";
-import PrimaryErrorBoundary from "components/error/PrimaryErrorBoundary.js";
+import PrimaryErrorBoundary from "./components/error/PrimaryErrorBoundary.js";
 import "./Document.styled.js";
 
 class Document extends React.Component {
@@ -36,6 +36,13 @@ class Document extends React.Component {
 					{helmet.link.toComponent()}
 					{assets.client.css && <link rel="stylesheet" href={assets.client.css} />}
 					{styleTags}
+					<link rel="stylesheet" type="text/css" href="/assets/icomoon/style.css" />
+
+					<meta httpEquiv="cache-control" content="max-age=0" />
+					<meta httpEquiv="cache-control" content="no-cache" />
+					<meta httpEquiv="expires" content="0" />
+					<meta httpEquiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+					<meta httpEquiv="pragma" content="no-cache" />
 				</head>
 				<body {...bodyAttrs}>
 					<PrimaryErrorBoundary>

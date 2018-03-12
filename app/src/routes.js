@@ -20,7 +20,7 @@ export default [
 		})
 	},
 	{
-		path: "/in/:location?",
+		path: "/in/:area?",
 		exact: true,
 		component: asyncComponent({
 			loader: () => import("./routes/In"), // required

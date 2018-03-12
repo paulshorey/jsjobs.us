@@ -12,3 +12,7 @@ export const filterAdd = filter => ({
 	type: "FILTER_ADD",
 	filter
 });
+export const filterRemove = filter => ({
+	type: "FILTER_REMOVE",
+	filter
+});

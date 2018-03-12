@@ -4,15 +4,14 @@ import "isomorphic-unfetch";
 import * as Styled from "./styled/Page.js";
 import Layout from "components/Layout.js";
 import SearchResults from "components/search/Results";
-import SearchQuery from "components/search/Query";
 
 class Search extends Component {
 	static async getInitialProps({ match }) {
+		const jobs_area = match.params.area || "us";
 		// CDN => data
 		// API => json.data
-		const location_suffix = match.params.location ? "-" + match.params.location : "";
-		const jobsUrl = `https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs${location_suffix}-50.json`; // Cloudfront
-		const jobsUrl_local = `http://localhost:1080/api/v1/jobs${location_suffix}.json?limit=50`; // local API
+		const jobsUrl = `https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs${jobs_area}-50.json`; // Cloudfront
+		const jobsUrl_local = `http://localhost:1080/api/v1/jobs/${jobs_area}.json?limit=50`; // local API
 		try {
 			const res = await fetch(jobsUrl);
 			const data = await res.json();
@@ -33,12 +32,10 @@ class Search extends Component {
 	}
 
 	render() {
-		console.log("this.props", this.props);
 		return (
 			<Layout>
 				<Styled.Page>
-					<SearchQuery />
-					<SearchResults match={this.props.match} jobs={this.props.jobs} />
+					<SearchResults area={this.props.match.params.area || ""} jobs={this.props.jobs || []} />
 				</Styled.Page>
 			</Layout>
 		);

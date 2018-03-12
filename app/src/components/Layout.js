@@ -1,20 +1,22 @@
 import React from "react";
 import Header from "components/header/Header.js";
-import Footer from "components/Footer.js";
 
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "data/reducers";
-const store = createStore(reducer);
+import { createLogger } from "redux-logger";
+const logger = createLogger({
+	collapsed: true
+});
+const store = createStore(reducer, applyMiddleware(logger));
 
 export default class Layout extends React.Component {
 	render() {
 		return (
 			<Provider store={store} className="MyProvider">
-				<div className="Layout">
+				<div className="Layout" style={Object.assign({ minHeight: "100vh" }, this.props.style || {})}>
 					<Header />
 					{this.props.children || null}
-					<Footer />
 				</div>
 			</Provider>
 		);

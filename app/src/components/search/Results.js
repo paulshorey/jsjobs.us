@@ -5,16 +5,20 @@ import * as Styled from "./styled/Results.js";
 /* redux */
 import { connect } from "react-redux";
 import * as actions from "data/actions";
+/* components */
+import SearchSelect from "components/search/SelectLink";
+import SearchQuery from "components/search/Query";
+import SearchFilters from "components/search/Filters";
 /* 
 	Component 
 */
 class Results extends Component {
 	async componentDidMount() {
+		const in_area = this.props.area || "us";
 		// CDN => data
 		// API => json.data
-		const location_suffix = this.props.match.params.location ? "-" + this.props.match.params.location : "";
-		const jobsUrl = `https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs${location_suffix}.json`; // Cloudfront
-		const jobsUrl_local = `http://localhost:1080/api/v1/jobs${location_suffix}.json`; // local API
+		const jobsUrl = `https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs/${in_area}.json`; // Cloudfront
+		const jobsUrl_local = `http://localhost:1080/api/v1/jobs/${in_area}.json`; // local API
 		try {
 			const res = await fetch(jobsUrl);
 			const data = await res.json();
@@ -34,45 +38,101 @@ class Results extends Component {
 		}
 	}
 
-	constructor() {
-		super();
-		this.state = {
-			jobs: []
-		};
-	}
-	filterJobs(jobs) {
-		jobs = jobs.map(function(item) {
-			item.status = item.status || "new";
-			return item;
+	rateJobs = jobs => {
+		// jobs = jobs.slice(0, 8);
+		jobs = jobs.map(job => {
+			job._status = job._status || "new";
+			job._rating = 1000;
+
+			for (let fil in this.props.filters) {
+				const filter = this.props.filters[fil];
+				// console.log(filter.value);
+				var reg = RegExp("" + filter.value + "", "i");
+				var match = reg.test(job.text + job.title);
+
+				// console.log(match);
+				if (match) {
+					job._rating += filter.multiplier;
+				}
+			}
+
+			return job;
+		});
+		jobs.sort(function(a, b) {
+			return b._rating - a._rating;
 		});
 		return jobs;
-	}
+	};
+	renderResultsCount = () => {
+		if (this.props.jobs.length !== 0 && this.props.jobs.length !== 50) {
+			return <span>{this.props.jobs.length}</span>;
+		} else {
+			return null;
+		}
+	};
 	render() {
-		console.log("this.props.filters", this.props.filters);
 		var jobs = this.props.jobs;
-		jobs = this.filterJobs(jobs);
+		if (jobs) {
+			jobs = this.rateJobs(jobs);
+		}
 		// get on with it...
 		var Jobs = [];
 		if (jobs) {
-			jobs.forEach(function(job, i) {
+			var i = 0;
+			while (i < 50) {
+				var job = jobs[i];
+				if (typeof job !== "object") {
+					break;
+				}
+				const rating = job._rating - 1000;
+				let Rating = null;
+				if (rating > 0) {
+					Rating = (
+						<b className="rating plus">
+							{/* <span className="icon-thumbs-up" />  */}
+							+{rating}
+						</b>
+					);
+				}
+				if (rating < 0) {
+					Rating = (
+						<b className="rating minus">
+							{/* <span className="icon-thumbs-down" />  */}
+							-{rating}
+						</b>
+					);
+				}
 				Jobs.push(
-					<div key={job._id}>
-						<div>{job.text}</div>
-						<sup>{job.location}</sup>
+					<div key={job._id + i} className="result">
+						<div>
+							<b>{job.name}</b> - {job.text} &nbsp;
+							<span className="location">{job.location}</span> &nbsp;
+							{Rating}
+						</div>
 					</div>
 				);
-			});
+				i++;
+			}
 		}
 		return (
 			<Styled.Results>
-				<div>{Jobs}</div>
+				<div className="queries">
+					<div className="queries_content">
+						<SearchSelect selectProperty="area" option={"/in/" + this.props.area} />
+						<SearchQuery queryProperty="location" />
+						<SearchQuery queryProperty="text" />
+						<SearchFilters />
+					</div>
+				</div>
+				<h2 className="page-title"> {/*this.renderResultsCount()*/} Results:</h2>
+				<div className="results">{Jobs}</div>
 			</Styled.Results>
 		);
 	}
 }
 const mapStateToProps = (state, ownProps) => ({
 	jobs: state.jobs.length ? state.jobs : ownProps.jobs,
-	filters: state.filters.length ? state.filters : ownProps.filters
+	filters: state.filters
 });
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	dispatch_jobsAdd: jobs => {

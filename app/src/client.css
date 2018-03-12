@@ -11,6 +11,25 @@ NOTE: Everything having to do with "theme" should go into Document.styled.js or 
 input:-webkit-autofill {
 	-webkit-box-shadow: 0 0 0px 1000px white inset;
 }
+*:focus {
+	outline: none;
+}
+::-webkit-input-placeholder {
+	/* Chrome/Opera/Safari */
+	color: #111;
+}
+::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #111;
+}
+:-ms-input-placeholder {
+	/* IE 10+ */
+	color: #111;
+}
+:-moz-placeholder {
+	/* Firefox 18- */
+	color: #111;
+}
 /* 
 	::-webkit-scrollbar {
 	-webkit-appearance: none;

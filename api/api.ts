@@ -159,7 +159,15 @@ global.rqr.mongoose.connect("mongodb://" + global.shh.mongod.user + ":" + global
 		});
 	});
 });
-global.collectionSearch = function(collection, params = { find: {}, options: {}, sort: undefined, skip: 0, limit: 50, gt: undefined, lt: undefined }) {
+global.collectionSearch = function(collection, params = { find: {}, options: {}, sort: undefined, skip: 0, pg: 0, limit: 50, gt: undefined, lt: undefined }) {
+	// params type, filter, default
+	params.limit = +params.limit;
+	params.skip = +params.skip;
+	params.pg = +params.pg;
+	if (params.pg) {
+		params.skip = (params.pg - 1) * params.limit;
+	}
+	// handle request
 	var mPromise = new Promise(function(resolve, reject) {
 		global.collection[collection] = global.rqr.mongoose.connection.db.collection(collection, function(err, collection) {
 			// build query
@@ -169,10 +177,7 @@ global.collectionSearch = function(collection, params = { find: {}, options: {},
 			if (params.lt) {
 				params.find = Object.assign(params.find, { [params.lt[0]]: { $lte: params.lt[1] } });
 			}
-			let query = collection.find(params.find, null, params.options);
-			if (params.limit) {
-				query = query.limit(params.limit);
-			}
+			let query = collection.find(params.find, null, params.options).limit(params.limit);
 			if (params.skip) {
 				query = query.skip(params.skip);
 			}
@@ -223,14 +228,14 @@ global.server.use(function(err, req, response, next) {
 /*
 	API: GET
 */
-global.server.get("/api/v1/:collection/:area?", async function(request, response) {
+global.server.get("/api/v1/:collection/:area?.json", async function(request, response) {
 	// meta
 	const collection_area = request.params.area;
 	const collection_gt = ["posted", Date.now() - 604800000 * 2]; // posted since 2 weeks ago
 	const collection = request.params.collection;
 	const collection_find = { _area: collection_area };
 	// data
-	let data = await global.collectionSearch(collection, { find: collection_find, gt: collection_gt, sort: { posted: -1 }, skip: 0, limit: 50 });
+	let data = await global.collectionSearch(collection, { find: collection_find, gt: collection_gt, sort: { posted: -1 }, ...request.query });
 	// send
 	response.setHeader("Content-Type", "application/json");
 	response.writeHead(200);
@@ -247,8 +252,8 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 	// meta
 	const collection_area = request.params.area || "";
 	const collection = request.params.collection;
-	const cacheUrl_initial = `api/v1/${collection + collection_area}-50.json`;
-	const cacheUrl = `api/v1/${collection + collection_area}.json`;
+	const cacheUrl_initial = `api/v1/${collection}${collection_area ? "/" + collection_area : ""}-50.json`;
+	const cacheUrl = `api/v1/${collection}${collection_area ? "/" + collection_area : ""}.json`;
 	/*
 		fetch data from last crawl, because webhook does not give us the data
 	*/
@@ -278,6 +283,7 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 								res[k] = res[k].trim();
 							}
 						}
+						res.text = res.text;
 						// filter (timestamp in milliseconds)
 						res.posted = parseInt(global.rqr.moment(global.rqr.chrono.parseDate(res.posted)).format("x"));
 						// save to DB
