@@ -130,7 +130,7 @@ global.collection
 */
 // global.collections = [];
 global.collection = {};
-global.rqr.mongoose.connect("mongodb://" + global.shh.mongod.user + ":" + global.shh.mongod.pwd + "@localhost").then(function() {
+global.rqr.mongoose.connect("mongodb://" + global.shh.mongod.user + ":" + global.shh.mongod.pwd + "@localhost:1234567890").then(function() {
 	// global.collections
 	// global.rqr.mongoose.connection.db
 	// 	.listCollections()
