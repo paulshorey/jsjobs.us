@@ -186,7 +186,7 @@ global.collectionSearch = function(collection, params = { find: {}, options: {},
 			}
 			// exec query
 			query.toArray(function(error, results) {
-				console.log("collection." + params.collection + ".find({...}) => " + results.length);
+				console.log("collection." + collection + ".find({...}) => " + results.length);
 				resolve(results);
 			});
 		});
