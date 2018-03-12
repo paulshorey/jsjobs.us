@@ -233,7 +233,10 @@ global.server.get("/api/v1/:collection/:area?.json", async function(request, res
 	const collection_area = request.params.area;
 	const collection_gt = ["posted", Date.now() - 604800000 * 2]; // posted since 2 weeks ago
 	const collection = request.params.collection;
-	const collection_find = { _area: collection_area };
+	const collection_find = {};
+	if (collection_area) {
+		collection_find._area = collection_area;
+	}
 	// data
 	let data = await global.collectionSearch(collection, { find: collection_find, gt: collection_gt, sort: { posted: -1 }, ...request.query });
 	// send
