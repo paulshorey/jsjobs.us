@@ -1,1 +1,1 @@
-mongod --dbpath /www/db --auth
+mongod --dbpath /www/db --auth --port 54321
