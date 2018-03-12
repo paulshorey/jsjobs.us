@@ -130,7 +130,7 @@ global.collection
 */
 // global.collections = [];
 global.collection = {};
-global.rqr.mongoose.connect("mongodb://" + global.shh.mongod.user + ":" + global.shh.mongod.pwd + "@localhost:54321/admin").then(function() {
+global.rqr.mongoose.connect("mongodb://" + global.shh.mongod.user + ":" + global.shh.mongod.pwd + "@localhost/admin").then(function() {
 	// global.collections
 	// global.rqr.mongoose.connection.db
 	// 	.listCollections()
@@ -159,7 +159,7 @@ global.rqr.mongoose.connect("mongodb://" + global.shh.mongod.user + ":" + global
 		});
 	});
 });
-global.collectionSearch = function(collection, params = { find: {}, options: {}, sort: undefined, skip: 0, pg: 0, limit: 50, gt: undefined, lt: undefined }) {
+global.collectionSearch = function(params = { collection: undefined, find: {}, options: {}, sort: undefined, skip: 0, pg: 0, limit: 50, gt: undefined, lt: undefined }) {
 	// params type, filter, default
 	params.limit = +params.limit;
 	params.skip = +params.skip;
@@ -169,7 +169,7 @@ global.collectionSearch = function(collection, params = { find: {}, options: {},
 	}
 	// handle request
 	var mPromise = new Promise(function(resolve, reject) {
-		global.collection[collection] = global.rqr.mongoose.connection.db.collection(collection, function(err, collection) {
+		global.collection[params.collection] = global.rqr.mongoose.connection.db.collection(params.collection, function(err, collection) {
 			// build query
 			if (params.gt) {
 				params.find = Object.assign(params.find, { [params.gt[0]]: { $gte: params.gt[1] } });
@@ -186,18 +186,18 @@ global.collectionSearch = function(collection, params = { find: {}, options: {},
 			}
 			// exec query
 			query.toArray(function(error, results) {
-				console.log("collection." + collection + ".find({...}) => " + results.length);
+				console.log("collection." + params.collection + ".find({...}) => " + results.length);
 				resolve(results);
 			});
 		});
 	});
 	return mPromise;
 };
-global.collectionSaveDocuments = function(collection, documents = []) {
+global.collectionSaveDocuments = function(params = { collection: undefined }, documents = []) {
 	var mPromise = new Promise(function(resolve, reject) {
-		global.rqr.mongoose.connection.db.collection(collection, function(err, collection) {
+		global.rqr.mongoose.connection.db.collection(params.collection, function(err, collection) {
 			if (err) {
-				global.logger.error({ ["mongoose " + collection + " failed to connect"]: { message: err.message, stack: err.stack } });
+				global.logger.error({ ["mongoose " + params.collection + " failed to connect"]: { message: err.message, stack: err.stack } });
 			}
 			documents.forEach(function(doc) {
 				collection.save(doc);
@@ -228,17 +228,17 @@ global.server.use(function(err, req, response, next) {
 /*
 	API: GET
 */
-global.server.get("/api/v1/:collection/:area?.json", async function(request, response) {
+global.server.get("/api/v1/:coll/:area?.json", async function(request, response) {
 	// meta
-	const collection_area = request.params.area;
-	const collection_gt = ["posted", Date.now() - 604800000 * 2]; // posted since 2 weeks ago
-	const collection = request.params.collection;
-	const collection_find = {};
-	if (collection_area) {
-		collection_find._area = collection_area;
+	const coll_area = request.params.area;
+	const coll_gt = ["posted", Date.now() - 604800000 * 2]; // posted since 2 weeks ago
+	const coll = request.params.coll;
+	const coll_find = {};
+	if (coll_area) {
+		coll_find._area = coll_area;
 	}
 	// data
-	let data = await global.collectionSearch(collection, { find: collection_find, gt: collection_gt, sort: { posted: -1 }, ...request.query });
+	let data = await global.collectionSearch({ collection: coll, find: coll_find, gt: coll_gt, sort: { posted: -1 }, ...request.query });
 	// send
 	response.setHeader("Content-Type", "application/json");
 	response.writeHead(200);
@@ -307,7 +307,7 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 					/* 
 						save to DB 
 					*/
-					global.collectionSaveDocuments(collection, resultsArray);
+					global.collectionSaveDocuments({ collection: collection }, resultsArray);
 					global.logger.info({ ["API: POST `/api/v1/" + collection + "/apify-webhook/" + collection_area + '` saved to collection "' + collection + '"']: { resultsUrl, results: resultsArray.length } });
 
 					/*
