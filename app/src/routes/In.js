@@ -10,7 +10,7 @@ class Search extends Component {
 		const jobs_area = match.params.area || "us";
 		// CDN => data
 		// API => json.data
-		const jobsUrl = `https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs${jobs_area}-50.json`; // Cloudfront
+		const jobsUrl = `https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs/${jobs_area}-50.json`; // Cloudfront
 		const jobsUrl_local = `http://localhost:1080/api/v1/jobs/${jobs_area}.json?limit=50`; // local API
 		try {
 			const res = await fetch(jobsUrl);

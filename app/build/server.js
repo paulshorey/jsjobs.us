@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.460bfbef.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.37994746.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
 
 /***/ }),
 
@@ -1029,7 +1029,7 @@ var Results = function (_Component) {
 		}
 
 		return _ret = (_temp = (_this = __WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_possibleConstructorReturn___default()(this, (_ref = Results.__proto__ || __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_object_get_prototype_of___default()(Results)).call.apply(_ref, [this].concat(args))), _this), _this.rateJobs = function (jobs) {
-			// filter the filters
+			// filter the filters (needs refactor?)
 			var filters = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_assign___default()({}, _this.props.filters);
 			for (var fil in filters) {
 				var filter = filters[fil];
@@ -1040,6 +1040,7 @@ var Results = function (_Component) {
 				value = value.replace(/\]\\\+/g, "]+");
 				value = value.replace(/\*/g, "\\*");
 				value = value.replace(/\$/g, "\\$");
+				filters[fil].value = value;
 			}
 			// iterate results
 			jobs = jobs.slice(0, 8);
@@ -1049,11 +1050,12 @@ var Results = function (_Component) {
 				// use filters
 				for (var _fil in filters) {
 					var _filter = filters[_fil];
-					var reg = RegExp("" + _filter.value + "", "i");
-					console.log(reg);
-					var match = reg.test(" " + job.name + " " + job.text + " ");
-					if (match) {
-						job._rating += _filter.multiplier;
+					if (_filter.multiplier) {
+						var reg = RegExp("" + _filter.value + "", "i");
+						var match = reg.test(" " + job.name + " " + job.text + " ");
+						if (match) {
+							job._rating += _filter.multiplier;
+						}
 					}
 				}
 
@@ -1988,7 +1990,7 @@ var Search = function (_Component) {
 								// CDN => data
 								// API => json.data
 
-								jobsUrl = "https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs" + jobs_area + "-50.json"; // Cloudfront
+								jobsUrl = "https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs/" + jobs_area + "-50.json"; // Cloudfront
 
 								jobsUrl_local = "http://localhost:1080/api/v1/jobs/" + jobs_area + ".json?limit=50"; // local API
 

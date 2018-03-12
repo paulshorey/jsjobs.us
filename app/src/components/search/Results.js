@@ -39,7 +39,7 @@ class Results extends Component {
 	}
 
 	rateJobs = jobs => {
-		// filter the filters
+		// filter the filters (needs refactor?)
 		const filters = Object.assign({}, this.props.filters);
 		for (let fil in filters) {
 			const filter = filters[fil];
@@ -50,6 +50,7 @@ class Results extends Component {
 			value = value.replace(/\]\\\+/g, "]+");
 			value = value.replace(/\*/g, "\\*");
 			value = value.replace(/\$/g, "\\$");
+			filters[fil].value = value;
 		}
 		// iterate results
 		jobs = jobs.slice(0, 8);
@@ -59,11 +60,12 @@ class Results extends Component {
 			// use filters
 			for (let fil in filters) {
 				const filter = filters[fil];
-				var reg = RegExp("" + filter.value + "", "i");
-				console.log(reg);
-				var match = reg.test(" " + job.name + " " + job.text + " ");
-				if (match) {
-					job._rating += filter.multiplier;
+				if (filter.multiplier) {
+					var reg = RegExp("" + filter.value + "", "i");
+					var match = reg.test(" " + job.name + " " + job.text + " ");
+					if (match) {
+						job._rating += filter.multiplier;
+					}
 				}
 			}
 
