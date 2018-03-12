@@ -188,7 +188,7 @@ global.collectionSearch = function(params = { collection: undefined, find: {}, o
 			}
 			// exec query
 			query.toArray(function(error, results) {
-				console.log("collection." + params.collection + ".find({...}) => " + results.length);
+				console.log("collection." + params.collection + ".find(" + JSON.stringify(params.find) + ") => " + results.length);
 				resolve(results);
 			});
 		});
@@ -230,9 +230,9 @@ global.server.use(function(err, req, response, next) {
 /*
 	API: GET
 */
-global.server.get("/api/v1/:coll/:area?.json", async function(request, response) {
+global.server.get("/api/v1/:coll/:_area?.json", async function(request, response) {
 	// meta
-	const coll_area = request.params.area;
+	const coll_area = request.params._area;
 	const coll_gt = ["posted", Date.now() - 604800000 * 2]; // posted since 2 weeks ago
 	const coll = request.params.coll;
 	const coll_find = {};
@@ -255,7 +255,7 @@ global.server.get("/api/v1/:coll/:area?.json", async function(request, response)
 */
 global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request, response) {
 	// meta
-	const collection_area = request.params.area || "";
+	const collection_area = request.params.area || "us";
 	const collection = request.params.collection;
 	const cacheUrl_initial = `api/v1/${collection}${collection_area ? "/" + collection_area : ""}-50.json`;
 	const cacheUrl = `api/v1/${collection}${collection_area ? "/" + collection_area : ""}.json`;
