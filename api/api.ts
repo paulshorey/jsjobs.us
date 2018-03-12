@@ -291,6 +291,9 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 						res.text = res.text;
 						// filter (timestamp in milliseconds)
 						res.posted = parseInt(global.rqr.moment(global.rqr.chrono.parseDate(res.posted)).format("x"));
+						if (res.posted === NaN) {
+							res.posted = 0;
+						}
 						// save to DB
 						res._area = collection_area;
 						res._status = "new";
