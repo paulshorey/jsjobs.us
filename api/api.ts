@@ -290,10 +290,13 @@ global.server.post("/api/v1/:collection/apify-webhook/:area?", function(request,
 						}
 						res.text = res.text;
 						// filter (timestamp in milliseconds)
-						res.posted = parseInt(global.rqr.moment(global.rqr.chrono.parseDate(res.posted)).format("x"));
-						if (res.posted === NaN) {
-							res.posted = 0;
+						if (res.posted.toLowerCase() === "just posted") {
+							res.posted = "today";
 						}
+						console.log(JSON.stringify(res));
+						// console.log(global.rqr.chrono.parseDate(res.posted));
+						// console.log(global.rqr.moment(global.rqr.chrono.parseDate(res.posted)).format("x"));
+						res.posted = parseInt(global.rqr.moment(global.rqr.chrono.parseDate(res.posted)).format("x"));
 						// save to DB
 						res._area = collection_area;
 						res._status = "new";
