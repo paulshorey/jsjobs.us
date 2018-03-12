@@ -56,6 +56,11 @@ export const Filters = styled.div`
 		.delete {
 			cursor: pointer;
 			padding-left: 0.5rem;
+			font-size: 1.1rem;
+		}
+		.x {
+			cursor: pointer;
+			padding-left: 0.5rem;
 			font-size: 1.5rem;
 			margin-top: -0.175rem;
 		}

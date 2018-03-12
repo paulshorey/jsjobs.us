@@ -5,7 +5,7 @@ export const Query = styled.div`
 	text-align: center;
 	display: block;
 	margin: 0.33rem auto;
-	max-width: 480px;
+	max-width: 50rem;
 	> * {
 		background: #fff;
 	}
@@ -52,9 +52,10 @@ export const Query = styled.div`
 		width: 30%;
 		.icon {
 			position: absolute;
-			right: 0.2rem;
+			right: 0.175rem;
 			top: 0;
-			padding: 0.2rem;
+			padding: 0.33rem;
+			font-size: 1.25rem;
 		}
 		.dropdown {
 			position: relative;
@@ -83,9 +84,9 @@ export const Query = styled.div`
 				line-height: 1rem;
 				span {
 					vertical-align: baseline;
-					font-size: 1.1rem;
+					font-size: 1rem;
 					&:first-child {
-						font-size: 1.4rem;
+						font-size: 1.1rem;
 					}
 				}
 				&.selected {

@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.0ce3dbf3.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.77e678f8.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.460bfbef.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
 
 /***/ }),
 
@@ -212,7 +212,7 @@ var Document = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\n\t/**************************************************\n\t\treset\n\t**************************************************/\n\thtml, body, #app, #pages {\n\t\theight:100%;\n\t\twidth:100%;\n\t}\n\tbody {\n\t\tmargin: 0;\n\t\tpadding: 0;\n        color:navy;      \n        background:lightblue;\n\t}\n\tpre {\n\t\tmargin:0;\n\t}\n\n\t/**************************************************\n\t\tresponsive text\n\t**************************************************/\n\tbody {\n\t\tmargin: 0;\n\t}\n\thtml {\n\t\tfont-size:14px;\n\t}\n\t@media (max-width:950px), (max-height:750px) {\n\t\thtml {\n\t\t\tfont-size:14px;\n\t\t}\n\t}\n\t@media (max-width:750px), (max-height:650px) {\n\t\thtml {\n\t\t\tfont-size:14px;\n\t\t}\n\t}\n\t@media (max-width:380px), (max-height:380px) {\n\t\thtml {\n\t\t\tfont-size:12px;\n\t\t}\n\t}\n\t@media (max-width:330px), (max-height:330px) {\n\t\thtml {\n\t\t\tfont-size:11px;\n\t\t}\n\t}\n\th1,h2,h3,h4,h5,h6,p {\n\t\tmargin:0;\n\t\tpadding:0;\n\t\tline-height:1.5rem;\n\t}\n\tp {\n\t\tmargin:0.75rem 0;\n\t\tfont-size:1rem;\n\t}\n\th1 {\n\t\tfont-size:1.9rem;\n\t}\n\th2 {\n\t\tfont-size:1.75rem;\n\t}\n\th3 {\n\t\tfont-size:1.6rem;\n\t}\n\th4 {\n\t\tfont-size:1.45rem;\n\t}\n\th5 {\n\t\tfont-size:1.3rem;\n\t}\n\th6 {\n\t\tfont-size:1.15rem;\n\t}\n\tli {\n\t\tpadding-bottom:0.5rem;\n\t}\n\n\n\t/**************************************************\n\t\tstyle\n\t**************************************************/\n\t* {\n\t\tfont-family: ", " !important;\n\t\tvertical-align:middle; /* hope this doesn't mess anything up - but in my experience, having vertical-align middle was always more useful than not - PS */\n\t}\n\tbody {\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t}\n\ta {\n\t\tcolor:", ";\n\t\ttext-decoration: none;\n\t}\n"], ["\n\n\t/**************************************************\n\t\treset\n\t**************************************************/\n\thtml, body, #app, #pages {\n\t\theight:100%;\n\t\twidth:100%;\n\t}\n\tbody {\n\t\tmargin: 0;\n\t\tpadding: 0;\n        color:navy;      \n        background:lightblue;\n\t}\n\tpre {\n\t\tmargin:0;\n\t}\n\n\t/**************************************************\n\t\tresponsive text\n\t**************************************************/\n\tbody {\n\t\tmargin: 0;\n\t}\n\thtml {\n\t\tfont-size:14px;\n\t}\n\t@media (max-width:950px), (max-height:750px) {\n\t\thtml {\n\t\t\tfont-size:14px;\n\t\t}\n\t}\n\t@media (max-width:750px), (max-height:650px) {\n\t\thtml {\n\t\t\tfont-size:14px;\n\t\t}\n\t}\n\t@media (max-width:380px), (max-height:380px) {\n\t\thtml {\n\t\t\tfont-size:12px;\n\t\t}\n\t}\n\t@media (max-width:330px), (max-height:330px) {\n\t\thtml {\n\t\t\tfont-size:11px;\n\t\t}\n\t}\n\th1,h2,h3,h4,h5,h6,p {\n\t\tmargin:0;\n\t\tpadding:0;\n\t\tline-height:1.5rem;\n\t}\n\tp {\n\t\tmargin:0.75rem 0;\n\t\tfont-size:1rem;\n\t}\n\th1 {\n\t\tfont-size:1.9rem;\n\t}\n\th2 {\n\t\tfont-size:1.75rem;\n\t}\n\th3 {\n\t\tfont-size:1.6rem;\n\t}\n\th4 {\n\t\tfont-size:1.45rem;\n\t}\n\th5 {\n\t\tfont-size:1.3rem;\n\t}\n\th6 {\n\t\tfont-size:1.15rem;\n\t}\n\tli {\n\t\tpadding-bottom:0.5rem;\n\t}\n\n\n\t/**************************************************\n\t\tstyle\n\t**************************************************/\n\t* {\n\t\tfont-family: ", " !important;\n\t\tvertical-align:middle; /* hope this doesn't mess anything up - but in my experience, having vertical-align middle was always more useful than not - PS */\n\t}\n\tbody {\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t}\n\ta {\n\t\tcolor:", ";\n\t\ttext-decoration: none;\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\n\t/**************************************************\n\t\treset\n\t**************************************************/\n\thtml, body, #app, #pages {\n\t\theight:100%;\n\t\twidth:100%;\n\t}\n\tbody {\n\t\tmargin: 0;\n\t\tpadding: 0;\n        color:navy;      \n        background:lightblue;\n\t}\n\tpre {\n\t\tmargin:0;\n\t}\n\t::-webkit-input-placeholder {\n\t\t/* Chrome/Opera/Safari */\n\t\tcolor: #999;\n\t}\n\t::-moz-placeholder {\n\t\t/* Firefox 19+ */\n\t\tcolor: #999;\n\t}\n\t:-ms-input-placeholder {\n\t\t/* IE 10+ */\n\t\tcolor: #999;\n\t}\n\t:-moz-placeholder {\n\t\t/* Firefox 18- */\n\t\tcolor: #999;\n\t}\n\n\t/**************************************************\n\t\tresponsive text\n\t**************************************************/\n\tbody {\n\t\tmargin: 0;\n\t}\n\thtml {\n\t\tfont-size:14px;\n\t}\n\t@media (max-width:950px), (max-height:750px) {\n\t\thtml {\n\t\t\tfont-size:14px;\n\t\t}\n\t}\n\t@media (max-width:750px), (max-height:650px) {\n\t\thtml {\n\t\t\tfont-size:14px;\n\t\t}\n\t}\n\t@media (max-width:380px), (max-height:380px) {\n\t\thtml {\n\t\t\tfont-size:12px;\n\t\t}\n\t}\n\t@media (max-width:330px), (max-height:330px) {\n\t\thtml {\n\t\t\tfont-size:11px;\n\t\t}\n\t}\n\th1,h2,h3,h4,h5,h6,p {\n\t\tmargin:0;\n\t\tpadding:0;\n\t\tline-height:1.5rem;\n\t}\n\tp {\n\t\tmargin:0.75rem 0;\n\t\tfont-size:1rem;\n\t}\n\th1 {\n\t\tfont-size:1.9rem;\n\t}\n\th2 {\n\t\tfont-size:1.75rem;\n\t}\n\th3 {\n\t\tfont-size:1.6rem;\n\t}\n\th4 {\n\t\tfont-size:1.45rem;\n\t}\n\th5 {\n\t\tfont-size:1.3rem;\n\t}\n\th6 {\n\t\tfont-size:1.15rem;\n\t}\n\tli {\n\t\tpadding-bottom:0.5rem;\n\t}\n\n\n\t/**************************************************\n\t\tstyle\n\t**************************************************/\n\t* {\n\t\tfont-family: ", " !important;\n\t\tvertical-align:middle; /* hope this doesn't mess anything up - but in my experience, having vertical-align middle was always more useful than not - PS */\n\t}\n\tbody {\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t}\n\ta {\n\t\tcolor:", ";\n\t\ttext-decoration: none;\n\t}\n"], ["\n\n\t/**************************************************\n\t\treset\n\t**************************************************/\n\thtml, body, #app, #pages {\n\t\theight:100%;\n\t\twidth:100%;\n\t}\n\tbody {\n\t\tmargin: 0;\n\t\tpadding: 0;\n        color:navy;      \n        background:lightblue;\n\t}\n\tpre {\n\t\tmargin:0;\n\t}\n\t::-webkit-input-placeholder {\n\t\t/* Chrome/Opera/Safari */\n\t\tcolor: #999;\n\t}\n\t::-moz-placeholder {\n\t\t/* Firefox 19+ */\n\t\tcolor: #999;\n\t}\n\t:-ms-input-placeholder {\n\t\t/* IE 10+ */\n\t\tcolor: #999;\n\t}\n\t:-moz-placeholder {\n\t\t/* Firefox 18- */\n\t\tcolor: #999;\n\t}\n\n\t/**************************************************\n\t\tresponsive text\n\t**************************************************/\n\tbody {\n\t\tmargin: 0;\n\t}\n\thtml {\n\t\tfont-size:14px;\n\t}\n\t@media (max-width:950px), (max-height:750px) {\n\t\thtml {\n\t\t\tfont-size:14px;\n\t\t}\n\t}\n\t@media (max-width:750px), (max-height:650px) {\n\t\thtml {\n\t\t\tfont-size:14px;\n\t\t}\n\t}\n\t@media (max-width:380px), (max-height:380px) {\n\t\thtml {\n\t\t\tfont-size:12px;\n\t\t}\n\t}\n\t@media (max-width:330px), (max-height:330px) {\n\t\thtml {\n\t\t\tfont-size:11px;\n\t\t}\n\t}\n\th1,h2,h3,h4,h5,h6,p {\n\t\tmargin:0;\n\t\tpadding:0;\n\t\tline-height:1.5rem;\n\t}\n\tp {\n\t\tmargin:0.75rem 0;\n\t\tfont-size:1rem;\n\t}\n\th1 {\n\t\tfont-size:1.9rem;\n\t}\n\th2 {\n\t\tfont-size:1.75rem;\n\t}\n\th3 {\n\t\tfont-size:1.6rem;\n\t}\n\th4 {\n\t\tfont-size:1.45rem;\n\t}\n\th5 {\n\t\tfont-size:1.3rem;\n\t}\n\th6 {\n\t\tfont-size:1.15rem;\n\t}\n\tli {\n\t\tpadding-bottom:0.5rem;\n\t}\n\n\n\t/**************************************************\n\t\tstyle\n\t**************************************************/\n\t* {\n\t\tfont-family: ", " !important;\n\t\tvertical-align:middle; /* hope this doesn't mess anything up - but in my experience, having vertical-align middle was always more useful than not - PS */\n\t}\n\tbody {\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t}\n\ta {\n\t\tcolor:", ";\n\t\ttext-decoration: none;\n\t}\n"]);
 
 
 
@@ -247,7 +247,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_styled_components__["injectGlobal"])(_templat
 	color_text2: "rgb(173, 173, 173)",
 	color_link2: "rgb(100,175,200)",
 	color_border2: "rgb(188, 188, 188)",
-	color_textGreen2: "rgb(100,200,5)",
+	color_textGreen2: "rgb(75,190,0)",
 	color_textRed2: "rgb(252, 101, 75)",
 	/* #3 - black background */
 	color_bg3: "#111",
@@ -594,7 +594,7 @@ var Filters = function (_Component) {
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"b",
 								null,
-								filter.value
+								filter.value.replace(/\\\\/g, "\\").replace(/\\\\/g, "").replace(/\|/g, " | ")
 							),
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"i",
@@ -606,16 +606,14 @@ var Filters = function (_Component) {
 							"span",
 							{ className: "multiplier_text" + (filter.multiplier > 0 ? " plus" : " minus") },
 							filter.multiplier > 0 ? __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-thumbs-up" }) : __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-thumbs-down" }),
-							" ",
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"b",
 								null,
-								"+",
 								Math.abs(filter.multiplier)
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", {
-							className: "delete icon-x-circle",
+							className: "delete icon-delete",
 							onClick: function onClick() {
 								_this2.props.dispatch_filterRemove(filter);
 							}
@@ -707,7 +705,7 @@ var ConnectedFilters = Object(__WEBPACK_IMPORTED_MODULE_8_react_redux__["connect
 var constructInitialState = function constructInitialState(props) {
 	return {
 		qInput_value: "",
-		qInput_multiplier: props.queryProperty === "location" ? 3 : 10
+		qInput_multiplier: props.queryProperty === "location" ? 3 : 1
 	};
 };
 
@@ -791,11 +789,7 @@ var Query = function (_React$Component) {
 									_this2.inputMultiplierChange(10);
 								}
 							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"+"
-							),
+							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-thumbs-up" }),
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"span",
 								null,
@@ -810,11 +804,7 @@ var Query = function (_React$Component) {
 									_this2.inputMultiplierChange(3);
 								}
 							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"+"
-							),
+							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-thumbs-up" }),
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"span",
 								null,
@@ -829,11 +819,7 @@ var Query = function (_React$Component) {
 									_this2.inputMultiplierChange(2);
 								}
 							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"+"
-							),
+							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-thumbs-up" }),
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"span",
 								null,
@@ -848,11 +834,7 @@ var Query = function (_React$Component) {
 									_this2.inputMultiplierChange(1);
 								}
 							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"+"
-							),
+							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-thumbs-up" }),
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"span",
 								null,
@@ -944,7 +926,7 @@ var Query = function (_React$Component) {
 								_this2.inputValueSubmit();
 							}
 						},
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-plus-circle" })
+						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-plus" })
 					)
 				)
 			);
@@ -985,27 +967,30 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__("babel-runtime/helpers/asyncToGenerator");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_get_prototype_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__styled_Results_js__ = __webpack_require__("./src/components/search/styled/Results.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__data_actions__ = __webpack_require__("./src/data/actions/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__SelectLink__ = __webpack_require__("./src/components/search/SelectLink.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Query__ = __webpack_require__("./src/components/search/Query.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Filters__ = __webpack_require__("./src/components/search/Filters.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_assign__ = __webpack_require__("babel-runtime/core-js/object/assign");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_object_get_prototype_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_possibleConstructorReturn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_babel_runtime_helpers_inherits__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_isomorphic_unfetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__styled_Results_js__ = __webpack_require__("./src/components/search/styled/Results.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__data_actions__ = __webpack_require__("./src/data/actions/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__SelectLink__ = __webpack_require__("./src/components/search/SelectLink.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Query__ = __webpack_require__("./src/components/search/Query.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Filters__ = __webpack_require__("./src/components/search/Filters.js");
+
 
 
 
@@ -1030,34 +1015,45 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"]
 */
 
 var Results = function (_Component) {
-	__WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_inherits___default()(Results, _Component);
+	__WEBPACK_IMPORTED_MODULE_8_babel_runtime_helpers_inherits___default()(Results, _Component);
 
 	function Results() {
 		var _ref;
 
 		var _temp, _this, _ret;
 
-		__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_classCallCheck___default()(this, Results);
+		__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck___default()(this, Results);
 
 		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
 			args[_key] = arguments[_key];
 		}
 
-		return _ret = (_temp = (_this = __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_possibleConstructorReturn___default()(this, (_ref = Results.__proto__ || __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_get_prototype_of___default()(Results)).call.apply(_ref, [this].concat(args))), _this), _this.rateJobs = function (jobs) {
-			// jobs = jobs.slice(0, 8);
+		return _ret = (_temp = (_this = __WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_possibleConstructorReturn___default()(this, (_ref = Results.__proto__ || __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_object_get_prototype_of___default()(Results)).call.apply(_ref, [this].concat(args))), _this), _this.rateJobs = function (jobs) {
+			// filter the filters
+			var filters = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_assign___default()({}, _this.props.filters);
+			for (var fil in filters) {
+				var filter = filters[fil];
+				var value = filter.value;
+				value = value.replace(/ \| /g, "|");
+				value = value.replace(/\?/g, "\\?");
+				value = value.replace(/\+/g, "\\+");
+				value = value.replace(/\]\\\+/g, "]+");
+				value = value.replace(/\*/g, "\\*");
+				value = value.replace(/\$/g, "\\$");
+			}
+			// iterate results
+			jobs = jobs.slice(0, 8);
 			jobs = jobs.map(function (job) {
 				job._status = job._status || "new";
 				job._rating = 1000;
-
-				for (var fil in _this.props.filters) {
-					var filter = _this.props.filters[fil];
-					// console.log(filter.value);
-					var reg = RegExp("" + filter.value + "", "i");
-					var match = reg.test(job.text + job.title);
-
-					// console.log(match);
+				// use filters
+				for (var _fil in filters) {
+					var _filter = filters[_fil];
+					var reg = RegExp("" + _filter.value + "", "i");
+					console.log(reg);
+					var match = reg.test(" " + job.name + " " + job.text + " ");
 					if (match) {
-						job._rating += filter.multiplier;
+						job._rating += _filter.multiplier;
 					}
 				}
 
@@ -1066,10 +1062,11 @@ var Results = function (_Component) {
 			jobs.sort(function (a, b) {
 				return b._rating - a._rating;
 			});
+			jobs = jobs.slice(0, 100);
 			return jobs;
 		}, _this.renderResultsCount = function () {
 			if (_this.props.jobs.length !== 0 && _this.props.jobs.length !== 50) {
-				return __WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
+				return __WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 					"span",
 					null,
 					_this.props.jobs.length
@@ -1077,10 +1074,10 @@ var Results = function (_Component) {
 			} else {
 				return null;
 			}
-		}, _temp), __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_possibleConstructorReturn___default()(_this, _ret);
+		}, _temp), __WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_possibleConstructorReturn___default()(_this, _ret);
 	}
 
-	__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_createClass___default()(Results, [{
+	__WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass___default()(Results, [{
 		key: "componentDidMount",
 		value: function () {
 			var _ref2 = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -1167,7 +1164,7 @@ var Results = function (_Component) {
 			var Jobs = [];
 			if (jobs) {
 				var i = 0;
-				while (i < 50) {
+				while (i < 100) {
 					var job = jobs[i];
 					if ((typeof job === "undefined" ? "undefined" : __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof___default()(job)) !== "object") {
 						break;
@@ -1175,69 +1172,77 @@ var Results = function (_Component) {
 					var rating = job._rating - 1000;
 					var Rating = null;
 					if (rating > 0) {
-						Rating = __WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
+						Rating = __WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 							"b",
 							{ className: "rating plus" },
-							"+",
+							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-thumbs-up" }),
 							rating
 						);
 					}
 					if (rating < 0) {
-						Rating = __WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
+						Rating = __WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 							"b",
 							{ className: "rating minus" },
-							"-",
+							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-thumbs-down" }),
 							rating
 						);
 					}
-					Jobs.push(__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
+					Jobs.push(__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 						"div",
 						{ key: job._id + i, className: "result" },
-						__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
-							"div",
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+							"b",
 							null,
-							__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
-								"b",
-								null,
-								job.name
-							),
-							" - ",
-							job.text,
-							" \xA0",
-							__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
+							job.name
+						),
+						" - ",
+						job.text,
+						" \xA0",
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+							"div",
+							{ className: "meta" },
+							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 								"span",
 								{ className: "location" },
 								job.location
 							),
 							" \xA0",
-							Rating
+							Rating,
+							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-x-circle" }),
+							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-x-circle" }),
+							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-x-circle" })
 						)
 					));
 					i++;
 				}
 			}
-			return __WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_10__styled_Results_js__["a" /* Results */],
+			return __WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_11__styled_Results_js__["a" /* Results */],
 				null,
-				__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 					"div",
 					{ className: "queries" },
-					__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
+					__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+						"h2",
+						{ className: "page-title" },
+						" ",
+						" ",
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+							"span",
+							null,
+							"Precise Search:"
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 						"div",
 						{ className: "queries_content" },
-						__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__SelectLink__["a" /* default */], { selectProperty: "area", option: "/in/" + this.props.area }),
-						__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Query__["a" /* default */], { queryProperty: "location" }),
-						__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Query__["a" /* default */], { queryProperty: "text" }),
-						__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Filters__["a" /* default */], null)
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__SelectLink__["a" /* default */], { selectProperty: "area", option: "/in/" + this.props.area }),
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Query__["a" /* default */], { queryProperty: "location" }),
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Query__["a" /* default */], { queryProperty: "text" }),
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__Filters__["a" /* default */], null)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
-					"h2",
-					{ className: "page-title" },
-					" ",
-					" Results:"
-				),
-				__WEBPACK_IMPORTED_MODULE_8_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 					"div",
 					{ className: "results" },
 					Jobs
@@ -1247,7 +1252,7 @@ var Results = function (_Component) {
 	}]);
 
 	return Results;
-}(__WEBPACK_IMPORTED_MODULE_8_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_9_react__["Component"]);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
 	return {
@@ -1258,11 +1263,11 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 	return {
 		dispatch_jobsAdd: function dispatch_jobsAdd(jobs) {
-			dispatch(__WEBPACK_IMPORTED_MODULE_12__data_actions__["c" /* jobsAdd */](jobs));
+			dispatch(__WEBPACK_IMPORTED_MODULE_13__data_actions__["c" /* jobsAdd */](jobs));
 		}
 	};
 };
-var ConnectedResults = Object(__WEBPACK_IMPORTED_MODULE_11_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Results);
+var ConnectedResults = Object(__WEBPACK_IMPORTED_MODULE_12_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Results);
 
 /*
 	Components
@@ -1441,7 +1446,7 @@ var ConnectedSelect = Object(__WEBPACK_IMPORTED_MODULE_8_react_redux__["connect"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\tmargin: 0.5rem 0 0.33rem 0;\n\t.filter {\n\t\tdisplay: block;\n\t\ttext-align: center;\n\t\tmargin-bottom: 0.33rem;\n\t\t> * {\n\t\t\tvertical-align: middle;\n\t\t\tdisplay: inline-block;\n\t\t\t&::after {\n\t\t\t\tcontent: \" \";\n\t\t\t}\n\t\t}\n\n\t\tcolor: #666;\n\t\t.value {\n\t\t\ti {\n\t\t\t\tcolor: #989898;\n\t\t\t\t&::after {\n\t\t\t\t\tcontent: \" \";\n\t\t\t\t}\n\t\t\t}\n\t\t\tb {\n\t\t\t\tfont-weight: 500;\n\t\t\t\tletter-spacing: 0.25px;\n\t\t\t}\n\t\t\t&.example {\n\t\t\t\tcolor: #989898;\n\t\t\t}\n\t\t}\n\t\t.multiplier {\n\t\t\tfont-size: 75%;\n\t\t\t.icon-plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t.icon-minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.multiplier_text {\n\t\t\tpadding-left: 0.33rem;\n\t\t\tfont-weight: normal;\n\t\t\t&.plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t&.minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t* {\n\t\t\t\t/* vertical-align: baseline; */\n\t\t\t}\n\t\t}\n\t\t.delete {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.5rem;\n\t\t\tmargin-top: -0.175rem;\n\t\t}\n\t}\n"], ["\n\tmargin: 0.5rem 0 0.33rem 0;\n\t.filter {\n\t\tdisplay: block;\n\t\ttext-align: center;\n\t\tmargin-bottom: 0.33rem;\n\t\t> * {\n\t\t\tvertical-align: middle;\n\t\t\tdisplay: inline-block;\n\t\t\t&::after {\n\t\t\t\tcontent: \" \";\n\t\t\t}\n\t\t}\n\n\t\tcolor: #666;\n\t\t.value {\n\t\t\ti {\n\t\t\t\tcolor: #989898;\n\t\t\t\t&::after {\n\t\t\t\t\tcontent: \" \";\n\t\t\t\t}\n\t\t\t}\n\t\t\tb {\n\t\t\t\tfont-weight: 500;\n\t\t\t\tletter-spacing: 0.25px;\n\t\t\t}\n\t\t\t&.example {\n\t\t\t\tcolor: #989898;\n\t\t\t}\n\t\t}\n\t\t.multiplier {\n\t\t\tfont-size: 75%;\n\t\t\t.icon-plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t.icon-minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.multiplier_text {\n\t\t\tpadding-left: 0.33rem;\n\t\t\tfont-weight: normal;\n\t\t\t&.plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t&.minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t* {\n\t\t\t\t/* vertical-align: baseline; */\n\t\t\t}\n\t\t}\n\t\t.delete {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.5rem;\n\t\t\tmargin-top: -0.175rem;\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\tmargin: 0.5rem 0 0.33rem 0;\n\t.filter {\n\t\tdisplay: block;\n\t\ttext-align: center;\n\t\tmargin-bottom: 0.33rem;\n\t\t> * {\n\t\t\tvertical-align: middle;\n\t\t\tdisplay: inline-block;\n\t\t\t&::after {\n\t\t\t\tcontent: \" \";\n\t\t\t}\n\t\t}\n\n\t\tcolor: #666;\n\t\t.value {\n\t\t\ti {\n\t\t\t\tcolor: #989898;\n\t\t\t\t&::after {\n\t\t\t\t\tcontent: \" \";\n\t\t\t\t}\n\t\t\t}\n\t\t\tb {\n\t\t\t\tfont-weight: 500;\n\t\t\t\tletter-spacing: 0.25px;\n\t\t\t}\n\t\t\t&.example {\n\t\t\t\tcolor: #989898;\n\t\t\t}\n\t\t}\n\t\t.multiplier {\n\t\t\tfont-size: 75%;\n\t\t\t.icon-plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t.icon-minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.multiplier_text {\n\t\t\tpadding-left: 0.33rem;\n\t\t\tfont-weight: normal;\n\t\t\t&.plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t&.minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t* {\n\t\t\t\t/* vertical-align: baseline; */\n\t\t\t}\n\t\t}\n\t\t.delete {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.1rem;\n\t\t}\n\t\t.x {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.5rem;\n\t\t\tmargin-top: -0.175rem;\n\t\t}\n\t}\n"], ["\n\tmargin: 0.5rem 0 0.33rem 0;\n\t.filter {\n\t\tdisplay: block;\n\t\ttext-align: center;\n\t\tmargin-bottom: 0.33rem;\n\t\t> * {\n\t\t\tvertical-align: middle;\n\t\t\tdisplay: inline-block;\n\t\t\t&::after {\n\t\t\t\tcontent: \" \";\n\t\t\t}\n\t\t}\n\n\t\tcolor: #666;\n\t\t.value {\n\t\t\ti {\n\t\t\t\tcolor: #989898;\n\t\t\t\t&::after {\n\t\t\t\t\tcontent: \" \";\n\t\t\t\t}\n\t\t\t}\n\t\t\tb {\n\t\t\t\tfont-weight: 500;\n\t\t\t\tletter-spacing: 0.25px;\n\t\t\t}\n\t\t\t&.example {\n\t\t\t\tcolor: #989898;\n\t\t\t}\n\t\t}\n\t\t.multiplier {\n\t\t\tfont-size: 75%;\n\t\t\t.icon-plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t.icon-minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.multiplier_text {\n\t\t\tpadding-left: 0.33rem;\n\t\t\tfont-weight: normal;\n\t\t\t&.plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t&.minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t* {\n\t\t\t\t/* vertical-align: baseline; */\n\t\t\t}\n\t\t}\n\t\t.delete {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.1rem;\n\t\t}\n\t\t.x {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.5rem;\n\t\t\tmargin-top: -0.175rem;\n\t\t}\n\t}\n"]);
 
 
 
@@ -1462,7 +1467,7 @@ var Filters = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_tem
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 480px;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder: solid 0px rgb(188, 188, 188);\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.2rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tborder: solid 0px ", ";\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\tborder: solid 0px ", ";\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.2rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.2rem;\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\t&.opened {\n\t\t\t\tz-index: 1000;\n\t\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\t\t/* margin: -2px; */\n\t\t\t\tborder: solid 0px ", ";\n\t\t\t}\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t&:not(.opened) {\n\t\t\t\t> * {\n\t\t\t\t}\n\t\t\t}\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.4rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&:not(.opened) {\n\t\t\t\t\t&.green {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t\t&.red {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&.opened {\n\t\t\t\tposition: absolute;\n\t\t\t\tbackground: white;\n\t\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t\t> * {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t/* &.selected_positive {\n\t\t// background: #9ad35b;\n\t\t// border-color: #9ad35b;\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t.dropdown {\n\t\t\t&:not(.opened) {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t} */\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"], ["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 480px;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder: solid 0px rgb(188, 188, 188);\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.2rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tborder: solid 0px ", ";\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\tborder: solid 0px ", ";\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.2rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.2rem;\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\t&.opened {\n\t\t\t\tz-index: 1000;\n\t\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\t\t/* margin: -2px; */\n\t\t\t\tborder: solid 0px ", ";\n\t\t\t}\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t&:not(.opened) {\n\t\t\t\t> * {\n\t\t\t\t}\n\t\t\t}\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.4rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&:not(.opened) {\n\t\t\t\t\t&.green {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t\t&.red {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&.opened {\n\t\t\t\tposition: absolute;\n\t\t\t\tbackground: white;\n\t\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t\t> * {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t/* &.selected_positive {\n\t\t// background: #9ad35b;\n\t\t// border-color: #9ad35b;\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t.dropdown {\n\t\t\t&:not(.opened) {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t} */\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 50rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder: solid 0px rgb(188, 188, 188);\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.2rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tborder: solid 0px ", ";\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\tborder: solid 0px ", ";\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\t&.opened {\n\t\t\t\tz-index: 1000;\n\t\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\t\t/* margin: -2px; */\n\t\t\t\tborder: solid 0px ", ";\n\t\t\t}\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t&:not(.opened) {\n\t\t\t\t> * {\n\t\t\t\t}\n\t\t\t}\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&:not(.opened) {\n\t\t\t\t\t&.green {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t\t&.red {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&.opened {\n\t\t\t\tposition: absolute;\n\t\t\t\tbackground: white;\n\t\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t\t> * {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t/* &.selected_positive {\n\t\t// background: #9ad35b;\n\t\t// border-color: #9ad35b;\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t.dropdown {\n\t\t\t&:not(.opened) {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t} */\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"], ["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 50rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder: solid 0px rgb(188, 188, 188);\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.2rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tborder: solid 0px ", ";\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\tborder: solid 0px ", ";\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\t&.opened {\n\t\t\t\tz-index: 1000;\n\t\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\t\t/* margin: -2px; */\n\t\t\t\tborder: solid 0px ", ";\n\t\t\t}\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t&:not(.opened) {\n\t\t\t\t> * {\n\t\t\t\t}\n\t\t\t}\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&:not(.opened) {\n\t\t\t\t\t&.green {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t\t&.red {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&.opened {\n\t\t\t\tposition: absolute;\n\t\t\t\tbackground: white;\n\t\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t\t> * {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t/* &.selected_positive {\n\t\t// background: #9ad35b;\n\t\t// border-color: #9ad35b;\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t.dropdown {\n\t\t\t&:not(.opened) {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t} */\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"]);
 
 
 
@@ -1483,7 +1488,7 @@ var Query = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templ
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t.results {\n\t\tmargin: 1.5rem 0;\n\t\t.result {\n\t\t\tmargin: 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\t&.plus {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 0;\n\t\tbackground: #cccccc;\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"], ["\n\t.results {\n\t\tmargin: 1.5rem 0;\n\t\t.result {\n\t\t\tmargin: 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\t&.plus {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 0;\n\t\tbackground: #cccccc;\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t.results {\n\t\tmax-width: 51.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"], ["\n\t.results {\n\t\tmax-width: 51.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"]);
 
 
 
@@ -1563,15 +1568,21 @@ var filterRemove = function filterRemove(filter) {
 var initialState = {
 	hint: {
 		_id: "hint",
-		value: "Use Regular Expressions to search. For example:",
+		value: "Use Regular Expressions in search. For example:",
 		property: "location",
 		multiplier: 0
 	},
 	example: {
 		_id: "example",
-		value: "C\\# | C\\+\\+ | Java[^a-zA-Z]+",
+		value: "C# | C++ | Java[^a-zA-Z]+",
 		property: "text",
 		multiplier: 1
+	},
+	example2: {
+		_id: "example2",
+		value: "intern | junior | entry",
+		property: "text",
+		multiplier: -10
 	}
 };
 
@@ -1709,7 +1720,7 @@ if (false) {
 	exact: true,
 	component: Object(__WEBPACK_IMPORTED_MODULE_1__jaredpalmer_after__["asyncComponent"])({
 		loader: function loader() {
-			return new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, "./src/routes/Home.js"));
+			return new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, "./src/routes/In.js"));
 		}, // required
 		Placeholder: function Placeholder() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1886,142 +1897,6 @@ var Search = function (_Component) {
 						"h2",
 						null,
 						"About us..."
-					)
-				)
-			);
-		}
-	}]);
-
-	return Search;
-}(__WEBPACK_IMPORTED_MODULE_5_react__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (Search);
-
-/***/ }),
-
-/***/ "./src/routes/Home.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_router_dom__ = __webpack_require__("react-router-dom");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_router_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__styled_Page_js__ = __webpack_require__("./src/routes/styled/Page.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Layout_js__ = __webpack_require__("./src/components/Layout.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_search_SelectLink__ = __webpack_require__("./src/components/search/SelectLink.js");
-
-
-
-
-
-
-
-
-
-
-
-
-var Search = function (_Component) {
-	__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(Search, _Component);
-
-	function Search() {
-		__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, Search);
-
-		return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Search.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(Search)).apply(this, arguments));
-	}
-
-	__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(Search, [{
-		key: "render",
-
-		// static async getInitialProps({ match }) {
-		// 	const jobs_area = match.params.area || "us";
-		// 	// CDN => data
-		// 	// API => json.data
-		// 	// const jobsUrl = `https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs/${jobs_area}-50.json`; // Cloudfront
-		// 	const jobsUrl_local = `http://localhost:1080/api/v1/jobs.json?limit=50`; // local API
-		// 	try {
-		// 		const res = await fetch(jobsUrl_local);
-		// 		const json = await res.json();
-		// 		// console.log("getInitialProps fetched " + json.data.length + " results from " + jobsUrl_local);
-		// 		return { jobs: json.data || [] };
-		// 	} catch (e) {
-		// 		// console.error("getInitialProps fetch failed: " + jobsUrl_local + "");
-		// 		return { jobs: [] };
-		// 	}
-		// }
-		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_9__components_Layout_js__["a" /* default */],
-				{ style: { background: "#111" } },
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_8__styled_Page_js__["a" /* Page */],
-					{ style: { background: "#fff" } },
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-						"div",
-						{ className: "home-map" },
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{ className: "home-map-content" },
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-								{ to: "/in/la", className: "home-map-hotspot ui-hotspot", style: { top: "55%", left: "5%" } },
-								__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-									"label",
-									null,
-									"in LA"
-								)
-							),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-								{ to: "/in/denver", className: "home-map-hotspot ui-hotspot", style: { top: "42%", left: "31%" } },
-								__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-									"label",
-									null,
-									"in Denver"
-								)
-							),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-								{ to: "/in/nyc", className: "home-map-hotspot ui-hotspot", style: { top: "28%", right: "8%" } },
-								__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-									"label",
-									null,
-									"in NYC"
-								)
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{ className: "queries" },
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"h3",
-								null,
-								__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__components_search_SelectLink__["a" /* default */], { selectProperty: "area" })
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{ className: "bottom" },
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-								{ to: "/in/denver", className: "" },
-								"Sample search..."
-							)
-						)
 					)
 				)
 			);

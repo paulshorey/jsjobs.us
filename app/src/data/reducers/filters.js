@@ -1,15 +1,21 @@
 const initialState = {
 	hint: {
 		_id: "hint",
-		value: "Use Regular Expressions to search. For example:",
+		value: "Use Regular Expressions in search. For example:",
 		property: "location",
 		multiplier: 0
 	},
 	example: {
 		_id: "example",
-		value: "C\\# | C\\+\\+ | Java[^a-zA-Z]+",
+		value: "C# | C++ | Java[^a-zA-Z]+",
 		property: "text",
 		multiplier: 1
+	},
+	example2: {
+		_id: "example2",
+		value: "intern | junior | entry",
+		property: "text",
+		multiplier: -10
 	}
 };
 

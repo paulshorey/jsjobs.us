@@ -39,18 +39,29 @@ class Results extends Component {
 	}
 
 	rateJobs = jobs => {
-		// jobs = jobs.slice(0, 8);
+		// filter the filters
+		const filters = Object.assign({}, this.props.filters);
+		for (let fil in filters) {
+			const filter = filters[fil];
+			let value = filter.value;
+			value = value.replace(/ \| /g, "|");
+			value = value.replace(/\?/g, "\\?");
+			value = value.replace(/\+/g, "\\+");
+			value = value.replace(/\]\\\+/g, "]+");
+			value = value.replace(/\*/g, "\\*");
+			value = value.replace(/\$/g, "\\$");
+		}
+		// iterate results
+		jobs = jobs.slice(0, 8);
 		jobs = jobs.map(job => {
 			job._status = job._status || "new";
 			job._rating = 1000;
-
-			for (let fil in this.props.filters) {
-				const filter = this.props.filters[fil];
-				// console.log(filter.value);
+			// use filters
+			for (let fil in filters) {
+				const filter = filters[fil];
 				var reg = RegExp("" + filter.value + "", "i");
-				var match = reg.test(job.text + job.title);
-
-				// console.log(match);
+				console.log(reg);
+				var match = reg.test(" " + job.name + " " + job.text + " ");
 				if (match) {
 					job._rating += filter.multiplier;
 				}
@@ -61,6 +72,7 @@ class Results extends Component {
 		jobs.sort(function(a, b) {
 			return b._rating - a._rating;
 		});
+		jobs = jobs.slice(0, 100);
 		return jobs;
 	};
 	renderResultsCount = () => {
@@ -79,7 +91,7 @@ class Results extends Component {
 		var Jobs = [];
 		if (jobs) {
 			var i = 0;
-			while (i < 50) {
+			while (i < 100) {
 				var job = jobs[i];
 				if (typeof job !== "object") {
 					break;
@@ -89,25 +101,28 @@ class Results extends Component {
 				if (rating > 0) {
 					Rating = (
 						<b className="rating plus">
-							{/* <span className="icon-thumbs-up" />  */}
-							+{rating}
+							<span className="icon-thumbs-up" />
+							{rating}
 						</b>
 					);
 				}
 				if (rating < 0) {
 					Rating = (
 						<b className="rating minus">
-							{/* <span className="icon-thumbs-down" />  */}
-							-{rating}
+							<span className="icon-thumbs-down" />
+							{rating}
 						</b>
 					);
 				}
 				Jobs.push(
 					<div key={job._id + i} className="result">
-						<div>
-							<b>{job.name}</b> - {job.text} &nbsp;
+						<b>{job.name}</b> - {job.text} &nbsp;
+						<div className="meta">
 							<span className="location">{job.location}</span> &nbsp;
 							{Rating}
+							<span className="icon-x-circle" />
+							<span className="icon-x-circle" />
+							<span className="icon-x-circle" />
 						</div>
 					</div>
 				);
@@ -117,6 +132,10 @@ class Results extends Component {
 		return (
 			<Styled.Results>
 				<div className="queries">
+					<h2 className="page-title">
+						{" "}
+						{/*this.renderResultsCount()*/} <span>Precise Search:</span>
+					</h2>
 					<div className="queries_content">
 						<SearchSelect selectProperty="area" option={"/in/" + this.props.area} />
 						<SearchQuery queryProperty="location" />
@@ -124,7 +143,6 @@ class Results extends Component {
 						<SearchFilters />
 					</div>
 				</div>
-				<h2 className="page-title"> {/*this.renderResultsCount()*/} Results:</h2>
 				<div className="results">{Jobs}</div>
 			</Styled.Results>
 		);

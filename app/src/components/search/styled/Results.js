@@ -3,22 +3,46 @@ import theme from "Document.theme.js";
 
 export const Results = styled.div`
 	.results {
-		margin: 1.5rem 0;
+		max-width: 51.8rem;
+		margin: 0.5rem auto;
 		.result {
-			margin: 1rem;
+			/* display: flex; */
+			margin: 1.5rem 1rem;
 			b {
 				color: #666;
 			}
+			.meta {
+				display: block;
+				text-align: right;
+				> * {
+					vertical-align: baseline;
+				}
+			}
+			.controls {
+				margin: 0.125rem;
+				flex-direction: column;
+				div {
+					display: flex;
+					span {
+						display: inline-block;
+						margin: 0.125rem 0.125rem 0.25rem 0.125rem;
+						font-size: 1.25rem;
+					}
+				}
+			}
+			.content {
+			}
 			.location {
-				color: ${theme.color_mapsLink};
+				color: salmon; /*${theme.color_mapsLink};*/
 			}
 			.rating {
 				font-size: 1rem;
+				color:#999;
 				&.plus {
-					color: ${theme.color_textGreen1};
+					/* color: ${theme.color_textGreen1}; */
 				}
 				&.minus {
-					color: ${theme.color_textRed1};
+					/* color: ${theme.color_textRed1}; */
 				}
 			}
 		}
@@ -28,8 +52,11 @@ export const Results = styled.div`
 		}
 	}
 	.queries {
-		padding: 0.5rem 0;
+		padding: 0.5rem 1rem;
 		background: #cccccc;
+		.page-title {
+			margin-top: 0.5rem;
+		}
 		.queries_content {
 			text-align: center;
 			overflow: visible;

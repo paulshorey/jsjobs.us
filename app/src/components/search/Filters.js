@@ -30,14 +30,20 @@ class Filters extends Component {
 						<span>
 							<span className="value">
 								<i>"</i>
-								<b>{filter.value}</b>
+								<b>
+									{filter.value
+										.replace(/\\\\/g, "\\")
+										.replace(/\\\\/g, "")
+										.replace(/\|/g, " | ")}
+								</b>
 								<i>"</i>
 							</span>
 							<span className={"multiplier_text" + (filter.multiplier > 0 ? " plus" : " minus")}>
-								{filter.multiplier > 0 ? <span className="icon-thumbs-up" /> : <span className="icon-thumbs-down" />} <b>+{Math.abs(filter.multiplier)}</b>
+								{filter.multiplier > 0 ? <span className="icon-thumbs-up" /> : <span className="icon-thumbs-down" />}
+								<b>{Math.abs(filter.multiplier)}</b>
 							</span>
 							<span
-								className="delete icon-x-circle"
+								className="delete icon-delete"
 								onClick={() => {
 									this.props.dispatch_filterRemove(filter);
 								}}

@@ -13,7 +13,7 @@ import * as actions from "data/actions";
 const constructInitialState = function(props) {
 	return {
 		qInput_value: "",
-		qInput_multiplier: props.queryProperty === "location" ? 3 : 10
+		qInput_multiplier: props.queryProperty === "location" ? 3 : 1
 	};
 };
 class Query extends React.Component {
@@ -75,7 +75,7 @@ class Query extends React.Component {
 								this.inputMultiplierChange(10);
 							}}
 						>
-							<span>+</span>
+							<span className="icon-thumbs-up" />
 							<span>10</span>
 						</div>
 						<div
@@ -84,7 +84,7 @@ class Query extends React.Component {
 								this.inputMultiplierChange(3);
 							}}
 						>
-							<span>+</span>
+							<span className="icon-thumbs-up" />
 							<span>3</span>
 						</div>
 						<div
@@ -93,7 +93,7 @@ class Query extends React.Component {
 								this.inputMultiplierChange(2);
 							}}
 						>
-							<span>+</span>
+							<span className="icon-thumbs-up" />
 							<span>2</span>
 						</div>
 						<div
@@ -102,7 +102,7 @@ class Query extends React.Component {
 								this.inputMultiplierChange(1);
 							}}
 						>
-							<span>+</span>
+							<span className="icon-thumbs-up" />
 							<span>1</span>
 						</div>
 						<div
@@ -148,7 +148,7 @@ class Query extends React.Component {
 							this.inputValueSubmit();
 						}}
 					>
-						<span className="icon-plus-circle" />
+						<span className="icon-plus" />
 					</div>
 				</div>
 			</Styled.Query>

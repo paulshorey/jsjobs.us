@@ -14,7 +14,7 @@ export default {
 	color_text2: "rgb(173, 173, 173)",
 	color_link2: "rgb(100,175,200)",
 	color_border2: "rgb(188, 188, 188)",
-	color_textGreen2: "rgb(100,200,5)",
+	color_textGreen2: "rgb(75,190,0)",
 	color_textRed2: "rgb(252, 101, 75)",
 	/* #3 - black background */
 	color_bg3: "#111",
