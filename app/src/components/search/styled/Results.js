@@ -51,6 +51,17 @@ export const Results = styled.div`
 			vertical-align: baseline;
 		}
 	}
+	.title {
+		background:#999;
+		text-align:center;
+		color:#111;
+		padding:1rem;
+		font-size:1.25rem;
+		font-weight:bold;
+		[class^="icon-"] {
+			font-size:2rem;
+		}
+	}
 	.queries {
 		padding: 0.5rem 1rem;
 		background: #cccccc;

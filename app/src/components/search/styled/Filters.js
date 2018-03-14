@@ -2,11 +2,11 @@ import styled from "styled-components";
 import theme from "Document.theme.js";
 
 export const Filters = styled.div`
-	margin: 0.5rem 0 0.33rem 0;
 	.filter {
 		display: block;
 		text-align: center;
 		margin-bottom: 0.33rem;
+		margin: 0.5rem 0 0.33rem 0;
 		> * {
 			vertical-align: middle;
 			display: inline-block;

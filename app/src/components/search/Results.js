@@ -6,6 +6,7 @@ import * as Styled from "./styled/Results.js";
 import { connect } from "react-redux";
 import * as actions from "data/actions";
 /* components */
+import Header2 from "components/header/Header2";
 import SearchQuery from "components/search/Query";
 import SearchFilters from "components/search/Filters";
 /* 
@@ -132,11 +133,15 @@ class Results extends Component {
 		}
 		return (
 			<Styled.Results>
-				<div className="queries">
-					<h2 className="page-title">
-						{" "}
+				{/* <div className="title">
+					<span className="">
 						<span>Filter </span> {this.renderResultsCount()} <span> Results:</span>
-					</h2>
+						<span>New Search </span>
+						<span className="icon-top-select" />
+					</span>
+				</div> */}
+				<Header2 />
+				<div className="queries">
 					<div className="queries_content">
 						<SearchQuery queryProperty="location" />
 						<SearchQuery queryProperty="text" />

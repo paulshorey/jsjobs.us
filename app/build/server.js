@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.e57f5805.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.88fe0166.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
 
 /***/ }),
 
@@ -525,6 +525,76 @@ var Header = function (_React$Component) {
 
 /***/ }),
 
+/***/ "./src/components/header/Header2.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_router_dom__ = __webpack_require__("react-router-dom");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_router_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__search_SelectLink__ = __webpack_require__("./src/components/search/SelectLink.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__styled_Header2_js__ = __webpack_require__("./src/components/header/styled/Header2.js");
+
+
+
+
+
+
+
+
+
+
+var Header = function (_React$Component) {
+	__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(Header, _React$Component);
+
+	function Header() {
+		__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, Header);
+
+		return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Header.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(Header)).apply(this, arguments));
+	}
+
+	__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(Header, [{
+		key: "render",
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_8__styled_Header2_js__["a" /* Header */],
+				{ className: "row" },
+				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+					"div",
+					{ className: "row_center" },
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+						__WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
+						{ to: "/" },
+						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+							"span",
+							{ className: "caption" },
+							"New Search"
+						),
+						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-top-select" })
+					)
+				)
+			);
+		}
+	}]);
+
+	return Header;
+}(__WEBPACK_IMPORTED_MODULE_5_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (Header);
+
+/***/ }),
+
 /***/ "./src/components/header/styled/Header.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -543,6 +613,27 @@ var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTe
 
 
 var Header = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_jsYellow, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_jsYellow, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_text1, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_jsYellow);
+
+/***/ }),
+
+/***/ "./src/components/header/styled/Header2.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Header; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__ = __webpack_require__("babel-runtime/helpers/taggedTemplateLiteral");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
+
+
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t&.row {\n\t\tposition: relative;\n\t\tpadding: 0.125rem 0 0 0;\n\t\tbackground: #ccc;\n\t\tdisplay: flex;\n\t\talign-items: baseline;\n\t\ta {\n\t\t\tcolor: blue;\n\t\t}\n\t\t@media (max-width: 600px) {\n\t\t\t.only-wide {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size: 2.1rem;\n\t\t\tline-height: 1.25rem;\n\t\t\tcolor: #666;\n\t\t}\n\t\t[class^=\"row_\"] {\n\t\t\twidth: 25%;\n\t\t\tfont-size: 1.25rem;\n\t\t\tflex-grow: 1;\n\t\t\ttext-align: center;\n\t\t\t.caption {\n\t\t\t\tcolor: #666;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tpadding: 0.75rem 0.25rem 0;\n\t\t\t\tdisplay: inline-block;\n\t\t\t}\n\t\t}\n\t\t.row_center {\n\t\t\twhite-space: nowrap;\n\t\t\tspan.icon-select {\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t}\n\t}\n"], ["\n\t&.row {\n\t\tposition: relative;\n\t\tpadding: 0.125rem 0 0 0;\n\t\tbackground: #ccc;\n\t\tdisplay: flex;\n\t\talign-items: baseline;\n\t\ta {\n\t\t\tcolor: blue;\n\t\t}\n\t\t@media (max-width: 600px) {\n\t\t\t.only-wide {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size: 2.1rem;\n\t\t\tline-height: 1.25rem;\n\t\t\tcolor: #666;\n\t\t}\n\t\t[class^=\"row_\"] {\n\t\t\twidth: 25%;\n\t\t\tfont-size: 1.25rem;\n\t\t\tflex-grow: 1;\n\t\t\ttext-align: center;\n\t\t\t.caption {\n\t\t\t\tcolor: #666;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tpadding: 0.75rem 0.25rem 0;\n\t\t\t\tdisplay: inline-block;\n\t\t\t}\n\t\t}\n\t\t.row_center {\n\t\t\twhite-space: nowrap;\n\t\t\tspan.icon-select {\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t}\n\t}\n"]);
+
+
+
+
+var Header = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject);
 
 /***/ }),
 
@@ -1023,8 +1114,9 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_redux__ = __webpack_require__("react-redux");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_react_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__data_actions__ = __webpack_require__("./src/data/actions/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Query__ = __webpack_require__("./src/components/search/Query.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Filters__ = __webpack_require__("./src/components/search/Filters.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__header_Header2__ = __webpack_require__("./src/components/header/Header2.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Query__ = __webpack_require__("./src/components/search/Query.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Filters__ = __webpack_require__("./src/components/search/Filters.js");
 
 
 
@@ -1042,6 +1134,7 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"]
 
 
 /* components */
+
 
 
 /* 
@@ -1255,33 +1348,16 @@ var Results = function (_Component) {
 			return __WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_11__styled_Results_js__["a" /* Results */],
 				null,
+				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__header_Header2__["a" /* default */], null),
 				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 					"div",
 					{ className: "queries" },
 					__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
-						"h2",
-						{ className: "page-title" },
-						" ",
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
-							"span",
-							null,
-							"Filter "
-						),
-						" ",
-						this.renderResultsCount(),
-						" ",
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
-							"span",
-							null,
-							" Results:"
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 						"div",
 						{ className: "queries_content" },
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Query__["a" /* default */], { queryProperty: "location" }),
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Query__["a" /* default */], { queryProperty: "text" }),
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Filters__["a" /* default */], null)
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Query__["a" /* default */], { queryProperty: "location" }),
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Query__["a" /* default */], { queryProperty: "text" }),
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__Filters__["a" /* default */], null)
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
@@ -1488,7 +1564,7 @@ var ConnectedSelect = Object(__WEBPACK_IMPORTED_MODULE_8_react_redux__["connect"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\tmargin: 0.5rem 0 0.33rem 0;\n\t.filter {\n\t\tdisplay: block;\n\t\ttext-align: center;\n\t\tmargin-bottom: 0.33rem;\n\t\t> * {\n\t\t\tvertical-align: middle;\n\t\t\tdisplay: inline-block;\n\t\t\t&::after {\n\t\t\t\tcontent: \" \";\n\t\t\t}\n\t\t}\n\n\t\tcolor: #666;\n\t\t.value {\n\t\t\ti {\n\t\t\t\tcolor: #666;\n\t\t\t\t&::after {\n\t\t\t\t\tcontent: \" \";\n\t\t\t\t}\n\t\t\t}\n\t\t\tb {\n\t\t\t\tfont-weight: 600;\n\t\t\t\tletter-spacing: 0.25px;\n\t\t\t}\n\t\t\t&.example {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t}\n\t\t.multiplier {\n\t\t\tfont-size: 75%;\n\t\t\t.icon-plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t.icon-minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.multiplier_text {\n\t\t\tpadding-left: 0.33rem;\n\t\t\tfont-weight: normal;\n\t\t}\n\t\t.delete {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.25rem;\n\t\t\tmargin-top: 0.125rem;\n\t\t\tdisplay: inline-block;\n\t\t\tcolor: #666;\n\t\t}\n\t\t.x {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.5rem;\n\t\t\tmargin-top: -0.175rem;\n\t\t}\n\t\t&.plus {\n\t\t\t.multiplier_text,\n\t\t\tb {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t&.minus {\n\t\t\t.multiplier_text,\n\t\t\tb {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t}\n"], ["\n\tmargin: 0.5rem 0 0.33rem 0;\n\t.filter {\n\t\tdisplay: block;\n\t\ttext-align: center;\n\t\tmargin-bottom: 0.33rem;\n\t\t> * {\n\t\t\tvertical-align: middle;\n\t\t\tdisplay: inline-block;\n\t\t\t&::after {\n\t\t\t\tcontent: \" \";\n\t\t\t}\n\t\t}\n\n\t\tcolor: #666;\n\t\t.value {\n\t\t\ti {\n\t\t\t\tcolor: #666;\n\t\t\t\t&::after {\n\t\t\t\t\tcontent: \" \";\n\t\t\t\t}\n\t\t\t}\n\t\t\tb {\n\t\t\t\tfont-weight: 600;\n\t\t\t\tletter-spacing: 0.25px;\n\t\t\t}\n\t\t\t&.example {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t}\n\t\t.multiplier {\n\t\t\tfont-size: 75%;\n\t\t\t.icon-plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t.icon-minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.multiplier_text {\n\t\t\tpadding-left: 0.33rem;\n\t\t\tfont-weight: normal;\n\t\t}\n\t\t.delete {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.25rem;\n\t\t\tmargin-top: 0.125rem;\n\t\t\tdisplay: inline-block;\n\t\t\tcolor: #666;\n\t\t}\n\t\t.x {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.5rem;\n\t\t\tmargin-top: -0.175rem;\n\t\t}\n\t\t&.plus {\n\t\t\t.multiplier_text,\n\t\t\tb {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t&.minus {\n\t\t\t.multiplier_text,\n\t\t\tb {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t.filter {\n\t\tdisplay: block;\n\t\ttext-align: center;\n\t\tmargin-bottom: 0.33rem;\n\t\tmargin: 0.5rem 0 0.33rem 0;\n\t\t> * {\n\t\t\tvertical-align: middle;\n\t\t\tdisplay: inline-block;\n\t\t\t&::after {\n\t\t\t\tcontent: \" \";\n\t\t\t}\n\t\t}\n\n\t\tcolor: #666;\n\t\t.value {\n\t\t\ti {\n\t\t\t\tcolor: #666;\n\t\t\t\t&::after {\n\t\t\t\t\tcontent: \" \";\n\t\t\t\t}\n\t\t\t}\n\t\t\tb {\n\t\t\t\tfont-weight: 600;\n\t\t\t\tletter-spacing: 0.25px;\n\t\t\t}\n\t\t\t&.example {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t}\n\t\t.multiplier {\n\t\t\tfont-size: 75%;\n\t\t\t.icon-plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t.icon-minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.multiplier_text {\n\t\t\tpadding-left: 0.33rem;\n\t\t\tfont-weight: normal;\n\t\t}\n\t\t.delete {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.25rem;\n\t\t\tmargin-top: 0.125rem;\n\t\t\tdisplay: inline-block;\n\t\t\tcolor: #666;\n\t\t}\n\t\t.x {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.5rem;\n\t\t\tmargin-top: -0.175rem;\n\t\t}\n\t\t&.plus {\n\t\t\t.multiplier_text,\n\t\t\tb {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t&.minus {\n\t\t\t.multiplier_text,\n\t\t\tb {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t}\n"], ["\n\t.filter {\n\t\tdisplay: block;\n\t\ttext-align: center;\n\t\tmargin-bottom: 0.33rem;\n\t\tmargin: 0.5rem 0 0.33rem 0;\n\t\t> * {\n\t\t\tvertical-align: middle;\n\t\t\tdisplay: inline-block;\n\t\t\t&::after {\n\t\t\t\tcontent: \" \";\n\t\t\t}\n\t\t}\n\n\t\tcolor: #666;\n\t\t.value {\n\t\t\ti {\n\t\t\t\tcolor: #666;\n\t\t\t\t&::after {\n\t\t\t\t\tcontent: \" \";\n\t\t\t\t}\n\t\t\t}\n\t\t\tb {\n\t\t\t\tfont-weight: 600;\n\t\t\t\tletter-spacing: 0.25px;\n\t\t\t}\n\t\t\t&.example {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t}\n\t\t.multiplier {\n\t\t\tfont-size: 75%;\n\t\t\t.icon-plus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t\t.icon-minus {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.multiplier_text {\n\t\t\tpadding-left: 0.33rem;\n\t\t\tfont-weight: normal;\n\t\t}\n\t\t.delete {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.25rem;\n\t\t\tmargin-top: 0.125rem;\n\t\t\tdisplay: inline-block;\n\t\t\tcolor: #666;\n\t\t}\n\t\t.x {\n\t\t\tcursor: pointer;\n\t\t\tpadding-left: 0.5rem;\n\t\t\tfont-size: 1.5rem;\n\t\t\tmargin-top: -0.175rem;\n\t\t}\n\t\t&.plus {\n\t\t\t.multiplier_text,\n\t\t\tb {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t&.minus {\n\t\t\t.multiplier_text,\n\t\t\tb {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t}\n"]);
 
 
 
@@ -1530,7 +1606,7 @@ var Query = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templ
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t.results {\n\t\tmax-width: 51.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"], ["\n\t.results {\n\t\tmax-width: 51.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t.results {\n\t\tmax-width: 51.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"], ["\n\t.results {\n\t\tmax-width: 51.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"]);
 
 
 
@@ -1608,24 +1684,24 @@ var filterRemove = function filterRemove(filter) {
 
 
 var initialState = {
-	hint: {
-		_id: "hint",
-		value: "Use Regular Expressions in search. For example:",
-		property: "location",
-		multiplier: 0
-	},
-	example: {
-		_id: "example",
-		value: "c# | c++ | java[^s]+",
-		property: "text",
-		multiplier: 1
-	},
-	example2: {
-		_id: "example2",
-		value: "intern | junior | entry",
-		property: "text",
-		multiplier: -10
-	}
+	// hint: {
+	// 	_id: "hint",
+	// 	value: "Use Regular Expressions in search. For example:",
+	// 	property: "location",
+	// 	multiplier: 0
+	// },
+	// example: {
+	// 	_id: "example",
+	// 	value: "c# | c++ | java[^s]+",
+	// 	property: "text",
+	// 	multiplier: 1
+	// },
+	// example2: {
+	// 	_id: "example2",
+	// 	value: "intern | junior | entry",
+	// 	property: "text",
+	// 	multiplier: -10
+	// }
 };
 
 var filters = function filters() {

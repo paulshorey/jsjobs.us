@@ -1,22 +1,22 @@
 const initialState = {
-	hint: {
-		_id: "hint",
-		value: "Use Regular Expressions in search. For example:",
-		property: "location",
-		multiplier: 0
-	},
-	example: {
-		_id: "example",
-		value: "c# | c++ | java[^s]+",
-		property: "text",
-		multiplier: 1
-	},
-	example2: {
-		_id: "example2",
-		value: "intern | junior | entry",
-		property: "text",
-		multiplier: -10
-	}
+	// hint: {
+	// 	_id: "hint",
+	// 	value: "Use Regular Expressions in search. For example:",
+	// 	property: "location",
+	// 	multiplier: 0
+	// },
+	// example: {
+	// 	_id: "example",
+	// 	value: "c# | c++ | java[^s]+",
+	// 	property: "text",
+	// 	multiplier: 1
+	// },
+	// example2: {
+	// 	_id: "example2",
+	// 	value: "intern | junior | entry",
+	// 	property: "text",
+	// 	multiplier: -10
+	// }
 };
 
 const filters = (state = initialState, action) => {
