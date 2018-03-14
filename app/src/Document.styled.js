@@ -41,6 +41,7 @@ injectGlobal`
 		/* Firefox 18- */
 		color: #999;
 	}
+	ul, li {list-style:none;padding:0;margin:0;text-indent: 0;}
 
 	/**************************************************
 		responsive text
@@ -98,10 +99,6 @@ injectGlobal`
 	h6 {
 		font-size:1.15rem;
 	}
-	li {
-		padding-bottom:0.5rem;
-	}
-
 
 	/**************************************************
 		style

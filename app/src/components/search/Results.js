@@ -6,7 +6,6 @@ import * as Styled from "./styled/Results.js";
 import { connect } from "react-redux";
 import * as actions from "data/actions";
 /* components */
-import SearchSelect from "components/search/SelectLink";
 import SearchQuery from "components/search/Query";
 import SearchFilters from "components/search/Filters";
 /* 
@@ -103,7 +102,7 @@ class Results extends Component {
 				if (rating > 0) {
 					Rating = (
 						<b className="rating plus">
-							<span className="icon-thumbs-up" />
+							<span className="icon-ui-thumbs-up" />
 							{rating}
 						</b>
 					);
@@ -111,7 +110,7 @@ class Results extends Component {
 				if (rating < 0) {
 					Rating = (
 						<b className="rating minus">
-							<span className="icon-thumbs-down" />
+							<span className="icon-ui-thumbs-down" />
 							{rating}
 						</b>
 					);
@@ -136,10 +135,9 @@ class Results extends Component {
 				<div className="queries">
 					<h2 className="page-title">
 						{" "}
-						{/*this.renderResultsCount()*/} <span>Precise Search:</span>
+						<span>Filter </span> {this.renderResultsCount()} <span> Results:</span>
 					</h2>
 					<div className="queries_content">
-						<SearchSelect selectProperty="area" option={"/in/" + this.props.area} />
 						<SearchQuery queryProperty="location" />
 						<SearchQuery queryProperty="text" />
 						<SearchFilters />

@@ -1,28 +1,63 @@
 import styled from "styled-components";
-// import theme from "Document.theme.js";
+import theme from "Document.theme.js";
 
 export const Header = styled.div`
-	position: relative;
-	padding: 0.75rem 1.25rem;
-	background: #111;
-	display: flex;
-	> *:first-child {
-		flex-grow: 1;
-	}
-	.logo {
-		> * {
-			vertical-align: bottom;
+	&.row {
+		position: relative;
+		padding: 0.75rem;
+		background: #111;
+		display: flex;
+		align-items: baseline;
+		a {
+			color: ${theme.color_jsYellow};
 		}
-		img {
-			height: 2rem;
-			padding-right: 0.25rem;
+		@media (max-width: 600px) {
+			.only-wide {
+				display: none !important;
+			}
 		}
-		span {
-			color: #fff;
-			font-size: 1.25rem;
+		[class^="icon-"] {
+			font-size: 2.1rem;
 			line-height: 1.25rem;
-			&.ext {
-				color: #f6da1d;
+		}
+		[class^="row_"] {
+			width: 25%;
+			font-size: 1.25rem;
+			color: white;
+			flex-grow: 1;
+			text-align: center;
+			/* vertical-align: bottom; */
+			/* * {
+				vertical-align: bottom;
+			} */
+			.caption {
+				color: #fff;
+				font-size: 1.25rem;
+				line-height: 1.25rem;
+				padding: 0.75rem 0.25rem 0;
+				display: inline-block;
+				.ext {
+					color: ${theme.color_jsYellow};
+				}
+			}
+		}
+		.row_left {
+			text-align: left;
+			color: ${theme.color_text1};
+		}
+		.row_center {
+			white-space: nowrap;
+			span.icon-select {
+				color: ${theme.color_jsYellow};
+			}
+		}
+		.row_right {
+			text-align: right;
+			.icon-ui-thumbs-up {
+				font-size: 1.6rem;
+				line-height: 1rem;
+				margin-top: 0.4rem;
+				display: inline-block;
 			}
 		}
 	}

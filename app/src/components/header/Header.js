@@ -1,19 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchSelect from "components/search/SelectLink";
 import * as Styled from "./styled/Header.js";
 
 export default class Header extends React.Component {
 	render() {
 		return (
-			<Styled.Header className="Header">
-				<h1 className="top-page-title">
-					<Link to="/" className="logo">
-						<img src="/images/js_logo.svg" alt="JS" />
-						<span className="title">JOBS</span>
-						<span className="ext">.US</span>
+			<Styled.Header className="row">
+				<div className="row_left">
+					<Link to="/">
+						<span className="icon-top-logo" />
+						<span className="caption">
+							<span>JOBS </span>
+							<span className="ext only-wide"> .US</span>
+						</span>
 					</Link>
-				</h1>
-				{/* <h1>My</h1> */}
+				</div>
+				<div className="row_center">
+					<Link to="/">
+						<span className="caption">in LA area</span>
+						<span className="icon-top-select" />
+					</Link>
+				</div>
+				<div className="row_right">
+					<Link to="/">
+						<span className="caption">SAVE </span>
+						<span className="icon-ui-thumbs-up" />
+					</Link>
+				</div>
 			</Styled.Header>
 		);
 	}

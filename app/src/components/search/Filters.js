@@ -25,7 +25,7 @@ class Filters extends Component {
 			// }
 			// filter.multiplier = parseInt(filter.multiplier);
 			Filters.push(
-				<div key={fil} className="filter">
+				<div key={fil} className={"filter" + (filter.multiplier > 0 ? " plus" : " minus")}>
 					{filter.multiplier !== 0 ? (
 						<span>
 							<span className="value">
@@ -38,8 +38,8 @@ class Filters extends Component {
 								</b>
 								<i>"</i>
 							</span>
-							<span className={"multiplier_text" + (filter.multiplier > 0 ? " plus" : " minus")}>
-								{filter.multiplier > 0 ? <span className="icon-thumbs-up" /> : <span className="icon-thumbs-down" />}
+							<span className="multiplier_text">
+								{filter.multiplier > 0 ? <span className="icon-ui-thumbs-up" /> : <span className="icon-ui-thumbs-down" />}
 								<b>{Math.abs(filter.multiplier)}</b>
 							</span>
 							<span

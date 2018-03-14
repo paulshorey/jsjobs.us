@@ -75,7 +75,7 @@ class Query extends React.Component {
 								this.inputMultiplierChange(10);
 							}}
 						>
-							<span className="icon-thumbs-up" />
+							<span className="icon-ui-thumbs-up" />
 							<span>10</span>
 						</div>
 						<div
@@ -84,7 +84,7 @@ class Query extends React.Component {
 								this.inputMultiplierChange(3);
 							}}
 						>
-							<span className="icon-thumbs-up" />
+							<span className="icon-ui-thumbs-up" />
 							<span>3</span>
 						</div>
 						<div
@@ -93,7 +93,7 @@ class Query extends React.Component {
 								this.inputMultiplierChange(2);
 							}}
 						>
-							<span className="icon-thumbs-up" />
+							<span className="icon-ui-thumbs-up" />
 							<span>2</span>
 						</div>
 						<div
@@ -102,7 +102,7 @@ class Query extends React.Component {
 								this.inputMultiplierChange(1);
 							}}
 						>
-							<span className="icon-thumbs-up" />
+							<span className="icon-ui-thumbs-up" />
 							<span>1</span>
 						</div>
 						<div

@@ -35,8 +35,8 @@ input:-webkit-autofill {
 @media (min-width: 751px) and (min-height: 601px) {
 }
 /* 
-		NOT desktop 
-	*/
+	NOT desktop 
+*/
 @media (max-width: 750px), (max-height: 600px) {
 }
 

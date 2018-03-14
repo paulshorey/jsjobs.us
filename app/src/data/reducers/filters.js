@@ -7,7 +7,7 @@ const initialState = {
 	},
 	example: {
 		_id: "example",
-		value: "C# | C++ | Java[^a-zA-Z]+",
+		value: "c# | c++ | java[^s]+",
 		property: "text",
 		multiplier: 1
 	},

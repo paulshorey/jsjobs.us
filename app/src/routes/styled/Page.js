@@ -26,14 +26,6 @@ export const Page = styled.div`
 			display: inline-block;
 		}
 	}
-	.top-page-title {
-		margin: 2.25rem auto 0;
-		text-align: center;
-		color: ${theme.color_text1};
-		@media (max-width: 750px) {
-			margin-top: 1.25rem;
-		}
-	}
 	.home-map {
 		margin: 1.5rem 0 1.5rem 0;
 	}

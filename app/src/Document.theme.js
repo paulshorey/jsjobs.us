@@ -1,5 +1,6 @@
 export default {
 	fontFamily: "sans-serif",
+	color_jsYellow: "#f6da1d",
 	/* #1 - white background */
 	color_bg1: "#fff",
 	color_title1: "#111",
