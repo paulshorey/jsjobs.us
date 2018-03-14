@@ -42,9 +42,11 @@ class Query extends React.Component {
 	};
 	render() {
 		const multiplier = this.state.qInput_multiplier;
-		let placeholder = "Search text...";
+		let placeholder = "Search description...";
 		if (this.props.queryProperty === "location") {
 			placeholder = "Search city name...";
+		} else if (this.props.queryProperty === "title") {
+			placeholder = "Search title...";
 		}
 		return (
 			<Styled.Query

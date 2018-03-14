@@ -2,6 +2,11 @@ import styled from "styled-components";
 import theme from "Document.theme.js";
 
 export const Results = styled.div`
+	.moreOptions {
+		color:#666;
+		margin:0.125rem 0;
+		text-decoration:underline;
+	}
 	.results {
 		max-width: 53.8rem;
 		margin: 0.5rem auto;

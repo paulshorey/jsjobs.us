@@ -30,7 +30,7 @@ export default class Header extends React.Component {
 				</div> */}
 				<div className="row_right">
 					<Link to="/">
-						<span className="caption">more</span>
+						<span className="caption">Etc</span>
 						<span className="icon-top-dots" />
 					</Link>
 				</div>

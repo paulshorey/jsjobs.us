@@ -143,6 +143,7 @@ class Results extends Component {
 				i++;
 			}
 		}
+		console.log("new Results ", this.props.area);
 		return (
 			<Styled.Results>
 				{/* <div className="title">
@@ -155,8 +156,9 @@ class Results extends Component {
 				<Header2 area={this.props.area} />
 				<div className="queries">
 					<div className="queries_content">
-						<SearchQuery queryProperty="location" />
+						<SearchQuery queryProperty="title" />
 						<SearchQuery queryProperty="text" />
+						<p className="moreOptions">more options...</p>
 						<SearchFilters />
 					</div>
 				</div>

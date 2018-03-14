@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.d913533e.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.cad554f9.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
 
 /***/ }),
 
@@ -495,7 +495,7 @@ var Header = function (_React$Component) {
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 							"span",
 							{ className: "caption" },
-							"more"
+							"Etc"
 						),
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-top-dots" })
 					)
@@ -862,9 +862,11 @@ var Query = function (_React$Component) {
 			var _this2 = this;
 
 			var multiplier = this.state.qInput_multiplier;
-			var placeholder = "Search text...";
+			var placeholder = "Search description...";
 			if (this.props.queryProperty === "location") {
 				placeholder = "Search city name...";
+			} else if (this.props.queryProperty === "title") {
+				placeholder = "Search title...";
 			}
 			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_6__styled_Query_js__["a" /* Query */],
@@ -1367,6 +1369,7 @@ var Results = function (_Component) {
 					i++;
 				}
 			}
+			console.log("new Results ", this.props.area);
 			return __WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_11__styled_Results_js__["a" /* Results */],
 				null,
@@ -1377,8 +1380,13 @@ var Results = function (_Component) {
 					__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 						"div",
 						{ className: "queries_content" },
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Query__["a" /* default */], { queryProperty: "location" }),
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Query__["a" /* default */], { queryProperty: "title" }),
 						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Query__["a" /* default */], { queryProperty: "text" }),
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+							"p",
+							{ className: "moreOptions" },
+							"more options..."
+						),
 						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__Filters__["a" /* default */], null)
 					)
 				),
@@ -1628,7 +1636,7 @@ var Query = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templ
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t.results {\n\t\tmax-width: 53.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\tmargin:0.2rem 0 0 0;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t\t.pill {\n\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\tpadding: 0rem 0.5rem;\n\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t> * {\n\t\t\t\t\t\tvertical-align:baseline;\n\t\t\t\t\t}\n\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&:not(.first) {\n\t\t\t\t.pill {\n\t\t\t\t\t.icon-check,\n\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\tmargin:0 -0.2rem 0 0.2rem;\n\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t}\n\t\t\t\t\t.text {\n\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"], ["\n\t.results {\n\t\tmax-width: 53.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\tmargin:0.2rem 0 0 0;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t\t.pill {\n\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\tpadding: 0rem 0.5rem;\n\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t> * {\n\t\t\t\t\t\tvertical-align:baseline;\n\t\t\t\t\t}\n\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&:not(.first) {\n\t\t\t\t.pill {\n\t\t\t\t\t.icon-check,\n\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\tmargin:0 -0.2rem 0 0.2rem;\n\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t}\n\t\t\t\t\t.text {\n\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t.moreOptions {\n\t\tcolor:#666;\n\t\tmargin:0.125rem 0;\n\t\ttext-decoration:underline;\n\t}\n\t.results {\n\t\tmax-width: 53.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\tmargin:0.2rem 0 0 0;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t\t.pill {\n\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\tpadding: 0rem 0.5rem;\n\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t> * {\n\t\t\t\t\t\tvertical-align:baseline;\n\t\t\t\t\t}\n\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&:not(.first) {\n\t\t\t\t.pill {\n\t\t\t\t\t.icon-check,\n\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\tmargin:0 -0.2rem 0 0.2rem;\n\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t}\n\t\t\t\t\t.text {\n\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"], ["\n\t.moreOptions {\n\t\tcolor:#666;\n\t\tmargin:0.125rem 0;\n\t\ttext-decoration:underline;\n\t}\n\t.results {\n\t\tmax-width: 53.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\tmargin:0.2rem 0 0 0;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t\t.pill {\n\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\tpadding: 0rem 0.5rem;\n\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t> * {\n\t\t\t\t\t\tvertical-align:baseline;\n\t\t\t\t\t}\n\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&:not(.first) {\n\t\t\t\t.pill {\n\t\t\t\t\t.icon-check,\n\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\tmargin:0 -0.2rem 0 0.2rem;\n\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t}\n\t\t\t\t\t.text {\n\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"]);
 
 
 
