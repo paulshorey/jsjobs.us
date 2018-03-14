@@ -3,7 +3,7 @@ import theme from "Document.theme.js";
 
 export const Results = styled.div`
 	.results {
-		max-width: 51.8rem;
+		max-width: 53.8rem;
 		margin: 0.5rem auto;
 		.result {
 			/* display: flex; */
@@ -14,8 +14,33 @@ export const Results = styled.div`
 			.meta {
 				display: block;
 				text-align: right;
+				margin:0.2rem 0 0 0;
 				> * {
 					vertical-align: baseline;
+				}
+				.pill {
+					border: solid 1px #999;
+					padding: 0rem 0.5rem;
+					border-radius: 1rem;
+					> * {
+						vertical-align:baseline;
+					}
+					[class^="icon-"] {
+						position: relative;
+						top:0.1rem;
+					}
+				}
+			}
+			&:not(.first) {
+				.pill {
+					.icon-check,
+					.icon-ui-thumbs-up {
+						margin:0 -0.2rem 0 0.2rem;
+						top:0.05rem;
+					}
+					.text {
+						display:none;
+					}
 				}
 			}
 			.controls {

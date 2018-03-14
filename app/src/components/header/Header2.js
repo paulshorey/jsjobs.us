@@ -9,7 +9,7 @@ export default class Header extends React.Component {
 			<Styled.Header className="row">
 				<div className="row_center">
 					<Link to="/">
-						<span className="caption">New Search</span>
+						<span className="caption">in LA</span>
 						<span className="icon-top-select" />
 					</Link>
 				</div>

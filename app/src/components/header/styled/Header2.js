@@ -19,7 +19,7 @@ export const Header = styled.div`
 		[class^="icon-"] {
 			font-size: 2.1rem;
 			line-height: 1.25rem;
-			color: #666;
+			color: #111;
 		}
 		[class^="row_"] {
 			width: 25%;
@@ -27,7 +27,7 @@ export const Header = styled.div`
 			flex-grow: 1;
 			text-align: center;
 			.caption {
-				color: #666;
+				color: #111;
 				font-size: 1.25rem;
 				line-height: 1.25rem;
 				padding: 0.75rem 0.25rem 0;

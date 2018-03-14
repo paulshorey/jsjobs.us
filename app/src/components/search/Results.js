@@ -53,7 +53,7 @@ class Results extends Component {
 			filters[fil].value = value;
 		}
 		// iterate results
-		jobs = jobs.slice(0, 8);
+		// jobs = jobs.slice(0, 8);
 		jobs = jobs.map(job => {
 			job._status = job._status || "new";
 			job._rating = 1000;
@@ -117,17 +117,26 @@ class Results extends Component {
 					);
 				}
 				Jobs.push(
-					<div key={job._id + i} className="result">
+					<div key={job._id + i} className={"result " + (i === 0 ? " first" : "")}>
 						<b>{job.name}</b> - {job.text} &nbsp;
 						<div className="meta">
+							{Rating}
+							&nbsp;
 							<span className="location">
 								<span className="icon-navigation" /> {job.location}
 							</span>{" "}
 							&nbsp;
-							{Rating}
-							<span className="icon-x-circle" />
-							<span className="icon-x-circle" />
-							<span className="icon-x-circle" />
+							<span className="pill">
+								<span className="icon-check" /> <span className="text">applied</span>
+							</span>
+							&nbsp;
+							<span className="pill">
+								<span className="icon-ui-thumbs-up" /> <span className="text">intrigued</span>
+							</span>
+							&nbsp;
+							<span className="pill">
+								<span className="icon-delete" /> <span className="text">ignored</span>
+							</span>
 						</div>
 					</div>
 				);
@@ -143,7 +152,7 @@ class Results extends Component {
 						<span className="icon-top-select" />
 					</span>
 				</div> */}
-				{/* <Header2 /> */}
+				<Header2 />
 				<div className="queries">
 					<div className="queries_content">
 						<SearchQuery queryProperty="location" />

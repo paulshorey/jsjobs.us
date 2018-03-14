@@ -5,7 +5,7 @@ export const Query = styled.div`
 	text-align: center;
 	display: block;
 	margin: 0.33rem auto;
-	max-width: 50rem;
+	max-width: 52rem;
 	> * {
 		background: #fff;
 	}
