@@ -152,7 +152,7 @@ class Results extends Component {
 						<span className="icon-top-select" />
 					</span>
 				</div> */}
-				<Header2 />
+				<Header2 area={this.props.area} />
 				<div className="queries">
 					<div className="queries_content">
 						<SearchQuery queryProperty="location" />

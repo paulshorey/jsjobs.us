@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.a587ea89.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.d913533e.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
 
 /***/ }),
 
@@ -561,11 +561,11 @@ var Header = function (_React$Component) {
 					{ className: "row_center" },
 					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 						__WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-						{ to: "/" },
+						{ to: "/in/la" },
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 							"span",
 							{ className: "caption" },
-							"in LA"
+							this.props.area === "la" ? "in LA " : "Select region"
 						),
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-top-select" })
 					)
@@ -1370,7 +1370,7 @@ var Results = function (_Component) {
 			return __WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_11__styled_Results_js__["a" /* Results */],
 				null,
-				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__header_Header2__["a" /* default */], null),
+				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__header_Header2__["a" /* default */], { area: this.props.area }),
 				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 					"div",
 					{ className: "queries" },

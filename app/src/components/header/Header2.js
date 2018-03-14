@@ -8,8 +8,8 @@ export default class Header extends React.Component {
 		return (
 			<Styled.Header className="row">
 				<div className="row_center">
-					<Link to="/">
-						<span className="caption">in LA</span>
+					<Link to="/in/la">
+						<span className="caption">{this.props.area === "la" ? "in LA " : "Select region"}</span>
 						<span className="icon-top-select" />
 					</Link>
 				</div>
