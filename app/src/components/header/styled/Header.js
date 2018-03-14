@@ -19,6 +19,9 @@ export const Header = styled.div`
 		[class^="icon-"] {
 			font-size: 2.1rem;
 			line-height: 1.25rem;
+			&.icon-ui-more {
+				font-size: 2.2rem;
+			}
 		}
 		[class^="row_"] {
 			width: 25%;
@@ -34,7 +37,7 @@ export const Header = styled.div`
 				color: #fff;
 				font-size: 1.25rem;
 				line-height: 1.25rem;
-				padding: 0.75rem 0.25rem 0;
+				padding: 0.75rem 0.33rem 0;
 				display: inline-block;
 				.ext {
 					color: ${theme.color_jsYellow};

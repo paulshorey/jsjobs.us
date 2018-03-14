@@ -11,8 +11,8 @@ export default class Header extends React.Component {
 					<Link to="/">
 						<span className="icon-top-logo" />
 						<span className="caption">
-							<span>JOBS </span>
-							<span className="ext only-wide"> .US</span>
+							<span>JOBS</span>
+							<span className="ext only-wide">.US</span>
 						</span>
 					</Link>
 				</div>
@@ -22,10 +22,16 @@ export default class Header extends React.Component {
 						<span className="icon-top-select" />
 					</Link>
 				</div>
-				<div className="row_right">
+				{/* <div className="row_right">
 					<Link to="/">
 						<span className="caption">SAVE </span>
 						<span className="icon-ui-thumbs-up" />
+					</Link>
+				</div> */}
+				<div className="row_right">
+					<Link to="/">
+						<span className="caption">more</span>
+						<span className="icon-ui-more" />
 					</Link>
 				</div>
 			</Styled.Header>

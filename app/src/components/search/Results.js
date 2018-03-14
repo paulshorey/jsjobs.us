@@ -120,7 +120,10 @@ class Results extends Component {
 					<div key={job._id + i} className="result">
 						<b>{job.name}</b> - {job.text} &nbsp;
 						<div className="meta">
-							<span className="location">{job.location}</span> &nbsp;
+							<span className="location">
+								<span className="icon-navigation" /> {job.location}
+							</span>{" "}
+							&nbsp;
 							{Rating}
 							<span className="icon-x-circle" />
 							<span className="icon-x-circle" />
@@ -140,7 +143,7 @@ class Results extends Component {
 						<span className="icon-top-select" />
 					</span>
 				</div> */}
-				<Header2 />
+				{/* <Header2 /> */}
 				<div className="queries">
 					<div className="queries_content">
 						<SearchQuery queryProperty="location" />
