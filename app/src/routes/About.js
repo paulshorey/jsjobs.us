@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "isomorphic-unfetch";
 import * as Styled from "./styled/Page.js";
 import Layout from "components/Layout.js";
+import SearchPlus from "components/search/SearchPlus";
 
 class Search extends Component {
 	render() {

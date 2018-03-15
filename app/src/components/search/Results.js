@@ -9,6 +9,7 @@ import * as actions from "data/actions";
 import Header2 from "components/header/Header2";
 import SearchQuery from "components/search/Query";
 import SearchFilters from "components/search/Filters";
+import SearchPlus from "./SearchPlus";
 /* 
 	Component 
 */
@@ -156,8 +157,8 @@ class Results extends Component {
 				<Header2 area={this.props.area} />
 				<div className="queries">
 					<div className="queries_content">
-						<SearchQuery queryProperty="title" />
-						<SearchQuery queryProperty="text" />
+						{/* <SearchQuery queryProperty="title" /> */}
+						<SearchPlus />
 						<p className="moreOptions">more options...</p>
 						<SearchFilters />
 					</div>
