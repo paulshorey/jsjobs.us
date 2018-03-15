@@ -50,16 +50,16 @@ injectGlobal`
 		margin: 0;
 	}
 	html {
-		font-size:14px;
+		font-size:20px;
 	}
 	@media (max-width:950px), (max-height:750px) {
 		html {
-			font-size:14px;
+			font-size:18px;
 		}
 	}
 	@media (max-width:750px), (max-height:650px) {
 		html {
-			font-size:14px;
+			font-size:16px;
 		}
 	}
 	@media (max-width:380px), (max-height:380px) {
@@ -69,7 +69,7 @@ injectGlobal`
 	}
 	@media (max-width:330px), (max-height:330px) {
 		html {
-			font-size:11px;
+			font-size:10px;
 		}
 	}
 	h1,h2,h3,h4,h5,h6,p {
