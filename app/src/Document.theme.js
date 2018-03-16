@@ -11,10 +11,10 @@ export default {
 	color_textRed1: "rgb(252, 101, 75)",
 	/* #2 - grey background */
 	color_bg2: "#ccc",
-	color_title2: "rgb(173, 173, 173)",
+	color_title2: "#111",
 	color_text2: "rgb(173, 173, 173)",
 	color_link2: "rgb(100,175,200)",
-	color_border2: "rgb(188, 188, 188)",
+	color_border2: "#999",
 	color_textGreen2: "rgb(75,190,0)",
 	color_textRed2: "rgb(252, 101, 75)",
 	/* #3 - black background */

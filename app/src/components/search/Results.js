@@ -6,10 +6,10 @@ import * as Styled from "./styled/Results.js";
 import { connect } from "react-redux";
 import * as actions from "data/actions";
 /* components */
-import Header2 from "components/header/Header2";
 import SearchQuery from "components/search/Query";
+import DropdownLink from "components/search/DropdownLink";
 import SearchFilters from "components/search/Filters";
-import SearchPlus from "./SearchPlus";
+// import SearchPlus from "./SearchPlus";
 /* 
 	Component 
 */
@@ -80,7 +80,7 @@ class Results extends Component {
 	};
 	renderResultsCount = () => {
 		if (this.props.jobs.length !== 0 && this.props.jobs.length !== 50) {
-			return <span>{this.props.jobs.length}</span>;
+			return this.props.jobs.length;
 		} else {
 			return null;
 		}
@@ -90,15 +90,18 @@ class Results extends Component {
 		if (jobs) {
 			jobs = this.rateJobs(jobs);
 		}
-		// get on with it...
+		// make Array
 		var Jobs = [];
 		if (jobs) {
 			var i = 0;
+			// limit results on page - soon add pagination or auto-loading on scroll
 			while (i < 100) {
+				// job = current item
 				var job = jobs[i];
 				if (typeof job !== "object") {
 					break;
 				}
+				// job.rating
 				const rating = job._rating - 1000;
 				let Rating = null;
 				if (rating > 0) {
@@ -117,26 +120,34 @@ class Results extends Component {
 						</b>
 					);
 				}
+				// job.etc
+				// let locArr = job.location.split(",");
+				// job.location = locArr.reduce((a, b) => {
+				// 	if (a.trim().length > 4 && a.length > b.length && !/[0-9]+/.test(a)) {
+				// 		return a;
+				// 	} else {
+				// 		return b;
+				// 	}
+				// });
+				// add to view
 				Jobs.push(
 					<div key={job._id + i} className={"result " + (i === 0 ? " first" : "")}>
 						<b>{job.name}</b> - {job.text} &nbsp;
 						<div className="meta">
-							{Rating}
-							&nbsp;
+							<span className="rating">{Rating}</span>
 							<span className="location">
 								<span className="icon-navigation" /> {job.location}
-							</span>{" "}
-							&nbsp;
-							<span className="pill">
-								<span className="icon-check" /> <span className="text">applied</span>
 							</span>
-							&nbsp;
-							<span className="pill">
-								<span className="icon-ui-thumbs-up" /> <span className="text">intrigued</span>
-							</span>
-							&nbsp;
-							<span className="pill">
-								<span className="icon-delete" /> <span className="text">ignored</span>
+							<span className="pills">
+								<span className="pill">
+									<span className="icon-check" /> <span className="text">applied</span>
+								</span>
+								<span className="pill">
+									<span className="icon-ui-thumbs-up" /> <span className="text">intrigued</span>
+								</span>
+								<span className="pill">
+									<span className="icon-delete" /> <span className="text">ignored</span>
+								</span>
 							</span>
 						</div>
 					</div>
@@ -154,12 +165,11 @@ class Results extends Component {
 						<span className="icon-top-select" />
 					</span>
 				</div> */}
-				<Header2 area={this.props.area} />
 				<div className="queries">
 					<div className="queries_content">
-						{/* <SearchQuery queryProperty="title" /> */}
-						<SearchPlus />
-						<p className="moreOptions">more options...</p>
+						<DropdownLink area={this.props.area} />
+						<SearchQuery placeholder={"Search " + this.renderResultsCount() + " results..."} />
+						<p className="moreOptions">...</p>
 						<SearchFilters />
 					</div>
 				</div>

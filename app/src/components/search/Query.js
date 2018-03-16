@@ -4,53 +4,56 @@ import * as Styled from "./styled/Query.js";
 /* redux */
 import { connect } from "react-redux";
 import * as actions from "data/actions";
-/* custom */
-// import UISelect from "components/ui/Select";
+
+// this will be useful to "reset" the setState
+const constructInitialState = function() {
+	return {
+		qInput_value: "",
+		qInput_multiplier: 1
+	};
+};
 
 /* 
 	Component 
 */
-const constructInitialState = function(props) {
-	return {
-		qInput_value: "",
-		qInput_multiplier: props.queryProperty === "location" ? 3 : 1
-	};
-};
 class Query extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = constructInitialState(props);
+		this.state = constructInitialState();
+	}
+	componentDidMount() {
+		// slight UX addition:
+		setTimeout(() => {
+			this.refs.qInput.focus();
+		}, 300);
 	}
 	inputValueChange = e => {
 		const value = e.target.value;
 		// set value:
 		this.setState({ qInput_value: value });
 	};
-	inputMultiplierChange = multiplier => {
+	multiplierClick = multiplier => {
 		// set value:
 		this.setState({ qInput_multiplier: multiplier });
-		// only act "onBlur"
-		if (this.refs.query_selector_dropdown.classList.contains("opened") && this.refs.qInput.value) {
+		// on "closing", second click, submit value
+		if (this.refs.query_group.classList.contains("active") && this.refs.qInput.value) {
 			this.inputValueSubmit(multiplier); // pass multiplier, because setState is Async, and doesnt change fast enough
 		}
-		// DOM element:
-		this.refs.query_selector_dropdown.classList.toggle("opened");
+		// on "opening", initial click, open the dropdown
+		this.refs.query_group.classList.toggle("active");
 	};
 	inputValueSubmit = multiplier => {
+		// change it in multiplierClick, then call this to finalize, or just call this on its own, to send current value
 		this.props.dispatch_filterAdd({ value: this.refs.qInput.value, multiplier: multiplier || this.state.qInput_multiplier, property: this.props.queryProperty });
 		this.setState(constructInitialState(this.props));
 	};
 	render() {
+		// value + multiplier
 		const multiplier = this.state.qInput_multiplier;
-		let placeholder = "Search description...";
-		if (this.props.queryProperty === "location") {
-			placeholder = "Search city name...";
-		} else if (this.props.queryProperty === "title") {
-			placeholder = "Search title...";
-		}
+		let placeholder = this.props.placeholder || "Search description...";
 		return (
 			<Styled.Query
-				className={"query_group" + (this.state.qInput_value ? " hasValue" : "")}
+				className={"query_group " + (this.state.qInput_value ? " hasValue " : "")}
 				innerRef={e => {
 					this.refs.query_group = e;
 				}}
@@ -69,12 +72,18 @@ class Query extends React.Component {
 						}
 					}}
 				/>
-				<div className={"query_select selected_ " + (multiplier > 0 ? "positive" : "negative")}>
-					<div className="dropdown" ref="query_selector_dropdown">
+				<div className={"query_select selected_" + (multiplier > 0 ? "positive" : "negative")}>
+					<div
+						className="overlay"
+						onClick={() => {
+							this.refs.query_group.classList.remove("active");
+						}}
+					/>
+					<div className="dropdown">
 						<div
 							className={"green " + (multiplier === 10 ? "selected" : "")}
 							onClick={() => {
-								this.inputMultiplierChange(10);
+								this.multiplierClick(10);
 							}}
 						>
 							<span className="icon-ui-thumbs-up" />
@@ -83,7 +92,7 @@ class Query extends React.Component {
 						<div
 							className={"green " + (multiplier === 3 ? "selected" : "")}
 							onClick={() => {
-								this.inputMultiplierChange(3);
+								this.multiplierClick(3);
 							}}
 						>
 							<span className="icon-ui-thumbs-up" />
@@ -92,7 +101,7 @@ class Query extends React.Component {
 						<div
 							className={"green " + (multiplier === 2 ? "selected" : "")}
 							onClick={() => {
-								this.inputMultiplierChange(2);
+								this.multiplierClick(2);
 							}}
 						>
 							<span className="icon-ui-thumbs-up" />
@@ -101,7 +110,7 @@ class Query extends React.Component {
 						<div
 							className={"green " + (multiplier === 1 ? "selected" : "")}
 							onClick={() => {
-								this.inputMultiplierChange(1);
+								this.multiplierClick(1);
 							}}
 						>
 							<span className="icon-ui-thumbs-up" />
@@ -110,38 +119,38 @@ class Query extends React.Component {
 						<div
 							className={"red " + (multiplier === -1 ? "selected" : "")}
 							onClick={() => {
-								this.inputMultiplierChange(-1);
+								this.multiplierClick(-1);
 							}}
 						>
-							<span>-</span>
-							<span>1</span>
+							<span className="icon-ui-thumbs-down" />
+							<span>-1</span>
 						</div>
 						<div
 							className={"red " + (multiplier === -2 ? "selected" : "")}
 							onClick={() => {
-								this.inputMultiplierChange(-2);
+								this.multiplierClick(-2);
 							}}
 						>
-							<span>-</span>
-							<span>2</span>
+							<span className="icon-ui-thumbs-down" />
+							<span>-2</span>
 						</div>
 						<div
 							className={"red " + (multiplier === -3 ? "selected" : "")}
 							onClick={() => {
-								this.inputMultiplierChange(-3);
+								this.multiplierClick(-3);
 							}}
 						>
-							<span>-</span>
-							<span>3</span>
+							<span className="icon-ui-thumbs-down" />
+							<span>-3</span>
 						</div>
 						<div
 							className={"red " + (multiplier === -10 ? "selected" : "")}
 							onClick={() => {
-								this.inputMultiplierChange(-10);
+								this.multiplierClick(-10);
 							}}
 						>
-							<span>-</span>
-							<span>10</span>
+							<span className="icon-ui-thumbs-down" />
+							<span>-10</span>
 						</div>
 					</div>
 					<div
@@ -150,7 +159,7 @@ class Query extends React.Component {
 							this.inputValueSubmit();
 						}}
 					>
-						<span className="icon-plus" />
+						<span className="icon-top-add" />
 					</div>
 				</div>
 			</Styled.Query>

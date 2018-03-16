@@ -4,7 +4,7 @@ import theme from "Document.theme.js";
 export const Results = styled.div`
 	.moreOptions {
 		color:#666;
-		margin:0.125rem 0;
+		margin:0;
 		text-decoration:underline;
 	}
 	.results {
@@ -19,20 +19,32 @@ export const Results = styled.div`
 			.meta {
 				display: block;
 				text-align: right;
-				margin:0.2rem 0 0 0;
-				> * {
+				* {
 					vertical-align: baseline;
 				}
-				.pill {
-					border: solid 1px #999;
-					padding: 0rem 0.5rem;
-					border-radius: 1rem;
-					> * {
-						vertical-align:baseline;
+				> * {
+					margin:0.2rem 0.2rem 0;
+					display:inline-block;
+				}
+				.pills {
+					white-space:nowrap;
+					.pill {
+						border: solid 1px #999;
+						margin:0 0 0 0.4rem;
+						padding: 0rem 0.5rem 0.1rem;
+						border-radius: 1rem;
+						display:inline-block;
+						[class^="icon-"] {
+							position: relative;
+							top:0.1rem;
+						}
 					}
-					[class^="icon-"] {
-						position: relative;
-						top:0.1rem;
+				}
+			}
+			&.first {
+				.meta {
+					.pills {
+						margin-top:0.4rem;
 					}
 				}
 			}
@@ -40,7 +52,7 @@ export const Results = styled.div`
 				.pill {
 					.icon-check,
 					.icon-ui-thumbs-up {
-						margin:0 -0.2rem 0 0.2rem;
+						/* margin:0 -0.2rem 0 0.2rem; */
 						top:0.05rem;
 					}
 					.text {
@@ -95,6 +107,7 @@ export const Results = styled.div`
 	.queries {
 		padding: 0.5rem 1rem;
 		background: #cccccc;
+		border-bottom: solid 1px ${theme.color_border2};
 		.page-title {
 			margin-top: 0.5rem;
 		}

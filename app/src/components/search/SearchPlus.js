@@ -4,58 +4,39 @@ import Select from "react-select-plus";
 import * as Styled from "./styled/SearchPlus.js";
 
 export default class App extends React.Component {
-	state = {
-		selectedOption: {}
-	};
+	constructor() {
+		super();
+		this.state = {
+			selectedOption: 1
+		};
+	}
 	handleChange = selectedOption => {
 		this.setState({ selectedOption });
 	};
 	render() {
-		const options = [
-			{
-				value: 100,
-				label: (
-					<span>
-						<span className="icon-ui-thumbs-up" />
-						<span>100</span>
-					</span>
-				)
-			},
-			{
-				value: 10,
-				label: (
-					<span>
-						<span className="icon-ui-thumbs-up" />
-						<span>10</span>
-					</span>
-				)
-			},
-			{
-				value: 5,
-				label: (
-					<span>
-						<span className="icon-ui-thumbs-up" />
-						<span>5</span>
-					</span>
-				)
-			},
-			{
-				value: 1,
-				label: (
-					<span>
-						<span className="icon-ui-thumbs-up" />
-						<span>1</span>
-					</span>
-				)
-			}
-		];
-		const { selectedOption } = this.state;
-		const value = selectedOption && selectedOption.value;
-
+		const options = [100, 10, 1, -1, -10, -100];
+		const Options = [];
+		options.forEach(value => {
+			Options.push(
+				<span
+					key={value}
+					onClick={() => {
+						console.log("label clicked");
+						this.setState({ selectedOption: value });
+					}}
+				>
+					<span className={"icon-ui-thumbs-" + (value > 0 ? "up" : "down")} />
+					<span>{value}</span>
+				</span>
+			);
+		});
 		return (
 			<Styled.SearchPlus>
 				<input type="text" placeholder="Search..." />
-				<Select name="form-field-name" value={value} onChange={this.handleChange} options={options} />
+				<span>{this.state.selectedOption}</span>
+				<span>
+					<span className="dropdown">{Options}</span>
+				</span>
 			</Styled.SearchPlus>
 		);
 	}

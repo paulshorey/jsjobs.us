@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5a731e302e028e65fc0d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "48ba4659417d244c4d1c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1082,10 +1082,10 @@ Object(__WEBPACK_IMPORTED_MODULE_1_styled_components__["injectGlobal"])(_templat
 	color_textRed1: "rgb(252, 101, 75)",
 	/* #2 - grey background */
 	color_bg2: "#ccc",
-	color_title2: "rgb(173, 173, 173)",
+	color_title2: "#111",
 	color_text2: "rgb(173, 173, 173)",
 	color_link2: "rgb(100,175,200)",
-	color_border2: "rgb(188, 188, 188)",
+	color_border2: "#999",
 	color_textGreen2: "rgb(75,190,0)",
 	color_textRed2: "rgb(252, 101, 75)",
 	/* #3 - black background */
@@ -1396,139 +1396,9 @@ var Header = function (_React$Component) {
 								lineNumber: 32
 							}
 						},
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"span",
-							{ className: "caption", __source: {
-									fileName: _jsxFileName,
-									lineNumber: 33
-								}
-							},
-							"Etc"
-						),
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-top-dots", __source: {
 								fileName: _jsxFileName,
 								lineNumber: 34
-							}
-						})
-					)
-				)
-			);
-		}
-	}]);
-
-	return Header;
-}(__WEBPACK_IMPORTED_MODULE_5_react___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["a"] = (Header);
-
-/***/ }),
-
-/***/ "./src/components/header/Header2.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_router_dom__ = __webpack_require__("react-router-dom");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_router_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__search_SelectLink__ = __webpack_require__("./src/components/search/SelectLink.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__styled_Header2_js__ = __webpack_require__("./src/components/header/styled/Header2.js");
-
-
-
-
-
-var _jsxFileName = "/www/jsjobs/app/src/components/header/Header2.js";
-
-
-
-
-
-var Header = function (_React$Component) {
-	__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(Header, _React$Component);
-
-	function Header() {
-		__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, Header);
-
-		return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Header.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(Header)).apply(this, arguments));
-	}
-
-	__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(Header, [{
-		key: "render",
-		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_8__styled_Header2_js__["a" /* Header */],
-				{ className: "row", __source: {
-						fileName: _jsxFileName,
-						lineNumber: 9
-					}
-				},
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					"div",
-					{ className: "row_center", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 10
-						}
-					},
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-						__WEBPACK_IMPORTED_MODULE_6_react_router_dom__["Link"],
-						{ to: "/in/la", __source: {
-								fileName: _jsxFileName,
-								lineNumber: 11
-							}
-						},
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"span",
-							{ className: "caption", __source: {
-									fileName: _jsxFileName,
-									lineNumber: 12
-								}
-							},
-							this.props.area === "la" ? __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								{
-									__source: {
-										fileName: _jsxFileName,
-										lineNumber: 14
-									}
-								},
-								"in ",
-								__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-									"b",
-									{
-										__source: {
-											fileName: _jsxFileName,
-											lineNumber: 15
-										}
-									},
-									"LA"
-								),
-								" & ",
-								__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-									"b",
-									{
-										__source: {
-											fileName: _jsxFileName,
-											lineNumber: 15
-										}
-									},
-									"San Diego"
-								)
-							) : "Select region"
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-top-select", __source: {
-								fileName: _jsxFileName,
-								lineNumber: 21
 							}
 						})
 					)
@@ -1556,7 +1426,7 @@ var Header = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t&.row {\n\t\tposition: relative;\n\t\tpadding: 0.75rem;\n\t\tbackground: #111;\n\t\tdisplay: flex;\n\t\talign-items: baseline;\n\t\ta {\n\t\t\tcolor: ", ";\n\t\t}\n\t\t@media (max-width: 600px) {\n\t\t\t.only-wide {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size: 2.1rem;\n\t\t\tline-height: 1.25rem;\n\t\t\t&.icon-ui-more {\n\t\t\t\tfont-size: 2.2rem;\n\t\t\t}\n\t\t}\n\t\t[class^=\"row_\"] {\n\t\t\twidth: 25%;\n\t\t\tfont-size: 1.25rem;\n\t\t\tcolor: white;\n\t\t\tflex-grow: 1;\n\t\t\ttext-align: center;\n\t\t\t/* vertical-align: bottom; */\n\t\t\t/* * {\n\t\t\t\tvertical-align: bottom;\n\t\t\t} */\n\t\t\t.caption {\n\t\t\t\tcolor: #fff;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tpadding: 0.75rem 0.33rem 0;\n\t\t\t\tdisplay: inline-block;\n\t\t\t\t.ext {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t.row_left {\n\t\t\ttext-align: left;\n\t\t\tcolor: ", ";\n\t\t}\n\t\t.row_center {\n\t\t\twhite-space: nowrap;\n\t\t\tspan.icon-select {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.row_right {\n\t\t\ttext-align: right;\n\t\t\t.icon-ui-thumbs-up {\n\t\t\t\tfont-size: 1.6rem;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tmargin-top: 0.4rem;\n\t\t\t\tdisplay: inline-block;\n\t\t\t}\n\t\t}\n\t}\n"], ["\n\t&.row {\n\t\tposition: relative;\n\t\tpadding: 0.75rem;\n\t\tbackground: #111;\n\t\tdisplay: flex;\n\t\talign-items: baseline;\n\t\ta {\n\t\t\tcolor: ", ";\n\t\t}\n\t\t@media (max-width: 600px) {\n\t\t\t.only-wide {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size: 2.1rem;\n\t\t\tline-height: 1.25rem;\n\t\t\t&.icon-ui-more {\n\t\t\t\tfont-size: 2.2rem;\n\t\t\t}\n\t\t}\n\t\t[class^=\"row_\"] {\n\t\t\twidth: 25%;\n\t\t\tfont-size: 1.25rem;\n\t\t\tcolor: white;\n\t\t\tflex-grow: 1;\n\t\t\ttext-align: center;\n\t\t\t/* vertical-align: bottom; */\n\t\t\t/* * {\n\t\t\t\tvertical-align: bottom;\n\t\t\t} */\n\t\t\t.caption {\n\t\t\t\tcolor: #fff;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tpadding: 0.75rem 0.33rem 0;\n\t\t\t\tdisplay: inline-block;\n\t\t\t\t.ext {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t.row_left {\n\t\t\ttext-align: left;\n\t\t\tcolor: ", ";\n\t\t}\n\t\t.row_center {\n\t\t\twhite-space: nowrap;\n\t\t\tspan.icon-select {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.row_right {\n\t\t\ttext-align: right;\n\t\t\t.icon-ui-thumbs-up {\n\t\t\t\tfont-size: 1.6rem;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tmargin-top: 0.4rem;\n\t\t\t\tdisplay: inline-block;\n\t\t\t}\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t&.row {\n\t\tposition: relative;\n\t\tpadding: 0.75rem;\n\t\tbackground: #111;\n\t\tdisplay: flex;\n\t\talign-items: baseline;\n\t\ta {\n\t\t\tcolor: ", ";\n\t\t}\n\t\t@media (max-width: 600px) {\n\t\t\t.only-wide {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size: 2.1rem;\n\t\t\tline-height: 1.25rem;\n\t\t\t&.icon-ui-more {\n\t\t\t\tfont-size: 2.2rem;\n\t\t\t}\n\t\t}\n\t\t[class^=\"row_\"] {\n\t\t\tfont-size: 1.25rem;\n\t\t\tcolor: white;\n\t\t\ttext-align: center;\n\t\t\t/* vertical-align: bottom; */\n\t\t\t/* * {\n\t\t\t\tvertical-align: bottom;\n\t\t\t} */\n\t\t\t.caption {\n\t\t\t\tcolor: #fff;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tpadding: 0.75rem 0.33rem 0;\n\t\t\t\tdisplay: inline-block;\n\t\t\t\t.ext {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t.row_left {\n\t\t\tflex-grow: 1;\n\t\t\ttext-align: left;\n\t\t\tcolor: ", ";\n\t\t}\n\t\t.row_center {\n\t\t\twhite-space: nowrap;\n\t\t\tspan.icon-select {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.row_right {\n\t\t\tpadding-left: 0.75rem;\n\t\t\ttext-align: right;\n\t\t\t.icon-ui-thumbs-up {\n\t\t\t\tfont-size: 1.6rem;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tmargin-top: 0.4rem;\n\t\t\t\tdisplay: inline-block;\n\t\t\t}\n\t\t}\n\t}\n"], ["\n\t&.row {\n\t\tposition: relative;\n\t\tpadding: 0.75rem;\n\t\tbackground: #111;\n\t\tdisplay: flex;\n\t\talign-items: baseline;\n\t\ta {\n\t\t\tcolor: ", ";\n\t\t}\n\t\t@media (max-width: 600px) {\n\t\t\t.only-wide {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size: 2.1rem;\n\t\t\tline-height: 1.25rem;\n\t\t\t&.icon-ui-more {\n\t\t\t\tfont-size: 2.2rem;\n\t\t\t}\n\t\t}\n\t\t[class^=\"row_\"] {\n\t\t\tfont-size: 1.25rem;\n\t\t\tcolor: white;\n\t\t\ttext-align: center;\n\t\t\t/* vertical-align: bottom; */\n\t\t\t/* * {\n\t\t\t\tvertical-align: bottom;\n\t\t\t} */\n\t\t\t.caption {\n\t\t\t\tcolor: #fff;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tpadding: 0.75rem 0.33rem 0;\n\t\t\t\tdisplay: inline-block;\n\t\t\t\t.ext {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t.row_left {\n\t\t\tflex-grow: 1;\n\t\t\ttext-align: left;\n\t\t\tcolor: ", ";\n\t\t}\n\t\t.row_center {\n\t\t\twhite-space: nowrap;\n\t\t\tspan.icon-select {\n\t\t\t\tcolor: ", ";\n\t\t\t}\n\t\t}\n\t\t.row_right {\n\t\t\tpadding-left: 0.75rem;\n\t\t\ttext-align: right;\n\t\t\t.icon-ui-thumbs-up {\n\t\t\t\tfont-size: 1.6rem;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tmargin-top: 0.4rem;\n\t\t\t\tdisplay: inline-block;\n\t\t\t}\n\t\t}\n\t}\n"]);
 
 
 
@@ -1565,24 +1435,223 @@ var Header = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_temp
 
 /***/ }),
 
-/***/ "./src/components/header/styled/Header2.js":
+/***/ "./src/components/search/DropdownLink.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Header; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__ = __webpack_require__("babel-runtime/helpers/taggedTemplateLiteral");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__("babel-runtime/helpers/extends");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__styled_DropdownLink_js__ = __webpack_require__("./src/components/search/styled/DropdownLink.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_router_dom__ = __webpack_require__("react-router-dom");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react_router_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__data_actions__ = __webpack_require__("./src/data/actions/index.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t&.row {\n\t\tposition: relative;\n\t\tpadding: 0.125rem 0 0 0;\n\t\tbackground: #ccc;\n\t\tdisplay: flex;\n\t\talign-items: baseline;\n\t\ta {\n\t\t\tcolor: blue;\n\t\t}\n\t\t@media (max-width: 600px) {\n\t\t\t.only-wide {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size: 2.1rem;\n\t\t\tline-height: 1.25rem;\n\t\t\tcolor: #111;\n\t\t}\n\t\t[class^=\"row_\"] {\n\t\t\twidth: 25%;\n\t\t\tfont-size: 1.25rem;\n\t\t\tflex-grow: 1;\n\t\t\ttext-align: center;\n\t\t\t.caption {\n\t\t\t\tcolor: #111;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tpadding: 0.75rem 0.25rem 0;\n\t\t\t\tdisplay: inline-block;\n\t\t\t}\n\t\t}\n\t\t.row_center {\n\t\t\twhite-space: nowrap;\n\t\t\tspan.icon-select {\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t}\n\t}\n"], ["\n\t&.row {\n\t\tposition: relative;\n\t\tpadding: 0.125rem 0 0 0;\n\t\tbackground: #ccc;\n\t\tdisplay: flex;\n\t\talign-items: baseline;\n\t\ta {\n\t\t\tcolor: blue;\n\t\t}\n\t\t@media (max-width: 600px) {\n\t\t\t.only-wide {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size: 2.1rem;\n\t\t\tline-height: 1.25rem;\n\t\t\tcolor: #111;\n\t\t}\n\t\t[class^=\"row_\"] {\n\t\t\twidth: 25%;\n\t\t\tfont-size: 1.25rem;\n\t\t\tflex-grow: 1;\n\t\t\ttext-align: center;\n\t\t\t.caption {\n\t\t\t\tcolor: #111;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tpadding: 0.75rem 0.25rem 0;\n\t\t\t\tdisplay: inline-block;\n\t\t\t}\n\t\t}\n\t\t.row_center {\n\t\t\twhite-space: nowrap;\n\t\t\tspan.icon-select {\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t}\n\t}\n"]);
 
 
 
 
-var Header = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject);
+var _jsxFileName = "/www/jsjobs/app/src/components/search/DropdownLink.js";
+/*jshint esversion: 6 */
+
+
+
+/* redux */
+
+
+/* custom */
+// import UIDropdownLink from "components/ui/DropdownLink";
+
+/* 
+	Component 
+*/
+
+var DropdownLink = function (_React$Component) {
+	__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default()(DropdownLink, _React$Component);
+
+	function DropdownLink() {
+		__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default()(this, DropdownLink);
+
+		var _this = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default()(this, (DropdownLink.__proto__ || __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default()(DropdownLink)).call(this));
+
+		_this.toggleOpen = function (multiplier) {
+			_this.refs.query_group.classList.toggle("opened");
+		};
+
+		_this.componentWillMount = function () {
+			_this.setState({ option_selected: _this.state.options[_this.props.option] });
+		};
+
+		_this.renderOptions = function () {
+			var Options = [];
+			for (var url in _this.state.options) {
+				var title = _this.state.options[url];
+				Options.push(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+					__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
+					{ className: "option", to: url, key: url, __source: {
+							fileName: _jsxFileName,
+							lineNumber: 37
+						}
+					},
+					title
+				));
+			}
+		};
+
+		_this.state = {
+			option_placeholder: "Select region...",
+			options: {
+				"/in/la": "in LA (Southern California)",
+				"/in/nyc": "in NYC (New York City)",
+				"/in/denver": "in NYC (Colorado)"
+			}
+		};
+		return _this;
+	}
+
+	__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default()(DropdownLink, [{
+		key: "render",
+		value: function render() {
+			var _this2 = this;
+
+			return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_7__styled_DropdownLink_js__["a" /* DropdownLink */],
+				__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, this.props, {
+					className: "DropdownLink",
+					innerRef: function innerRef(el) {
+						_this2.DropdownLink = el;
+					},
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 45
+					}
+				}),
+				__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("div", {
+					className: "overlay",
+					ref: "overlay",
+					onClick: function onClick(e) {
+						console.log("clicked Overlay", e.target);
+						_this2.DropdownLink.classList.toggle("active");
+					},
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 52
+					}
+				}),
+				__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+					"div",
+					{
+						className: "content",
+						ref: "content",
+						onClick: function onClick(e) {
+							console.log("clicked Overlay", e.target);
+							_this2.DropdownLink.classList.remove("active");
+						},
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 60
+						}
+					},
+					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+						"div",
+						{
+							className: "dropdown",
+							onClick: function onClick(e) {
+								e.stopPropagation();
+								_this2.DropdownLink.classList.toggle("active");
+							},
+							__source: {
+								fileName: _jsxFileName,
+								lineNumber: 68
+							}
+						},
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
+							{ className: "option selected", to: "/in/la", __source: {
+									fileName: _jsxFileName,
+									lineNumber: 75
+								}
+							},
+							"in LA (Southern California)"
+						),
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
+							{ className: "option", to: "/in/nyc", __source: {
+									fileName: _jsxFileName,
+									lineNumber: 78
+								}
+							},
+							"in NYC (New York City)"
+						),
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
+							{ className: "option", to: "/in/denver", __source: {
+									fileName: _jsxFileName,
+									lineNumber: 81
+								}
+							},
+							"in Denver (Colorado)"
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+						"span",
+						{
+							className: "button",
+							onClick: function onClick(e) {
+								e.stopPropagation();
+								_this2.DropdownLink.classList.toggle("active");
+							},
+							__source: {
+								fileName: _jsxFileName,
+								lineNumber: 85
+							}
+						},
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("span", { className: "icon-top-select", __source: {
+								fileName: _jsxFileName,
+								lineNumber: 92
+							}
+						})
+					)
+				)
+			);
+		}
+	}]);
+
+	return DropdownLink;
+}(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+	return {
+		filters: state.filters.length ? state.filters : ownProps.filters
+	};
+};
+var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
+	return {
+		dispatch_filterAdd: function dispatch_filterAdd(filter) {
+			// dispatch(actions.filterAdd(filter));
+		}
+	};
+};
+var ConnectedDropdownLink = Object(__WEBPACK_IMPORTED_MODULE_9_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(DropdownLink);
+
+/*
+	Components
+*/
+/* harmony default export */ __webpack_exports__["a"] = (ConnectedDropdownLink);
 
 /***/ }),
 
@@ -1836,18 +1905,18 @@ var _jsxFileName = "/www/jsjobs/app/src/components/search/Query.js";
 /* redux */
 
 
-/* custom */
-// import UISelect from "components/ui/Select";
+
+// this will be useful to "reset" the setState
+var constructInitialState = function constructInitialState() {
+	return {
+		qInput_value: "",
+		qInput_multiplier: 1
+	};
+};
 
 /* 
 	Component 
 */
-var constructInitialState = function constructInitialState(props) {
-	return {
-		qInput_value: "",
-		qInput_multiplier: props.queryProperty === "location" ? 3 : 1
-	};
-};
 
 var Query = function (_React$Component) {
 	__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(Query, _React$Component);
@@ -1863,48 +1932,55 @@ var Query = function (_React$Component) {
 			_this.setState({ qInput_value: value });
 		};
 
-		_this.inputMultiplierChange = function (multiplier) {
+		_this.multiplierClick = function (multiplier) {
 			// set value:
 			_this.setState({ qInput_multiplier: multiplier });
-			// only act "onBlur"
-			if (_this.refs.query_selector_dropdown.classList.contains("opened") && _this.refs.qInput.value) {
+			// on "closing", second click, submit value
+			if (_this.refs.query_group.classList.contains("active") && _this.refs.qInput.value) {
 				_this.inputValueSubmit(multiplier); // pass multiplier, because setState is Async, and doesnt change fast enough
 			}
-			// DOM element:
-			_this.refs.query_selector_dropdown.classList.toggle("opened");
+			// on "opening", initial click, open the dropdown
+			_this.refs.query_group.classList.toggle("active");
 		};
 
 		_this.inputValueSubmit = function (multiplier) {
+			// change it in multiplierClick, then call this to finalize, or just call this on its own, to send current value
 			_this.props.dispatch_filterAdd({ value: _this.refs.qInput.value, multiplier: multiplier || _this.state.qInput_multiplier, property: _this.props.queryProperty });
 			_this.setState(constructInitialState(_this.props));
 		};
 
-		_this.state = constructInitialState(props);
+		_this.state = constructInitialState();
 		return _this;
 	}
 
 	__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(Query, [{
-		key: "render",
-		value: function render() {
+		key: "componentDidMount",
+		value: function componentDidMount() {
 			var _this2 = this;
 
+			// slight UX addition:
+			setTimeout(function () {
+				_this2.refs.qInput.focus();
+			}, 300);
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			var _this3 = this;
+
+			// value + multiplier
 			var multiplier = this.state.qInput_multiplier;
-			var placeholder = "Search description...";
-			if (this.props.queryProperty === "location") {
-				placeholder = "Search city name...";
-			} else if (this.props.queryProperty === "title") {
-				placeholder = "Search title...";
-			}
+			var placeholder = this.props.placeholder || "Search description...";
 			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_6__styled_Query_js__["a" /* Query */],
 				{
-					className: "query_group" + (this.state.qInput_value ? " hasValue" : ""),
+					className: "query_group " + (this.state.qInput_value ? " hasValue " : ""),
 					innerRef: function innerRef(e) {
-						_this2.refs.query_group = e;
+						_this3.refs.query_group = e;
 					},
 					__source: {
 						fileName: _jsxFileName,
-						lineNumber: 52
+						lineNumber: 55
 					}
 				},
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", {
@@ -1912,31 +1988,41 @@ var Query = function (_React$Component) {
 					placeholder: placeholder,
 					ref: "qInput",
 					onChange: function onChange(e) {
-						_this2.inputValueChange(e);
+						_this3.inputValueChange(e);
 					},
 					value: this.state.qInput_value,
 					onKeyPress: function onKeyPress(e) {
 						if ((e.charCode || e.keyCode) === 13) {
-							_this2.inputValueSubmit();
+							_this3.inputValueSubmit();
 						}
 					},
 					__source: {
 						fileName: _jsxFileName,
-						lineNumber: 58
+						lineNumber: 61
 					}
 				}),
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 					"div",
-					{ className: "query_select selected_ " + (multiplier > 0 ? "positive" : "negative"), __source: {
+					{ className: "query_select selected_" + (multiplier > 0 ? "positive" : "negative"), __source: {
 							fileName: _jsxFileName,
-							lineNumber: 72
+							lineNumber: 75
 						}
 					},
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("div", {
+						className: "overlay",
+						onClick: function onClick() {
+							_this3.refs.query_group.classList.remove("active");
+						},
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 76
+						}
+					}),
 					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 						"div",
-						{ className: "dropdown", ref: "query_selector_dropdown", __source: {
+						{ className: "dropdown", __source: {
 								fileName: _jsxFileName,
-								lineNumber: 73
+								lineNumber: 82
 							}
 						},
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
@@ -1944,35 +2030,7 @@ var Query = function (_React$Component) {
 							{
 								className: "green " + (multiplier === 10 ? "selected" : ""),
 								onClick: function onClick() {
-									_this2.inputMultiplierChange(10);
-								},
-								__source: {
-									fileName: _jsxFileName,
-									lineNumber: 74
-								}
-							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-up", __source: {
-									fileName: _jsxFileName,
-									lineNumber: 80
-								}
-							}),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								{
-									__source: {
-										fileName: _jsxFileName,
-										lineNumber: 81
-									}
-								},
-								"10"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{
-								className: "green " + (multiplier === 3 ? "selected" : ""),
-								onClick: function onClick() {
-									_this2.inputMultiplierChange(3);
+									_this3.multiplierClick(10);
 								},
 								__source: {
 									fileName: _jsxFileName,
@@ -1992,15 +2050,15 @@ var Query = function (_React$Component) {
 										lineNumber: 90
 									}
 								},
-								"3"
+								"10"
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 							"div",
 							{
-								className: "green " + (multiplier === 2 ? "selected" : ""),
+								className: "green " + (multiplier === 3 ? "selected" : ""),
 								onClick: function onClick() {
-									_this2.inputMultiplierChange(2);
+									_this3.multiplierClick(3);
 								},
 								__source: {
 									fileName: _jsxFileName,
@@ -2020,15 +2078,15 @@ var Query = function (_React$Component) {
 										lineNumber: 99
 									}
 								},
-								"2"
+								"3"
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 							"div",
 							{
-								className: "green " + (multiplier === 1 ? "selected" : ""),
+								className: "green " + (multiplier === 2 ? "selected" : ""),
 								onClick: function onClick() {
-									_this2.inputMultiplierChange(1);
+									_this3.multiplierClick(2);
 								},
 								__source: {
 									fileName: _jsxFileName,
@@ -2048,31 +2106,26 @@ var Query = function (_React$Component) {
 										lineNumber: 108
 									}
 								},
-								"1"
+								"2"
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 							"div",
 							{
-								className: "red " + (multiplier === -1 ? "selected" : ""),
+								className: "green " + (multiplier === 1 ? "selected" : ""),
 								onClick: function onClick() {
-									_this2.inputMultiplierChange(-1);
+									_this3.multiplierClick(1);
 								},
 								__source: {
 									fileName: _jsxFileName,
 									lineNumber: 110
 								}
 							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								{
-									__source: {
-										fileName: _jsxFileName,
-										lineNumber: 116
-									}
-								},
-								"-"
-							),
+							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-up", __source: {
+									fileName: _jsxFileName,
+									lineNumber: 116
+								}
+							}),
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"span",
 								{
@@ -2087,25 +2140,20 @@ var Query = function (_React$Component) {
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 							"div",
 							{
-								className: "red " + (multiplier === -2 ? "selected" : ""),
+								className: "red " + (multiplier === -1 ? "selected" : ""),
 								onClick: function onClick() {
-									_this2.inputMultiplierChange(-2);
+									_this3.multiplierClick(-1);
 								},
 								__source: {
 									fileName: _jsxFileName,
 									lineNumber: 119
 								}
 							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								{
-									__source: {
-										fileName: _jsxFileName,
-										lineNumber: 125
-									}
-								},
-								"-"
-							),
+							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-down", __source: {
+									fileName: _jsxFileName,
+									lineNumber: 125
+								}
+							}),
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"span",
 								{
@@ -2114,31 +2162,26 @@ var Query = function (_React$Component) {
 										lineNumber: 126
 									}
 								},
-								"2"
+								"-1"
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 							"div",
 							{
-								className: "red " + (multiplier === -3 ? "selected" : ""),
+								className: "red " + (multiplier === -2 ? "selected" : ""),
 								onClick: function onClick() {
-									_this2.inputMultiplierChange(-3);
+									_this3.multiplierClick(-2);
 								},
 								__source: {
 									fileName: _jsxFileName,
 									lineNumber: 128
 								}
 							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								{
-									__source: {
-										fileName: _jsxFileName,
-										lineNumber: 134
-									}
-								},
-								"-"
-							),
+							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-down", __source: {
+									fileName: _jsxFileName,
+									lineNumber: 134
+								}
+							}),
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"span",
 								{
@@ -2147,31 +2190,26 @@ var Query = function (_React$Component) {
 										lineNumber: 135
 									}
 								},
-								"3"
+								"-2"
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 							"div",
 							{
-								className: "red " + (multiplier === -10 ? "selected" : ""),
+								className: "red " + (multiplier === -3 ? "selected" : ""),
 								onClick: function onClick() {
-									_this2.inputMultiplierChange(-10);
+									_this3.multiplierClick(-3);
 								},
 								__source: {
 									fileName: _jsxFileName,
 									lineNumber: 137
 								}
 							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								{
-									__source: {
-										fileName: _jsxFileName,
-										lineNumber: 143
-									}
-								},
-								"-"
-							),
+							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-down", __source: {
+									fileName: _jsxFileName,
+									lineNumber: 143
+								}
+							}),
 							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 								"span",
 								{
@@ -2180,7 +2218,35 @@ var Query = function (_React$Component) {
 										lineNumber: 144
 									}
 								},
-								"10"
+								"-3"
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+							"div",
+							{
+								className: "red " + (multiplier === -10 ? "selected" : ""),
+								onClick: function onClick() {
+									_this3.multiplierClick(-10);
+								},
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 146
+								}
+							},
+							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-down", __source: {
+									fileName: _jsxFileName,
+									lineNumber: 152
+								}
+							}),
+							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+								"span",
+								{
+									__source: {
+										fileName: _jsxFileName,
+										lineNumber: 153
+									}
+								},
+								"-10"
 							)
 						)
 					),
@@ -2189,16 +2255,16 @@ var Query = function (_React$Component) {
 						{
 							className: "icon",
 							onClick: function onClick() {
-								_this2.inputValueSubmit();
+								_this3.inputValueSubmit();
 							},
 							__source: {
 								fileName: _jsxFileName,
-								lineNumber: 147
+								lineNumber: 156
 							}
 						},
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-plus", __source: {
+						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-top-add", __source: {
 								fileName: _jsxFileName,
-								lineNumber: 153
+								lineNumber: 162
 							}
 						})
 					)
@@ -2227,7 +2293,7 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"]
 /*
 	Components
 */
-/* unused harmony default export */ var _unused_webpack_default_export = (ConnectedQuery);
+/* harmony default export */ __webpack_exports__["a"] = (ConnectedQuery);
 
 /***/ }),
 
@@ -2261,10 +2327,9 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_redux__ = __webpack_require__("react-redux");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_react_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__data_actions__ = __webpack_require__("./src/data/actions/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__header_Header2__ = __webpack_require__("./src/components/header/Header2.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Query__ = __webpack_require__("./src/components/search/Query.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Query__ = __webpack_require__("./src/components/search/Query.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__DropdownLink__ = __webpack_require__("./src/components/search/DropdownLink.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Filters__ = __webpack_require__("./src/components/search/Filters.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__SearchPlus__ = __webpack_require__("./src/components/search/SearchPlus.js");
 
 
 
@@ -2286,7 +2351,7 @@ var _jsxFileName = "/www/jsjobs/app/src/components/search/Results.js";
 
 
 
-
+// import SearchPlus from "./SearchPlus";
 /* 
 	Component 
 */
@@ -2345,16 +2410,7 @@ var Results = function (_Component) {
 			return jobs;
 		}, _this.renderResultsCount = function () {
 			if (_this.props.jobs.length !== 0 && _this.props.jobs.length !== 50) {
-				return __WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
-					"span",
-					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 83
-						}
-					},
-					_this.props.jobs.length
-				);
+				return _this.props.jobs.length;
 			} else {
 				return null;
 			}
@@ -2444,15 +2500,18 @@ var Results = function (_Component) {
 			if (jobs) {
 				jobs = this.rateJobs(jobs);
 			}
-			// get on with it...
+			// make Array
 			var Jobs = [];
 			if (jobs) {
 				var i = 0;
+				// limit results on page - soon add pagination or auto-loading on scroll
 				while (i < 100) {
+					// job = current item
 					var job = jobs[i];
 					if ((typeof job === "undefined" ? "undefined" : __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_typeof___default()(job)) !== "object") {
 						break;
 					}
+					// job.rating
 					var rating = job._rating - 1000;
 					var Rating = null;
 					if (rating > 0) {
@@ -2460,12 +2519,12 @@ var Results = function (_Component) {
 							"b",
 							{ className: "rating plus", __source: {
 									fileName: _jsxFileName,
-									lineNumber: 106
+									lineNumber: 109
 								}
 							},
 							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-ui-thumbs-up", __source: {
 									fileName: _jsxFileName,
-									lineNumber: 107
+									lineNumber: 110
 								}
 							}),
 							rating
@@ -2476,22 +2535,32 @@ var Results = function (_Component) {
 							"b",
 							{ className: "rating minus", __source: {
 									fileName: _jsxFileName,
-									lineNumber: 114
+									lineNumber: 117
 								}
 							},
 							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-ui-thumbs-down", __source: {
 									fileName: _jsxFileName,
-									lineNumber: 115
+									lineNumber: 118
 								}
 							}),
 							rating
 						);
 					}
+					// job.etc
+					// let locArr = job.location.split(",");
+					// job.location = locArr.reduce((a, b) => {
+					// 	if (a.trim().length > 4 && a.length > b.length && !/[0-9]+/.test(a)) {
+					// 		return a;
+					// 	} else {
+					// 		return b;
+					// 	}
+					// });
+					// add to view
 					Jobs.push(__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 						"div",
 						{ key: job._id + i, className: "result " + (i === 0 ? " first" : ""), __source: {
 								fileName: _jsxFileName,
-								lineNumber: 121
+								lineNumber: 134
 							}
 						},
 						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
@@ -2499,7 +2568,7 @@ var Results = function (_Component) {
 							{
 								__source: {
 									fileName: _jsxFileName,
-									lineNumber: 122
+									lineNumber: 135
 								}
 							},
 							job.name
@@ -2511,97 +2580,108 @@ var Results = function (_Component) {
 							"div",
 							{ className: "meta", __source: {
 									fileName: _jsxFileName,
-									lineNumber: 123
+									lineNumber: 136
 								}
 							},
-							Rating,
-							"\xA0",
+							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+								"span",
+								{ className: "rating", __source: {
+										fileName: _jsxFileName,
+										lineNumber: 137
+									}
+								},
+								Rating
+							),
 							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 								"span",
 								{ className: "location", __source: {
 										fileName: _jsxFileName,
-										lineNumber: 126
-									}
-								},
-								__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-navigation", __source: {
-										fileName: _jsxFileName,
-										lineNumber: 127
-									}
-								}),
-								" ",
-								job.location
-							),
-							" ",
-							"\xA0",
-							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
-								"span",
-								{ className: "pill", __source: {
-										fileName: _jsxFileName,
-										lineNumber: 130
-									}
-								},
-								__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-check", __source: {
-										fileName: _jsxFileName,
-										lineNumber: 131
-									}
-								}),
-								" ",
-								__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
-									"span",
-									{ className: "text", __source: {
-											fileName: _jsxFileName,
-											lineNumber: 131
-										}
-									},
-									"applied"
-								)
-							),
-							"\xA0",
-							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
-								"span",
-								{ className: "pill", __source: {
-										fileName: _jsxFileName,
-										lineNumber: 134
-									}
-								},
-								__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-ui-thumbs-up", __source: {
-										fileName: _jsxFileName,
-										lineNumber: 135
-									}
-								}),
-								" ",
-								__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
-									"span",
-									{ className: "text", __source: {
-											fileName: _jsxFileName,
-											lineNumber: 135
-										}
-									},
-									"intrigued"
-								)
-							),
-							"\xA0",
-							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
-								"span",
-								{ className: "pill", __source: {
-										fileName: _jsxFileName,
 										lineNumber: 138
 									}
 								},
-								__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-delete", __source: {
+								__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-navigation", __source: {
 										fileName: _jsxFileName,
 										lineNumber: 139
 									}
 								}),
 								" ",
+								job.location
+							),
+							__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+								"span",
+								{ className: "pills", __source: {
+										fileName: _jsxFileName,
+										lineNumber: 141
+									}
+								},
 								__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 									"span",
-									{ className: "text", __source: {
+									{ className: "pill", __source: {
 											fileName: _jsxFileName,
-											lineNumber: 139
+											lineNumber: 142
 										}
 									},
-									"ignored"
+									__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-check", __source: {
+											fileName: _jsxFileName,
+											lineNumber: 143
+										}
+									}),
+									" ",
+									__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+										"span",
+										{ className: "text", __source: {
+												fileName: _jsxFileName,
+												lineNumber: 143
+											}
+										},
+										"applied"
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+									"span",
+									{ className: "pill", __source: {
+											fileName: _jsxFileName,
+											lineNumber: 145
+										}
+									},
+									__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-ui-thumbs-up", __source: {
+											fileName: _jsxFileName,
+											lineNumber: 146
+										}
+									}),
+									" ",
+									__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+										"span",
+										{ className: "text", __source: {
+												fileName: _jsxFileName,
+												lineNumber: 146
+											}
+										},
+										"intrigued"
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+									"span",
+									{ className: "pill", __source: {
+											fileName: _jsxFileName,
+											lineNumber: 148
+										}
+									},
+									__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement("span", { className: "icon-delete", __source: {
+											fileName: _jsxFileName,
+											lineNumber: 149
+										}
+									}),
+									" ",
+									__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
+										"span",
+										{ className: "text", __source: {
+												fileName: _jsxFileName,
+												lineNumber: 149
+											}
+										},
+										"ignored"
+									)
 								)
 							)
 						)
@@ -2615,47 +2695,46 @@ var Results = function (_Component) {
 				{
 					__source: {
 						fileName: _jsxFileName,
-						lineNumber: 149
+						lineNumber: 160
 					}
 				},
-				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__header_Header2__["a" /* default */], { area: this.props.area, __source: {
-						fileName: _jsxFileName,
-						lineNumber: 157
-					}
-				}),
 				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 					"div",
 					{ className: "queries", __source: {
 							fileName: _jsxFileName,
-							lineNumber: 158
+							lineNumber: 168
 						}
 					},
 					__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 						"div",
 						{ className: "queries_content", __source: {
 								fileName: _jsxFileName,
-								lineNumber: 159
+								lineNumber: 169
 							}
 						},
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_17__SearchPlus__["a" /* default */], {
-							__source: {
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__DropdownLink__["a" /* default */], { area: this.props.area, __source: {
 								fileName: _jsxFileName,
-								lineNumber: 161
+								lineNumber: 170
+							}
+						}),
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Query__["a" /* default */], { placeholder: "Search " + this.renderResultsCount() + " results...", __source: {
+								fileName: _jsxFileName,
+								lineNumber: 171
 							}
 						}),
 						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 							"p",
 							{ className: "moreOptions", __source: {
 									fileName: _jsxFileName,
-									lineNumber: 162
+									lineNumber: 172
 								}
 							},
-							"more options..."
+							"..."
 						),
 						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__Filters__["a" /* default */], {
 							__source: {
 								fileName: _jsxFileName,
-								lineNumber: 163
+								lineNumber: 173
 							}
 						})
 					)
@@ -2664,7 +2743,7 @@ var Results = function (_Component) {
 					"div",
 					{ className: "results", __source: {
 							fileName: _jsxFileName,
-							lineNumber: 166
+							lineNumber: 176
 						}
 					},
 					Jobs
@@ -2732,63 +2811,42 @@ var App = function (_React$Component) {
 	__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(App, _React$Component);
 
 	function App() {
-		var _ref;
-
-		var _temp, _this, _ret;
-
 		__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, App);
 
-		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-			args[_key] = arguments[_key];
-		}
+		var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (App.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(App)).call(this));
 
-		return _ret = (_temp = (_this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (_ref = App.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-			selectedOption: {}
-		}, _this.handleChange = function (selectedOption) {
+		_this.handleChange = function (selectedOption) {
 			_this.setState({ selectedOption: selectedOption });
-		}, _temp), __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(_this, _ret);
+		};
+
+		_this.state = {
+			selectedOption: 1
+		};
+		return _this;
 	}
 
 	__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(App, [{
 		key: "render",
 		value: function render() {
-			var options = [{
-				value: 100,
-				label: __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+			var _this2 = this;
+
+			var options = [100, 10, 1, -1, -10, -100];
+			var Options = [];
+			options.forEach(function (value) {
+				Options.push(__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 					"span",
 					{
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 18
-						}
-					},
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-up", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 19
-						}
-					}),
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-						"span",
-						{
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 20
-							}
+						key: value,
+						onClick: function onClick() {
+							console.log("label clicked");
+							_this2.setState({ selectedOption: value });
 						},
-						"100"
-					)
-				)
-			}, {
-				value: 10,
-				label: __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					"span",
-					{
 						__source: {
 							fileName: _jsxFileName,
-							lineNumber: 27
+							lineNumber: 21
 						}
 					},
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-up", __source: {
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-" + (value > 0 ? "up" : "down"), __source: {
 							fileName: _jsxFileName,
 							lineNumber: 28
 						}
@@ -2801,12 +2859,24 @@ var App = function (_React$Component) {
 								lineNumber: 29
 							}
 						},
-						"10"
+						value
 					)
-				)
-			}, {
-				value: 5,
-				label: __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+				));
+			});
+			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_7__styled_SearchPlus_js__["a" /* SearchPlus */],
+				{
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 34
+					}
+				},
+				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { type: "text", placeholder: "Search...", __source: {
+						fileName: _jsxFileName,
+						lineNumber: 35
+					}
+				}),
+				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 					"span",
 					{
 						__source: {
@@ -2814,71 +2884,26 @@ var App = function (_React$Component) {
 							lineNumber: 36
 						}
 					},
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-up", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 37
-						}
-					}),
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-						"span",
-						{
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 38
-							}
-						},
-						"5"
-					)
-				)
-			}, {
-				value: 1,
-				label: __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+					this.state.selectedOption
+				),
+				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 					"span",
 					{
 						__source: {
 							fileName: _jsxFileName,
-							lineNumber: 45
+							lineNumber: 37
 						}
 					},
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-up", __source: {
-							fileName: _jsxFileName,
-							lineNumber: 46
-						}
-					}),
 					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 						"span",
-						{
-							__source: {
+						{ className: "dropdown", __source: {
 								fileName: _jsxFileName,
-								lineNumber: 47
+								lineNumber: 38
 							}
 						},
-						"1"
+						Options
 					)
 				)
-			}];
-			var selectedOption = this.state.selectedOption;
-
-			var value = selectedOption && selectedOption.value;
-
-			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_7__styled_SearchPlus_js__["a" /* SearchPlus */],
-				{
-					__source: {
-						fileName: _jsxFileName,
-						lineNumber: 56
-					}
-				},
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { type: "text", placeholder: "Search...", __source: {
-						fileName: _jsxFileName,
-						lineNumber: 57
-					}
-				}),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_react_select_plus___default.a, { name: "form-field-name", value: value, onChange: this.handleChange, options: options, __source: {
-						fileName: _jsxFileName,
-						lineNumber: 58
-					}
-				})
 			);
 		}
 	}]);
@@ -2886,7 +2911,7 @@ var App = function (_React$Component) {
 	return App;
 }(__WEBPACK_IMPORTED_MODULE_5_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (App);
+/* unused harmony default export */ var _unused_webpack_default_export = (App);
 
 /***/ }),
 
@@ -3097,6 +3122,27 @@ var ConnectedSelect = Object(__WEBPACK_IMPORTED_MODULE_9_react_redux__["connect"
 
 /***/ }),
 
+/***/ "./src/components/search/styled/DropdownLink.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DropdownLink; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__ = __webpack_require__("babel-runtime/helpers/taggedTemplateLiteral");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
+
+
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\tposition: relative;\n\ttext-align: center;\n\t.overlay {\n\t\tdisplay: none;\n\t\tposition: fixed;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t}\n\t&.active .overlay {\n\t\tdisplay: block;\n\t}\n\t.content {\n\t\tposition: relative;\n\t\tmin-height: 2rem;\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\t.button {\n\t\t\tmin-width: 2rem;\n\t\t\tspan {\n\t\t\t\tfont-size: 2.1rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t}\n\t\t.dropdown {\n\t\t\t.option {\n\t\t\t\theight: 1.5rem;\n\t\t\t\tline-height: 1.5rem;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tcolor: ", ";\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .content {\n\t\t.dropdown {\n\t\t\tborder: solid 1px ", ";\n\t\t\tposition: absolute;\n\t\t\tbackground: #fff;\n\t\t\tpadding: 0.5rem 1.6rem 0.5rem 1.5rem;\n\t\t\tmargin: -0.75rem -1.5rem -0.75rem -1rem;\n\t\t\tborder-radius: 1rem;\n\t\t\tbox-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n\t\t\t.option {\n\t\t\t\tpadding: 0.5rem;\n\t\t\t\tdisplay: block;\n\t\t\t\t&.selected {\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"], ["\n\tposition: relative;\n\ttext-align: center;\n\t.overlay {\n\t\tdisplay: none;\n\t\tposition: fixed;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t}\n\t&.active .overlay {\n\t\tdisplay: block;\n\t}\n\t.content {\n\t\tposition: relative;\n\t\tmin-height: 2rem;\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\t.button {\n\t\t\tmin-width: 2rem;\n\t\t\tspan {\n\t\t\t\tfont-size: 2.1rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t}\n\t\t.dropdown {\n\t\t\t.option {\n\t\t\t\theight: 1.5rem;\n\t\t\t\tline-height: 1.5rem;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tcolor: ", ";\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .content {\n\t\t.dropdown {\n\t\t\tborder: solid 1px ", ";\n\t\t\tposition: absolute;\n\t\t\tbackground: #fff;\n\t\t\tpadding: 0.5rem 1.6rem 0.5rem 1.5rem;\n\t\t\tmargin: -0.75rem -1.5rem -0.75rem -1rem;\n\t\t\tborder-radius: 1rem;\n\t\t\tbox-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n\t\t\t.option {\n\t\t\t\tpadding: 0.5rem;\n\t\t\t\tdisplay: block;\n\t\t\t\t&.selected {\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"]);
+
+
+
+
+var DropdownLink = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_title2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border2);
+
+/***/ }),
+
 /***/ "./src/components/search/styled/Filters.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3130,12 +3176,12 @@ var Filters = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_tem
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 52rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder: solid 0px rgb(188, 188, 188);\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.2rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tborder: solid 0px ", ";\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\tborder: solid 0px ", ";\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\t&.opened {\n\t\t\t\tz-index: 1000;\n\t\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\t\t/* margin: -2px; */\n\t\t\t\tborder: solid 0px ", ";\n\t\t\t}\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t&:not(.opened) {\n\t\t\t\t> * {\n\t\t\t\t}\n\t\t\t}\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&:not(.opened) {\n\t\t\t\t\t&.green {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t\t&.red {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&.opened {\n\t\t\t\tposition: absolute;\n\t\t\t\tbackground: white;\n\t\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t\t> * {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t/* &.selected_positive {\n\t\t// background: #9ad35b;\n\t\t// border-color: #9ad35b;\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t.dropdown {\n\t\t\t&:not(.opened) {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t} */\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"], ["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 52rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder: solid 0px rgb(188, 188, 188);\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.2rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tborder: solid 0px ", ";\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\tborder: solid 0px ", ";\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\t&.opened {\n\t\t\t\tz-index: 1000;\n\t\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\t\t/* margin: -2px; */\n\t\t\t\tborder: solid 0px ", ";\n\t\t\t}\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t&:not(.opened) {\n\t\t\t\t> * {\n\t\t\t\t}\n\t\t\t}\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&:not(.opened) {\n\t\t\t\t\t&.green {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t\t&.red {\n\t\t\t\t\t\tcolor: ", ";\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&.opened {\n\t\t\t\tposition: absolute;\n\t\t\t\tbackground: white;\n\t\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t\t> * {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t/* &.selected_positive {\n\t\t// background: #9ad35b;\n\t\t// border-color: #9ad35b;\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t.dropdown {\n\t\t\t&:not(.opened) {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t} */\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 52rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.5rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t\tborder: solid 1px ", ";\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\t/* border: solid 1px ", "; */\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.25rem 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.overlay {\n\t\t\tdisplay: none;\n\t\t\tposition: fixed;\n\t\t\ttop: 0;\n\t\t\tleft: 0;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\t/* background: rgba(0, 0, 0, 0.25); */\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder: solid 1px ", ";\n\t\t\tborder-left: none;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\tborder-bottom-left-radius: 0;\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&.green {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t\t&.red {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .query_input {\n\t\tborder-right:none;\n\t}\n\t&.active .query_select {\n\t\t.overlay {\n\t\t\tdisplay: block;\n\t\t}\n\t\t.dropdown {\n\t\t\tz-index: 1000;\n\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\tborder-bottom-left-radius: 1rem;\n\t\t\tposition: absolute;\n\t\t\tbackground: white;\n\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t> * {\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\tfont-weight: bold;\n\t\t\t\tpadding: 0.3rem;\n\t\t\t}\n\t\t}\n\t}\n\t&.selected_positive {\n\t\t/* background: #9ad35b;\n\t\tborder-color: #9ad35b; */\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t&:not(.active) {\n\t\t\t.dropdown {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t}\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"], ["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 52rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.5rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t\tborder: solid 1px ", ";\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\t/* border: solid 1px ", "; */\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.25rem 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.overlay {\n\t\t\tdisplay: none;\n\t\t\tposition: fixed;\n\t\t\ttop: 0;\n\t\t\tleft: 0;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\t/* background: rgba(0, 0, 0, 0.25); */\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder: solid 1px ", ";\n\t\t\tborder-left: none;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\tborder-bottom-left-radius: 0;\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&.green {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t\t&.red {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .query_input {\n\t\tborder-right:none;\n\t}\n\t&.active .query_select {\n\t\t.overlay {\n\t\t\tdisplay: block;\n\t\t}\n\t\t.dropdown {\n\t\t\tz-index: 1000;\n\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\tborder-bottom-left-radius: 1rem;\n\t\t\tposition: absolute;\n\t\t\tbackground: white;\n\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t> * {\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\tfont-weight: bold;\n\t\t\t\tpadding: 0.3rem;\n\t\t\t}\n\t\t}\n\t}\n\t&.selected_positive {\n\t\t/* background: #9ad35b;\n\t\tborder-color: #9ad35b; */\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t&:not(.active) {\n\t\t\t.dropdown {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t}\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"]);
 
 
 
 
-var Query = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border1, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border1, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border1, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textGreen1, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textRed1);
+var Query = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textGreen1, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textRed1);
 
 /***/ }),
 
@@ -3151,12 +3197,12 @@ var Query = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templ
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t.moreOptions {\n\t\tcolor:#666;\n\t\tmargin:0.125rem 0;\n\t\ttext-decoration:underline;\n\t}\n\t.results {\n\t\tmax-width: 53.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\tmargin:0.2rem 0 0 0;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t\t.pill {\n\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\tpadding: 0rem 0.5rem;\n\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t> * {\n\t\t\t\t\t\tvertical-align:baseline;\n\t\t\t\t\t}\n\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&:not(.first) {\n\t\t\t\t.pill {\n\t\t\t\t\t.icon-check,\n\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\tmargin:0 -0.2rem 0 0.2rem;\n\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t}\n\t\t\t\t\t.text {\n\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"], ["\n\t.moreOptions {\n\t\tcolor:#666;\n\t\tmargin:0.125rem 0;\n\t\ttext-decoration:underline;\n\t}\n\t.results {\n\t\tmax-width: 53.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\tmargin:0.2rem 0 0 0;\n\t\t\t\t> * {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t\t.pill {\n\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\tpadding: 0rem 0.5rem;\n\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t> * {\n\t\t\t\t\t\tvertical-align:baseline;\n\t\t\t\t\t}\n\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&:not(.first) {\n\t\t\t\t.pill {\n\t\t\t\t\t.icon-check,\n\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\tmargin:0 -0.2rem 0 0.2rem;\n\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t}\n\t\t\t\t\t.text {\n\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t.moreOptions {\n\t\tcolor:#666;\n\t\tmargin:0;\n\t\ttext-decoration:underline;\n\t}\n\t.results {\n\t\tmax-width: 53.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\t* {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t\t> * {\n\t\t\t\t\tmargin:0.2rem 0.2rem 0;\n\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t}\n\t\t\t\t.pills {\n\t\t\t\t\twhite-space:nowrap;\n\t\t\t\t\t.pill {\n\t\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\t\tmargin:0 0 0 0.4rem;\n\t\t\t\t\t\tpadding: 0rem 0.5rem 0.1rem;\n\t\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&.first {\n\t\t\t\t.meta {\n\t\t\t\t\t.pills {\n\t\t\t\t\t\tmargin-top:0.4rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&:not(.first) {\n\t\t\t\t.pill {\n\t\t\t\t\t.icon-check,\n\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\t/* margin:0 -0.2rem 0 0.2rem; */\n\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t}\n\t\t\t\t\t.text {\n\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\tborder-bottom: solid 1px ", ";\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"], ["\n\t.moreOptions {\n\t\tcolor:#666;\n\t\tmargin:0;\n\t\ttext-decoration:underline;\n\t}\n\t.results {\n\t\tmax-width: 53.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\tb {\n\t\t\t\tcolor: #666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\t* {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t\t> * {\n\t\t\t\t\tmargin:0.2rem 0.2rem 0;\n\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t}\n\t\t\t\t.pills {\n\t\t\t\t\twhite-space:nowrap;\n\t\t\t\t\t.pill {\n\t\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\t\tmargin:0 0 0 0.4rem;\n\t\t\t\t\t\tpadding: 0rem 0.5rem 0.1rem;\n\t\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&.first {\n\t\t\t\t.meta {\n\t\t\t\t\t.pills {\n\t\t\t\t\t\tmargin-top:0.4rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&:not(.first) {\n\t\t\t\t.pill {\n\t\t\t\t\t.icon-check,\n\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\t/* margin:0 -0.2rem 0 0.2rem; */\n\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t}\n\t\t\t\t\t.text {\n\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\tborder-bottom: solid 1px ", ";\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"]);
 
 
 
 
-var Results = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_mapsLink, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textGreen1, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textRed1);
+var Results = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_mapsLink, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textGreen1, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textRed1, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border2);
 
 /***/ }),
 

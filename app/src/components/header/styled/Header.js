@@ -24,10 +24,8 @@ export const Header = styled.div`
 			}
 		}
 		[class^="row_"] {
-			width: 25%;
 			font-size: 1.25rem;
 			color: white;
-			flex-grow: 1;
 			text-align: center;
 			/* vertical-align: bottom; */
 			/* * {
@@ -45,6 +43,7 @@ export const Header = styled.div`
 			}
 		}
 		.row_left {
+			flex-grow: 1;
 			text-align: left;
 			color: ${theme.color_text1};
 		}
@@ -55,6 +54,7 @@ export const Header = styled.div`
 			}
 		}
 		.row_right {
+			padding-left: 0.75rem;
 			text-align: right;
 			.icon-ui-thumbs-up {
 				font-size: 1.6rem;
