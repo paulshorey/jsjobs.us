@@ -36,11 +36,11 @@ class Query extends React.Component {
 		// set value:
 		this.setState({ qInput_multiplier: multiplier });
 		// on "closing", second click, submit value
-		if (this.refs.query_group.classList.contains("active") && this.refs.qInput.value) {
+		if (this.query_group.classList.contains("active") && this.refs.qInput.value) {
 			this.inputValueSubmit(multiplier); // pass multiplier, because setState is Async, and doesnt change fast enough
 		}
 		// on "opening", initial click, open the dropdown
-		this.refs.query_group.classList.toggle("active");
+		this.query_group.classList.toggle("active");
 	};
 	inputValueSubmit = multiplier => {
 		// change it in multiplierClick, then call this to finalize, or just call this on its own, to send current value
@@ -54,8 +54,8 @@ class Query extends React.Component {
 		return (
 			<Styled.Query
 				className={"query_group " + (this.state.qInput_value ? " hasValue " : "")}
-				innerRef={e => {
-					this.refs.query_group = e;
+				innerRef={el => {
+					this.query_group = el;
 				}}
 			>
 				<input
@@ -76,7 +76,7 @@ class Query extends React.Component {
 					<div
 						className="overlay"
 						onClick={() => {
-							this.refs.query_group.classList.remove("active");
+							this.query_group.classList.remove("active");
 						}}
 					/>
 					<div className="dropdown">

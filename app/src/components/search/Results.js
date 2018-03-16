@@ -6,7 +6,7 @@ import * as Styled from "./styled/Results.js";
 import { connect } from "react-redux";
 import * as actions from "data/actions";
 /* components */
-// import SearchQuery from "components/search/Query";
+import SearchQuery from "components/search/Query";
 import DropdownLink from "components/search/DropdownLink";
 import SearchFilters from "components/search/Filters";
 /* 
@@ -167,7 +167,7 @@ class Results extends Component {
 				<div className="queries">
 					<div className="queries_content">
 						<DropdownLink area={this.props.area} />
-						{/* <SearchQuery placeholder={"Search..."} /> */}
+						<SearchQuery placeholder={"Search..."} />
 						<p className="moreOptions">...</p>
 						<SearchFilters />
 					</div>
