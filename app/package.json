@@ -6,7 +6,6 @@
 		"start": "npm run dev",
 		"build": "razzle build",
 		"prepublish": "razzle build; node _cdn.js",
-		"publish": "razzle build; node _cdn.js; cd ..; ys 'publish'; yp;",
 		"dev": "razzle start",
 		"pro": "razzle build; node build/server.js",
 		"test": "razzle test --env=jsdom",

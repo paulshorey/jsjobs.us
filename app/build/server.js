@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.0aca233a.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.76f8ceb7.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
 
 /***/ }),
 
@@ -525,185 +525,6 @@ var Header = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_temp
 
 /***/ }),
 
-/***/ "./src/components/search/DropdownLink.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__("babel-runtime/helpers/extends");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__styled_DropdownLink_js__ = __webpack_require__("./src/components/search/styled/DropdownLink.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_router_dom__ = __webpack_require__("react-router-dom");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react_router_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__data_actions__ = __webpack_require__("./src/data/actions/index.js");
-
-
-
-
-
-
-/*jshint esversion: 6 */
-
-
-
-/* redux */
-
-
-/* custom */
-// import UIDropdownLink from "components/ui/DropdownLink";
-
-/* 
-	Component 
-*/
-
-var DropdownLink = function (_React$Component) {
-	__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default()(DropdownLink, _React$Component);
-
-	function DropdownLink() {
-		__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default()(this, DropdownLink);
-
-		var _this = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default()(this, (DropdownLink.__proto__ || __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default()(DropdownLink)).call(this));
-
-		_this.toggleOpen = function (multiplier) {
-			_this.refs.query_group.classList.toggle("opened");
-		};
-
-		_this.componentWillMount = function () {
-			_this.setState({ option_selected: _this.state.options[_this.props.option] });
-		};
-
-		_this.renderOptions = function () {
-			var Options = [];
-			for (var url in _this.state.options) {
-				var title = _this.state.options[url];
-				Options.push(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
-					{ className: "option", to: url, key: url },
-					title
-				));
-			}
-		};
-
-		_this.state = {
-			option_placeholder: "Select region...",
-			options: {
-				"/in/la": "in LA (Southern California)",
-				"/in/nyc": "in NYC (New York City)",
-				"/in/denver": "in NYC (Colorado)"
-			}
-		};
-		return _this;
-	}
-
-	__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default()(DropdownLink, [{
-		key: "render",
-		value: function render() {
-			var _this2 = this;
-
-			return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_7__styled_DropdownLink_js__["a" /* DropdownLink */],
-				__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, this.props, {
-					className: "DropdownLink",
-					innerRef: function innerRef(el) {
-						_this2.DropdownLink = el;
-					}
-				}),
-				__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("div", {
-					className: "overlay",
-					ref: "overlay",
-					onClick: function onClick(e) {
-						console.log("clicked Overlay", e.target);
-						_this2.DropdownLink.classList.toggle("active");
-					}
-				}),
-				__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-					"div",
-					{
-						className: "content",
-						ref: "content",
-						onClick: function onClick(e) {
-							console.log("clicked Overlay", e.target);
-							_this2.DropdownLink.classList.remove("active");
-						}
-					},
-					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-						"div",
-						{
-							className: "dropdown",
-							onClick: function onClick(e) {
-								e.stopPropagation();
-								_this2.DropdownLink.classList.toggle("active");
-							}
-						},
-						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
-							{ className: "option selected", to: "/in/la" },
-							"in LA (Southern California)"
-						),
-						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
-							{ className: "option", to: "/in/nyc" },
-							"in NYC (New York City)"
-						),
-						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
-							{ className: "option", to: "/in/denver" },
-							"in Denver (Colorado)"
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-						"span",
-						{
-							className: "button",
-							onClick: function onClick(e) {
-								e.stopPropagation();
-								_this2.DropdownLink.classList.toggle("active");
-							}
-						},
-						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("span", { className: "icon-top-select" })
-					)
-				)
-			);
-		}
-	}]);
-
-	return DropdownLink;
-}(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
-
-var mapStateToProps = function mapStateToProps(state, ownProps) {
-	return {
-		filters: state.filters.length ? state.filters : ownProps.filters
-	};
-};
-var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
-	return {
-		dispatch_filterAdd: function dispatch_filterAdd(filter) {
-			// dispatch(actions.filterAdd(filter));
-		}
-	};
-};
-var ConnectedDropdownLink = Object(__WEBPACK_IMPORTED_MODULE_9_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(DropdownLink);
-
-/*
-	Components
-*/
-/* harmony default export */ __webpack_exports__["a"] = (ConnectedDropdownLink);
-
-/***/ }),
-
 /***/ "./src/components/search/Filters.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -846,7 +667,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 	return {
 		dispatch_filterRemove: function dispatch_filterRemove(filter) {
-			dispatch(__WEBPACK_IMPORTED_MODULE_9__data_actions__["b" /* filterRemove */](filter));
+			dispatch(__WEBPACK_IMPORTED_MODULE_9__data_actions__["a" /* filterRemove */](filter));
 		}
 	};
 };
@@ -856,297 +677,6 @@ var ConnectedFilters = Object(__WEBPACK_IMPORTED_MODULE_8_react_redux__["connect
 	Components
 */
 /* harmony default export */ __webpack_exports__["a"] = (ConnectedFilters);
-
-/***/ }),
-
-/***/ "./src/components/search/Query.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__styled_Query_js__ = __webpack_require__("./src/components/search/styled/Query.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__data_actions__ = __webpack_require__("./src/data/actions/index.js");
-
-
-
-
-
-/*jshint esversion: 6 */
-
-
-/* redux */
-
-
-
-// this will be useful to "reset" the setState
-var constructInitialState = function constructInitialState() {
-	return {
-		qInput_value: "",
-		qInput_multiplier: 1
-	};
-};
-
-/* 
-	Component 
-*/
-
-var Query = function (_React$Component) {
-	__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(Query, _React$Component);
-
-	function Query(props) {
-		__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, Query);
-
-		var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Query.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(Query)).call(this, props));
-
-		_this.inputValueChange = function (e) {
-			var value = e.target.value;
-			// set value:
-			_this.setState({ qInput_value: value });
-		};
-
-		_this.multiplierClick = function (multiplier) {
-			// set value:
-			_this.setState({ qInput_multiplier: multiplier });
-			// on "closing", second click, submit value
-			if (_this.refs.query_group.classList.contains("active") && _this.refs.qInput.value) {
-				_this.inputValueSubmit(multiplier); // pass multiplier, because setState is Async, and doesnt change fast enough
-			}
-			// on "opening", initial click, open the dropdown
-			_this.refs.query_group.classList.toggle("active");
-		};
-
-		_this.inputValueSubmit = function (multiplier) {
-			// change it in multiplierClick, then call this to finalize, or just call this on its own, to send current value
-			_this.props.dispatch_filterAdd({ value: _this.refs.qInput.value, multiplier: multiplier || _this.state.qInput_multiplier, property: _this.props.queryProperty });
-			_this.setState(constructInitialState(_this.props));
-		};
-
-		_this.state = constructInitialState();
-		return _this;
-	}
-
-	__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(Query, [{
-		key: "componentDidMount",
-		value: function componentDidMount() {
-			var _this2 = this;
-
-			// slight UX addition:
-			setTimeout(function () {
-				_this2.refs.qInput.focus();
-			}, 300);
-		}
-	}, {
-		key: "render",
-		value: function render() {
-			var _this3 = this;
-
-			// value + multiplier
-			var multiplier = this.state.qInput_multiplier;
-			var placeholder = this.props.placeholder || "Search description...";
-			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_6__styled_Query_js__["a" /* Query */],
-				{
-					className: "query_group " + (this.state.qInput_value ? " hasValue " : ""),
-					innerRef: function innerRef(e) {
-						_this3.refs.query_group = e;
-					}
-				},
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", {
-					className: "query_input",
-					placeholder: placeholder,
-					ref: "qInput",
-					onChange: function onChange(e) {
-						_this3.inputValueChange(e);
-					},
-					value: this.state.qInput_value,
-					onKeyPress: function onKeyPress(e) {
-						if ((e.charCode || e.keyCode) === 13) {
-							_this3.inputValueSubmit();
-						}
-					}
-				}),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					"div",
-					{ className: "query_select selected_" + (multiplier > 0 ? "positive" : "negative") },
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("div", {
-						className: "overlay",
-						onClick: function onClick() {
-							_this3.refs.query_group.classList.remove("active");
-						}
-					}),
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-						"div",
-						{ className: "dropdown" },
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{
-								className: "green " + (multiplier === 10 ? "selected" : ""),
-								onClick: function onClick() {
-									_this3.multiplierClick(10);
-								}
-							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-up" }),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"10"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{
-								className: "green " + (multiplier === 3 ? "selected" : ""),
-								onClick: function onClick() {
-									_this3.multiplierClick(3);
-								}
-							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-up" }),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"3"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{
-								className: "green " + (multiplier === 2 ? "selected" : ""),
-								onClick: function onClick() {
-									_this3.multiplierClick(2);
-								}
-							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-up" }),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"2"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{
-								className: "green " + (multiplier === 1 ? "selected" : ""),
-								onClick: function onClick() {
-									_this3.multiplierClick(1);
-								}
-							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-up" }),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"1"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{
-								className: "red " + (multiplier === -1 ? "selected" : ""),
-								onClick: function onClick() {
-									_this3.multiplierClick(-1);
-								}
-							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-down" }),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"-1"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{
-								className: "red " + (multiplier === -2 ? "selected" : ""),
-								onClick: function onClick() {
-									_this3.multiplierClick(-2);
-								}
-							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-down" }),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"-2"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{
-								className: "red " + (multiplier === -3 ? "selected" : ""),
-								onClick: function onClick() {
-									_this3.multiplierClick(-3);
-								}
-							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-down" }),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"-3"
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-							"div",
-							{
-								className: "red " + (multiplier === -10 ? "selected" : ""),
-								onClick: function onClick() {
-									_this3.multiplierClick(-10);
-								}
-							},
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-ui-thumbs-down" }),
-							__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-								"span",
-								null,
-								"-10"
-							)
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-						"div",
-						{
-							className: "icon",
-							onClick: function onClick() {
-								_this3.inputValueSubmit();
-							}
-						},
-						__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("span", { className: "icon-top-add" })
-					)
-				)
-			);
-		}
-	}]);
-
-	return Query;
-}(__WEBPACK_IMPORTED_MODULE_5_react___default.a.Component);
-
-var mapStateToProps = function mapStateToProps(state, ownProps) {
-	return {
-		filters: state.filters.length ? state.filters : ownProps.filters
-	};
-};
-var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
-	return {
-		dispatch_filterAdd: function dispatch_filterAdd(filter) {
-			dispatch(__WEBPACK_IMPORTED_MODULE_8__data_actions__["a" /* filterAdd */](filter));
-		}
-	};
-};
-var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Query);
-
-/*
-	Components
-*/
-/* harmony default export */ __webpack_exports__["a"] = (ConnectedQuery);
 
 /***/ }),
 
@@ -1180,9 +710,7 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_redux__ = __webpack_require__("react-redux");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_react_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__data_actions__ = __webpack_require__("./src/data/actions/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Query__ = __webpack_require__("./src/components/search/Query.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__DropdownLink__ = __webpack_require__("./src/components/search/DropdownLink.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Filters__ = __webpack_require__("./src/components/search/Filters.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Filters__ = __webpack_require__("./src/components/search/Filters.js");
 
 
 
@@ -1200,8 +728,8 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"]
 
 
 /* components */
-
-
+// import SearchQuery from "components/search/Query";
+// import DropdownLink from "components/search/DropdownLink";
 
 /* 
 	Component 
@@ -1471,14 +999,12 @@ var Results = function (_Component) {
 					__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 						"div",
 						{ className: "queries_content" },
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__DropdownLink__["a" /* default */], { area: this.props.area }),
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Query__["a" /* default */], { placeholder: "Search..." }),
 						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 							"p",
 							{ className: "moreOptions" },
 							"..."
 						),
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__Filters__["a" /* default */], null)
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Filters__["a" /* default */], null)
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
@@ -1502,7 +1028,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 	return {
 		dispatch_jobsAdd: function dispatch_jobsAdd(jobs) {
-			dispatch(__WEBPACK_IMPORTED_MODULE_13__data_actions__["c" /* jobsAdd */](jobs));
+			dispatch(__WEBPACK_IMPORTED_MODULE_13__data_actions__["b" /* jobsAdd */](jobs));
 		}
 	};
 };
@@ -1512,27 +1038,6 @@ var ConnectedResults = Object(__WEBPACK_IMPORTED_MODULE_12_react_redux__["connec
 	Components
 */
 /* harmony default export */ __webpack_exports__["a"] = (ConnectedResults);
-
-/***/ }),
-
-/***/ "./src/components/search/styled/DropdownLink.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DropdownLink; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__ = __webpack_require__("babel-runtime/helpers/taggedTemplateLiteral");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
-
-
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\tposition: relative;\n\ttext-align: center;\n\t.overlay {\n\t\tdisplay: none;\n\t\tposition: fixed;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t}\n\t&.active .overlay {\n\t\tdisplay: block;\n\t}\n\t.content {\n\t\tposition: relative;\n\t\tmin-height: 2rem;\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\t.button {\n\t\t\tmin-width: 2rem;\n\t\t\tspan {\n\t\t\t\tfont-size: 2.1rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t}\n\t\t.dropdown {\n\t\t\t.option {\n\t\t\t\theight: 1.5rem;\n\t\t\t\tline-height: 1.5rem;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tcolor: ", ";\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .content {\n\t\t.dropdown {\n\t\t\tborder: solid 1px ", ";\n\t\t\tposition: absolute;\n\t\t\tbackground: #fff;\n\t\t\tpadding: 0.5rem 1.6rem 0.5rem 1.5rem;\n\t\t\tmargin: -0.75rem -1.5rem -0.75rem -1rem;\n\t\t\tborder-radius: 1rem;\n\t\t\tbox-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n\t\t\t.option {\n\t\t\t\tpadding: 0.5rem;\n\t\t\t\tdisplay: block;\n\t\t\t\t&.selected {\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"], ["\n\tposition: relative;\n\ttext-align: center;\n\t.overlay {\n\t\tdisplay: none;\n\t\tposition: fixed;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t}\n\t&.active .overlay {\n\t\tdisplay: block;\n\t}\n\t.content {\n\t\tposition: relative;\n\t\tmin-height: 2rem;\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\t.button {\n\t\t\tmin-width: 2rem;\n\t\t\tspan {\n\t\t\t\tfont-size: 2.1rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t}\n\t\t.dropdown {\n\t\t\t.option {\n\t\t\t\theight: 1.5rem;\n\t\t\t\tline-height: 1.5rem;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tcolor: ", ";\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .content {\n\t\t.dropdown {\n\t\t\tborder: solid 1px ", ";\n\t\t\tposition: absolute;\n\t\t\tbackground: #fff;\n\t\t\tpadding: 0.5rem 1.6rem 0.5rem 1.5rem;\n\t\t\tmargin: -0.75rem -1.5rem -0.75rem -1rem;\n\t\t\tborder-radius: 1rem;\n\t\t\tbox-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n\t\t\t.option {\n\t\t\t\tpadding: 0.5rem;\n\t\t\t\tdisplay: block;\n\t\t\t\t&.selected {\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"]);
-
-
-
-
-var DropdownLink = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_title2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border2);
 
 /***/ }),
 
@@ -1554,27 +1059,6 @@ var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTe
 
 
 var Filters = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textGreen2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textRed2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textGreen2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textRed2);
-
-/***/ }),
-
-/***/ "./src/components/search/styled/Query.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Query; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__ = __webpack_require__("babel-runtime/helpers/taggedTemplateLiteral");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
-
-
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 52rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.5rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t\tborder: solid 1px ", ";\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\t/* border: solid 1px ", "; */\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.25rem 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.overlay {\n\t\t\tdisplay: none;\n\t\t\tposition: fixed;\n\t\t\ttop: 0;\n\t\t\tleft: 0;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\t/* background: rgba(0, 0, 0, 0.25); */\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder: solid 1px ", ";\n\t\t\tborder-left: none;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\tborder-bottom-left-radius: 0;\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&.green {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t\t&.red {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .query_input {\n\t\tborder-right:none;\n\t}\n\t&.active .query_select {\n\t\t.overlay {\n\t\t\tdisplay: block;\n\t\t}\n\t\t.dropdown {\n\t\t\tz-index: 1000;\n\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\tborder-bottom-left-radius: 1rem;\n\t\t\tposition: absolute;\n\t\t\tbackground: white;\n\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t> * {\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\tfont-weight: bold;\n\t\t\t\tpadding: 0.3rem;\n\t\t\t}\n\t\t}\n\t}\n\t&.selected_positive {\n\t\t/* background: #9ad35b;\n\t\tborder-color: #9ad35b; */\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t&:not(.active) {\n\t\t\t.dropdown {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t}\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"], ["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 52rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.5rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t\tborder: solid 1px ", ";\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\t/* border: solid 1px ", "; */\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.25rem 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.overlay {\n\t\t\tdisplay: none;\n\t\t\tposition: fixed;\n\t\t\ttop: 0;\n\t\t\tleft: 0;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\t/* background: rgba(0, 0, 0, 0.25); */\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder: solid 1px ", ";\n\t\t\tborder-left: none;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\tborder-bottom-left-radius: 0;\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&.green {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t\t&.red {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .query_input {\n\t\tborder-right:none;\n\t}\n\t&.active .query_select {\n\t\t.overlay {\n\t\t\tdisplay: block;\n\t\t}\n\t\t.dropdown {\n\t\t\tz-index: 1000;\n\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\tborder-bottom-left-radius: 1rem;\n\t\t\tposition: absolute;\n\t\t\tbackground: white;\n\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t> * {\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\tfont-weight: bold;\n\t\t\t\tpadding: 0.3rem;\n\t\t\t}\n\t\t}\n\t}\n\t&.selected_positive {\n\t\t/* background: #9ad35b;\n\t\tborder-color: #9ad35b; */\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t&:not(.active) {\n\t\t\t.dropdown {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t}\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"]);
-
-
-
-
-var Query = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textGreen1, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_textRed1);
 
 /***/ }),
 
@@ -1603,10 +1087,10 @@ var Results = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_tem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return jobsAdd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return jobsAdd; });
 /* unused harmony export jobStatus */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return filterAdd; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return filterRemove; });
+/* unused harmony export filterAdd */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return filterRemove; });
 var jobsAdd = function jobsAdd(jobs) {
 	return {
 		type: "JOBS_ADD",
@@ -2283,13 +1767,6 @@ module.exports = require("babel-runtime/helpers/createClass");
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/defineProperty");
-
-/***/ }),
-
-/***/ "babel-runtime/helpers/extends":
-/***/ (function(module, exports) {
-
-module.exports = require("babel-runtime/helpers/extends");
 
 /***/ }),
 
