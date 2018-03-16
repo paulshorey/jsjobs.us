@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.07f066fb.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.09cf7c6a.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
 
 /***/ }),
 
@@ -600,6 +600,7 @@ var DropdownLink = function (_React$Component) {
 		_this.state = {
 			option_placeholder: "Select region...",
 			options: {
+				"/": "Select region...",
 				"/in/la": "in LA (Southern California)",
 				"/in/nyc": "in NYC (New York City)",
 				"/in/denver": "in NYC (Colorado)"
@@ -651,6 +652,11 @@ var DropdownLink = function (_React$Component) {
 						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
 							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
 							{ className: "option selected", to: "/in/la" },
+							"Select region..."
+						),
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
+							{ className: "option", to: "/in/la" },
 							"in LA (Southern California)"
 						),
 						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(

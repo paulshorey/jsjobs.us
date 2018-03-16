@@ -17,6 +17,7 @@ class DropdownLink extends React.Component {
 		this.state = {
 			option_placeholder: "Select region...",
 			options: {
+				"/": "Select region...",
 				"/in/la": "in LA (Southern California)",
 				"/in/nyc": "in NYC (New York City)",
 				"/in/denver": "in NYC (Colorado)"
@@ -73,6 +74,9 @@ class DropdownLink extends React.Component {
 						}}
 					>
 						<Link className="option selected" to="/in/la">
+							Select region...
+						</Link>
+						<Link className="option" to="/in/la">
 							in LA (Southern California)
 						</Link>
 						<Link className="option" to="/in/nyc">
