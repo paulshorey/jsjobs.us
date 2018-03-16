@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.76f8ceb7.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.7c7f039b.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
 
 /***/ }),
 
@@ -525,6 +525,185 @@ var Header = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_temp
 
 /***/ }),
 
+/***/ "./src/components/search/DropdownLink.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__ = __webpack_require__("babel-runtime/helpers/extends");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of__ = __webpack_require__("babel-runtime/core-js/object/get-prototype-of");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__ = __webpack_require__("babel-runtime/helpers/classCallCheck");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__ = __webpack_require__("babel-runtime/helpers/createClass");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__("babel-runtime/helpers/possibleConstructorReturn");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__ = __webpack_require__("babel-runtime/helpers/inherits");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__styled_DropdownLink_js__ = __webpack_require__("./src/components/search/styled/DropdownLink.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_router_dom__ = __webpack_require__("react-router-dom");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react_router_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__data_actions__ = __webpack_require__("./src/data/actions/index.js");
+
+
+
+
+
+
+/*jshint esversion: 6 */
+
+
+
+/* redux */
+
+
+/* custom */
+// import UIDropdownLink from "components/ui/DropdownLink";
+
+/* 
+	Component 
+*/
+
+var DropdownLink = function (_React$Component) {
+	__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default()(DropdownLink, _React$Component);
+
+	function DropdownLink() {
+		__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default()(this, DropdownLink);
+
+		var _this = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default()(this, (DropdownLink.__proto__ || __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default()(DropdownLink)).call(this));
+
+		_this.toggleOpen = function (multiplier) {
+			_this.refs.query_group.classList.toggle("opened");
+		};
+
+		_this.componentWillMount = function () {
+			_this.setState({ option_selected: _this.state.options[_this.props.option] });
+		};
+
+		_this.renderOptions = function () {
+			var Options = [];
+			for (var url in _this.state.options) {
+				var title = _this.state.options[url];
+				Options.push(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+					__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
+					{ className: "option", to: url, key: url },
+					title
+				));
+			}
+		};
+
+		_this.state = {
+			option_placeholder: "Select region...",
+			options: {
+				"/in/la": "in LA (Southern California)",
+				"/in/nyc": "in NYC (New York City)",
+				"/in/denver": "in NYC (Colorado)"
+			}
+		};
+		return _this;
+	}
+
+	__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default()(DropdownLink, [{
+		key: "render",
+		value: function render() {
+			var _this2 = this;
+
+			return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_7__styled_DropdownLink_js__["a" /* DropdownLink */],
+				__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, this.props, {
+					className: "DropdownLink",
+					innerRef: function innerRef(el) {
+						_this2.DropdownLink = el;
+					}
+				}),
+				__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("div", {
+					className: "overlay",
+					ref: "overlay",
+					onClick: function onClick(e) {
+						console.log("clicked Overlay", e.target);
+						_this2.DropdownLink.classList.toggle("active");
+					}
+				}),
+				__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+					"div",
+					{
+						className: "content",
+						ref: "content",
+						onClick: function onClick(e) {
+							console.log("clicked Overlay", e.target);
+							_this2.DropdownLink.classList.remove("active");
+						}
+					},
+					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+						"div",
+						{
+							className: "dropdown",
+							onClick: function onClick(e) {
+								e.stopPropagation();
+								_this2.DropdownLink.classList.toggle("active");
+							}
+						},
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
+							{ className: "option selected", to: "/in/la" },
+							"in LA (Southern California)"
+						),
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
+							{ className: "option", to: "/in/nyc" },
+							"in NYC (New York City)"
+						),
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
+							{ className: "option", to: "/in/denver" },
+							"in Denver (Colorado)"
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+						"span",
+						{
+							className: "button",
+							onClick: function onClick(e) {
+								e.stopPropagation();
+								_this2.DropdownLink.classList.toggle("active");
+							}
+						},
+						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement("span", { className: "icon-top-select" })
+					)
+				)
+			);
+		}
+	}]);
+
+	return DropdownLink;
+}(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+	return {
+		filters: state.filters.length ? state.filters : ownProps.filters
+	};
+};
+var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
+	return {
+		dispatch_filterAdd: function dispatch_filterAdd(filter) {
+			// dispatch(actions.filterAdd(filter));
+		}
+	};
+};
+var ConnectedDropdownLink = Object(__WEBPACK_IMPORTED_MODULE_9_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(DropdownLink);
+
+/*
+	Components
+*/
+/* harmony default export */ __webpack_exports__["a"] = (ConnectedDropdownLink);
+
+/***/ }),
+
 /***/ "./src/components/search/Filters.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -710,7 +889,8 @@ var ConnectedFilters = Object(__WEBPACK_IMPORTED_MODULE_8_react_redux__["connect
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_redux__ = __webpack_require__("react-redux");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_react_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__data_actions__ = __webpack_require__("./src/data/actions/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Filters__ = __webpack_require__("./src/components/search/Filters.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__DropdownLink__ = __webpack_require__("./src/components/search/DropdownLink.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Filters__ = __webpack_require__("./src/components/search/Filters.js");
 
 
 
@@ -729,7 +909,7 @@ var ConnectedFilters = Object(__WEBPACK_IMPORTED_MODULE_8_react_redux__["connect
 
 /* components */
 // import SearchQuery from "components/search/Query";
-// import DropdownLink from "components/search/DropdownLink";
+
 
 /* 
 	Component 
@@ -999,12 +1179,13 @@ var Results = function (_Component) {
 					__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 						"div",
 						{ className: "queries_content" },
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__DropdownLink__["a" /* default */], { area: this.props.area }),
 						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 							"p",
 							{ className: "moreOptions" },
 							"..."
 						),
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Filters__["a" /* default */], null)
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Filters__["a" /* default */], null)
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
@@ -1038,6 +1219,27 @@ var ConnectedResults = Object(__WEBPACK_IMPORTED_MODULE_12_react_redux__["connec
 	Components
 */
 /* harmony default export */ __webpack_exports__["a"] = (ConnectedResults);
+
+/***/ }),
+
+/***/ "./src/components/search/styled/DropdownLink.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DropdownLink; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__ = __webpack_require__("babel-runtime/helpers/taggedTemplateLiteral");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
+
+
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\tposition: relative;\n\ttext-align: center;\n\t.overlay {\n\t\tdisplay: none;\n\t\tposition: fixed;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t}\n\t&.active .overlay {\n\t\tdisplay: block;\n\t}\n\t.content {\n\t\tposition: relative;\n\t\tmin-height: 2rem;\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\t.button {\n\t\t\tmin-width: 2rem;\n\t\t\tspan {\n\t\t\t\tfont-size: 2.1rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t}\n\t\t.dropdown {\n\t\t\t.option {\n\t\t\t\theight: 1.5rem;\n\t\t\t\tline-height: 1.5rem;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tcolor: ", ";\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .content {\n\t\t.dropdown {\n\t\t\tborder: solid 1px ", ";\n\t\t\tposition: absolute;\n\t\t\tbackground: #fff;\n\t\t\tpadding: 0.5rem 1.6rem 0.5rem 1.5rem;\n\t\t\tmargin: -0.75rem -1.5rem -0.75rem -1rem;\n\t\t\tborder-radius: 1rem;\n\t\t\tbox-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n\t\t\t.option {\n\t\t\t\tpadding: 0.5rem;\n\t\t\t\tdisplay: block;\n\t\t\t\t&.selected {\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"], ["\n\tposition: relative;\n\ttext-align: center;\n\t.overlay {\n\t\tdisplay: none;\n\t\tposition: fixed;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t}\n\t&.active .overlay {\n\t\tdisplay: block;\n\t}\n\t.content {\n\t\tposition: relative;\n\t\tmin-height: 2rem;\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\t.button {\n\t\t\tmin-width: 2rem;\n\t\t\tspan {\n\t\t\t\tfont-size: 2.1rem;\n\t\t\t\tline-height: 1.25rem;\n\t\t\t\tcolor: #111;\n\t\t\t}\n\t\t}\n\t\t.dropdown {\n\t\t\t.option {\n\t\t\t\theight: 1.5rem;\n\t\t\t\tline-height: 1.5rem;\n\t\t\t\tfont-size: 1.25rem;\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tcolor: ", ";\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .content {\n\t\t.dropdown {\n\t\t\tborder: solid 1px ", ";\n\t\t\tposition: absolute;\n\t\t\tbackground: #fff;\n\t\t\tpadding: 0.5rem 1.6rem 0.5rem 1.5rem;\n\t\t\tmargin: -0.75rem -1.5rem -0.75rem -1rem;\n\t\t\tborder-radius: 1rem;\n\t\t\tbox-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n\t\t\t.option {\n\t\t\t\tpadding: 0.5rem;\n\t\t\t\tdisplay: block;\n\t\t\t\t&.selected {\n\t\t\t\t\tfont-weight: bold;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"]);
+
+
+
+
+var DropdownLink = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templateObject, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_title2, __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__["a" /* default */].color_border2);
 
 /***/ }),
 
@@ -1767,6 +1969,13 @@ module.exports = require("babel-runtime/helpers/createClass");
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/defineProperty");
+
+/***/ }),
+
+/***/ "babel-runtime/helpers/extends":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/extends");
 
 /***/ }),
 
