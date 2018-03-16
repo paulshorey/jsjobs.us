@@ -9,7 +9,6 @@ import * as actions from "data/actions";
 import SearchQuery from "components/search/Query";
 import DropdownLink from "components/search/DropdownLink";
 import SearchFilters from "components/search/Filters";
-// import SearchPlus from "./SearchPlus";
 /* 
 	Component 
 */

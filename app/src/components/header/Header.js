@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SearchSelect from "components/search/SelectLink";
 import * as Styled from "./styled/Header.js";
 
 export default class Header extends React.Component {
