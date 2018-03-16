@@ -78,13 +78,13 @@ class Results extends Component {
 		jobs = jobs.slice(0, 100);
 		return jobs;
 	};
-	renderResultsCount = () => {
-		if (this.props.jobs.length !== 0 && this.props.jobs.length !== 50) {
-			return this.props.jobs.length;
-		} else {
-			return null;
-		}
-	};
+	// renderResultsCount = () => {
+	// 	if (this.props.jobs.length !== 0 && this.props.jobs.length !== 50) {
+	// 		return <span>{this.props.jobs.length}</span>;
+	// 	} else {
+	// 		return null;
+	// 	}
+	// };
 	render() {
 		var jobs = this.props.jobs;
 		if (jobs) {
@@ -168,7 +168,7 @@ class Results extends Component {
 				<div className="queries">
 					<div className="queries_content">
 						<DropdownLink area={this.props.area} />
-						<SearchQuery placeholder={"Search " + this.renderResultsCount() + " results..."} />
+						<SearchQuery placeholder={"Search..."} />
 						<p className="moreOptions">...</p>
 						<SearchFilters />
 					</div>

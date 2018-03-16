@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.e1dadde8.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.5e24b726.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
 
 /***/ }),
 
@@ -1262,12 +1262,6 @@ var Results = function (_Component) {
 			});
 			jobs = jobs.slice(0, 100);
 			return jobs;
-		}, _this.renderResultsCount = function () {
-			if (_this.props.jobs.length !== 0 && _this.props.jobs.length !== 50) {
-				return _this.props.jobs.length;
-			} else {
-				return null;
-			}
 		}, _temp), __WEBPACK_IMPORTED_MODULE_7_babel_runtime_helpers_possibleConstructorReturn___default()(_this, _ret);
 	}
 
@@ -1349,6 +1343,14 @@ var Results = function (_Component) {
 		}()
 	}, {
 		key: "render",
+
+		// renderResultsCount = () => {
+		// 	if (this.props.jobs.length !== 0 && this.props.jobs.length !== 50) {
+		// 		return <span>{this.props.jobs.length}</span>;
+		// 	} else {
+		// 		return null;
+		// 	}
+		// };
 		value: function render() {
 			var jobs = this.props.jobs;
 			if (jobs) {
@@ -1473,7 +1475,7 @@ var Results = function (_Component) {
 						"div",
 						{ className: "queries_content" },
 						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__DropdownLink__["a" /* default */], { area: this.props.area }),
-						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Query__["a" /* default */], { placeholder: "Search " + this.renderResultsCount() + " results..." }),
+						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Query__["a" /* default */], { placeholder: "Search..." }),
 						__WEBPACK_IMPORTED_MODULE_9_react___default.a.createElement(
 							"p",
 							{ className: "moreOptions" },
