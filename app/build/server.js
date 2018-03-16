@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.09cf7c6a.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.c632b499.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.890b65a9.css"}}
 
 /***/ }),
 
@@ -546,9 +546,11 @@ var Header = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_temp
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__styled_DropdownLink_js__ = __webpack_require__("./src/components/search/styled/DropdownLink.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_router_dom__ = __webpack_require__("react-router-dom");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_react_router_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__data_actions__ = __webpack_require__("./src/data/actions/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_router__ = __webpack_require__("react-router");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_react_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__data_actions__ = __webpack_require__("./src/data/actions/index.js");
 
 
 
@@ -556,6 +558,7 @@ var Header = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_temp
 
 
 /*jshint esversion: 6 */
+
 
 
 
@@ -581,24 +584,13 @@ var DropdownLink = function (_React$Component) {
 			_this.refs.query_group.classList.toggle("opened");
 		};
 
-		_this.componentWillMount = function () {
-			_this.setState({ option_selected: _this.state.options[_this.props.option] });
-		};
-
-		_this.renderOptions = function () {
-			var Options = [];
-			for (var url in _this.state.options) {
-				var title = _this.state.options[url];
-				Options.push(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
-					{ className: "option", to: url, key: url },
-					title
-				));
-			}
+		_this.updateLocation = function (location) {
+			console.log("updateLocation", location.pathname);
+			_this.setState({ option_selected: location.pathname });
 		};
 
 		_this.state = {
-			option_placeholder: "Select region...",
+			option_selected: "/",
 			options: {
 				"/": "Select region...",
 				"/in/la": "in LA (Southern California)",
@@ -609,11 +601,41 @@ var DropdownLink = function (_React$Component) {
 		return _this;
 	}
 
+	/*
+ 	to detect route change using react-router-dom
+ */
+
+
 	__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default()(DropdownLink, [{
+		key: "componentWillMount",
+		value: function componentWillMount() {
+			var history = this.props.history;
+			// this.unsubscribeFromHistory = history.listen(this.updateLocation);
+
+			this.updateLocation(history.location);
+			// option, form above
+			// this.setState({ option_selected: this.state.options[this.props.option] });
+		}
+	}, {
+		key: "componentWillUnmount",
+		value: function componentWillUnmount() {
+			if (this.unsubscribeFromHistory) this.unsubscribeFromHistory();
+		}
+	}, {
 		key: "render",
 		value: function render() {
 			var _this2 = this;
 
+			var Options = [];
+			for (var url in this.state.options) {
+				var title = this.state.options[url];
+				console.log("this.state.option_selected", this.state.option_selected);
+				Options.push(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+					__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
+					{ className: "option " + (this.state.option_selected === url ? " selected" : ""), to: url, key: url },
+					title
+				));
+			}
 			return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_7__styled_DropdownLink_js__["a" /* DropdownLink */],
 				__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, this.props, {
@@ -649,26 +671,7 @@ var DropdownLink = function (_React$Component) {
 								_this2.DropdownLink.classList.toggle("active");
 							}
 						},
-						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
-							{ className: "option selected", to: "/in/la" },
-							"Select region..."
-						),
-						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
-							{ className: "option", to: "/in/la" },
-							"in LA (Southern California)"
-						),
-						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
-							{ className: "option", to: "/in/nyc" },
-							"in NYC (New York City)"
-						),
-						__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
-							__WEBPACK_IMPORTED_MODULE_8_react_router_dom__["Link"],
-							{ className: "option", to: "/in/denver" },
-							"in Denver (Colorado)"
-						)
+						Options
 					),
 					__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
 						"span",
@@ -701,12 +704,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 		}
 	};
 };
-var ConnectedDropdownLink = Object(__WEBPACK_IMPORTED_MODULE_9_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(DropdownLink);
+var ConnectedDropdownLink = Object(__WEBPACK_IMPORTED_MODULE_10_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(DropdownLink);
 
 /*
 	Components
 */
-/* harmony default export */ __webpack_exports__["a"] = (ConnectedDropdownLink);
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_9_react_router__["withRouter"])(ConnectedDropdownLink));
 
 /***/ }),
 
@@ -2373,6 +2376,13 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-redux");
+
+/***/ }),
+
+/***/ "react-router":
+/***/ (function(module, exports) {
+
+module.exports = require("react-router");
 
 /***/ }),
 

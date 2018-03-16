@@ -2,6 +2,7 @@
 import React from "react";
 import * as Styled from "./styled/DropdownLink.js";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 /* redux */
 import { connect } from "react-redux";
 import * as actions from "data/actions";
@@ -15,7 +16,7 @@ class DropdownLink extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			option_placeholder: "Select region...",
+			option_selected: "/",
 			options: {
 				"/": "Select region...",
 				"/in/la": "in LA (Southern California)",
@@ -27,21 +28,36 @@ class DropdownLink extends React.Component {
 	toggleOpen = multiplier => {
 		this.refs.query_group.classList.toggle("opened");
 	};
-	componentWillMount = () => {
-		this.setState({ option_selected: this.state.options[this.props.option] });
+
+	/*
+		to detect route change using react-router-dom
+	*/
+	updateLocation = location => {
+		console.log("updateLocation", location.pathname);
+		this.setState({ option_selected: location.pathname });
 	};
-	renderOptions = () => {
+	componentWillMount() {
+		const { history } = this.props;
+		// this.unsubscribeFromHistory = history.listen(this.updateLocation);
+		this.updateLocation(history.location);
+		// option, form above
+		// this.setState({ option_selected: this.state.options[this.props.option] });
+	}
+	componentWillUnmount() {
+		if (this.unsubscribeFromHistory) this.unsubscribeFromHistory();
+	}
+
+	render() {
 		const Options = [];
 		for (let url in this.state.options) {
 			let title = this.state.options[url];
+			console.log("this.state.option_selected", this.state.option_selected);
 			Options.push(
-				<Link className="option" to={url} key={url}>
+				<Link className={"option " + (this.state.option_selected === url ? " selected" : "")} to={url} key={url}>
 					{title}
 				</Link>
 			);
 		}
-	};
-	render() {
 		return (
 			<Styled.DropdownLink
 				{...this.props}
@@ -73,18 +89,7 @@ class DropdownLink extends React.Component {
 							this.DropdownLink.classList.toggle("active");
 						}}
 					>
-						<Link className="option selected" to="/in/la">
-							Select region...
-						</Link>
-						<Link className="option" to="/in/la">
-							in LA (Southern California)
-						</Link>
-						<Link className="option" to="/in/nyc">
-							in NYC (New York City)
-						</Link>
-						<Link className="option" to="/in/denver">
-							in Denver (Colorado)
-						</Link>
+						{Options}
 					</div>
 					<span
 						className="button"
@@ -113,4 +118,4 @@ const ConnectedDropdownLink = connect(mapStateToProps, mapDispatchToProps)(Dropd
 /*
 	Components
 */
-export default ConnectedDropdownLink;
+export default withRouter(ConnectedDropdownLink);
