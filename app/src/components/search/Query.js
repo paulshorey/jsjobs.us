@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 import React from "react";
 import * as Styled from "./styled/Query.js";
 /* redux */
@@ -53,7 +52,7 @@ class Query extends React.Component {
 		let placeholder = this.props.placeholder || "Search description...";
 		return (
 			<Styled.Query
-				className={"query_group " + (this.state.qInput_value ? " hasValue " : "")}
+				className={"query_group " + (this.state.qInput_value || this.props.expanded ? " expanded " : "")}
 				innerRef={el => {
 					this.query_group = el;
 				}}

@@ -12,6 +12,7 @@ import SearchFilters from "components/search/Filters";
 	component 
 */
 class Results extends Component {
+	state = {};
 	rateJobs = jobs => {
 		/*
 			filter the filters (needs refactor?)
@@ -138,14 +139,27 @@ class Results extends Component {
 		}
 		return (
 			<Styled.Results className={"Results " + (this.props.className || "")}>
-				{/* <div className="title">
-					<span>{rated_jobs.length || ""} Results:</span>
-				</div> */}
 				<div className="queries">
 					<AreaLinks area_key={this.props.area_key} />
-					<SearchQuery placeholder={"Search..."} />
+					<SearchQuery expanded={this.state.searchQueryExpanded} placeholder={"Search " + rated_jobs.length + " results..."} />
 					<SearchFilters />
-					<p className="moreOptions">...</p>
+					<div className="moreOptions" ref="moreOptions">
+						<div className="moreOptions_content">
+							<p>
+								Tip: use RegEx in search term. For example: <br />"<b>[^a-zA-Z]+C[^a-zA-Z]+</b>" or "<b>java[^s]+ | JSP</b>"
+							</p>
+							<p>Then, choose a +/- thumbs up/down value, to weigh its importance.</p>
+						</div>
+						<p
+							className="moreOptions_link"
+							onClick={e => {
+								this.refs.moreOptions.classList.toggle("active");
+								this.setState({ searchQueryExpanded: !this.state.searchQueryExpanded });
+							}}
+						>
+							...
+						</p>
+					</div>
 				</div>
 				<div className="content">{Jobs}</div>
 			</Styled.Results>

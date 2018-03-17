@@ -118,12 +118,32 @@ export const Results = styled.div`
 			border-bottom: solid 1px ${theme.color_border2};
 			text-align: center;
 			overflow: visible;
+			color:#999;
 			.moreOptions {
-				color: #666;
-				margin: 0;
-				text-decoration: underline;
-				line-height: 0.5rem;
-				padding: 0 0 0.5rem;
+				p {
+					margin: 0.5rem 0 0.33rem;
+					line-height: 1rem;
+				}
+				b {
+					color:#666;
+					font-weight:normal;
+				}
+				.moreOptions_link {
+					color: #666;
+					margin: 0;
+					text-decoration: underline;
+					line-height: 0.5rem;
+					padding: 0 0 0.5rem;
+					cursor:pointer;
+				}
+				.moreOptions_content {
+					display:none;
+				}
+				&.active {
+					.moreOptions_content {
+						display:block;
+					}
+				}
 			}
 		}
 	}

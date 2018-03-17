@@ -142,7 +142,7 @@ export const Query = styled.div`
 			}
 		}
 	}
-	&.hasValue {
+	&.expanded {
 		display: flex;
 		.query_input {
 			border-top-right-radius: 0;
