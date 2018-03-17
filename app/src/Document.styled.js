@@ -50,16 +50,16 @@ injectGlobal`
 		margin: 0;
 	}
 	html {
-		font-size:20px;
+		font-size:14px;
 	}
 	@media (max-width:950px), (max-height:750px) {
 		html {
-			font-size:18px;
+			font-size:14px;
 		}
 	}
 	@media (max-width:750px), (max-height:650px) {
 		html {
-			font-size:16px;
+			font-size:14px;
 		}
 	}
 	@media (max-width:380px), (max-height:380px) {

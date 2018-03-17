@@ -4,8 +4,8 @@
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/gitlab
 cd /www/$(hostname)
-git add \.;
-git reset HEAD \-\-hard;
+git add .;
+git reset HEAD --hard;
 git pull;
 yarn install;
 

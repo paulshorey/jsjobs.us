@@ -13,7 +13,7 @@ const store = createStore(reducer, applyMiddleware(logger));
 export default class Layout extends React.Component {
 	render() {
 		return (
-			<Provider store={store} className="MyProvider">
+			<Provider store={store}>
 				<div className="Layout" style={Object.assign({ minHeight: "100vh" }, this.props.style || {})}>
 					<Header />
 					{this.props.children || null}

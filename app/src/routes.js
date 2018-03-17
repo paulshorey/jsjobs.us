@@ -12,18 +12,18 @@ export default [
 		})
 	},
 	{
-		path: "/about",
+		path: "/in/:area_key?",
 		exact: true,
 		component: asyncComponent({
-			loader: () => import("./routes/About"), // required
+			loader: () => import("./routes/In"), // required
 			Placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
 		})
 	},
 	{
-		path: "/in/:area?",
+		path: "/about",
 		exact: true,
 		component: asyncComponent({
-			loader: () => import("./routes/In"), // required
+			loader: () => import("./routes/About"), // required
 			Placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
 		})
 	},

@@ -13,8 +13,8 @@ export const Results = styled.div`
 		.result {
 			/* display: flex; */
 			margin: 1.5rem 1rem;
-			b {
-				color: #666;
+			a {
+				color:#666;
 			}
 			.meta {
 				display: block;
@@ -74,8 +74,13 @@ export const Results = styled.div`
 			}
 			.content {
 			}
-			.location {
+			.location,
+			.location a {
 				color: salmon; /*${theme.color_mapsLink};*/
+			}
+			.company,
+			.company a {
+				color: slategrey; /*${theme.color_mapsLink};*/
 			}
 			.rating {
 				font-size: 1rem;

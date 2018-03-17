@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import theme from "Document.theme.js";
 
-export const DropdownLink = styled.div`
+export const AreaLinks = styled.div`
 	position: relative;
 	text-align: center;
 	.overlay {

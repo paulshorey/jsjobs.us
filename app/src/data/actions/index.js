@@ -16,3 +16,13 @@ export const filterRemove = filter => ({
 	type: "FILTER_REMOVE",
 	filter
 });
+
+// export const areaSelect = area_route => ({
+// 	type: "AREA_SELECT",
+// 	area_route
+// });
+export const areaAddJobs = (jobs, area_key) => ({
+	type: "AREA_ADD_JOBS",
+	jobs,
+	area_key
+});

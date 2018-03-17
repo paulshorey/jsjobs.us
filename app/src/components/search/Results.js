@@ -1,45 +1,22 @@
-/*jshint esversion: 6 */
 import React, { Component } from "react";
 import "isomorphic-unfetch";
 import * as Styled from "./styled/Results.js";
+import { withRouter } from "react-router";
 /* redux */
 import { connect } from "react-redux";
 import * as actions from "data/actions";
 /* components */
-import SearchQuery from "components/search/Query";
-import DropdownLink from "components/search/DropdownLink";
+import AreaLinks from "components/search/AreaLinks";
 import SearchFilters from "components/search/Filters";
+import SearchQuery from "components/search/Query";
 /* 
 	Component 
 */
 class Results extends Component {
-	async componentDidMount() {
-		const in_area = this.props.area || "us";
-		// CDN => data
-		// API => json.data
-		const jobsUrl = `https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs/${in_area}.json`; // Cloudfront
-		const jobsUrl_local = `http://localhost:1080/api/v1/jobs/${in_area}.json`; // local API
-		try {
-			const res = await fetch(jobsUrl);
-			const data = await res.json();
-			// console.log("componentDidMount fetched " + data.length + " results from " + jobsUrl);
-			this.props.dispatch_jobsAdd(data || []);
-		} catch (e) {
-			// console.error("componentDidMount fetch failed: " + jobsUrl + "");
-			try {
-				const res = await fetch(jobsUrl_local);
-				const json = await res.json();
-				// console.log("componentDidMount fetched " + json.data.length + " results from " + jobsUrl_local);
-				this.props.dispatch_jobsAdd(json.data || []);
-			} catch (e) {
-				// console.error("componentDidMount fetch failed: " + jobsUrl_local + "");
-				this.props.dispatch_jobsAdd([]);
-			}
-		}
-	}
-
 	rateJobs = jobs => {
-		// filter the filters (needs refactor?)
+		/*
+			filter the filters (needs refactor?)
+		*/
 		const filters = Object.assign({}, this.props.filters);
 		for (let fil in filters) {
 			const filter = filters[fil];
@@ -52,8 +29,9 @@ class Results extends Component {
 			value = value.replace(/\$/g, "\\$");
 			filters[fil].value = value;
 		}
-		// iterate results
-		// jobs = jobs.slice(0, 8);
+		/*
+			iterate results
+		*/
 		jobs = jobs.map(job => {
 			job._status = job._status || "new";
 			job._rating = 1000;
@@ -62,7 +40,7 @@ class Results extends Component {
 				const filter = filters[fil];
 				if (filter.multiplier) {
 					var reg = RegExp("" + filter.value + "", "i");
-					var match = reg.test(" " + job.name + " " + job.text + " ");
+					var match = reg.test(" " + job.location + " " + job.company + " " + job.name + " " + job.text + " ");
 					if (match) {
 						job._rating += filter.multiplier;
 					}
@@ -74,29 +52,22 @@ class Results extends Component {
 		jobs.sort(function(a, b) {
 			return b._rating - a._rating;
 		});
-		jobs = jobs.slice(0, 100);
 		return jobs;
 	};
-	// renderResultsCount = () => {
-	// 	if (this.props.jobs.length !== 0 && this.props.jobs.length !== 50) {
-	// 		return <span>{this.props.jobs.length}</span>;
-	// 	} else {
-	// 		return null;
-	// 	}
-	// };
+	/*
+		view
+	*/
 	render() {
-		var jobs = this.props.jobs;
-		if (jobs) {
-			jobs = this.rateJobs(jobs);
-		}
+		var area_key = this.props.area_key;
+		var rated_jobs = this.rateJobs(this.props.jobs);
 		// make Array
 		var Jobs = [];
-		if (jobs) {
+		if (rated_jobs) {
 			var i = 0;
 			// limit results on page - soon add pagination or auto-loading on scroll
 			while (i < 100) {
 				// job = current item
-				var job = jobs[i];
+				var job = rated_jobs[i];
 				if (typeof job !== "object") {
 					break;
 				}
@@ -131,11 +102,23 @@ class Results extends Component {
 				// add to view
 				Jobs.push(
 					<div key={job._id + i} className={"result " + (i === 0 ? " first" : "")}>
-						<b>{job.name}</b> - {job.text} &nbsp;
+						<b>
+							<a href={job.link} target="_blank">
+								{job.name}
+							</a>
+						</b>{" "}
+						- {job.text} &nbsp;
 						<div className="meta">
 							<span className="rating">{Rating}</span>
 							<span className="location">
-								<span className="icon-navigation" /> {job.location}
+								<a href={"https://www.google.com/maps/place/" + job.location + ""} target="_blank">
+									<span className="icon-navigation" /> {job.location}
+								</a>
+							</span>
+							<span className="company">
+								<a href={"https://google.com/search?q=" + job.company + " company glassdoor"} target="_blank">
+									{job.company}
+								</a>
 							</span>
 							<span className="pills">
 								<span className="pill">
@@ -154,20 +137,12 @@ class Results extends Component {
 				i++;
 			}
 		}
-		console.log("new Results ", this.props.area);
 		return (
 			<Styled.Results>
-				{/* <div className="title">
-					<span className="">
-						<span>Filter </span> {this.renderResultsCount()} <span> Results:</span>
-						<span>New Search </span>
-						<span className="icon-top-select" />
-					</span>
-				</div> */}
 				<div className="queries">
 					<div className="queries_content">
-						<DropdownLink area={this.props.area} />
-						<SearchQuery placeholder={"Search..."} />
+						<AreaLinks area_key={area_key} />
+						<SearchQuery placeholder={"Search " + rated_jobs.length + " results..."} />
 						<p className="moreOptions">...</p>
 						<SearchFilters />
 					</div>
@@ -177,16 +152,18 @@ class Results extends Component {
 		);
 	}
 }
-const mapStateToProps = (state, ownProps) => ({
-	jobs: state.jobs.length ? state.jobs : ownProps.jobs,
-	filters: state.filters
-});
+const mapStateToProps = (state, ownProps) => {
+	return {
+		filters: state.filters,
+		areas: state.areas
+	};
+};
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	dispatch_jobsAdd: jobs => {
-		dispatch(actions.jobsAdd(jobs));
+	dispatch_areaAddJobs: (jobs, area_key) => {
+		dispatch(actions.areaAddJobs(jobs, area_key));
 	}
 });
-const ConnectedResults = connect(mapStateToProps, mapDispatchToProps)(Results);
+const ConnectedResults = connect(mapStateToProps, mapDispatchToProps)(withRouter(Results));
 
 /*
 	Components
