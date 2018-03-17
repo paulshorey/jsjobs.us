@@ -2,9 +2,11 @@ import styled from "styled-components";
 import theme from "Document.theme.js";
 
 export const Page = styled.div`
-	/* @media (max-width: 750px) {
-		margin: 1rem;
-	} */
+	&.isLoading {
+		.query_input {
+			background: #fff url("/assets/loading/3dots.gif") center no-repeat;
+		}
+	}
 	.bottom {
 		background: #111;
 		color: #fff;

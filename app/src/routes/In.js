@@ -1,10 +1,11 @@
-/*jshint esversion: 6 */
 import React, { Component } from "react";
 import "isomorphic-unfetch";
 import * as Styled from "./styled/Page.js";
 import Layout from "components/Layout.js";
 import SearchResults from "components/search/Results";
-
+/*
+    components
+*/
 class Search extends Component {
 	static async getInitialProps({ match }) {
 		/*
@@ -41,13 +42,15 @@ class Search extends Component {
 	constructor() {
 		super();
 		this.state = {
-			jobs: []
+			jobs: [],
+			isLoading: false
 		};
 	}
 	async updateContent(props = {}) {
 		if (!props.area_key) {
 			return;
 		}
+		this.setState({ isLoading: true });
 		/*
 			fetch content - all data
 		*/
@@ -55,13 +58,13 @@ class Search extends Component {
 			// fetch from CDN
 			const res = await fetch(`https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs/${props.area_key}.json`); // Cloudfront CDN => data
 			const data = await res.json();
-			this.setState({ jobs: data || [] });
+			this.setState({ jobs: data || [], isLoading: false });
 		} catch (e) {
 			try {
 				// fetch from API (failover)
 				const res = await fetch(`http://localhost:1080/api/v1/jobs/${props.area_key}.json`); // local API => json.data
 				const json = await res.json();
-				this.setState({ jobs: json.data || [] });
+				this.setState({ jobs: json.data || [], isLoading: false });
 			} catch (e) {}
 		}
 	}
@@ -96,8 +99,8 @@ class Search extends Component {
 		const jobs = this.state.jobs.length ? this.state.jobs : this.props.jobs;
 		return (
 			<Layout>
-				<Styled.Page>
-					<SearchResults area_key={this.props.area_key || "us"} jobs={jobs || []} />
+				<Styled.Page className={"Page " + (this.state.isLoading ? " isLoading" : "")}>
+					<SearchResults area_key={this.props.area_key || "us"} jobs={jobs || []} className={this.state.isLoading ? " isLoading" : ""} />
 				</Styled.Page>
 			</Layout>
 		);

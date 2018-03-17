@@ -39,6 +39,9 @@ export const Query = styled.div`
 		min-width: 21rem;
 		margin: 0 auto;
 		border: solid 1px ${theme.color_border2};
+		&.isLoading {
+			background:yellow;
+		}
 	}
 	.query_select {
 		display: none;

@@ -59,7 +59,7 @@ class Query extends React.Component {
 				}}
 			>
 				<input
-					className="query_input"
+					className={"query_input " + (this.props.isLoading ? " isLoading" : "")}
 					placeholder={placeholder}
 					ref="qInput"
 					onChange={e => {

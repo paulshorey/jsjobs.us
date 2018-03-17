@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"/static/js/bundle.c1509577.js","css":"/static/css/bundle.890b65a9.css"}}
+module.exports = {"client":{"js":"/static/js/bundle.3bed1c9a.js","css":"/static/css/bundle.12da91b8.css"}}
 
 /***/ }),
 
@@ -819,7 +819,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 	return {
 		dispatch_filterRemove: function dispatch_filterRemove(filter) {
-			dispatch(__WEBPACK_IMPORTED_MODULE_9__data_actions__["c" /* filterRemove */](filter));
+			dispatch(__WEBPACK_IMPORTED_MODULE_9__data_actions__["b" /* filterRemove */](filter));
 		}
 	};
 };
@@ -938,7 +938,7 @@ var Query = function (_React$Component) {
 					}
 				},
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", {
-					className: "query_input",
+					className: "query_input " + (this.props.isLoading ? " isLoading" : ""),
 					placeholder: placeholder,
 					ref: "qInput",
 					onChange: function onChange(e) {
@@ -1110,7 +1110,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 	return {
 		dispatch_filterAdd: function dispatch_filterAdd(filter) {
-			dispatch(__WEBPACK_IMPORTED_MODULE_8__data_actions__["b" /* filterAdd */](filter));
+			dispatch(__WEBPACK_IMPORTED_MODULE_8__data_actions__["a" /* filterAdd */](filter));
 		}
 	};
 };
@@ -1143,18 +1143,15 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_inherits__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__styled_Results_js__ = __webpack_require__("./src/components/search/styled/Results.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_router__ = __webpack_require__("react-router");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_react_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__data_actions__ = __webpack_require__("./src/data/actions/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__styled_Results_js__ = __webpack_require__("./src/components/search/styled/Results.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_router__ = __webpack_require__("react-router");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_react_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_react_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__data_actions__ = __webpack_require__("./src/data/actions/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Query__ = __webpack_require__("./src/components/search/Query.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__AreaLinks__ = __webpack_require__("./src/components/search/AreaLinks.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Filters__ = __webpack_require__("./src/components/search/Filters.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Query__ = __webpack_require__("./src/components/search/Query.js");
-
 
 
 
@@ -1173,7 +1170,7 @@ var ConnectedQuery = Object(__WEBPACK_IMPORTED_MODULE_7_react_redux__["connect"]
 
 
 /* 
-	Component 
+	component 
 */
 
 var Results = function (_Component) {
@@ -1369,27 +1366,23 @@ var Results = function (_Component) {
 				}
 			}
 			return __WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_9__styled_Results_js__["a" /* Results */],
-				null,
+				__WEBPACK_IMPORTED_MODULE_8__styled_Results_js__["a" /* Results */],
+				{ className: "Results " + (this.props.className || "") },
 				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 					"div",
 					{ className: "queries" },
+					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__AreaLinks__["a" /* default */], { area_key: this.props.area_key }),
+					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_12__Query__["a" /* default */], { placeholder: "Search..." }),
+					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Filters__["a" /* default */], null),
 					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
-						"div",
-						{ className: "queries_content" },
-						__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__AreaLinks__["a" /* default */], { area_key: area_key }),
-						__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_15__Query__["a" /* default */], { placeholder: "Search " + rated_jobs.length + " results..." }),
-						__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
-							"p",
-							{ className: "moreOptions" },
-							"..."
-						),
-						__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Filters__["a" /* default */], null)
+						"p",
+						{ className: "moreOptions" },
+						"..."
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 					"div",
-					{ className: "results" },
+					{ className: "content" },
 					Jobs
 				)
 			);
@@ -1401,18 +1394,17 @@ var Results = function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
 	return {
-		filters: state.filters,
-		areas: state.areas
+		filters: state.filters
 	};
 };
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 	return {
-		dispatch_areaAddJobs: function dispatch_areaAddJobs(jobs, area_key) {
-			dispatch(__WEBPACK_IMPORTED_MODULE_12__data_actions__["a" /* areaAddJobs */](jobs, area_key));
+		dispatch_filterAdd: function dispatch_filterAdd(filter) {
+			dispatch(__WEBPACK_IMPORTED_MODULE_11__data_actions__["a" /* filterAdd */](filter));
 		}
 	};
 };
-var ConnectedResults = Object(__WEBPACK_IMPORTED_MODULE_11_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Object(__WEBPACK_IMPORTED_MODULE_10_react_router__["withRouter"])(Results));
+var ConnectedResults = Object(__WEBPACK_IMPORTED_MODULE_10_react_redux__["connect"])(mapStateToProps, mapDispatchToProps)(Object(__WEBPACK_IMPORTED_MODULE_9_react_router__["withRouter"])(Results));
 
 /*
 	Components
@@ -1475,7 +1467,7 @@ var Filters = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_tem
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 52rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.5rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t\tborder: solid 1px ", ";\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\t/* border: solid 1px ", "; */\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.25rem 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.overlay {\n\t\t\tdisplay: none;\n\t\t\tposition: fixed;\n\t\t\ttop: 0;\n\t\t\tleft: 0;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\t/* background: rgba(0, 0, 0, 0.25); */\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder: solid 1px ", ";\n\t\t\tborder-left: none;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\tborder-bottom-left-radius: 0;\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&.green {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t\t&.red {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .query_input {\n\t\tborder-right:none;\n\t}\n\t&.active .query_select {\n\t\t.overlay {\n\t\t\tdisplay: block;\n\t\t}\n\t\t.dropdown {\n\t\t\tz-index: 1000;\n\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\tborder-bottom-left-radius: 1rem;\n\t\t\tposition: absolute;\n\t\t\tbackground: white;\n\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t> * {\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\tfont-weight: bold;\n\t\t\t\tpadding: 0.3rem;\n\t\t\t}\n\t\t}\n\t}\n\t&.selected_positive {\n\t\t/* background: #9ad35b;\n\t\tborder-color: #9ad35b; */\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t&:not(.active) {\n\t\t\t.dropdown {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t}\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"], ["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 52rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.5rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t\tborder: solid 1px ", ";\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\t/* border: solid 1px ", "; */\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.25rem 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.overlay {\n\t\t\tdisplay: none;\n\t\t\tposition: fixed;\n\t\t\ttop: 0;\n\t\t\tleft: 0;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\t/* background: rgba(0, 0, 0, 0.25); */\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder: solid 1px ", ";\n\t\t\tborder-left: none;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\tborder-bottom-left-radius: 0;\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&.green {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t\t&.red {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .query_input {\n\t\tborder-right:none;\n\t}\n\t&.active .query_select {\n\t\t.overlay {\n\t\t\tdisplay: block;\n\t\t}\n\t\t.dropdown {\n\t\t\tz-index: 1000;\n\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\tborder-bottom-left-radius: 1rem;\n\t\t\tposition: absolute;\n\t\t\tbackground: white;\n\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t> * {\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\tfont-weight: bold;\n\t\t\t\tpadding: 0.3rem;\n\t\t\t}\n\t\t}\n\t}\n\t&.selected_positive {\n\t\t/* background: #9ad35b;\n\t\tborder-color: #9ad35b; */\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t&:not(.active) {\n\t\t\t.dropdown {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t}\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 52rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.5rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t\tborder: solid 1px ", ";\n\t\t&.isLoading {\n\t\t\tbackground:yellow;\n\t\t}\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\t/* border: solid 1px ", "; */\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.25rem 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.overlay {\n\t\t\tdisplay: none;\n\t\t\tposition: fixed;\n\t\t\ttop: 0;\n\t\t\tleft: 0;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\t/* background: rgba(0, 0, 0, 0.25); */\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder: solid 1px ", ";\n\t\t\tborder-left: none;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\tborder-bottom-left-radius: 0;\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&.green {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t\t&.red {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .query_input {\n\t\tborder-right:none;\n\t}\n\t&.active .query_select {\n\t\t.overlay {\n\t\t\tdisplay: block;\n\t\t}\n\t\t.dropdown {\n\t\t\tz-index: 1000;\n\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\tborder-bottom-left-radius: 1rem;\n\t\t\tposition: absolute;\n\t\t\tbackground: white;\n\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t> * {\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\tfont-weight: bold;\n\t\t\t\tpadding: 0.3rem;\n\t\t\t}\n\t\t}\n\t}\n\t&.selected_positive {\n\t\t/* background: #9ad35b;\n\t\tborder-color: #9ad35b; */\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t&:not(.active) {\n\t\t\t.dropdown {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t}\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"], ["\n\ttext-align: center;\n\tdisplay: block;\n\tmargin: 0.33rem auto;\n\tmax-width: 52rem;\n\t> * {\n\t\tbackground: #fff;\n\t}\n\t.query_go {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\twidth: 1.8rem;\n\t\tborder-radius: 50%;\n\t\tmargin-left: 0.2rem;\n\t\t> * {\n\t\t\tdisplay: block;\n\t\t\twhite-space: nowrap;\n\t\t\tpadding: 0.4rem 0.33rem;\n\t\t\ttext-align: center;\n\t\t\tfont-size: 1.2rem;\n\t\t\tline-height: 1.2rem;\n\t\t\tcolor: #333;\n\t\t\tfont-weight: normal;\n\t\t}\n\t}\n\t.query_input,\n\t.query_select {\n\t\tline-height: 1.5rem;\n\t\tborder-radius: 1rem;\n\t}\n\t.query_input {\n\t\tfont-size: 1.2rem;\n\t\tpadding: 0.3rem 0.6rem 0.3rem 2rem;\n\t\tflex-grow: 1;\n\t\tmin-width: 21rem;\n\t\tmargin: 0 auto;\n\t\tborder: solid 1px ", ";\n\t\t&.isLoading {\n\t\t\tbackground:yellow;\n\t\t}\n\t}\n\t.query_select {\n\t\tdisplay: none;\n\t\tcursor: pointer;\n\t\tposition: relative;\n\t\tborder-top-left-radius: 0;\n\t\tborder-bottom-left-radius: 0;\n\t\t/* border: solid 1px ", "; */\n\t\tborder-left: none;\n\t\twidth: 30%;\n\t\t.icon {\n\t\t\tposition: absolute;\n\t\t\tright: 0.175rem;\n\t\t\ttop: 0;\n\t\t\tpadding: 0.25rem 0.33rem;\n\t\t\tfont-size: 1.25rem;\n\t\t}\n\t\t.overlay {\n\t\t\tdisplay: none;\n\t\t\tposition: fixed;\n\t\t\ttop: 0;\n\t\t\tleft: 0;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\t/* background: rgba(0, 0, 0, 0.25); */\n\t\t}\n\t\t.dropdown {\n\t\t\tposition: relative;\n\t\t\tpadding: 0.15rem 0.3rem 0.2rem 0.3rem;\n\t\t\twidth: calc(100% + 4px);\n\t\t\tbox-sizing: border-box;\n\t\t\tborder: solid 1px ", ";\n\t\t\tborder-left: none;\n\t\t\tborder-radius: 1rem;\n\t\t\tborder-top-left-radius: 0;\n\t\t\tborder-bottom-left-radius: 0;\n\t\t\tposition: relative;\n\t\t\tdisplay: inline-block;\n\t\t\tvertical-align: top;\n\t\t\t> * {\n\t\t\t\tpadding: 0.25rem;\n\t\t\t\tdisplay: none;\n\t\t\t\tvertical-align: baseline;\n\t\t\t\tline-height: 1rem;\n\t\t\t\tspan {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\t&:first-child {\n\t\t\t\t\t\tfont-size: 1.1rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.selected {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t}\n\t\t\t\t&.green {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t\t&.red {\n\t\t\t\t\tcolor: ", ";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t&.active .query_input {\n\t\tborder-right:none;\n\t}\n\t&.active .query_select {\n\t\t.overlay {\n\t\t\tdisplay: block;\n\t\t}\n\t\t.dropdown {\n\t\t\tz-index: 1000;\n\t\t\tpadding: 0.4rem 0.2rem;\n\t\t\tborder-bottom-left-radius: 1rem;\n\t\t\tposition: absolute;\n\t\t\tbackground: white;\n\t\t\tbox-shadow: 3px 3px 10px;\n\t\t\t> * {\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 0.33rem;\n\t\t\t\tfont-weight: bold;\n\t\t\t\tpadding: 0.3rem;\n\t\t\t}\n\t\t}\n\t}\n\t&.selected_positive {\n\t\t/* background: #9ad35b;\n\t\tborder-color: #9ad35b; */\n\t\tbackground-image: linear-gradient(to bottom, #abde6f, #9ad35b, #64b40a);\n\t\tborder-top-color: #abde6f;\n\t\tborder-right-color: #9ad35b;\n\t\tborder-bottom-color: #64b40a;\n\t\t&:not(.active) {\n\t\t\t.dropdown {\n\t\t\t\tcolor: white;\n\t\t\t\tfont-weight: bold;\n\t\t\t\ttext-shadow: 0 0 2px #64b40a;\n\t\t\t}\n\t\t}\n\t}\n\t&.hasValue {\n\t\tdisplay: flex;\n\t\t.query_input {\n\t\t\tborder-top-right-radius: 0;\n\t\t\tborder-bottom-right-radius: 0;\n\t\t}\n\t\t.query_select {\n\t\t\tdisplay: flex;\n\t\t}\n\t\t.query_go {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n"]);
 
 
 
@@ -1496,7 +1488,7 @@ var Query = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_templ
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t.moreOptions {\n\t\tcolor:#666;\n\t\tmargin:0;\n\t\ttext-decoration:underline;\n\t}\n\t.results {\n\t\tmax-width: 53.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\ta {\n\t\t\t\tcolor:#666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\t* {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t\t> * {\n\t\t\t\t\tmargin:0.2rem 0.2rem 0;\n\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t}\n\t\t\t\t.pills {\n\t\t\t\t\twhite-space:nowrap;\n\t\t\t\t\t.pill {\n\t\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\t\tmargin:0 0 0 0.4rem;\n\t\t\t\t\t\tpadding: 0rem 0.5rem 0.1rem;\n\t\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&.first {\n\t\t\t\t.meta {\n\t\t\t\t\t.pills {\n\t\t\t\t\t\tmargin-top:0.4rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&:not(.first) {\n\t\t\t\t.pill {\n\t\t\t\t\t.icon-check,\n\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\t/* margin:0 -0.2rem 0 0.2rem; */\n\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t}\n\t\t\t\t\t.text {\n\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location,\n\t\t\t.location a {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.company,\n\t\t\t.company a {\n\t\t\t\tcolor: slategrey; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\tborder-bottom: solid 1px ", ";\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"], ["\n\t.moreOptions {\n\t\tcolor:#666;\n\t\tmargin:0;\n\t\ttext-decoration:underline;\n\t}\n\t.results {\n\t\tmax-width: 53.8rem;\n\t\tmargin: 0.5rem auto;\n\t\t.result {\n\t\t\t/* display: flex; */\n\t\t\tmargin: 1.5rem 1rem;\n\t\t\ta {\n\t\t\t\tcolor:#666;\n\t\t\t}\n\t\t\t.meta {\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align: right;\n\t\t\t\t* {\n\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t}\n\t\t\t\t> * {\n\t\t\t\t\tmargin:0.2rem 0.2rem 0;\n\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t}\n\t\t\t\t.pills {\n\t\t\t\t\twhite-space:nowrap;\n\t\t\t\t\t.pill {\n\t\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\t\tmargin:0 0 0 0.4rem;\n\t\t\t\t\t\tpadding: 0rem 0.5rem 0.1rem;\n\t\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&.first {\n\t\t\t\t.meta {\n\t\t\t\t\t.pills {\n\t\t\t\t\t\tmargin-top:0.4rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t&:not(.first) {\n\t\t\t\t.pill {\n\t\t\t\t\t.icon-check,\n\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\t/* margin:0 -0.2rem 0 0.2rem; */\n\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t}\n\t\t\t\t\t.text {\n\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.controls {\n\t\t\t\tmargin: 0.125rem;\n\t\t\t\tflex-direction: column;\n\t\t\t\tdiv {\n\t\t\t\t\tdisplay: flex;\n\t\t\t\t\tspan {\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t.content {\n\t\t\t}\n\t\t\t.location,\n\t\t\t.location a {\n\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t}\n\t\t\t.company,\n\t\t\t.company a {\n\t\t\t\tcolor: slategrey; /*", ";*/\n\t\t\t}\n\t\t\t.rating {\n\t\t\t\tfont-size: 1rem;\n\t\t\t\tcolor:#999;\n\t\t\t\t&.plus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t\t&.minus {\n\t\t\t\t\t/* color: ", "; */\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t[class^=\"icon-\"],\n\t\t[class*=\" icon-\"] {\n\t\t\tvertical-align: baseline;\n\t\t}\n\t}\n\t.title {\n\t\tbackground:#999;\n\t\ttext-align:center;\n\t\tcolor:#111;\n\t\tpadding:1rem;\n\t\tfont-size:1.25rem;\n\t\tfont-weight:bold;\n\t\t[class^=\"icon-\"] {\n\t\t\tfont-size:2rem;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 1rem;\n\t\tbackground: #cccccc;\n\t\tborder-bottom: solid 1px ", ";\n\t\t.page-title {\n\t\t\tmargin-top: 0.5rem;\n\t\t}\n\t\t.queries_content {\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t&.Results {\n\t\t&.isLoading {\n\t\t\t.title {\n\t\t\t\tbackground: url(\"/assets/loading/3dots.gif\") center -13px no-repeat;\n\t\t\t\tspan {\n\t\t\t\t\topacity:0;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t.title {\n\t\t\tfont-size:1.25rem;\n\t\t\tline-height: 1.25rem;\n\t\t\ttext-align:center;\n\t\t\tcolor:#111;\n\t\t\tspan {\n\t\t\t\ttransition: opacity 0.2s;\n\t\t\t}\n\t\t}\n\t\t.content {\n\t\t\tmax-width: 53.8rem;\n\t\t\tmargin: 0.5rem auto;\n\t\t\t.result {\n\t\t\t\t/* display: flex; */\n\t\t\t\tmargin: 1.5rem 1rem;\n\t\t\t\ta {\n\t\t\t\t\tcolor:#666;\n\t\t\t\t}\n\t\t\t\t.meta {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t\ttext-align: right;\n\t\t\t\t\t* {\n\t\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\t}\n\t\t\t\t\t> * {\n\t\t\t\t\t\tmargin:0.2rem 0.2rem 0;\n\t\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t\t}\n\t\t\t\t\t.pills {\n\t\t\t\t\t\twhite-space:nowrap;\n\t\t\t\t\t\t.pill {\n\t\t\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\t\t\tmargin:0 0 0 0.4rem;\n\t\t\t\t\t\t\tpadding: 0rem 0.5rem 0.1rem;\n\t\t\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.first {\n\t\t\t\t\t.meta {\n\t\t\t\t\t\t.pills {\n\t\t\t\t\t\t\tmargin-top:0.4rem;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&:not(.first) {\n\t\t\t\t\t.pill {\n\t\t\t\t\t\t.icon-check,\n\t\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\t\t/* margin:0 -0.2rem 0 0.2rem; */\n\t\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t.text {\n\t\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t.controls {\n\t\t\t\t\tmargin: 0.125rem;\n\t\t\t\t\tflex-direction: column;\n\t\t\t\t\tdiv {\n\t\t\t\t\t\tdisplay: flex;\n\t\t\t\t\t\tspan {\n\t\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t.content {\n\t\t\t\t}\n\t\t\t\t.location,\n\t\t\t\t.location a {\n\t\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t\t}\n\t\t\t\t.company,\n\t\t\t\t.company a {\n\t\t\t\t\tcolor: slategrey; /*", ";*/\n\t\t\t\t}\n\t\t\t\t.rating {\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\tcolor:#999;\n\t\t\t\t\t&.plus {\n\t\t\t\t\t\t/* color: ", "; */\n\t\t\t\t\t}\n\t\t\t\t\t&.minus {\n\t\t\t\t\t\t/* color: ", "; */\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t[class^=\"icon-\"],\n\t\t\t[class*=\" icon-\"] {\n\t\t\t\tvertical-align: baseline;\n\t\t\t}\n\t\t}\n\t\t.queries {\n\t\t\tmargin-bottom: 1rem;\n\t\t\tpadding: 0.5rem 1rem;\n\t\t\tbackground: #cccccc;\n\t\t\tborder-bottom: solid 1px ", ";\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t\t.moreOptions {\n\t\t\t\tcolor: #666;\n\t\t\t\tmargin: 0;\n\t\t\t\ttext-decoration: underline;\n\t\t\t\tline-height: 0.5rem;\n\t\t\t\tpadding: 0 0 0.5rem;\n\t\t\t}\n\t\t}\n\t}\n"], ["\n\t&.Results {\n\t\t&.isLoading {\n\t\t\t.title {\n\t\t\t\tbackground: url(\"/assets/loading/3dots.gif\") center -13px no-repeat;\n\t\t\t\tspan {\n\t\t\t\t\topacity:0;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t.title {\n\t\t\tfont-size:1.25rem;\n\t\t\tline-height: 1.25rem;\n\t\t\ttext-align:center;\n\t\t\tcolor:#111;\n\t\t\tspan {\n\t\t\t\ttransition: opacity 0.2s;\n\t\t\t}\n\t\t}\n\t\t.content {\n\t\t\tmax-width: 53.8rem;\n\t\t\tmargin: 0.5rem auto;\n\t\t\t.result {\n\t\t\t\t/* display: flex; */\n\t\t\t\tmargin: 1.5rem 1rem;\n\t\t\t\ta {\n\t\t\t\t\tcolor:#666;\n\t\t\t\t}\n\t\t\t\t.meta {\n\t\t\t\t\tdisplay: block;\n\t\t\t\t\ttext-align: right;\n\t\t\t\t\t* {\n\t\t\t\t\t\tvertical-align: baseline;\n\t\t\t\t\t}\n\t\t\t\t\t> * {\n\t\t\t\t\t\tmargin:0.2rem 0.2rem 0;\n\t\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t\t}\n\t\t\t\t\t.pills {\n\t\t\t\t\t\twhite-space:nowrap;\n\t\t\t\t\t\t.pill {\n\t\t\t\t\t\t\tborder: solid 1px #999;\n\t\t\t\t\t\t\tmargin:0 0 0 0.4rem;\n\t\t\t\t\t\t\tpadding: 0rem 0.5rem 0.1rem;\n\t\t\t\t\t\t\tborder-radius: 1rem;\n\t\t\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t\t\t\t[class^=\"icon-\"] {\n\t\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\t\ttop:0.1rem;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&.first {\n\t\t\t\t\t.meta {\n\t\t\t\t\t\t.pills {\n\t\t\t\t\t\t\tmargin-top:0.4rem;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t&:not(.first) {\n\t\t\t\t\t.pill {\n\t\t\t\t\t\t.icon-check,\n\t\t\t\t\t\t.icon-ui-thumbs-up {\n\t\t\t\t\t\t\t/* margin:0 -0.2rem 0 0.2rem; */\n\t\t\t\t\t\t\ttop:0.05rem;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t.text {\n\t\t\t\t\t\t\tdisplay:none;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t.controls {\n\t\t\t\t\tmargin: 0.125rem;\n\t\t\t\t\tflex-direction: column;\n\t\t\t\t\tdiv {\n\t\t\t\t\t\tdisplay: flex;\n\t\t\t\t\t\tspan {\n\t\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\t\tmargin: 0.125rem 0.125rem 0.25rem 0.125rem;\n\t\t\t\t\t\t\tfont-size: 1.25rem;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t.content {\n\t\t\t\t}\n\t\t\t\t.location,\n\t\t\t\t.location a {\n\t\t\t\t\tcolor: salmon; /*", ";*/\n\t\t\t\t}\n\t\t\t\t.company,\n\t\t\t\t.company a {\n\t\t\t\t\tcolor: slategrey; /*", ";*/\n\t\t\t\t}\n\t\t\t\t.rating {\n\t\t\t\t\tfont-size: 1rem;\n\t\t\t\t\tcolor:#999;\n\t\t\t\t\t&.plus {\n\t\t\t\t\t\t/* color: ", "; */\n\t\t\t\t\t}\n\t\t\t\t\t&.minus {\n\t\t\t\t\t\t/* color: ", "; */\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\t[class^=\"icon-\"],\n\t\t\t[class*=\" icon-\"] {\n\t\t\t\tvertical-align: baseline;\n\t\t\t}\n\t\t}\n\t\t.queries {\n\t\t\tmargin-bottom: 1rem;\n\t\t\tpadding: 0.5rem 1rem;\n\t\t\tbackground: #cccccc;\n\t\t\tborder-bottom: solid 1px ", ";\n\t\t\ttext-align: center;\n\t\t\toverflow: visible;\n\t\t\t.moreOptions {\n\t\t\t\tcolor: #666;\n\t\t\t\tmargin: 0;\n\t\t\t\ttext-decoration: underline;\n\t\t\t\tline-height: 0.5rem;\n\t\t\t\tpadding: 0 0 0.5rem;\n\t\t\t}\n\t\t}\n\t}\n"]);
 
 
 
@@ -1511,9 +1503,9 @@ var Results = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div(_tem
 "use strict";
 /* unused harmony export jobsAdd */
 /* unused harmony export jobStatus */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return filterAdd; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return filterRemove; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return areaAddJobs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return filterAdd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return filterRemove; });
+/* unused harmony export areaAddJobs */
 var jobsAdd = function jobsAdd(jobs) {
 	return {
 		type: "JOBS_ADD",
@@ -1978,12 +1970,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-/*jshint esversion: 6 */
 
 
 
 
 
+/*
+    components
+*/
 
 var Search = function (_Component) {
 	__WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_inherits___default()(Search, _Component);
@@ -2075,7 +2069,8 @@ var Search = function (_Component) {
 		var _this = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Search.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(Search)).call(this));
 
 		_this.state = {
-			jobs: []
+			jobs: [],
+			isLoading: false
 		};
 		return _this;
 	}
@@ -2100,51 +2095,55 @@ var Search = function (_Component) {
 								return _context2.abrupt("return");
 
 							case 2:
-								_context2.prev = 2;
-								_context2.next = 5;
+								this.setState({ isLoading: true });
+								/*
+        	fetch content - all data
+        */
+								_context2.prev = 3;
+								_context2.next = 6;
 								return fetch("https://d3rinrx0dlc7zz.cloudfront.net/api/v1/jobs/" + props.area_key + ".json");
 
-							case 5:
+							case 6:
 								res = _context2.sent;
-								_context2.next = 8;
+								_context2.next = 9;
 								return res.json();
 
-							case 8:
+							case 9:
 								data = _context2.sent;
 
-								this.setState({ jobs: data || [] });
-								_context2.next = 26;
+								this.setState({ jobs: data || [], isLoading: false });
+								_context2.next = 27;
 								break;
 
-							case 12:
-								_context2.prev = 12;
-								_context2.t0 = _context2["catch"](2);
-								_context2.prev = 14;
-								_context2.next = 17;
+							case 13:
+								_context2.prev = 13;
+								_context2.t0 = _context2["catch"](3);
+								_context2.prev = 15;
+								_context2.next = 18;
 								return fetch("http://localhost:1080/api/v1/jobs/" + props.area_key + ".json");
 
-							case 17:
+							case 18:
 								_res2 = _context2.sent;
-								_context2.next = 20;
+								_context2.next = 21;
 								return _res2.json();
 
-							case 20:
+							case 21:
 								json = _context2.sent;
 
-								this.setState({ jobs: json.data || [] });
-								_context2.next = 26;
+								this.setState({ jobs: json.data || [], isLoading: false });
+								_context2.next = 27;
 								break;
 
-							case 24:
-								_context2.prev = 24;
-								_context2.t1 = _context2["catch"](14);
+							case 25:
+								_context2.prev = 25;
+								_context2.t1 = _context2["catch"](15);
 
-							case 26:
+							case 27:
 							case "end":
 								return _context2.stop();
 						}
 					}
-				}, _callee2, this, [[2, 12], [14, 24]]);
+				}, _callee2, this, [[3, 13], [15, 25]]);
 			}));
 
 			function updateContent() {
@@ -2194,8 +2193,8 @@ var Search = function (_Component) {
 				null,
 				__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(
 					__WEBPACK_IMPORTED_MODULE_9__styled_Page_js__["a" /* Page */],
-					null,
-					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11__components_search_Results__["a" /* default */], { area_key: this.props.area_key || "us", jobs: jobs || [] })
+					{ className: "Page " + (this.state.isLoading ? " isLoading" : "") },
+					__WEBPACK_IMPORTED_MODULE_7_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11__components_search_Results__["a" /* default */], { area_key: this.props.area_key || "us", jobs: jobs || [], className: this.state.isLoading ? " isLoading" : "" })
 				)
 			);
 		}
@@ -2220,7 +2219,7 @@ var Search = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Document_theme_js__ = __webpack_require__("./src/Document.theme.js");
 
 
-var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t/* @media (max-width: 750px) {\n\t\tmargin: 1rem;\n\t} */\n\t.bottom {\n\t\tbackground: #111;\n\t\tcolor: #fff;\n\t\tpadding: 1rem;\n\t\t* {\n\t\t\tcolor: #fff;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 0;\n\t\tbackground: #cccccc;\n\t}\n\t.page-title {\n\t\tmargin: 2rem auto 1rem;\n\t\ttext-align: center;\n\t\tcolor: ", ";\n\t\twhite-space: nowrap;\n\t\t> * {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n\t.home-map {\n\t\tmargin: 1.5rem 0 1.5rem 0;\n\t}\n\t.home-map-content {\n\t\tposition: relative;\n\t\twidth: 100%;\n\t\tpadding: 30% 0;\n\t\tbackground: url(/images/map-outline-us-states.png) no-repeat;\n\t\tbackground-size: contain;\n\t}\n\t.ui-hotspot.home-map-hotspot {\n\t\twidth: 2rem;\n\t\theight: 2rem;\n\t\t&:before {\n\t\t\tbackground: #ffd700;\n\t\t}\n\t\t&:after {\n\t\t\t/* background-image: radial-gradient(circle, #ffd700, #ffca00, #ffbe00, #ffb100, #ffa505); */\n\t\t\tbackground: #ffbe00;\n\t\t}\n\t}\n\t.ui-hotspot {\n\t\tcursor: pointer;\n\t\tposition: absolute;\n\t\tbox-shadow: 0 0 10px #ffffff;\n\t\t@keyframes pulse {\n\t\t\t0% {\n\t\t\t\ttransform: scale(1);\n\t\t\t\topacity: 0.5;\n\t\t\t}\n\t\t\t70%,\n\t\t\t100% {\n\t\t\t\ttransform: scale(2);\n\t\t\t\topacity: 0;\n\t\t\t}\n\t\t}\n\t\t&:before {\n\t\t\tcontent: \"\";\n\t\t\tdisplay: inline-block;\n\t\t\tborder-radius: 50%;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tposition: absolute;\n\t\t\ttop: 0%;\n\t\t\tleft: 0%;\n\t\t\tbackground: rgb(222, 222, 222);\n\t\t\topacity: 0.5;\n\t\t\tanimation: pulse 3s ease-in-out infinite;\n\t\t}\n\t\t&:after {\n\t\t\tcontent: \"\";\n\t\t\tdisplay: inline-block;\n\t\t\tborder-radius: 50%;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tposition: absolute;\n\t\t\ttop: 0%;\n\t\t\tleft: 0%;\n\t\t\tbackground: orange;\n\t\t\topacity: 1;\n\t\t}\n\t\twidth: 20px;\n\t\theight: 20px;\n\t\tlabel {\n\t\t\tcursor: pointer;\n\t\t\tposition: absolute;\n\t\t\ttop: -0.05rem;\n\t\t\tleft: 2.5rem;\n\t\t\tfont-weight: bold;\n\t\t\tfont-size: 1.25rem;\n\t\t\tcolor: #ffa505;\n\t\t\ttext-shadow: 0 0 10px #ffffff;\n\t\t}\n\t}\n"], ["\n\t/* @media (max-width: 750px) {\n\t\tmargin: 1rem;\n\t} */\n\t.bottom {\n\t\tbackground: #111;\n\t\tcolor: #fff;\n\t\tpadding: 1rem;\n\t\t* {\n\t\t\tcolor: #fff;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 0;\n\t\tbackground: #cccccc;\n\t}\n\t.page-title {\n\t\tmargin: 2rem auto 1rem;\n\t\ttext-align: center;\n\t\tcolor: ", ";\n\t\twhite-space: nowrap;\n\t\t> * {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n\t.home-map {\n\t\tmargin: 1.5rem 0 1.5rem 0;\n\t}\n\t.home-map-content {\n\t\tposition: relative;\n\t\twidth: 100%;\n\t\tpadding: 30% 0;\n\t\tbackground: url(/images/map-outline-us-states.png) no-repeat;\n\t\tbackground-size: contain;\n\t}\n\t.ui-hotspot.home-map-hotspot {\n\t\twidth: 2rem;\n\t\theight: 2rem;\n\t\t&:before {\n\t\t\tbackground: #ffd700;\n\t\t}\n\t\t&:after {\n\t\t\t/* background-image: radial-gradient(circle, #ffd700, #ffca00, #ffbe00, #ffb100, #ffa505); */\n\t\t\tbackground: #ffbe00;\n\t\t}\n\t}\n\t.ui-hotspot {\n\t\tcursor: pointer;\n\t\tposition: absolute;\n\t\tbox-shadow: 0 0 10px #ffffff;\n\t\t@keyframes pulse {\n\t\t\t0% {\n\t\t\t\ttransform: scale(1);\n\t\t\t\topacity: 0.5;\n\t\t\t}\n\t\t\t70%,\n\t\t\t100% {\n\t\t\t\ttransform: scale(2);\n\t\t\t\topacity: 0;\n\t\t\t}\n\t\t}\n\t\t&:before {\n\t\t\tcontent: \"\";\n\t\t\tdisplay: inline-block;\n\t\t\tborder-radius: 50%;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tposition: absolute;\n\t\t\ttop: 0%;\n\t\t\tleft: 0%;\n\t\t\tbackground: rgb(222, 222, 222);\n\t\t\topacity: 0.5;\n\t\t\tanimation: pulse 3s ease-in-out infinite;\n\t\t}\n\t\t&:after {\n\t\t\tcontent: \"\";\n\t\t\tdisplay: inline-block;\n\t\t\tborder-radius: 50%;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tposition: absolute;\n\t\t\ttop: 0%;\n\t\t\tleft: 0%;\n\t\t\tbackground: orange;\n\t\t\topacity: 1;\n\t\t}\n\t\twidth: 20px;\n\t\theight: 20px;\n\t\tlabel {\n\t\t\tcursor: pointer;\n\t\t\tposition: absolute;\n\t\t\ttop: -0.05rem;\n\t\t\tleft: 2.5rem;\n\t\t\tfont-weight: bold;\n\t\t\tfont-size: 1.25rem;\n\t\t\tcolor: #ffa505;\n\t\t\ttext-shadow: 0 0 10px #ffffff;\n\t\t}\n\t}\n"]);
+var _templateObject = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_taggedTemplateLiteral___default()(["\n\t&.isLoading {\n\t\t.query_input {\n\t\t\tbackground: #fff url(\"/assets/loading/3dots.gif\") center no-repeat;\n\t\t}\n\t}\n\t.bottom {\n\t\tbackground: #111;\n\t\tcolor: #fff;\n\t\tpadding: 1rem;\n\t\t* {\n\t\t\tcolor: #fff;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 0;\n\t\tbackground: #cccccc;\n\t}\n\t.page-title {\n\t\tmargin: 2rem auto 1rem;\n\t\ttext-align: center;\n\t\tcolor: ", ";\n\t\twhite-space: nowrap;\n\t\t> * {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n\t.home-map {\n\t\tmargin: 1.5rem 0 1.5rem 0;\n\t}\n\t.home-map-content {\n\t\tposition: relative;\n\t\twidth: 100%;\n\t\tpadding: 30% 0;\n\t\tbackground: url(/images/map-outline-us-states.png) no-repeat;\n\t\tbackground-size: contain;\n\t}\n\t.ui-hotspot.home-map-hotspot {\n\t\twidth: 2rem;\n\t\theight: 2rem;\n\t\t&:before {\n\t\t\tbackground: #ffd700;\n\t\t}\n\t\t&:after {\n\t\t\t/* background-image: radial-gradient(circle, #ffd700, #ffca00, #ffbe00, #ffb100, #ffa505); */\n\t\t\tbackground: #ffbe00;\n\t\t}\n\t}\n\t.ui-hotspot {\n\t\tcursor: pointer;\n\t\tposition: absolute;\n\t\tbox-shadow: 0 0 10px #ffffff;\n\t\t@keyframes pulse {\n\t\t\t0% {\n\t\t\t\ttransform: scale(1);\n\t\t\t\topacity: 0.5;\n\t\t\t}\n\t\t\t70%,\n\t\t\t100% {\n\t\t\t\ttransform: scale(2);\n\t\t\t\topacity: 0;\n\t\t\t}\n\t\t}\n\t\t&:before {\n\t\t\tcontent: \"\";\n\t\t\tdisplay: inline-block;\n\t\t\tborder-radius: 50%;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tposition: absolute;\n\t\t\ttop: 0%;\n\t\t\tleft: 0%;\n\t\t\tbackground: rgb(222, 222, 222);\n\t\t\topacity: 0.5;\n\t\t\tanimation: pulse 3s ease-in-out infinite;\n\t\t}\n\t\t&:after {\n\t\t\tcontent: \"\";\n\t\t\tdisplay: inline-block;\n\t\t\tborder-radius: 50%;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tposition: absolute;\n\t\t\ttop: 0%;\n\t\t\tleft: 0%;\n\t\t\tbackground: orange;\n\t\t\topacity: 1;\n\t\t}\n\t\twidth: 20px;\n\t\theight: 20px;\n\t\tlabel {\n\t\t\tcursor: pointer;\n\t\t\tposition: absolute;\n\t\t\ttop: -0.05rem;\n\t\t\tleft: 2.5rem;\n\t\t\tfont-weight: bold;\n\t\t\tfont-size: 1.25rem;\n\t\t\tcolor: #ffa505;\n\t\t\ttext-shadow: 0 0 10px #ffffff;\n\t\t}\n\t}\n"], ["\n\t&.isLoading {\n\t\t.query_input {\n\t\t\tbackground: #fff url(\"/assets/loading/3dots.gif\") center no-repeat;\n\t\t}\n\t}\n\t.bottom {\n\t\tbackground: #111;\n\t\tcolor: #fff;\n\t\tpadding: 1rem;\n\t\t* {\n\t\t\tcolor: #fff;\n\t\t}\n\t}\n\t.queries {\n\t\tpadding: 0.5rem 0;\n\t\tbackground: #cccccc;\n\t}\n\t.page-title {\n\t\tmargin: 2rem auto 1rem;\n\t\ttext-align: center;\n\t\tcolor: ", ";\n\t\twhite-space: nowrap;\n\t\t> * {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n\t.home-map {\n\t\tmargin: 1.5rem 0 1.5rem 0;\n\t}\n\t.home-map-content {\n\t\tposition: relative;\n\t\twidth: 100%;\n\t\tpadding: 30% 0;\n\t\tbackground: url(/images/map-outline-us-states.png) no-repeat;\n\t\tbackground-size: contain;\n\t}\n\t.ui-hotspot.home-map-hotspot {\n\t\twidth: 2rem;\n\t\theight: 2rem;\n\t\t&:before {\n\t\t\tbackground: #ffd700;\n\t\t}\n\t\t&:after {\n\t\t\t/* background-image: radial-gradient(circle, #ffd700, #ffca00, #ffbe00, #ffb100, #ffa505); */\n\t\t\tbackground: #ffbe00;\n\t\t}\n\t}\n\t.ui-hotspot {\n\t\tcursor: pointer;\n\t\tposition: absolute;\n\t\tbox-shadow: 0 0 10px #ffffff;\n\t\t@keyframes pulse {\n\t\t\t0% {\n\t\t\t\ttransform: scale(1);\n\t\t\t\topacity: 0.5;\n\t\t\t}\n\t\t\t70%,\n\t\t\t100% {\n\t\t\t\ttransform: scale(2);\n\t\t\t\topacity: 0;\n\t\t\t}\n\t\t}\n\t\t&:before {\n\t\t\tcontent: \"\";\n\t\t\tdisplay: inline-block;\n\t\t\tborder-radius: 50%;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tposition: absolute;\n\t\t\ttop: 0%;\n\t\t\tleft: 0%;\n\t\t\tbackground: rgb(222, 222, 222);\n\t\t\topacity: 0.5;\n\t\t\tanimation: pulse 3s ease-in-out infinite;\n\t\t}\n\t\t&:after {\n\t\t\tcontent: \"\";\n\t\t\tdisplay: inline-block;\n\t\t\tborder-radius: 50%;\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tposition: absolute;\n\t\t\ttop: 0%;\n\t\t\tleft: 0%;\n\t\t\tbackground: orange;\n\t\t\topacity: 1;\n\t\t}\n\t\twidth: 20px;\n\t\theight: 20px;\n\t\tlabel {\n\t\t\tcursor: pointer;\n\t\t\tposition: absolute;\n\t\t\ttop: -0.05rem;\n\t\t\tleft: 2.5rem;\n\t\t\tfont-weight: bold;\n\t\t\tfont-size: 1.25rem;\n\t\t\tcolor: #ffa505;\n\t\t\ttext-shadow: 0 0 10px #ffffff;\n\t\t}\n\t}\n"]);
 
 
 

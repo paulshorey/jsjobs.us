@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import "isomorphic-unfetch";
 import * as Styled from "./styled/Results.js";
 import { withRouter } from "react-router";
 /* redux */
 import { connect } from "react-redux";
 import * as actions from "data/actions";
 /* components */
+import SearchQuery from "components/search/Query";
 import AreaLinks from "components/search/AreaLinks";
 import SearchFilters from "components/search/Filters";
-import SearchQuery from "components/search/Query";
 /* 
-	Component 
+	component 
 */
 class Results extends Component {
 	rateJobs = jobs => {
@@ -138,29 +137,28 @@ class Results extends Component {
 			}
 		}
 		return (
-			<Styled.Results>
+			<Styled.Results className={"Results " + (this.props.className || "")}>
+				{/* <div className="title">
+					<span>{rated_jobs.length || ""} Results:</span>
+				</div> */}
 				<div className="queries">
-					<div className="queries_content">
-						<AreaLinks area_key={area_key} />
-						<SearchQuery placeholder={"Search " + rated_jobs.length + " results..."} />
-						<p className="moreOptions">...</p>
-						<SearchFilters />
-					</div>
+					<AreaLinks area_key={this.props.area_key} />
+					<SearchQuery placeholder={"Search..."} />
+					<SearchFilters />
+					<p className="moreOptions">...</p>
 				</div>
-				<div className="results">{Jobs}</div>
+				<div className="content">{Jobs}</div>
 			</Styled.Results>
 		);
 	}
 }
-const mapStateToProps = (state, ownProps) => {
-	return {
-		filters: state.filters,
-		areas: state.areas
-	};
-};
+
+const mapStateToProps = (state, ownProps) => ({
+	filters: state.filters
+});
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	dispatch_areaAddJobs: (jobs, area_key) => {
-		dispatch(actions.areaAddJobs(jobs, area_key));
+	dispatch_filterAdd: filter => {
+		dispatch(actions.filterAdd(filter));
 	}
 });
 const ConnectedResults = connect(mapStateToProps, mapDispatchToProps)(withRouter(Results));

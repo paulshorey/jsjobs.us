@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # git
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/gitlab
-cd /www/$(hostname)
-git add .;
-git reset HEAD --hard;
+eval "$(ssh-agent -s)";
+ssh-add ~/.ssh/gitlab;
+cd /www/$(hostname);
+eval "git add .";
+eval "git reset HEAD --hard";
 git pull;
 yarn install;
 
@@ -20,7 +20,7 @@ yarn install;
 pm2 restart server;
 
 # deploy
-cd /www/$(hostname)
+cd /www/$(hostname);
 pm2 restart _deploy;
 
 # upload to CDN
