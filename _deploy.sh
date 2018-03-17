@@ -16,7 +16,7 @@ pm2 restart www;
 
 # app
 cd /www/$(hostname)/app;
-yarn install;
+# yarn install; #do not install - only use built files from "git pull"
 pm2 restart server;
 
 # deploy
