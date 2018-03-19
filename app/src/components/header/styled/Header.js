@@ -40,7 +40,7 @@ export const Header = styled.div`
 				color: #fff;
 				font-size: 1.25rem;
 				line-height: 1.25rem;
-				padding: 0.66rem 0.33rem 0;
+				padding: 0.75rem 0.33rem 0;
 				display: inline-block;
 				.ext {
 					color: ${theme.color_jsYellow};
@@ -51,10 +51,6 @@ export const Header = styled.div`
 			flex-grow: 1;
 			text-align: left;
 			color: ${theme.color_text1};
-			position: relative;
-			.caption {
-				position: absolute;
-			}
 		}
 		.row_center {
 			flex-grow: 1;
