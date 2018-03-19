@@ -68,7 +68,7 @@
 /***/ "./build/assets.json":
 /***/ (function(module, exports) {
 
-module.exports = {"client":{"js":"/static/js/bundle.3fcc20cc.js","css":"/static/css/bundle.12da91b8.css"}}
+module.exports = {"client":{"js":"//d3lz21p2fiot8d.cloudfront.net/static/js/bundle.676ce763.js","css":"//d3lz21p2fiot8d.cloudfront.net/static/css/bundle.12da91b8.css"}}
 
 /***/ }),
 
