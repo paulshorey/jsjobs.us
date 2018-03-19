@@ -16,6 +16,11 @@ export const Header = styled.div`
 				display: none !important;
 			}
 		}
+		@media (max-width: 1080px) {
+			.only-fullsize {
+				display: none !important;
+			}
+		}
 		[class^="icon-"] {
 			font-size: 2.1rem;
 			line-height: 1.25rem;
@@ -48,12 +53,17 @@ export const Header = styled.div`
 			color: ${theme.color_text1};
 		}
 		.row_center {
+			flex-grow: 1;
 			white-space: nowrap;
+			.caption {
+				color: #666;
+			}
 			span.icon-select {
 				color: ${theme.color_jsYellow};
 			}
 		}
 		.row_right {
+			flex-grow: 1;
 			padding-left: 0.75rem;
 			text-align: right;
 			.icon-ui-thumbs-up {
