@@ -15,6 +15,9 @@ export default class Header extends React.Component {
 						</span>
 					</Link>
 				</div>
+				{/* <div className="row_center only-fullsize">
+					<span className="caption">if (relevant &amp;&amp; unique &amp;&amp; posted > (Date.now()-1000*60*60*60*24*14)) &#123;</span>
+				</div> */}
 				{/* <div className="row_center">
 					<Link to="/">
 						<span className="caption">Search</span>
