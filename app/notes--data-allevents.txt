@@ -1,0 +1,104 @@
+allevents -- data
+
+    https://whattodo.events
+    https://whattodo.events/film
+    https://whattodo.events/in/la
+    https://whattodo.events/film/in/la
+    https://whattodo.events/about
+    https://whattodo.events/contact
+    https://whattodo.events/asdf
+    
+    /
+    /in/:area?
+    /:category?/in/:area?
+    /about
+    /contact
+    /asdf
+
+    DB::EVERYWHERE // (collect by area or category?)
+    {
+        Collection::area [{
+            _id
+            _category
+            ...
+        }]
+        Collection::category [{
+            _id
+            _area
+            ...
+        }]
+        Collection::user [{
+            _id
+            _area
+            _category
+            ...
+        }]
+    }
+
+    DB::NYC
+    {
+        Collection::events [{
+            _id
+            _area: "NYC"
+            _category: $match.params._category
+            ...
+        }]
+        Collection::users [{
+            user_id: {
+                settings: {
+                    ...
+                }
+                results: [{
+                    _id
+                    _area
+                    _category
+                    ...
+                }]
+            }
+        }]
+    }
+
+    new {
+        route
+        routes {
+            default {
+                route
+                key
+                filters
+                results [{
+                    _id
+                    ...
+                }]
+            }
+            la {
+                ...
+            }
+            nyc {
+                ...
+            }
+        }
+    }
+
+    my {
+        user {
+            _id // to fetch database results from
+        }
+        route
+        routes {
+            default {
+                route
+                key
+                filters
+                results [{ // from database (local or server)
+                    _id
+                    ...
+                }]
+            }
+            la {
+                ...
+            }
+            nyc {
+                ...
+            }
+        }
+    }

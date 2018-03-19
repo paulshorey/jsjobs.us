@@ -45,7 +45,7 @@ class Filters extends Component {
 							<span
 								className="delete icon-delete"
 								onClick={() => {
-									this.props.dispatch_filterRemove(filter);
+									this.props.dispatch.area_filter_remove(filter, this.props.area_key);
 								}}
 							/>
 						</span>
@@ -69,15 +69,11 @@ class Filters extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
 	return {
-		filters: state.filters
+		items: [],
+		filters: []
 	};
 };
-const mapDispatchToProps = (dispatch, ownProps) => ({
-	dispatch_filterRemove: filter => {
-		dispatch(actions.filterRemove(filter));
-	}
-});
-const ConnectedFilters = connect(mapStateToProps, mapDispatchToProps)(Filters);
+const ConnectedFilters = connect(mapStateToProps)(Filters);
 
 /*
 	Components

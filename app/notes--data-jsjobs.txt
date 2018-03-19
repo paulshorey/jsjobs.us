@@ -1,0 +1,143 @@
+techresults -- data
+
+    https://techresults.us
+    https://techresults.us/javascript
+    https://techresults.us/in/la
+    https://techresults.us/javascript/in/la
+    https://techresults.us/about
+    https://techresults.us/contact
+    https://techresults.us/asdf
+
+    /
+    /in/:city?
+    /:category?/in/:city?
+    /about
+    /contact
+    /asdf
+
+    DB
+    DB::Collection[ results ]::Document({
+         _id
+        _area: $match.params._area
+        _category: "javascript"
+        _posted: (date of posting, else creation)
+        ...: (everything else, actual content)
+    })
+    DB::Collection[ users ]::Document({
+         _id
+        _username
+        _password_hash
+        _posted: (update whenever user authenitcates)
+        _JSON: (when user authenticates - allow access to stringified REDUX data - and merge it with "new" data on front end)
+        settings: JSON string
+        areas: JSON string
+    })
+
+    REDUX
+    {
+        app--data [{
+            
+            
+            new_settings: {
+                ...
+            }
+            
+            
+            new_results: {
+                us: {
+                    filtersRequired: [{
+                        value
+                        property
+                        multiplier
+                    }]
+                    filters: [{
+                        value
+                        property
+                        multiplier
+                    }]
+                    results:[{
+                        _id
+                        _area: $match.params._area
+                        _category: "javascript"
+                        ...
+                    }]
+                }
+                la: {
+                }
+            }
+
+
+        }]
+        user--data [{
+            user_id: {
+                
+                
+                my_settings: {
+                    ...
+                }
+                
+                my_results: {
+                    us: {
+                        filters: [{
+                            value
+                            property
+                            multiplier
+                        }]
+                        results: [{
+                            ...
+                            _status: ignored | applied | intrigued
+                            ...
+                        }]
+                    }
+                    la: {
+                    }
+                }
+                
+            }
+        }]
+    }
+
+    new {
+        route
+        routes {
+            default {
+                route
+                key
+                filters
+                results [{
+                    _id
+                    ...
+                }]
+            }
+            la {
+                ...
+            }
+            nyc {
+                ...
+            }
+        }
+    }
+
+    my {
+        user {
+            _id // to fetch database results from
+        }
+        route
+        routes {
+            default {
+                route
+                key
+                filters
+                results [{ // from database (local or server)
+                    _id
+                    ...
+                }]
+            }
+            la {
+                ...
+            }
+            nyc {
+                ...
+            }
+        }
+    }

@@ -1,12 +1,10 @@
 import { combineReducers } from "redux";
-import jobs from "./jobs";
-import filters from "./filters";
-import areas from "./areas";
+import my_areas from "./my_areas";
+import search_areas from "./search_areas";
 
 const data = combineReducers({
-	jobs,
-	filters,
-	areas
+	my_areas,
+	search_areas
 });
 
 export default data;

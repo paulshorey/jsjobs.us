@@ -24,7 +24,7 @@ global.S3 = require("aws-sdk/clients/s3");
 global.S3UploadToBucket = function(name, content) {
 	// bucket
 	var bucket = new global.S3({ apiVersion: "2006-03-01" });
-	var bucketParams = { Bucket: "jsjobsapi" };
+	var bucketParams = { Bucket: "jsresultsapi" };
 	// file
 	bucketParams.Body = content;
 	bucketParams.Key = name;
@@ -46,7 +46,7 @@ global.S3UploadToBucket = function(name, content) {
 */
 // configuration
 // const bucket = new global.S3({ apiVersion: "2006-03-01" });
-// const bucketName = "jsjobs";
+// const bucketName = "jsresults";
 // const uploadFolder = function uploadFolderRelative(uploadFolder = "./") {
 // 	console.log("uploading " + uploadFolder);
 // 	const config = {
@@ -96,7 +96,7 @@ global.S3UploadToBucket = function(name, content) {
     DO IT BETTER
 */
 const bucket = new global.S3({ apiVersion: "2006-03-01" });
-const bucketName = "jsjobs";
+const bucketName = "jsresults";
 function traverseDirectory(dirname, callback) {
 	var directory = [];
 	global.rqr.fs.readdir(dirname, function(err, list) {

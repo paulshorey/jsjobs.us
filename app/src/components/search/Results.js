@@ -6,14 +6,14 @@ import { connect } from "react-redux";
 import * as actions from "data/actions";
 /* components */
 import SearchQuery from "components/search/Query";
-import AreaLinks from "components/search/AreaLinks";
+import SearchLinks from "components/search/Links";
 import SearchFilters from "components/search/Filters";
 /* 
 	component 
 */
 class Results extends Component {
 	state = {};
-	rateJobs = jobs => {
+	rateItems = items => {
 		/*
 			filter the filters (needs refactor?)
 		*/
@@ -30,49 +30,49 @@ class Results extends Component {
 			filters[fil].value = value;
 		}
 		/*
-			iterate results
+			iterate items
 		*/
-		jobs = jobs.map(job => {
-			job._status = job._status || "new";
-			job._rating = 1000;
+		items = items.map(item => {
+			item._status = item._status || "new";
+			item._rating = 1000;
 			// use filters
 			for (let fil in filters) {
 				const filter = filters[fil];
 				if (filter.multiplier) {
 					var reg = RegExp("" + filter.value + "", "i");
-					var match = reg.test(" " + job.location + " " + job.company + " " + job.name + " " + job.text + " ");
+					var match = reg.test(" " + item.location + " " + item.company + " " + item.name + " " + item.text + " ");
 					if (match) {
-						job._rating += filter.multiplier;
+						item._rating += filter.multiplier;
 					}
 				}
 			}
 
-			return job;
+			return item;
 		});
-		jobs.sort(function(a, b) {
+		items.sort(function(a, b) {
 			return b._rating - a._rating;
 		});
-		return jobs;
+		return items;
 	};
 	/*
 		view
 	*/
 	render() {
 		var area_key = this.props.area_key;
-		var rated_jobs = this.rateJobs(this.props.jobs);
+		var rated_items = this.rateItems(this.props.items);
 		// make Array
-		var Jobs = [];
-		if (rated_jobs) {
+		var Items = [];
+		if (rated_items) {
 			var i = 0;
-			// limit results on page - soon add pagination or auto-loading on scroll
+			// limit items on page - soon add pagination or auto-loading on scroll
 			while (i < 100) {
-				// job = current item
-				var job = rated_jobs[i];
-				if (typeof job !== "object") {
+				// item = current item
+				var item = rated_items[i];
+				if (typeof item !== "object") {
 					break;
 				}
-				// job.rating
-				const rating = job._rating - 1000;
+				// item.rating
+				const rating = item._rating - 1000;
 				let Rating = null;
 				if (rating > 0) {
 					Rating = (
@@ -90,44 +90,53 @@ class Results extends Component {
 						</b>
 					);
 				}
-				// job.etc
-				// let locArr = job.location.split(",");
-				// job.location = locArr.reduce((a, b) => {
-				// 	if (a.trim().length > 4 && a.length > b.length && !/[0-9]+/.test(a)) {
-				// 		return a;
-				// 	} else {
-				// 		return b;
-				// 	}
-				// });
 				// add to view
-				Jobs.push(
-					<div key={job._id + i} className={"result " + (i === 0 ? " first" : "")}>
+				Items.push(
+					<div key={item._id + i} className={"item " + (i === 0 ? " first" : "")}>
 						<b>
-							<a href={job.link} target="_blank">
-								{job.name}
+							<a href={item.link} target="_blank">
+								{item.name}
 							</a>
 						</b>{" "}
-						- {job.text} &nbsp;
+						- {item.text} &nbsp;
 						<div className="meta">
 							<span className="rating">{Rating}</span>
 							<span className="location">
-								<a href={"https://www.google.com/maps/place/" + job.location + ""} target="_blank">
-									<span className="icon-navigation" /> {job.location}
+								<a href={"https://www.google.com/maps/place/" + item.location + ""} target="_blank">
+									<span className="icon-navigation" /> {item.location}
 								</a>
 							</span>
 							<span className="company">
-								<a href={"https://google.com/search?q=" + job.company + " company glassdoor"} target="_blank">
-									{job.company}
+								<a href={"https://google.com/search?q=" + item.company + " company glassdoor"} target="_blank">
+									{item.company}
 								</a>
 							</span>
 							<span className="pills">
-								<span className="pill">
+								<span
+									className="pill"
+									onClick={() => {
+										console.log("item", item);
+										const addItem = Object.assign(item, { status: "applied" });
+										console.log("addItem", addItem);
+										this.props.dispatch(actions.area_item_my(addItem, this.props.area_key));
+									}}
+								>
 									<span className="icon-check" /> <span className="text">applied</span>
 								</span>
-								<span className="pill">
+								<span
+									className="pill"
+									onClick={() => {
+										this.props.dispatch(actions.area_item_my(Object.assign(item, { status: "intrigued" }), this.props.area_key));
+									}}
+								>
 									<span className="icon-ui-thumbs-up" /> <span className="text">intrigued</span>
 								</span>
-								<span className="pill">
+								<span
+									className="pill"
+									onClick={() => {
+										this.props.dispatch(actions.area_item_my(Object.assign(item, { status: "ignored" }), this.props.area_key));
+									}}
+								>
 									<span className="icon-delete" /> <span className="text">ignored</span>
 								</span>
 							</span>
@@ -138,11 +147,11 @@ class Results extends Component {
 			}
 		}
 		return (
-			<Styled.Results className={"Results " + (this.props.className || "")}>
+			<Styled.Results className={"Items " + (this.props.className || "")}>
 				<div className="queries">
-					<AreaLinks area_key={this.props.area_key} />
-					<SearchQuery expanded={this.state.searchQueryExpanded} placeholder={"Search " + rated_jobs.length + " results..."} />
-					<SearchFilters />
+					<SearchLinks area_key={this.props.area_key} />
+					<SearchQuery area_key={this.props.area_key} expanded={this.state.searchQueryExpanded} placeholder={"Search " + rated_items.length + " items..."} />
+					<SearchFilters area_key={this.props.area_key} />
 					<div className="moreOptions" ref="moreOptions">
 						<div className="moreOptions_content">
 							<p>
@@ -161,21 +170,24 @@ class Results extends Component {
 						</p>
 					</div>
 				</div>
-				<div className="content">{Jobs}</div>
+				<div className="content">{Items}</div>
 			</Styled.Results>
 		);
 	}
 }
 
-const mapStateToProps = (state, ownProps) => ({
-	filters: state.filters
-});
-const mapDispatchToProps = (dispatch, ownProps) => ({
-	dispatch_filterAdd: filter => {
-		dispatch(actions.filterAdd(filter));
-	}
-});
-const ConnectedResults = connect(mapStateToProps, mapDispatchToProps)(withRouter(Results));
+const mapStateToProps = (data, ownProps) => {
+	const myItems = data.my_areas[ownProps.area_key].items.length ? data.my_areas[ownProps.area_key].items : [];
+	const myFilters = data.my_areas[ownProps.area_key].filters.length ? data.my_areas[ownProps.area_key].filters : [];
+	const whatFilters = data.search_areas[ownProps.area_key].filters.length ? data.search_areas[ownProps.area_key].filters : [];
+	// lets not send 1000s of initial results through Redux, but pass directly from fetch in page to props items={items}
+	// then whatever the user edits or clicks will be added to myItems
+	return {
+		items: ownProps.items,
+		filters: whatFilters
+	};
+};
+const ConnectedResults = connect(mapStateToProps)(withRouter(Results));
 
 /*
 	Components

@@ -7,7 +7,7 @@ export default [
 		path: "/",
 		exact: true,
 		component: asyncComponent({
-			loader: () => import("./routes/In"), // required
+			loader: () => import("./routes/Search"), // required
 			Placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
 		})
 	},
@@ -15,7 +15,15 @@ export default [
 		path: "/in/:area_key?",
 		exact: true,
 		component: asyncComponent({
-			loader: () => import("./routes/In"), // required
+			loader: () => import("./routes/Search"), // required
+			Placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
+		})
+	},
+	{
+		path: "/my/:item_status?",
+		exact: true,
+		component: asyncComponent({
+			loader: () => import("./routes/My"), // required
 			Placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
 		})
 	},
