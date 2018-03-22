@@ -26,8 +26,14 @@ export const Results = styled.div`
 			.item {
 				/* display: flex; */
 				margin: 1.5rem 1rem;
+				&.new.not_new {
+					display:none; /* because Javascript was being buggy! */
+				}
 				a {
 					color:#666;
+					&:hover {
+						text-decoration:underline;
+					}
 				}
 				.meta {
 					display: block;
@@ -42,6 +48,7 @@ export const Results = styled.div`
 					.pills {
 						white-space:nowrap;
 						.pill {
+							cursor:pointer;
 							border: solid 1px #999;
 							margin:0 0 0 0.4rem;
 							padding: 0rem 0.5rem 0.1rem;
@@ -51,8 +58,18 @@ export const Results = styled.div`
 								position: relative;
 								top:0.1rem;
 							}
+							&:hover {
+								background:#999;
+								color:#fff;
+							}
 						}
 					}
+				}
+				&.status--applied .pill.status--applied,
+				&.status--intrigued .pill.status--intrigued,
+				&.status--ignored .pill.status--ignored {
+					background:#999;
+					color:#fff;
 				}
 				&.first {
 					.meta {
@@ -119,6 +136,9 @@ export const Results = styled.div`
 			text-align: center;
 			overflow: visible;
 			color:#999;
+			a {
+				color:darkslateblue;
+			}
 			.moreOptions {
 				p {
 					margin: 0.5rem 0 0.33rem;
@@ -134,7 +154,10 @@ export const Results = styled.div`
 					text-decoration: underline;
 					line-height: 0.5rem;
 					padding: 0 0 0.5rem;
-					cursor:pointer;
+					span {
+						padding:0 2rem;
+						cursor:pointer;
+					}
 				}
 				.moreOptions_content {
 					display:none;

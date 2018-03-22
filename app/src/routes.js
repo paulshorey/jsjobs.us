@@ -20,7 +20,7 @@ export default [
 		})
 	},
 	{
-		path: "/my/:item_status?",
+		path: "/my/:thing?",
 		exact: true,
 		component: asyncComponent({
 			loader: () => import("./routes/My"), // required

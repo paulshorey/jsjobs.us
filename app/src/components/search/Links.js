@@ -11,17 +11,19 @@ import * as actions from "data/actions";
 */
 class AreaLinks extends React.Component {
 	render() {
-		const search_areas = this.props.search_areas; // from Redux connect
+		const areas = this.props.areas; // from Redux connect
 		const Links = [];
-		for (let key in search_areas) {
-			const area = search_areas[key];
+		for (let key in areas) {
+			const area = areas[key];
+			const area_key_arr = area.route.split("/");
+			const area_key = area_key_arr[area_key_arr.length - 1] || "";
 			Links.push(
 				<Link
-					className={"option " + (this.props.history.location.pathname === area.route ? " selected" : "")}
+					className={"option " + (this.props.area_key === area_key ? " selected" : "")}
 					to={area.route}
 					key={area.route}
 					onClick={e => {
-						if (area.route === this.props.history.location.pathname) {
+						if (area_key === this.props.area_key) {
 							e.preventDefault();
 						}
 					}}
@@ -67,7 +69,7 @@ class AreaLinks extends React.Component {
 							this.AreaLinks.classList.toggle("active");
 						}}
 					>
-						<span className="icon-top-select" />
+						<span className="icon-ui-select-thin" />
 					</span>
 				</div>
 			</Styled.AreaLinks>
@@ -75,11 +77,11 @@ class AreaLinks extends React.Component {
 	}
 }
 const mapStateToProps = (store, ownProps) => ({
-	search_areas: store.search_areas
+	areas: store.areas
 });
 const ConnectedAreaLinks = connect(mapStateToProps)(AreaLinks);
 
 /*
 	Components
 */
-export default withRouter(ConnectedAreaLinks);
+export default ConnectedAreaLinks;

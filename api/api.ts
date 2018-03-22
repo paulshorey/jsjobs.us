@@ -232,8 +232,8 @@ global.server.use(function(err, req, response, next) {
 */
 global.server.get("/api/v1/:coll/:_area?.json", async function(request, response) {
 	// undefined
-	if (!request.params._area || request.params._area === "undefined") {
-		request.params._area = "us";
+	if (!request.params._area) {
+		request.params._area = ""; // make sure it's a string, not undefined
 	}
 	// meta
 	const coll_area = request.params._area;
@@ -258,10 +258,7 @@ global.server.get("/api/v1/:coll/:_area?.json", async function(request, response
 	webhook from APIFY after a site crawl has completed
 */
 global.server.post("/api/v1/:collection/apify-webhook/:_area?", function(request, response) {
-	// undefined
-	if (!request.params._area || request.params._area === "undefined") {
-		request.params._area = "us";
-	}
+	// lets see what happens if _area is undefined, if it will use empty string, or the word "undefined"
 	// meta
 	const collection_area = request.params._area;
 	const collection = request.params.collection;

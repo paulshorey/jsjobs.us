@@ -43,7 +43,7 @@ class Query extends React.Component {
 	};
 	inputValueSubmit = multiplier => {
 		// change it in multiplierClick, then call this to finalize, or just call this on its own, to send current value
-		this.props.dispatch.area_filter_add({ value: this.refs.qInput.value, multiplier: multiplier || this.state.qInput_multiplier, property: this.props.queryProperty }, this.props.area_key);
+		this.props.dispatch(actions.my_filter_add({ value: this.refs.qInput.value, multiplier: multiplier || this.state.qInput_multiplier, property: this.props.queryProperty }, this.props.area_key));
 		this.setState(constructInitialState(this.props));
 	};
 	render() {
@@ -166,10 +166,7 @@ class Query extends React.Component {
 	}
 }
 const mapStateToProps = (state, ownProps) => {
-	return {
-		items: [],
-		filters: []
-	};
+	return {};
 };
 const ConnectedQuery = connect(mapStateToProps)(Query);
 

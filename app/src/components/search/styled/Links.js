@@ -21,6 +21,7 @@ export const AreaLinks = styled.div`
 		display: flex;
 		justify-content: center;
 		.button {
+			cursor: pointer;
 			min-width: 2rem;
 			span {
 				font-size: 2.1rem;

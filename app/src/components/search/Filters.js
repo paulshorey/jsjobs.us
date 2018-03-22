@@ -10,7 +10,7 @@ import * as actions from "data/actions";
 */
 class Filters extends Component {
 	render() {
-		var filters = this.props.filters;
+		var filters = this.props.area.filters;
 		// filter the filters
 		var Filters = [];
 		for (const fil in filters) {
@@ -45,7 +45,7 @@ class Filters extends Component {
 							<span
 								className="delete icon-delete"
 								onClick={() => {
-									this.props.dispatch.area_filter_remove(filter, this.props.area_key);
+									this.props.dispatch(actions.my_filter_remove(filter, this.props.area_key));
 								}}
 							/>
 						</span>
@@ -67,10 +67,12 @@ class Filters extends Component {
 		);
 	}
 }
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (data, ownProps) => {
+	const data_area = data.areas[ownProps.area_key];
 	return {
-		items: [],
-		filters: []
+		area: {
+			filters: data.my.filters.length ? data.my.filters : []
+		}
 	};
 };
 const ConnectedFilters = connect(mapStateToProps)(Filters);

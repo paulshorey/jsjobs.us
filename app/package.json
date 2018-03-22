@@ -13,7 +13,6 @@
 	},
 	"dependencies": {
 		"@jaredpalmer/after": "latest",
-		"@redux-offline/redux-offline": "^2.3.2",
 		"aws-sdk": "^2.205.0",
 		"express": "^4.16.2",
 		"isomorphic-unfetch": "^2.0.0",
@@ -27,6 +26,7 @@
 		"react-router-dom": "^4.2.2",
 		"redux": "^3.7.2",
 		"redux-logger": "^3.0.6",
+		"redux-persist": "^4.10.2",
 		"styled-components": "^3.1.6"
 	},
 	"devDependencies": {
